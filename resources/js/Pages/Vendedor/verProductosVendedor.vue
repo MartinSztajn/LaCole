@@ -1,26 +1,46 @@
 <template>
     <cliente-layout>
-        <ul class="nav nav-pills filtros" style="text-align: center; position: center">
-            <div class="dropdown" style="margin-right: 4%">
-                <button class="btn btn-secondary dropdown-toggle botonfiltros" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Categorias
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="dropdownMenuButton2">
-                    <li v-for="cat in categorias"><a class="dropdown-item" :href="'/verProductosCategoria/' + cat.nombre">{{cat.nombre}}</a></li>
-                </ul>
+        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
+            <div class="compu">
+                <div v-for="cat in categorias">
+                    <a v-if="cat.hijos == null"
+                       :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
+                        {{cat.nombre}}
+                    </a>
+                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{cat.nombre}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li v-for="hijo in cat.hijos">
+                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle botonfiltros" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                    Negocios
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li v-for="neg in negocios"><a class="dropdown-item" :href="'/verProductosNegocio/' + neg.id">{{neg.nombre}}</a></li>
-                </ul>
-            </div>
-        </ul>
+        </div>
 
-        <img src="/fotos/banner2.png" style="width: 100%">
-        <h1 style="font-size: 100px; text-align: center; position: center; margin-top: 2%"><b>{{nombre}}</b></h1>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
+                    <a :href="'https://' + fotosBanner[num].url" target="_blank">
+                        <img v-if="fotosBanner[num]" class="d-block w-100"  :src="'/fotos/' + fotosBanner[num].path" style="width: 100%" alt="First slide">
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" @click="moverIzq()" role="button" data-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                </svg>
+            </a>
+            <a class="carousel-control-next" @click="moverDer()" role="button" data-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                </svg>
+            </a>
+        </div>
+
+
+
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin: 3%; padding: 50px;">
             <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%; margin-top: -2%"><b>¡Mira los productos disponibles!</b></h1>
             <div class="card-deck" v-for="pro in productos">
@@ -68,7 +88,7 @@ import ClienteLayout from '@/Layouts/ClienteLayout.vue'
 
 export default {
     name: "verProductosNegocio",
-    props: ['productos','nombre','negocios','categorias'],
+    props: ['productos','categorias','fotosBanner'],
     components:{
         ClienteLayout
     },
@@ -76,14 +96,32 @@ export default {
     {
         return{
             hola:'',
+            num: 0,
         }
     },
     methods:
         {
+            moverIzq(){
+                if (this.num == 0){
+                    this.num = this.fotosBanner.length - 1;
+                }
+                else{
+                    this.num = this.num - 1;
+                }
+            },
+            moverDer(){
+                this.num =  (this.num+1) % this.fotosBanner.length;
+            },
             verProductoDetalle($nomCat, $nombre){
                 this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
             },
-        }
+        },
+    mounted() {
+
+        this.timer = setInterval(() => {
+            this.moverDer();
+        }, 5000);
+    },
 }
 </script>
 

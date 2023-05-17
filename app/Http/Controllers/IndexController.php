@@ -72,8 +72,8 @@ class IndexController extends Controller
         }
         if (Auth::user() != null && !Auth::user()->es_admin){
             $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
-            $categorias = Categorias::all()->where('padre_id', null);
 
+            $categorias = Categorias::all()->where('padre_id',null);
             foreach ($categorias as $cate) {
                 $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
                 if ($cateHijo != []) {
@@ -85,7 +85,30 @@ class IndexController extends Controller
                     $cate->path = $fotos[0]['path'];
                 }
             }
-            return Inertia::render('Negocio/verNegocioDueno', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+            $productos = Productos::select('productos.*')->where('user_id', Auth::user()->id)->where('estado', 1)->get();
+            foreach ($productos as $pro) {
+                $fechaDeLanzamiento = new Carbon($pro->fecha_fin);
+                $now = Carbon::now();
+
+                $difference = ($fechaDeLanzamiento->diff($now)->days < 1)
+                    ? 1
+                    : $fechaDeLanzamiento->diffInDays($now);
+
+                $pro->fechaLanzamiento = $difference;
+
+                $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+                if ($nomCat != []) {
+                    $pro->nomCat = $nomCat[0]['nombre'];
+                }
+                $fotos = Fotos_Producto::where('producto_id', $pro->id)->get()->toArray();
+                $pro->path = '';
+                if($fotos != []) {
+                    $pro->path = $fotos[0]['path'];
+                }
+            }
+            $categorias = Categorias::all();
+
+            return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
         }
 
         $productos = Productos::all()->where('estado', 1);
@@ -128,6 +151,7 @@ class IndexController extends Controller
                 $cate->hijos = 1;
             }
         }
+        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
         $categorias = Categorias::all()->where('padre_id',null);
         foreach ($categorias as $cate) {
@@ -155,7 +179,6 @@ class IndexController extends Controller
             $i++;
         }
 
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
         $admin = 0;
         if(Auth::check()){
@@ -165,15 +188,12 @@ class IndexController extends Controller
         return Inertia::render('Inicio/Index', ['productos' => $productos, 'categorias' => $categorias, 'novedades' => $novedades, 'ofertas' => $ofertas, 'fotosBanner' => $fotosBanner, 'admin' => $admin, 'cateTotales' => $cateTotales]);
     }
     public function verPagina(){
-        $productos = Productos::all()->where('estado', 1);
-        foreach ($productos as $pro) {
-            $now = Carbon::now();
-            $fechaDeLanzamiento = new Carbon($pro->created_at);
-            $difference = ($fechaDeLanzamiento->diff($now)->days < 3)
-                ? 1
-                : 0;
-            $pro->esNovedad = $difference;
+        $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
 
+        $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(4)->pluck('producto_id');
+        $ofertados = Productos::whereIn('id', $topProductIds)->get();
+
+        foreach ($novedades as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
 
@@ -191,24 +211,37 @@ class IndexController extends Controller
                 $pro->nomEstado = $nomEstado[0]['nombre'];
             }
         }
-        $cateTotales = Categorias::select('categorias.*')->where('padre_id', null)->get();
+        foreach ($ofertados as $pro) {
+            $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
+            $pro->cantOfertas = (count($ofertas));
+
+            $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+            if ($nomCat != []) {
+                $pro->nomCat = $nomCat[0]['nombre'];
+            }
+            $fotos = Fotos_Producto::where('producto_id', $pro->id)->get()->toArray();
+            $pro->path = '';
+            if ($fotos != []) {
+                $pro->path = $fotos[0]['path'];
+            }
+            $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
+            if ($nomEstado != []) {
+                $pro->nomEstado = $nomEstado[0]['nombre'];
+            }
+        }
+
+
+        $cateTotales = Categorias::select('categorias.*')->get();
         foreach ($cateTotales as $cate) {
             $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
             $cate->path = '';
-            $cate->hijos = 0;
             if ($fotos != []) {
                 $cate->path = $fotos[0]['path'];
             }
-            $catePrueba = Categorias::select('categorias.*')->where('padre_id', $cate->id)->get()->toArray();
-            if($catePrueba != []){
-                $cate->hijos = 1;
-            }
           }
-
-
         $categorias = Categorias::all()->where('padre_id',null);
-
         foreach ($categorias as $cate) {
+            $cate->zoomed = false;
             $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
             if ($cateHijo != []) {
                 $cate->hijos = $cateHijo;
@@ -220,28 +253,12 @@ class IndexController extends Controller
             }
         }
 
-        $nove = $productos->where('esNovedad', 1)->toArray();
-        $ofe = $productos->where('esOferta', 1)->toArray();
-        $novedades = []; $ofertas = []; $i = 0;
-        foreach ($nove as $nov){
-            $novedades[$i] = $nov;
-            $i++;
-        }
-        $i = 0;
-        foreach ($ofe as $of){
-            $ofertas[$i] = $of;
-            $i++;
-        }
 
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
-        $admin = 0;
-        if(Auth::check()){
-            $admin = Auth::user()->es_admin;
-        }
         $this->actualizarPrecios();
 
-        return Inertia::render('Inicio/Index', ['productos' => $productos, 'categorias' => $categorias, 'novedades' => $novedades, 'ofertas' => $ofertas, 'fotosBanner' => $fotosBanner, 'admin' => $admin, 'cateTotales' => $cateTotales,]);
+        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales]);
     }
 
 
@@ -264,7 +281,7 @@ class IndexController extends Controller
     }
 
     public function enviarMensajeConsulta(Request $request){
-        $destinatario = "admin@wop.com.ar";
+        $destinatario = "lacolemarket@gmail.com";
         $nombre = $request->nombre;
         $apellido = $request->apellido;
         $mensaje = $request->mensaje;

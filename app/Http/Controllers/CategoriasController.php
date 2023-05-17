@@ -88,13 +88,14 @@ class CategoriasController extends Controller
                     $nombre = $this->generateRandomString(10);
                     $myFileName = $nombre . '.' . $extension;
 
-                    Image::make($foto)->save(public_path('/fotos/' . $myFileName));
-
                     $fotoBanner = new Fotos_banner;
                     $fotoBanner->nombre = $request->nombre;
                     $fotoBanner->path = $myFileName;
                     $fotoBanner->url = $request->url;
                     $fotoBanner->save();
+
+                    Image::make($foto)->save(public_path('/fotos/' . $myFileName));
+
                 }
             }
             return back();

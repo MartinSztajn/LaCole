@@ -33,10 +33,8 @@ class VendedoresController extends Controller
     {
         $this->otroController = $otroController;
     }
-    public function verProductosVendedor($id){
-        $vendedor = User::find($id);
-
-        $productos = Productos::select('producto.*')->where('user_id', $id)->where('estado', 1)->get();
+    public function verProductosVendedor(){
+        $productos = Productos::select('productos.*')->where('user_id', Auth::user()->id)->where('estado', 1)->get();
         foreach ($productos as $pro) {
             $fechaDeLanzamiento = new Carbon($pro->fecha_fin);
             $now = Carbon::now();
@@ -66,7 +64,7 @@ class VendedoresController extends Controller
     public function verOfertas($id){
 
         $admin = Auth::user()->es_admin;
-        $producto = Productos::select('producto.*')->where('id', $id)->get()->toArray();
+        $producto = Productos::select('productos.*')->where('id', $id)->get()->toArray();
         $ofertas = Ofertas::select('ofertas.*')->where('producto_id', $id)->get();
         foreach ($ofertas as $ofe){
             $cli = Clientes::where('id', $ofe->cliente_id)->get()->toArray();
@@ -93,7 +91,7 @@ class VendedoresController extends Controller
 
             $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
-            return Inertia::render('Negocio/verOfertasDueno', ['producto' => $producto[0], 'ofertas' => $ofertas, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+            return Inertia::render('Vendedor/verOfertasDueno', ['producto' => $producto[0], 'ofertas' => $ofertas, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
 
         }
 

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('stock');
             $table->text('descripcion');
             $table->integer('estado_id');
+            $table->integer('estado')->default(0);
             $table->integer('cant_minimo')->default(0);
             $table->timestamps();
         });

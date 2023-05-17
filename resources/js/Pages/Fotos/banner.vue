@@ -94,9 +94,8 @@ export default {
             },
             guardarBanner()
             {
-                if(this.listo == 0 && this.form.nombre != '' && this.form.path != ''  && this.form.url != '' )
+                if(this.form.nombre != '' && this.form.path != ''  && this.form.url != '' )
                 {
-                    this.listo = 1;
                     this.$inertia.post('/guardarBanner', this.form);
                 }
             },

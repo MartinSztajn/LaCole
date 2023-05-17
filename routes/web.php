@@ -37,7 +37,7 @@ NEGOCIOS CONTROLLER
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/verNegocios', [\App\Http\Controllers\VendedoresController::class,'verNegocios']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verNegocioDueno', [\App\Http\Controllers\VendedoresController::class,'verNegocioDueno']);
-Route::get('/verProductosNegocio/{id}', [\App\Http\Controllers\VendedoresController::class,'verProductosNegocio']);
+Route::get('/verProductosVendedor', [\App\Http\Controllers\VendedoresController::class,'verProductosVendedor']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarNegocio', [\App\Http\Controllers\VendedoresController::class,'guardarNegocio']);
@@ -69,7 +69,6 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/borrarEstadoProducto/{id
 Route::middleware(['auth:sanctum', 'verified'])->get('/verPrecios', [\App\Http\Controllers\ProductosController::class,'verPrecios']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarPrecioProducto', [\App\Http\Controllers\ProductosController::class,'guardarPrecioProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/actualizarTodosPrecios/{cantidad}', [\App\Http\Controllers\ProductosController::class,'actualizarTodosPrecios']);
-
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarCategoria', [\App\Http\Controllers\ProductosController::class , 'editarCategoria']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarProvincia', [\App\Http\Controllers\ProductosController::class , 'editarProvincia']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarEstado', [\App\Http\Controllers\ProductosController::class , 'editarEstado']);
