@@ -131,7 +131,6 @@ class ProductosController extends Controller
                         $cate->path = $fotos[0]['path'];
                     }
                 }
-                $negocios = Negocio::all();
 
                 $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
@@ -146,7 +145,7 @@ class ProductosController extends Controller
                             $cate->path = $fotos[0]['path'];
                         }
 
-                        $produc = Productos::select('producto.*')->where('categoria_id',  $cate->id)->where('estado', 1)->get();
+                        $produc = Productos::select('productos.*')->where('categoria_id',  $cate->id)->where('estado', 1)->get();
                         foreach ($produc as $pro) {
                             $pro->nomCate = $cate->nombre;
                             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
@@ -169,7 +168,7 @@ class ProductosController extends Controller
 
                 } else {
 
-                    $productos = Productos::select('producto.*')->where('categoria_id', $id)->where('estado', 1)->get();
+                    $productos = Productos::select('productos.*')->where('categoria_id', $id)->where('estado', 1)->get();
                     foreach ($productos as $pro) {
                         $pro->nomCate = $nombre;
 
@@ -190,7 +189,7 @@ class ProductosController extends Controller
                 }
 
                 return Inertia::render('Productos/productosCategoria', ['productos' => $productos, 'nombre' => $nombre,
-                    'categorias' => $categorias, 'negocios' => $negocios, 'fotosBanner' => $fotosBanner, 'cateHijos' => $cateHijos]);
+                    'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'cateHijos' => $cateHijos]);
 
             }
             else{
@@ -269,10 +268,11 @@ class ProductosController extends Controller
     public function verProductoDetalle($nomCat, $producto)
     {
         if ($nomCat != '' && $producto != '') {
-            $produ = Productos::select('producto.*')->leftJoin('categorias', 'categorias.id', 'producto.categoria_id')
-                ->where('producto.nombre', $producto)
+            $produ = Productos::select('productos.*')->leftJoin('categorias', 'categorias.id', 'productos.categoria_id')
+                ->where('productos.nombre', $producto)
                 ->where('categorias.nombre', $nomCat)
                 ->firstOrFail();
+
             if ($produ->estado == 1) {
                 $id = $produ->id;
                 $nomEstado = Estado_producto::select('nombre')->where('id', $produ->estado_id)->get()->toArray();
@@ -326,7 +326,6 @@ class ProductosController extends Controller
                         $pro->path = $fotos[0]['path'];
                     }
                 }
-
                 return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros]);
                 } else {
                     $this->otroController->inicio();
@@ -340,8 +339,8 @@ class ProductosController extends Controller
     public function verPrecios(){
 
         $productos = Productos::all();
-        $precios = Precios::select('precios.*', 'producto.nombre', 'producto.precio')
-        ->leftJoin('producto','producto.id','precios.producto_id')
+        $precios = Precios::select('precios.*', 'productos.nombre', 'productos.precio')
+        ->leftJoin('producto','productos.id','precios.producto_id')
         ->get();
 
 

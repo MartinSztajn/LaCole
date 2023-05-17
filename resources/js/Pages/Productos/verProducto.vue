@@ -21,7 +21,7 @@
 
             <div id="cambio">
                 <div class="row compu" style="width: 90%; margin: 5%; padding: 1%; padding-top: 3%; padding-bottom: 3%; background-color: white">
-                    <div class="col-2" style="padding-left: 4%">
+                   <div class="col-2" style="padding-left: 4%">
                         <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @click="cambiarFoto(key)" style="height:100px; width: 100px; margin-right: 5%; margin-bottom: 5%; border-radius: 10px; border: 2px solid #17428A;">
                     </div>
                     <div class="col-5" style= "">
@@ -314,7 +314,7 @@ import ClienteLayout from '@/Layouts/ClienteLayout.vue'
 
 export default {
     name: "verProducto",
-    props: ['producto','provincias','negocios','categorias','otros'],
+    props: ['producto', 'categorias','otros'],
     components: {
         ClienteLayout
     },
@@ -333,7 +333,7 @@ export default {
             realizoCompra: 0,
             colorComprar: 'EBEBEB',
             colorOferta: 'EBEBEB',
-            fotoPrincipal: this.producto.path[0].path,
+            fotoPrincipal: '', //this.producto.path[0].path,
             min: 0,
             primerosOtros: [],
             form:{

@@ -24,25 +24,6 @@
                 </svg>
             </div>
         </div>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-            <div class="compu">
-                <div v-for="cat in categorias">
-                    <a v-if="cat.hijos == null"
-                       :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                        {{cat.nombre}}
-                    </a>
-                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{cat.nombre}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li v-for="hijo in cat.hijos">
-                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
@@ -62,96 +43,23 @@
                 </svg>
             </a>
         </div>
-
-      <!--  <div class="justify-between info"  role="tablist" style="height: 60px; margin: 3%; margin-left: 5% ">
-            <a :href="route('login')" style="width: 49%; float: left">
-                <div class="infoli">
-                        <p class="text-center"> Inicia Sesión </p>
-                </div>
-            </a>
-            <hr style="border:none; border-left: 3px solid white; height: 40px; width: 1px; float: left">
-            <a :href="route('register')"  style="width: 49%; float: left">
-                <div  class="infoli" >
-                        <p class="text-center">Registrate</p>
-                </div>
-            </a>
-
-        </div>
--->
-        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 5%; padding: 20px" >
             <h1 style="font-size: 30px; text-align: left; color: #17428A;">
-                CATEGORIAS
-            </h1>
-            <hr style="width: 95%; border: 2px solid #EF7728;">
-            <div class="card-deck cate" v-for="cat in cateTotales" style="text-align: center">
-                <img  @click="verProductosCategoria(cat.nombre, cat.hijos)" :src="'/fotos/' + cat.path" class="fotoCategoria">
-                <button  @click="verProductosCategoria(cat.nombre, cat.hijos)" class="btn" style="text-align: left; padding-left: 0px">
-                    <p><b>{{cat.nombre}}</b></p>
-                </button>
-            </div>
-        </div>
-
-        <!-- Tabs navs -->
-
-        <div class=" flex justify-between info"  role="tablist" style="">
-            <div class=" infoli mx-auto justify-center  flex justify-center">
-                <div>
-                    <svg  xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-lock mx-auto" viewBox="0 0 16 16">
-                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
-                    </svg>
-                    <p style="" class="text-center"> Compra segura </p>
-                </div>
-            </div>
-            <hr style="border:none; border-left: 3px solid white; height: 60px; width: 1px;">
-            <div class="infoli mx-auto justify-center  flex justify-center"  >
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cash mx-auto" viewBox="0 0 16 16">
-                        <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                        <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
-                    </svg>
-                    <p class="text-center" >Metodos de pago</p>
-                </div>
-            </div>
-            <hr style="border:none; border-left: 3px solid white; height: 60px; width: 1px;">
-            <div class="infoli mx-auto justify-center  flex justify-center" >
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-truck mx-auto" viewBox="0 0 16 16">
-                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                    </svg>
-                    <p class="text-center">Formas de entrega</p>
-                </div>
-            </div>
-            <hr style="border:none; border-left: 3px solid white; height: 60px; width: 1px;">
-
-            <div class="infoli mx-auto justify-center  flex justify-center" >
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-briefcase mx-auto" viewBox="0 0 16 16">
-                        <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
-                    </svg>
-                    <p class="text-center">Negociación transparente</p>
-                </div>
-            </div>
-        </div>
-        <!-- Tabs content -->
-
-        <div  v-if="ofertas.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 5%; padding: 20px"  >
-            <h1 style="font-size: 30px; text-align: left; color: #17428A;">
-                OFERTAS
+                Los más solicitados
             </h1>
             <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
-            <div :style="ofertas.length >= 4  ? 'display: flex;overflow: auto;justify-content: space-evenly;' : 'display: flex;overflow: auto;'">
-                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in primerosOfertas" style="margin-bottom: 10px">
+            <div :style="ofertados.length >= 4  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
                     <hr>
                     <div class="colum2">
-                        <h1 class="card-text" >$ {{pro.precio_max}}</h1>
+                        <h1 class="card-text" >$ {{pro.precio}}</h1>
                         <h2 class="card-text" ><b> {{pro.nombre}}</b> </h2>
                         <p class="card-text"><b>Unidades: {{pro.cantidad}} </b> </p>
-                        <p class="card-text">Precio por unidad: ${{(pro.precio_max / pro.cantidad).toFixed(0)}}</p>
-                        <p class="card-text">Faltan {{pro.fechaLanzamiento}}</p>
-                        <p class="card-text">Estado: {{pro.nomEstado}}</p>
+                        <p class="card-text">Precio por unidad: ${{(pro.precio / pro.cantidad).toFixed(0)}}</p>
+                        <p class="card-text" style="max-width: 175px">Estado: {{pro.nomEstado}}</p>
                         <br>
                         <p class="card-text" style="color: red;" v-if="pro.cantOfertas > 1"><b>YA HAY {{pro.cantOfertas}} OFERTAS</b></p>
                         <p class="card-text" style="color: red;" v-if="pro.cantOfertas == 1"><b>YA HAY {{pro.cantOfertas}} OFERTA</b></p>
@@ -159,38 +67,111 @@
                     </div>
 
                 </div>
-                <a v-if="ofertas.length >= 4" @click="moverIzqOfertas()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 220px; margin-left: 15px">
+                <a v-if="ofertados.length >= 4" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 220px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                     </svg>
                 </a>
-                <a v-if="ofertas.length >= 4" @click="moverDerOfertas()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 220px; margin-right: 15px">
+                <a v-if="ofertados.length >= 4" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 220px; margin-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                     </svg>
                 </a>
             </div>
-      </div>
+        </div>
 
 
+
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+            <div class="card-deck cate" v-for="(cat, index) in cateTotales" style="text-align: center">
+                <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"
+                    @click="verProductosCategoria(cat.nombre, cat.hijos)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
+                <button  @click="verProductosCategoria(cat.nombre, cat.hijos)" class="btn" style="text-align: left; padding-left: 0px">
+                    <p><b>{{cat.nombre}}</b></p>
+                </button>
+            </div>
+        </div>
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+            <div class="container2" style="margin-bottom: 10px; width: 96%; margin-left: 2%; margin-right: 2%">
+                <div>
+                    <h1 style="text-align: center; font-size: 60px; padding: 20px"><b>Bienvenido a La Cole Market</b></h1>
+                    <p style="text-align: center; font-size: 20px; padding: 10px">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comundidad</p>
+                </div>
+                <hr style="width: 90%; margin-left: 5%; margin-right: 5%; border: 2px solid #EF7728; margin-bottom: 10px; margin-top: 10px">
+
+                <div style="display: flex; justify-content: space-evenly; padding: 20px">
+                    <div class="item">
+                        <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                        </svg>
+                        <span  style="text-align: center; font-size: 30px">+500 Usuarios</span>
+                    </div>
+                    <div class="item">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+                        </svg>
+                        <span  style="text-align: center; font-size: 30px">+1500 Productos</span>
+                    </div>
+                    <div class="item">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-ui-radios-grid" viewBox="0 0 16 16">
+                            <path d="M3.5 15a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm9-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 9a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm-9 9a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm5.5 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-9-11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 2a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                        <span  style="text-align: center; font-size: 30px">+30 Categorias</span>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-evenly; padding: 20px">
+                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                        <span  style="text-align: center">Publica Productos</span>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        <span  style="text-align: center">Unite a la comunidad <br> Crea tu cuenta</span>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
+                        <svg  style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        <span  style="text-align: center">Contamos con productos <br> de calidad</span>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
+                        <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+                        </svg>
+                        <span style="text-align: center">Publicita tu marca, servicio <br>
+                            o emprendimiento</span>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Tabs navs -->
         <div  v-if="novedades.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
             <h1 style="font-size: 30px; text-align: left; color: #17428A;">
-                NOVEDADES
+                Los más recientes
             </h1>
             <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
-            <div :style="novedades.length >= 4  ? 'display: flex;overflow: auto;justify-content: space-evenly;' : 'display: flex;overflow: auto;'">
-                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in primerosNovedades" style="margin-bottom: 10px">
+            <div :style="novedades.length >= 4  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverNovedades(index)" @mouseleave="handleMouseLeaveNovedades(index)" v-for="(pro, index) in primerosNovedades" :style="primerosNovedades[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
                     <hr>
                     <div class="colum2">
-                        <h1 class="card-text" >$ {{pro.precio_max}}</h1>
+                        <h1 class="card-text" >$ {{pro.precio}}</h1>
                         <h2 class="card-text" ><b> {{pro.nombre}}</b> </h2>
                         <p class="card-text"><b>Unidades: {{pro.cantidad}} </b> </p>
-                        <p class="card-text">Precio por unidad: ${{(pro.precio_max / pro.cantidad).toFixed(0)}}</p>
-                        <p class="card-text">Faltan {{pro.fechaLanzamiento}}</p>
-                        <p class="card-text" style="max-width: 175px">Estado: {{pro.nomEstado}}</p>
+                        <p class="card-text">Precio por unidad: ${{(pro.precio / pro.cantidad).toFixed(0)}}</p>
+                        <p class="card-text">Estado: {{pro.nomEstado}}</p>
                         <br>
                         <p class="card-text" style="color: red;" v-if="pro.cantOfertas > 1"><b>YA HAY {{pro.cantOfertas}} OFERTAS</b></p>
                         <p class="card-text" style="color: red;" v-if="pro.cantOfertas == 1"><b>YA HAY {{pro.cantOfertas}} OFERTA</b></p>
@@ -210,7 +191,6 @@
                 </a>
             </div>
         </div>
-
         <!-- Footer -->
         <footer style="background-color: #EF7728; margin-top: 4%;" class="text-center text-white">
             <!-- Grid container -->
@@ -306,12 +286,15 @@
 
 <script>
 import ClienteLayout from '@/Layouts/ClienteLayout.vue'
+import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: "Index",
-  props: ['productos','negocios', 'categorias','novedades','ofertas', 'fotosBanner','admin', 'cateTotales'],
+  props: ['novedades', 'categorias', 'ofertados', 'fotosBanner','cateTotales'],
   components:{
-      ClienteLayout
+      ClienteLayout,
+      Carousel,
+      Slide
   },
   data()
   {
@@ -322,10 +305,53 @@ export default {
           minOfe: 0,
           primerosNovedades: [],
           primerosOfertas: [],
+          cuatroCampos: [
+              {
+                  zoomed: 0,
+
+              },
+              {
+                  zoomed: 0,
+              },
+              {
+                  zoomed: 0,
+
+              },
+              {
+                  zoomed: 0,
+              }
+              ]
       }
   },
+    computed: {
+
+    },
   methods:
       {
+          handleMouseOverCuatroCampos($i){
+              this.cuatroCampos[$i].zoomed = 1;
+          },
+          handleMouseLeaveCuatroCampos($i) {
+              this.cuatroCampos[$i].zoomed = 0;
+          },
+          handleMouseOverOfertados($i) {
+              this.primerosOfertas[$i].zoomed = true;
+          },
+          handleMouseLeaveOfertados($i) {
+              this.primerosOfertas[$i].zoomed = false;
+          },
+          handleMouseOverNovedades($i) {
+              this.primerosNovedades[$i].zoomed = true;
+          },
+          handleMouseLeaveNovedades($i) {
+              this.primerosNovedades[$i].zoomed = false;
+          },
+          handleMouseOver($i) {
+              this.cateTotales[$i].zoomed = true;
+          },
+          handleMouseLeave($i) {
+              this.cateTotales[$i].zoomed = false;
+          },
           moverIzq(){
                 if (this.num == 0){
                     this.num = this.fotosBanner.length - 1;
@@ -354,7 +380,7 @@ export default {
               else{return $uno;}
           },
           filterNovedades($num) {
-              for (let i = 0; i < this.novedades.length; i++) {
+              for (let i = 0; i < this.minimo(this.novedades.length, 4); i++) {
                   let param = (i + $num);
                   if (param >= this.novedades.length){
                       param = param - this.novedades.length;
@@ -363,12 +389,12 @@ export default {
               }
           },
           filterOfertas($num) {
-              for (let i = 0; i < this.ofertas.length; i++) {
+              for (let i = 0; i < this.minimo(this.ofertados.length, 4); i++) {
                   let param = (i + $num);
-                  if (param >= this.ofertas.length){
-                      param = param - this.ofertas.length;
+                  if (param >= this.ofertados.length){
+                      param = param - this.ofertados.length;
                   }
-                  this.primerosOfertas[i] = this.ofertas[param];
+                  this.primerosOfertas[i] = this.ofertados[param];
 
               }
           },
@@ -390,9 +416,9 @@ export default {
               this.filterNovedades(this.minNove);
           },
 
-          moverIzqOfertas(){
+          moverIzqOfertados(){
               if (this.minOfe == 0){
-                  this.minOfe = this.ofertas.length - 1;
+                  this.minOfe = this.ofertados.length - 1;
               }
               else{
                   this.minOfe = this.minOfe - 1;
@@ -400,15 +426,16 @@ export default {
 
               this.filterOfertas(this.minOfe);
           },
-          moverDerOfertas(){
+          moverDerOfertados(){
               this.minOfe = this.minOfe + 1;
-              if (this.minOfe >= this.ofertas.length){
+              if (this.minOfe >= this.ofertados.length){
                   this.minOfe = 0;
               }
               this.filterOfertas(this.minOfe);
           },
       },
     mounted() {
+
         this.timer = setInterval(() => {
             this.moverDer();
         }, 5000);
@@ -464,8 +491,8 @@ export default {
         text-align: center;
     }
     .fotoCategoria{
-        width: 125px;
-        height: 125px;
+        width: 75px;
+        height: 75px;
     }
   .botones{
       float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
@@ -592,11 +619,11 @@ export default {
     .cate{
        margin-top: 40px;
        float: left;
-       margin-right: 30px;
+       margin-right: 50px;
     }
     .fotoCategoria{
-        width:175px;
-        height:175px;
+        width:120px;
+        height:120px;
     }
     .celu{
         display: none;
@@ -857,5 +884,16 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.item{
+    display: flex;    align-items: center;
+}
 
+
+.zoomable {
+    transition: transform 0.3s;
+}
+
+.zoomable.zoomed {
+    transform: scale(1.1);
+}
 </style>

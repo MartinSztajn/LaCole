@@ -151,7 +151,7 @@ export default {
             guardarNegocio()
             {
                 this.editarneg = false;
-                axios.post('/editarProducto', {tipo: 'Negocio', valor: this.producto.negocio_id,
+                axios.post('/editarProducto', {tipo: 'Vendedor', valor: this.producto.negocio_id,
                     id: this.producto.id}).then();
             },
             guardarCategoria()
