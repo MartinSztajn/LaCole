@@ -18,10 +18,12 @@ INDEX CONTROLLER
 Route::get('/', [\App\Http\Controllers\IndexController::class,'inicio'])->name('dashboard');
 Route::get('/dashboard', [\App\Http\Controllers\IndexController::class,'inicio']);
 Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
+Route::post('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
+Route::get('/getAllProductos/{nombre}', [\App\Http\Controllers\IndexController::class,'getAllProductos']);
 Route::get('/inicio', [\App\Http\Controllers\IndexController::class,'verPagina']);
 Route::get('/enviarConsulta', [\App\Http\Controllers\IndexController::class,'enviarConsulta']);
 Route::post('/enviarMensajeConsulta', [\App\Http\Controllers\IndexController::class,'enviarMensajeConsulta']);
-
+Route::get('/buscarCategorias', [\App\Http\Controllers\IndexController::class,'buscarCategorias']);
 
 /*
 USUARIOS CONTROLLER

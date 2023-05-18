@@ -1,71 +1,116 @@
-<script setup>
-import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-vue3';
-import ApplicationMark from '@/Components/ApplicationMark.vue';
-import Banner from '@/Components/Banner.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-
-defineProps({
-    title: String,
-});
-
-const showingNavigationDropdown = ref(false);
-</script>
-
 <template>
     <div class="tipografia">
         <Head :title="title" />
 
         <Banner />
 
-        <div class="min-h-screen bg-white-100" style="background-color: #f0f0f0">
-            <nav style="background-color: #EF7728; height: 80px; width: 100%; position: fixed; z-index: 101; top: 0" >
+        <div class="min-h-screen bg-white-100" style="background-color: #ebebeb">
+
+            <nav style="background-color: #121212; height: 80px; width: 100%; position: fixed; z-index: 101; top: 0" >
                 <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <div class="flex-shrink-0 flex items-center">
-                                <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
-                                <img src="/logoWop2.png" class="logo">
-                                </button>
-                            </div>
-                        </div>
-                        <div id='search-box' class="buttons" style="margin-right: 50px; margin-left: 80px">
-                            <form action='/buscar'   class='search-form' method='get' target='_top'>
-                                <input id='search-text' name='text' placeholder='Buscar productos...' type='text'/>
-                                <button  id='search-button' type='submit' style="left: 640px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#28285B" class="bi bi-search" viewBox="0 0 16 16">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                    </svg>
-                                </button>
-                            </form>
-                        </div>
-                        <div class="flex" style="margin-top: 10px">
-                            <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
-                                <a :href="route('register')">Crea tu cuenta</a>
-                            </div>
-                            <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
-                                <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
-                            </div>
-                            <div class="flex-shrink-0 flex items-center">
-                                <a :href="route('login')">Ingresá</a>
+                <div>
+                    <div class="md:flex hidden">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex justify-between h-16">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 flex items-center">
+                                        <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
+                                            <img src="/logoWop2.png" class="logo">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="search-box buttons" style="margin-right: 50px; margin-left: 80px">
+                                    <div class='search-form' method='get' target='_top'>
+                                        <input class='search-text' placeholder='    Buscar productos...'  v-model="form.buscador" @input="buscarParcial"/>
+                                        <button @click="buscar" class='search-button' type='submit' style="left: 640px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5C5C5" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div v-if="form.buscador != ''" style="margin-left: 15px; width: 70%; background-color: #302D2D">
+                                        <div  v-for="producto in resultados" @click="verProductoDetalle(producto.nomCat, producto.nombre)">
+                                            <img :src="'/fotos/' + producto.path" style="float: left; width: 80px; height: 80px; margin: 5px; margin-right: 30px">
+                                            <a :href="'/verProductoDetalle/' + producto.nomCat + '/' + producto.nombre">
+                                                <h1 style="text-align: left; font-size: 20px; padding-top: 10px; color: #EBE9E9">
+                                                    <b>{{producto.nombre}}</b>
+                                                </h1>
+                                            </a>
+                                            <h1 style="text-align: left; font-size: 15px; color: #C5C5C5">{{producto.nomCat}}</h1>
+                                            <h1 style="text-align: left; font-size: 15px; color: #C5C5C5">${{producto.precio}} ARS</h1>
+
+                                            <hr style="width: 100%; border: 1px solid black;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex" style="margin-top: 10px">
+                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
+                                        <a :href="route('register')">Crea tu cuenta</a>
+                                    </div>
+                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
+                                        <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
+                                    </div>
+                                    <div class="flex-shrink-0 flex items-center">
+                                        <a :href="route('login')">Ingresá</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="md:hidden">
+                        <button
+                            @click="toggleMenu"
+                            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-gray-900 focus:outline-none"
+                        >
+                            <svg
+                                class="h-4 w-4"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-                <div id='search-box' class="buttons2">
-                    <form action='/buscar' class='search-form' method='get' target='_top'>
-                        <input id='search-text'  name='text' placeholder='Buscar productos...' type='text'/>
-                        <button  id='search-button' type='submit' style="left: 262px; margin-top: 0px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#28285B" class="bi bi-search" viewBox="0 0 16 16">
+                <div
+                    style="width: 70%; background-color:  #302D2D"
+                    class="fixed inset-0 z-10 transform transition-transform duration-300 ease-in-out"
+                    v-if="isMenuOpen"
+                >
+                    <div @click="toggleMenu" style="float:right; padding: 10px">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-x-square-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                        </svg>
+                    </div>
+                    <div style="margin-top: 80px">
+                            <a :href="route('register')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
+                        <br>
+                    </div>
+                    <div class='search-form' method='get' target='_top'>
+                        <input class='search-text' placeholder='    Buscar productos...'  v-model="form.buscador"/>
+                        <button @click="buscar" class='search-button' type='submit'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5C5C5" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                             </svg>
                         </button>
-                    </form>
+                    </div>
+                    <div>
+                        <ul style="margin-left: 25px">
+                            <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
+                                <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
+                                <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: white">
+                                    <p><b>{{cate.nombre}}</b></p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <a href="https://wa.me/5491128495155?text=Buenos%20dias!%20Me%20gustaria%20tener%20más%20informacion" class="whatsapp" target="_blank">
                     <svg style="margin-left: 14px; margin-top: 12px;" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
@@ -88,6 +133,81 @@ const showingNavigationDropdown = ref(false);
         </div>
     </div>
 </template>
+
+<script>
+import { ref } from 'vue';
+import { Inertia } from '@inertiajs/inertia';
+import { Head, Link } from '@inertiajs/inertia-vue3';
+import ApplicationMark from '@/Components/ApplicationMark.vue';
+import Banner from '@/Components/Banner.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
+import NavLink from '@/Components/NavLink.vue';
+import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+
+export default {
+    name: "ClienteLayout",
+    props:['productos'],
+    computed: {
+
+    },
+    data()
+    {
+        return{
+            menuAbierto:false,
+            form:{
+                buscador: ''
+            },
+            resultados: [],
+            isMenuOpen: false,
+            categorias: [],
+            habilitarModalBuscar: false,
+        }
+    },
+
+    methods:{
+        verProductosCategoria($nombre){
+            this.$inertia.get('/verProductosCategoria/' + $nombre);
+        },
+        buscar(){
+            this.$inertia.post('/buscarTexto?text=' + this.form.buscador);
+        },
+        verProductoDetalle($nomCat, $nombre){
+            this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
+        },
+        toggleMenu() {
+            this.isMenuOpen = !this.isMenuOpen;
+        },
+        buscarParcial() {
+            axios.get('/buscar', {
+                params: {
+                    text: this.form.buscador,
+                },
+            })
+                .then(response => {
+                    this.resultados = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        buscarCategorias(){
+            axios.get('/buscarCategorias', {
+            })
+                .then(response => {
+                    this.categorias = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        },
+    created() {
+        // Llamamos al método que filtra los productos al crear el componente
+        this.buscarCategorias();
+    }
+}
+</script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Quicksand:wght@300;400&display=swap');
 .container-3{
@@ -363,43 +483,29 @@ body {
     }
 }
 
-#search-box {
+.search-box {
     position: relative;
     width: 60%;
     margin-top: 5px;
 }
 
-#search-text {
+.search-text {
+    color: #C5C5C5;
     font-size: 14px;
-    color: #ddd;
     border-width: 0;
-    background: transparent;
+    background-color: #555555;
+    width: 100%;
+    height: 31px;
+
 }
 
-#search-box input[type="text"] {
+.search-box input[type="text"] {
     width: 90%;
     padding: 5px 0 12px 1em;
     color: #333;
     outline: none;
 }
-#search-button {
-    margin-top: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 32px;
-    width: 0px;
-    font-size: 14px;
-    color: #fff;
-    text-align: center;
-    line-height: 4px;
-    border-width: 0;
-    background-color: white;
-    -webkit-border-radius: 0px 5px 5px 0px;
-    -moz-border-radius: 0px 5px 5px 0px;
-    border-radius: 3px;
-    cursor: pointer;
-}
+
 .whatsapp {
     position:fixed;
     width:60px;
@@ -423,16 +529,12 @@ body {
 
 @media (max-width: 400px) {
     .search-form{
-        margin-bottom: 20px;
-        margin-left: 70px;
-        width: 100%;
-        margin-top: 25px;
+        width: 90%;
+        margin-bottom: 25px;
+        margin-left: 5%;
         height: 32px;
         border: 1px solid #c5c5c5;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
         border-radius: 15px;
-        background-color: #fff;
         overflow: hidden;
     }
 
@@ -440,11 +542,33 @@ body {
         width: 150px;
         margin-left: 85px;
     }
+    .search-button{
+        position: absolute;
+        right: 20px;
+        margin-top: 5px;
+    }
 }
 
 @media (min-width: 401px) {
+    .search-button {
+        margin-top: 15px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 32px;
+        width: 0px;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        line-height: 4px;
+        border-width: 0;
+        background-color: white;
+        -webkit-border-radius: 0px 5px 5px 0px;
+        -moz-border-radius: 0px 5px 5px 0px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
     .search-form{
-        margin-bottom: 20px;
         margin-left: 15px;
         width: 90%;
         margin-top: 15px;
@@ -453,12 +577,14 @@ body {
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 3px;
-        background-color: #fff;
         overflow: hidden;
     }
     .logo{
         width: 150px;
     }
+}
+.transition-transform {
+    transition-property: transform;
 }
 
 </style>
