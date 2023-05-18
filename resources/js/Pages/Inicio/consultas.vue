@@ -1,49 +1,6 @@
 <template>
     <cliente-layout>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-            <div class="compu">
-                <div v-for="cat in categorias">
-                    <a v-if="cat.hijos == null"
-                       :href="'/verProductosCategoria/' + cat.id" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                        {{cat.nombre}}
-                    </a>
-                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{cat.nombre}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li v-for="hijo in cat.hijos">
-                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.id">{{hijo.nombre}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <svg v-if="admin == 1"
-                     onclick="window.location.href='/login'"
-                     style="float: right; margin-top: 3px"
-                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                </svg>
-            </div>
-        </div>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-            <div class="compu">
-                <div v-for="cat in categorias">
-                    <a v-if="cat.hijos == null"
-                       :href="'/verProductosCategoria/' + cat.id" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                        {{cat.nombre}}
-                    </a>
-                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{cat.nombre}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li v-for="hijo in cat.hijos">
-                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.id">{{hijo.nombre}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
                     <a :href="'https://' + fotosBanner[num].url" target="_blank">
@@ -211,8 +168,11 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .celular{
+        display: none;
+    }
     #carouselExampleControls{
-        margin-top: 134px;
+        margin-top: 63px;
     }
     p.card-text{
         font-size: 15px;

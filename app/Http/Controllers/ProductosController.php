@@ -274,6 +274,9 @@ class ProductosController extends Controller
                 ->firstOrFail();
 
             if ($produ->estado == 1) {
+
+                $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+
                 $id = $produ->id;
                 $nomEstado = Estado_producto::select('nombre')->where('id', $produ->estado_id)->get()->toArray();
                 $ofertas = Ofertas::where('producto_id', $id)->orderBy('created_at', 'DESC')->get();
@@ -326,7 +329,7 @@ class ProductosController extends Controller
                         $pro->path = $fotos[0]['path'];
                     }
                 }
-                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros]);
+                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros, 'fotosBanner' => $fotosBanner]);
                 } else {
                     $this->otroController->inicio();
                 }

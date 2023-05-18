@@ -1,6 +1,5 @@
 <template>
     <cliente-layout>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
             <div class="compu">
                 <div v-for="cat in categorias">
                     <a v-if="cat.hijos == null"
@@ -16,8 +15,15 @@
                         </li>
                     </ul>
                 </div>
+                <svg v-if="admin == 1"
+                     onclick="window.location.href='/login'"
+                     style="float: right; margin-top: 3px"
+                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                </svg>
             </div>
         </div>
+
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -128,6 +134,9 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .celular{
+        display: none;
+    }
     .botones{
         float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
     }
@@ -151,9 +160,15 @@ export default {
         width: 140px;
         font-size: 20px;
     }
+    #carouselExampleControls{
+        margin-top: 63px;
+    }
 }
 
 @media (min-width: 501px) {
+    #carouselExampleControls{
+        margin-top: 118px;
+    }
     .botones{
         float: left; margin-right: 3%; width: 20%; background-color: grey; color: white; font-size: 30px;
     }

@@ -58,9 +58,28 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
         }
+
         return response()->json($categorias);
 
     }
+    public function buscarCategoriasHijos(){
+        $categorias = Categorias::all()->where('padre_id',null);
+        foreach ($categorias as $cate) {
+            $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
+            if ($cateHijo != []) {
+                $cate->hijos = $cateHijo;
+            }
+            $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
+            $cate->path = '';
+            if ($fotos != []) {
+                $cate->path = $fotos[0]['path'];
+            }
+        }
+
+        return response()->json($categorias);
+
+    }
+
     public function buscarTexto(Request $request){
         $buscador = $request['text'];
         $productos = Productos::where('estado', 1)->get();

@@ -6,29 +6,30 @@
 
         <div class="min-h-screen bg-white-100" style="background-color: #ebebeb">
 
-            <nav style="background-color: #121212; height: 80px; width: 100%; position: fixed; z-index: 101; top: 0" >
+            <nav style="background-color: #121212; width: 100%; position: fixed; z-index: 101; top: 0" >
                 <!-- Primary Navigation Menu -->
                 <div>
                     <div class="md:flex hidden">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="flex justify-between h-16">
-                                <div class="flex">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-3">
                                     <div class="flex-shrink-0 flex items-center">
                                         <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
                                             <img src="/logoWop2.png" class="logo">
                                         </button>
                                     </div>
                                 </div>
-                                <div class="search-box buttons" style="margin-right: 50px; margin-left: 80px">
+                                <div class="col-6">
+                                    <div class="search-box buttons" style="margin-left: 60px; margin-top: 25px; margin-right: 60px; width: 600px;">
                                     <div class='search-form' method='get' target='_top'>
                                         <input class='search-text' placeholder='    Buscar productos...'  v-model="form.buscador" @input="buscarParcial"/>
-                                        <button @click="buscar" class='search-button' type='submit' style="left: 640px;">
+                                        <button @click="buscar" class='search-button' type='submit'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5C5C5" class="bi bi-search" viewBox="0 0 16 16">
                                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                             </svg>
                                         </button>
                                     </div>
-                                    <div v-if="form.buscador != ''" style="margin-left: 15px; width: 70%; background-color: #302D2D">
+                                    <div v-if="form.buscador != ''" style="margin-left: 15px; width: 500px; background-color: #302D2D; position: fixed; z-index: 101;">
                                         <div  v-for="producto in resultados" @click="verProductoDetalle(producto.nomCat, producto.nombre)">
                                             <img :src="'/fotos/' + producto.path" style="float: left; width: 80px; height: 80px; margin: 5px; margin-right: 30px">
                                             <a :href="'/verProductoDetalle/' + producto.nomCat + '/' + producto.nombre">
@@ -43,24 +44,53 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flex" style="margin-top: 10px">
-                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
+                                </div>
+                                <div class="col-3">
+                                    <div class="flex" style="margin-top: 25px;display: flex;justify-content: center;">
+                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px; color: white">
                                         <a :href="route('register')">Crea tu cuenta</a>
                                     </div>
                                     <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
                                         <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
                                     </div>
-                                    <div class="flex-shrink-0 flex items-center">
+                                    <div class="flex-shrink-0 flex items-center"  style="color: white">
                                         <a :href="route('login')">Ingresá</a>
                                     </div>
                                 </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="filtros celular" style="text-align: center; width: 100%; position: fixed; z-index: 100">
+                            <div class="compu">
+                                <div v-for="cat in categoriasHijos">
+                                    <a v-if="cat.hijos == null"
+                                       :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
+                                        {{cat.nombre}}
+                                    </a>
+                                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #121212;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        {{cat.nombre}}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li v-for="hijo in cat.hijos">
+                                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <svg v-if="admin == 1"
+                                     onclick="window.location.href='/login'"
+                                     style="float: right; margin-top: 3px"
+                                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                </svg>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="md:hidden">
                         <button
                             @click="toggleMenu"
                             class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-gray-900 focus:outline-none"
+                            style="float: left; margin-right: 20%"
                         >
                             <svg
                                 class="h-4 w-4"
@@ -77,6 +107,12 @@
                                 ></path>
                             </svg>
                         </button>
+                        <div>
+                            <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
+                                <img src="/logoWop2.png" style="width: 100px">
+                            </button>
+                        </div>
+
                     </div>
                 </div>
                 <div
@@ -90,7 +126,7 @@
                         </svg>
                     </div>
                     <div style="margin-top: 80px">
-                            <a :href="route('register')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
+                        <a :href="route('register')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
                         <br>
                     </div>
                     <div class='search-form' method='get' target='_top'>
@@ -101,7 +137,7 @@
                             </svg>
                         </button>
                     </div>
-                    <div>
+                    <div style="height: 365px; overflow: auto;">
                         <ul style="margin-left: 25px">
                             <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
                                 <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
@@ -161,6 +197,7 @@ export default {
             resultados: [],
             isMenuOpen: false,
             categorias: [],
+            categoriasHijos: [],
             habilitarModalBuscar: false,
         }
     },
@@ -201,10 +238,23 @@ export default {
                     console.error(error);
                 });
         },
+        buscarCategoriasHijos(){
+            axios.get('/buscarCategoriasHijos', {
+            })
+                .then(response => {
+                    this.categoriasHijos = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         },
+
+    },
     created() {
         // Llamamos al método que filtra los productos al crear el componente
         this.buscarCategorias();
+        this.buscarCategoriasHijos();
+
     }
 }
 </script>
@@ -551,22 +601,9 @@ body {
 
 @media (min-width: 401px) {
     .search-button {
-        margin-top: 15px;
         position: absolute;
-        top: 0;
-        right: 0;
+        right: 51px;
         height: 32px;
-        width: 0px;
-        font-size: 14px;
-        color: #fff;
-        text-align: center;
-        line-height: 4px;
-        border-width: 0;
-        background-color: white;
-        -webkit-border-radius: 0px 5px 5px 0px;
-        -moz-border-radius: 0px 5px 5px 0px;
-        border-radius: 3px;
-        cursor: pointer;
     }
     .search-form{
         margin-left: 15px;
@@ -587,4 +624,206 @@ body {
     transition-property: transform;
 }
 
+
+@media (max-width: 500px) {
+    #carouselExampleControls{
+        margin-top: 63px;
+    }
+    p.card-text{
+        font-size: 15px;
+        text-align: left;
+    }
+    h2.card-text{
+        font-size: 20px;
+        text-align: left;
+    }
+    h1.card-text{
+        font-size: 25px;
+        text-align: left;
+    }
+    .container2 {
+        padding: 5px;
+        background-color: white;
+        margin: 1%;
+        width: 450px;
+        float: left;
+        border-radius: 5px;
+    }
+    .colum2 {
+        flex-direction: column;
+        margin-right: 10px;
+        flex: 1;
+        text-align: center;
+        min-width: 190px;
+        padding: 10px;
+    }
+    .card-deck{
+        float: left;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .fotoCategoria{
+        width: 75px;
+        height: 75px;
+    }
+    .botones{
+        float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
+    }
+    .compu{
+        display: none;
+    }
+    .card{
+        width: 100%;
+        margin-right: 2%;
+        margin-bottom: 5%;
+    }
+    .filtros{
+        background-color: #121212;
+        margin-top: -1px;
+        padding-left: 12%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        height: 55px;
+        top: 80px;
+    }
+    .botonfiltros{
+        width: 140px;
+        font-size: 20px;
+    }
+
+
+    .card-img-top{
+        height: 300px;
+    }
+
+
+    .colum2 div {
+        background-color: #28285b;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        border-bottom: 1px solid white;
+    }
+
+    .image2 img {
+        max-width: none;
+        height: 200px;
+        width: 200px;
+        display: block;
+    }
+    .info{
+        padding: 10px;
+        background-color: #EF7728;
+        width: 90%;
+        box-shadow: 0px 1px 4px #444444;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+    .celular{
+        display: none;
+    }
+}
+
+@media (min-width: 501px) {
+    #carouselExampleControls{
+        margin-top: 118px;
+    }
+    p.card-text{
+        font-size: 20px;
+        text-align: left;
+    }
+    h2.card-text{
+        font-size: 25px;
+        text-align: left;
+    }
+    h1.card-text{
+        font-size: 30px;
+        text-align: left;
+    }
+    .container2 {
+        background-color: white;
+        width: 300px;
+        margin: 1%;
+        float: left;
+        border-radius: 5px;
+    }
+    .compu{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .colum2 {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin-right: 10px;
+        flex: 1;
+        text-align: center;
+        min-width: 300px;
+    }
+
+    .colum2 div {
+        background-color: #28285b;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        border-bottom: 1px solid white;
+    }
+
+    .image2{
+        max-width: none;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+
+    }
+    .card-img-top{
+        height: 250px;
+        width: 250px;
+    }
+    .info{
+        padding: 10px;
+        background-color: #EF7728;
+        width: 90%;
+        box-shadow: 0px 1px 4px #444444;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+    .infoli{
+        font-size: 23px; color: white;
+    }
+    .cate{
+        margin-top: 40px;
+        float: left;
+        margin-right: 50px;
+    }
+    .fotoCategoria{
+        width:120px;
+        height:120px;
+    }
+    .celu{
+        display: none;
+    }
+    .botones{
+        float: left; margin-right: 3%; width: 20%; background-color: grey; color: white; font-size: 30px;
+    }
+    .card{
+        width: 45%;
+        margin-right: 2%;
+        float: left;
+        margin-bottom: 2%;
+    }
+    .filtros{
+        background-color: #121212;
+        margin-top: -1px;
+        padding-bottom: 1%;
+        height: 40px;
+        top: 79px;
+    }
+    .botonfiltros{
+        width: 200px;
+        font-size: 20px;
+    }
+}
 </style>

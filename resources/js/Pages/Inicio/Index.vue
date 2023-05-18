@@ -1,29 +1,5 @@
 <template>
     <cliente-layout>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-            <div class="compu">
-                <div v-for="cat in categorias">
-                    <a v-if="cat.hijos == null"
-                        :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                        {{cat.nombre}}
-                    </a>
-                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{cat.nombre}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li v-for="hijo in cat.hijos">
-                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <svg v-if="admin == 1"
-                    onclick="window.location.href='/login'"
-                    style="float: right; margin-top: 3px"
-                    xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                </svg>
-            </div>
-        </div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
@@ -79,8 +55,6 @@
                 </a>
             </div>
         </div>
-
-
 
         <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
             <div class="card-deck cate" v-for="(cat, index) in cateTotales" style="text-align: center">
@@ -453,7 +427,7 @@ export default {
 <style scoped>
 @media (max-width: 500px) {
     #carouselExampleControls{
-        margin-top: 134px;
+        margin-top: 63px;
     }
     p.card-text{
         font-size: 15px;
@@ -506,7 +480,7 @@ export default {
       margin-bottom: 5%;
   }
   .filtros{
-      background-color: #17428A;
+      background-color: white;
       margin-top: -1px;
       padding-left: 12%;
       padding-top: 2%;
@@ -545,6 +519,9 @@ export default {
         box-shadow: 0px 1px 4px #444444;
         border-radius: 3px;
         margin: 0 auto;
+    }
+    .celular{
+        display: none;
     }
 }
 
@@ -638,7 +615,7 @@ export default {
            margin-bottom: 2%;
        }
       .filtros{
-          background-color: #17428A;
+          background-color: whitesmoke;
           margin-top: -1px;
           padding-bottom: 1%;
           height: 40px;

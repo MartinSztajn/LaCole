@@ -23,168 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
-      <change afterPath="$PROJECT_DIR$/resources/js/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/parser" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/parser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/parser.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/parser.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/parser.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/parser.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia-vue3.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia-vue3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia-vue3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia-vue3.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_inertia.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_progress.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/@inertiajs_progress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-C65ELDEH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-C65ELDEH.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-J43GMYXM.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-J43GMYXM.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-NVCNRHIH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-NVCNRHIH.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/laravel-vite-plugin_inertia-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/laravel-vite-plugin_inertia-helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/lodash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/lodash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/vue.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/parser/lib/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/parser/typings/babel-parser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/parser/typings/babel-parser.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-core/dist/compiler-core.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.global.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.global.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/dist/compiler-dom.global.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-dom/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/dist/compiler-sfc.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-sfc/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/dist/compiler-ssr.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/dist/compiler-ssr.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/dist/compiler-ssr.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/dist/compiler-ssr.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/compiler-ssr/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/dist/reactivity-transform.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/dist/reactivity-transform.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/dist/reactivity-transform.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/dist/reactivity-transform.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity-transform/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.global.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.global.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/dist/reactivity.global.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/reactivity/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/reactivity/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.global.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/dist/runtime-dom.global.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/runtime-dom/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/dist/server-renderer.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/server-renderer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/server-renderer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/shared/dist/shared.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@vue/shared/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@vue/shared/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/axios.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/browser/axios.cjs.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/esm/axios.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/dist/node/axios.cjs.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/index.d.cts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/index.d.cts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/adapters/xhr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/Axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/AxiosHeaders.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/AxiosHeaders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/core/mergeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/core/mergeConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/env/classes/FormData.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/env/classes/FormData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/env/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/env/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/helpers/toFormData.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/helpers/toFormData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/classes/FormData.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/classes/FormData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/platform/browser/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/lib/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/axios/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/axios/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/csstype/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/csstype/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/csstype/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/csstype/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/csstype/index.js.flow" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/csstype/index.js.flow" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/csstype/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/csstype/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.cjs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.cjs.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.es.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.umd.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/dist/magic-string.umd.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magic-string/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magic-string/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/dist/sourcemap-codec.es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/dist/sourcemap-codec.es.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/dist/sourcemap-codec.umd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/dist/sourcemap-codec.umd.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/dist/types/sourcemap-codec.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sourcemap-codec/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/index.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/index.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/compiler-sfc/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.cjs.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.cjs.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.global.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.global.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.global.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-browser.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-browser.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-bundler.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.esm-bundler.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.global.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.global.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.global.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/dist/vue.runtime.global.prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/macros.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/macros.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/vue/ref-macros.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/vue/ref-macros.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -453,7 +303,8 @@
       <workItem from="1684274640225" duration="1499000" />
       <workItem from="1684297512411" duration="10591000" />
       <workItem from="1684335015156" duration="343000" />
-      <workItem from="1684364097065" duration="8749000" />
+      <workItem from="1684364097065" duration="9416000" />
+      <workItem from="1684378706375" duration="5500000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios Nuevos">
       <created>1673307646623</created>
@@ -644,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684308507411</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Cambios Nuevo">
+      <created>1684373022575</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684373022575</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +522,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cambios Nuevos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios Nuevos" />
+    <MESSAGE value="Cambios Nuevo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios Nuevo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1683843700996">
@@ -704,15 +563,16 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684308517297" />
-    <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1684367549344">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="809" y="190" width="538" height="537" key="run.anything.popup" timestamp="1684382406216">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684382406216" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684367549344" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1684371506303">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="430" y="45" width="672" height="606" key="search.everywhere.popup" timestamp="1684383972974">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="430" y="45" width="672" height="160" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684122891640" />
+    <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684383972974" />
     <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684371506303" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843520382" />
   </component>

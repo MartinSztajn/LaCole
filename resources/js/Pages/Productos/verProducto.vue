@@ -1,25 +1,24 @@
 <template>
         <cliente-layout>
-            <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-                <div class="compu">
-                    <div v-for="cat in categorias">
-                        <a v-if="cat.hijos == null"
-                           :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                            {{cat.nombre}}
-                        </a>
-                        <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{cat.nombre}}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li v-for="hijo in cat.hijos">
-                                <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
-                            </li>
-                        </ul>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img v-if="fotosBanner[num]" class="d-block w-100"  :src="'/fotos/' + fotosBanner[num].path" style="width: 100%" alt="First slide">
                     </div>
                 </div>
+                <a class="carousel-control-prev" @click="moverIzq()" role="button" data-slide="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    </svg>
+                </a>
+                <a class="carousel-control-next" @click="moverDer()" role="button" data-slide="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
+                </a>
             </div>
 
-            <div id="cambio">
+            <div>
                 <div class="row compu" style="width: 90%; margin: 5%; padding: 1%; padding-top: 3%; padding-bottom: 3%; background-color: white">
                    <div class="col-2" style="padding-left: 4%">
                         <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @click="cambiarFoto(key)" style="height:100px; width: 100px; margin-right: 5%; margin-bottom: 5%; border-radius: 10px; border: 2px solid #17428A;">
@@ -314,7 +313,7 @@ import ClienteLayout from '@/Layouts/ClienteLayout.vue'
 
 export default {
     name: "verProducto",
-    props: ['producto', 'categorias','otros'],
+    props: ['producto', 'categorias','otros','fotosBanner'],
     components: {
         ClienteLayout
     },
@@ -335,6 +334,7 @@ export default {
             colorOferta: 'EBEBEB',
             fotoPrincipal: '', //this.producto.path[0].path,
             min: 0,
+            num: 0,
             primerosOtros: [],
             form:{
                 negocio_id: this.producto.negocio_id,
@@ -351,6 +351,17 @@ export default {
     },
     methods:
         {
+            moverIzq(){
+                if (this.num == 0){
+                    this.num = this.fotosBanner.length - 1;
+                }
+                else{
+                    this.num = this.num - 1;
+                }
+            },
+            moverDer(){
+                this.num =  (this.num+1) % this.fotosBanner.length;
+            },
             nuevaOferta(){
                 this.valorOfe = 0;
                 this.form.provincia_id = '';
@@ -463,7 +474,7 @@ export default {
         var negocio = JSON.parse(JSON.stringify(this.producto));
         console.log(negocio)
         console.log( this.form.cant );
-
+        setInterval(this.moverDer, 5000); // Change image every 2 seconds
     },
     created() {
         // Llamamos al método que filtra los productos al crear el componente
@@ -476,6 +487,12 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .celular{
+        display: none;
+    }
+    #carouselExampleControls{
+        margin-top: 63px;
+    }
     #cambio{
         margin-top: 134px;
     }
@@ -548,6 +565,9 @@ export default {
 }
 
 @media (min-width: 501px) {
+    #carouselExampleControls{
+        margin-top: 118px;
+    }
     #cambio{
         margin-top: 118px;
     }

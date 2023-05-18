@@ -24,6 +24,7 @@ Route::get('/inicio', [\App\Http\Controllers\IndexController::class,'verPagina']
 Route::get('/enviarConsulta', [\App\Http\Controllers\IndexController::class,'enviarConsulta']);
 Route::post('/enviarMensajeConsulta', [\App\Http\Controllers\IndexController::class,'enviarMensajeConsulta']);
 Route::get('/buscarCategorias', [\App\Http\Controllers\IndexController::class,'buscarCategorias']);
+Route::get('/buscarCategoriasHijos', [\App\Http\Controllers\IndexController::class,'buscarCategoriasHijos']);
 
 /*
 USUARIOS CONTROLLER
