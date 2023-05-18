@@ -22,7 +22,6 @@
                     <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
                 </svg>
             </div>
-        </div>
 
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -85,17 +84,21 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </cliente-layout>
 </template>
 
 
 <script>
 import ClienteLayout from '@/Layouts/ClienteLayout.vue'
+import Footer from '@/Layouts/Footer.vue'
+
 
 export default {
     name: "verProductosNegocio",
     props: ['productos','categorias','fotosBanner'],
     components:{
+        Footer,
         ClienteLayout
     },
     data()

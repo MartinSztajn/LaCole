@@ -23,10 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
+      <change afterPath="$PROJECT_DIR$/public/fotos/Contactanos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fotos/publicita.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Layouts/Footer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/hot" beforeDir="false" afterPath="$PROJECT_DIR$/public/hot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" afterDir="false" />
@@ -197,22 +198,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/fotos" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
+      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ColeMarket\public\fotos" />
       <recent name="C:\xampp\htdocs\WopNuevo\vendor" />
       <recent name="C:\xampp1\htdocs\WopNuevo\public" />
       <recent name="C:\xampp1\htdocs\WopNuevo\vendor" />
       <recent name="C:\xampp1\htdocs\WopNuevo" />
-      <recent name="C:\xampp1\htdocs\WopNuevo\database\migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
-      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.IndexController.php">
@@ -304,7 +305,8 @@
       <workItem from="1684297512411" duration="10591000" />
       <workItem from="1684335015156" duration="343000" />
       <workItem from="1684364097065" duration="9416000" />
-      <workItem from="1684378706375" duration="5500000" />
+      <workItem from="1684378706375" duration="5853000" />
+      <workItem from="1684415743728" duration="8397000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios Nuevos">
       <created>1673307646623</created>
@@ -502,7 +504,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684373022575</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Cambios Nuevo">
+      <created>1684384419270</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684384419270</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,27 +562,27 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1684308579488">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1684384427916">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1678823958738" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684384427916" />
     <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684308579488" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1682436732549" />
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1684308517297">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684308517297" />
-    <state x="809" y="190" width="538" height="537" key="run.anything.popup" timestamp="1684382406216">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1684421971096">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684382406216" />
-    <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684367549344" />
+    <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684421971096" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="430" y="45" width="672" height="606" key="search.everywhere.popup" timestamp="1684383972974">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1684425664575">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684383972974" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684371506303" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684425664575" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843520382" />
   </component>
 </project>

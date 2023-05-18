@@ -143,18 +143,22 @@
             </div>
             -->
         </div>
+        <Footer></Footer>
     </cliente-layout>
 </template>
 
 
 <script>
 import ClienteLayout from '@/Layouts/ClienteLayout.vue'
+import Footer from '@/Layouts/Footer.vue'
+
 
 export default {
     name: "verNegocio",
     props: ['idNeg','productos','nombre','categorias','ventas','duenos','estados', 'fotosBanner', 'categorias2'],
     components: {
-        ClienteLayout
+        ClienteLayout,
+        Footer
     },
     data()
     {
