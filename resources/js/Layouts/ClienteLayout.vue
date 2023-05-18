@@ -76,6 +76,11 @@
                                         </li>
                                     </ul>
                                 </div>
+                                <div v-for="col in colores">
+                                    <a href="" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
+                                        <div class="rounded-circle" :style="'width: 50px; height: 50px; background-color:' + col.color"></div>
+                                    </a>
+                                </div>
                                 <svg v-if="admin == 1"
                                      onclick="window.location.href='/login'"
                                      style="float: right; margin-top: 3px"
@@ -198,6 +203,7 @@ export default {
             isMenuOpen: false,
             categorias: [],
             categoriasHijos: [],
+            colores: [],
             habilitarModalBuscar: false,
         }
     },
@@ -228,6 +234,16 @@ export default {
                     console.error(error);
                 });
         },
+        buscarColores(){
+            axios.get('/buscarColores', {
+            })
+                .then(response => {
+                    this.colores = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
         buscarCategorias(){
             axios.get('/buscarCategorias', {
             })
@@ -253,6 +269,7 @@ export default {
     created() {
         // Llamamos al método que filtra los productos al crear el componente
         this.buscarCategorias();
+        this.buscarColores();
         this.buscarCategoriasHijos();
 
     }

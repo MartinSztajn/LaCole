@@ -22,6 +22,7 @@ Route::get('/inicio', [\App\Http\Controllers\IndexController::class,'verPagina']
 Route::get('/enviarConsulta', [\App\Http\Controllers\IndexController::class,'enviarConsulta']);
 Route::post('/enviarMensajeConsulta', [\App\Http\Controllers\IndexController::class,'enviarMensajeConsulta']);
 Route::get('/buscarCategorias', [\App\Http\Controllers\IndexController::class,'buscarCategorias']);
+Route::get('/buscarColores', [\App\Http\Controllers\IndexController::class,'buscarColores']);
 Route::get('/buscarCategoriasHijos', [\App\Http\Controllers\IndexController::class,'buscarCategoriasHijos']);
 Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
 Route::post('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
@@ -67,7 +68,9 @@ Route::get('/verProductosCategoria/{nombre}', [\App\Http\Controllers\ProductosCo
 Route::middleware(['auth:sanctum', 'verified'])->get('/verPerfilProducto/{id}', [\App\Http\Controllers\ProductosController::class,'verPerfilProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarProducto', [\App\Http\Controllers\ProductosController::class,'editarProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verEstadoProducto', [\App\Http\Controllers\ProductosController::class,'verEstadoProducto']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/verColoresProducto', [\App\Http\Controllers\ProductosController::class,'verColoresProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarEstadoProducto', [\App\Http\Controllers\ProductosController::class,'guardarEstadoProducto']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/guardarColorProducto', [\App\Http\Controllers\ProductosController::class,'guardarColorProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/borrarEstadoProducto/{id}', [\App\Http\Controllers\ProductosController::class,'borrarEstadoProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verPrecios', [\App\Http\Controllers\ProductosController::class,'verPrecios']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarPrecioProducto', [\App\Http\Controllers\ProductosController::class,'guardarPrecioProducto']);
@@ -76,6 +79,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/editarCategoria', [\App\
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarProvincia', [\App\Http\Controllers\ProductosController::class , 'editarProvincia']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarEstado', [\App\Http\Controllers\ProductosController::class , 'editarEstado']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarPrecio', [\App\Http\Controllers\ProductosController::class , 'editarPrecio']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/editarColor', [\App\Http\Controllers\ProductosController::class , 'editarColor']);
 
 /*
 CATEGORIA CONTROLLER

@@ -12,8 +12,10 @@ use App\Models\Fotos_categoria;
 use App\Models\Ofertas;
 use App\Models\Precios;
 use App\Models\Productos;
+use App\Models\Colores;
 use App\Models\User;
 use Carbon\Carbon;
+use Faker\Core\Color;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -45,6 +47,20 @@ class ProductosController extends Controller
             $estado->nombre = $request->valor;
         }
         $estado->save();
+
+        return 'OK';
+    }
+    public function editarColor(Request $request){
+        $color = Colores::find($request->id);
+        if($request->tipo == 'Nombre')
+        {
+            $color->nombre = $request->valor;
+        }
+        if($request->tipo == 'Color')
+        {
+            $color->color = $request->valor;
+        }
+        $color->save();
 
         return 'OK';
     }
@@ -444,6 +460,10 @@ class ProductosController extends Controller
         $estados = Estado_producto::all();
         return Inertia::render('Productos/estadoProducto', ['estados' => $estados]);
     }
+    public function verColoresProducto(){
+        $colores = Colores::all();
+        return Inertia::render('Productos/coloresProducto', ['colores' => $colores]);
+    }
 
     public function guardarEstadoProducto(Request $request)
     {
@@ -451,6 +471,15 @@ class ProductosController extends Controller
             $est = new Estado_producto;
             $est->nombre = $request->nombre;
             $est->save();
+            return back();
+        }
+    }
+    public function guardarColorProducto(Request $request){
+        if(Auth::user()->es_admin) {
+            $col = new Colores;
+            $col->nombre = $request->nombre;
+            $col->color = $request->color;
+            $col->save();
             return back();
         }
     }

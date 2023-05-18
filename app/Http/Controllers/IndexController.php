@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Categorias;
+use App\Models\Colores;
 use App\Models\Estado_producto;
 use App\Models\Fotos_Producto;
 use App\Models\Fotos_banner;
@@ -61,6 +62,10 @@ class IndexController extends Controller
 
         return response()->json($categorias);
 
+    }
+    public function buscarColores(){
+        $colores = Colores::all();
+        return $colores;
     }
     public function buscarCategoriasHijos(){
         $categorias = Categorias::all()->where('padre_id',null);
