@@ -1,5 +1,7 @@
 <template>
     <cliente-layout>
+        <div class="altura" style="background-color: #121212;"></div>
+
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -109,8 +111,8 @@ export default {
     .celular{
         display: none;
     }
-    #carouselExampleControls{
-        margin-top: 63px;
+    .altura{
+        height: 63px;
     }
     p.card-text{
         font-size: 15px;
@@ -203,8 +205,8 @@ export default {
         width: 175px;
         height: 175px;
     }
-    #carouselExampleControls{
-        margin-top: 118px;
+    .altura{
+        height: 118px;
     }
     p.card-text{
         font-size: 20px;

@@ -26,6 +26,8 @@ Route::get('/buscarColores', [\App\Http\Controllers\IndexController::class,'busc
 Route::get('/buscarCategoriasHijos', [\App\Http\Controllers\IndexController::class,'buscarCategoriasHijos']);
 Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
 Route::post('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
+Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'buscarBanner']);
+
 
 /*
 USUARIOS CONTROLLER

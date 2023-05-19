@@ -8,7 +8,7 @@
 
             <nav style="background-color: #121212; width: 100%; position: fixed; z-index: 101; top: 0" >
                 <!-- Primary Navigation Menu -->
-                <div>
+                <div style="background-color: #121212;">
                     <div class="md:flex hidden">
                         <div class="container">
                             <div class="row">
@@ -61,7 +61,35 @@
                             </div>
                         </div>
                         <div class="filtros celular" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-                            <div class="compu">
+                            <div class="compu" @mouseleave="handleMouseLeaveCuatroCampos">
+                                    <div   style="display: flex; color: white; text-align: center; font-size: 20px; position: absolute">
+                                        <div style="margin-right: 20%;"><a  href="/inicio">Inicio</a></div>
+                                        <div style="margin-right: 20%;" @mouseover="handleMouseOverCuatroCampos(1)">Categorias</div>
+                                        <div @mouseover="handleMouseOverCuatroCampos(2)">Colores</div>
+                                    </div>
+
+                                    <div v-if="showCategories || showColors || showHelp" style="margin-top: 30px;  position: absolute; background-color: white; max-width: 60%; border-radius: 10px; padding: 20px;">
+                                        <div  v-if="showCategories">
+                                            <ul>
+                                                <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
+                                                    <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
+                                                    <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: black">
+                                                        <p><b>{{cate.nombre}}</b></p>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div  v-if="showColors">
+                                            <ul>
+                                                <li v-for="col in colores"  style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
+                                                    <button @click="verProductosColores(col.id)" href="" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
+                                                        <div class="rounded-circle" :style="'width: 60px; height: 60px; border: 4px solid black; background-color:' + col.color"></div>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <!--
                                 <div v-for="cat in categoriasHijos">
                                     <a v-if="cat.hijos == null"
                                        :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
@@ -81,13 +109,7 @@
                                         <div class="rounded-circle" :style="'width: 50px; height: 50px; background-color:' + col.color"></div>
                                     </a>
                                 </div>
-                                <svg v-if="admin == 1"
-                                     onclick="window.location.href='/login'"
-                                     style="float: right; margin-top: 3px"
-                                     xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                                </svg>
-                            </div>
+-->                            </div>
                         </div>
 
                     </div>
@@ -199,6 +221,9 @@ export default {
             form:{
                 buscador: ''
             },
+            showCategories: false,
+            showColors: false,
+            showHelp: false,
             resultados: [],
             isMenuOpen: false,
             categorias: [],
@@ -209,6 +234,32 @@ export default {
     },
 
     methods:{
+       handleMouseOverCuatroCampos($i){
+           if($i == 1){
+               this.showCategories = 1;
+               this.showColors = 0;
+               this.showHelp = 0;
+
+           }
+           if($i == 2){
+               this.showColors = 1;
+               this.showCategories = 0;
+               this.showHelp = 0;
+           }
+           if($i == 3){
+               this.showHelp = 1;
+               this.showColors = 0;
+               this.showCategories = 0;
+           }
+        },
+        handleMouseLeaveCuatroCampos(){
+            this.showCategories = 0;
+            this.showColors = 0;
+            this.showHelp = 0;
+        },
+        verProductosColores($id){
+            this.$inertia.post('/buscarTexto?color=' + $id);
+        },
         verProductosCategoria($nombre){
             this.$inertia.get('/verProductosCategoria/' + $nombre);
         },

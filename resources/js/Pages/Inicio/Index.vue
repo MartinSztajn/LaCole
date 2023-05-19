@@ -1,5 +1,6 @@
 <template>
     <cliente-layout>
+        <div class="altura" style="background-color: #121212;"></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
@@ -387,7 +388,9 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
-
+    .altura{
+        height: 63px;
+    }
     .svgItem{
         width: 50px;
         height: 50px;
@@ -402,9 +405,7 @@ export default {
     .itemsTexto{
         text-align: center; font-size: 20px;
     }
-    #carouselExampleControls{
-        margin-top: 63px;
-    }
+
     p.card-text{
         font-size: 15px;
         text-align: left;
@@ -526,8 +527,8 @@ export default {
     .itemsTexto{
         text-align: center; font-size: 30px;
     }
-    #carouselExampleControls{
-        margin-top: 118px;
+    .altura{
+        height: 118px;
     }
     p.card-text{
         font-size: 20px;

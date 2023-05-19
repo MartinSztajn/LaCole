@@ -277,8 +277,8 @@ class ProductosController extends Controller
                 }
             }
             $estados = Estado_producto::all();
-
-            return Inertia::render('Productos/Index', ['productos' => $productos, 'categorias' => $categorias, 'estados' => $estados]);
+            $colores = Colores::all();
+            return Inertia::render('Productos/Index', ['productos' => $productos, 'categorias' => $categorias, 'estados' => $estados, 'colores' => $colores]);
         }
     }
     public function verProductoDetalle($nomCat, $producto)
@@ -390,13 +390,14 @@ class ProductosController extends Controller
     public function guardarProducto(Request $request)
     {
         $producto = new Productos;
-        $producto->user_id = $request->user_id;
+        $producto->user_id = Auth::user()->id;
         $producto->nombre = $request->nombre;
         $producto->categoria_id = $request->categoria_id;
         $producto->estado_id = $request->estado_id;
         $producto->precio = $request->precio;
-        $producto->stack = $request->stack;
-        $producto->cant_minimo = $request->cant_min;
+        $producto->stock = $request->stock;
+        $producto->cant_minimo = $request->cant_minimo;
+        $producto->color_id = $request->color;
         $producto->estado = 0;
         $producto->descripcion = $request->descripcion;
         $producto->save();

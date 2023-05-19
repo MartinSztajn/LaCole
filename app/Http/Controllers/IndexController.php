@@ -63,6 +63,10 @@ class IndexController extends Controller
         return response()->json($categorias);
 
     }
+    public function buscarBanner(){
+        $banner = Fotos_banner::all();
+        return response()->json($banner);
+    }
     public function buscarColores(){
         $colores = Colores::all();
         return $colores;
@@ -87,11 +91,15 @@ class IndexController extends Controller
 
     public function buscarTexto(Request $request){
         $buscador = $request['text'];
+        $color = $request['color'];
+
         $productos = Productos::where('estado', 1)->get();
         if ($buscador != '') {
             $productos = Productos::where('nombre', 'like', '%' . $buscador . '%')->get();
         }
-
+        if ($color != '') {
+            $productos = Productos::where('color_id', $color)->get();
+        }
         foreach ($productos as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
