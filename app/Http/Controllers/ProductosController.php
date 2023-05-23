@@ -12,8 +12,10 @@ use App\Models\Fotos_categoria;
 use App\Models\Ofertas;
 use App\Models\Precios;
 use App\Models\Productos;
+use App\Models\Colores;
 use App\Models\User;
 use Carbon\Carbon;
+use Faker\Core\Color;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -45,6 +47,20 @@ class ProductosController extends Controller
             $estado->nombre = $request->valor;
         }
         $estado->save();
+
+        return 'OK';
+    }
+    public function editarColor(Request $request){
+        $color = Colores::find($request->id);
+        if($request->tipo == 'Nombre')
+        {
+            $color->nombre = $request->valor;
+        }
+        if($request->tipo == 'Color')
+        {
+            $color->color = $request->valor;
+        }
+        $color->save();
 
         return 'OK';
     }
@@ -261,8 +277,8 @@ class ProductosController extends Controller
                 }
             }
             $estados = Estado_producto::all();
-
-            return Inertia::render('Productos/Index', ['productos' => $productos, 'categorias' => $categorias, 'estados' => $estados]);
+            $colores = Colores::all();
+            return Inertia::render('Productos/Index', ['productos' => $productos, 'categorias' => $categorias, 'estados' => $estados, 'colores' => $colores]);
         }
     }
     public function verProductoDetalle($nomCat, $producto)
@@ -274,6 +290,9 @@ class ProductosController extends Controller
                 ->firstOrFail();
 
             if ($produ->estado == 1) {
+
+                $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+
                 $id = $produ->id;
                 $nomEstado = Estado_producto::select('nombre')->where('id', $produ->estado_id)->get()->toArray();
                 $ofertas = Ofertas::where('producto_id', $id)->orderBy('created_at', 'DESC')->get();
@@ -326,7 +345,7 @@ class ProductosController extends Controller
                         $pro->path = $fotos[0]['path'];
                     }
                 }
-                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros]);
+                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros, 'fotosBanner' => $fotosBanner]);
                 } else {
                     $this->otroController->inicio();
                 }
@@ -371,13 +390,14 @@ class ProductosController extends Controller
     public function guardarProducto(Request $request)
     {
         $producto = new Productos;
-        $producto->user_id = $request->user_id;
+        $producto->user_id = Auth::user()->id;
         $producto->nombre = $request->nombre;
         $producto->categoria_id = $request->categoria_id;
         $producto->estado_id = $request->estado_id;
         $producto->precio = $request->precio;
-        $producto->stack = $request->stack;
-        $producto->cant_minimo = $request->cant_min;
+        $producto->stock = $request->stock;
+        $producto->cant_minimo = $request->cant_minimo;
+        $producto->color_id = $request->color;
         $producto->estado = 0;
         $producto->descripcion = $request->descripcion;
         $producto->save();
@@ -441,6 +461,10 @@ class ProductosController extends Controller
         $estados = Estado_producto::all();
         return Inertia::render('Productos/estadoProducto', ['estados' => $estados]);
     }
+    public function verColoresProducto(){
+        $colores = Colores::all();
+        return Inertia::render('Productos/coloresProducto', ['colores' => $colores]);
+    }
 
     public function guardarEstadoProducto(Request $request)
     {
@@ -448,6 +472,15 @@ class ProductosController extends Controller
             $est = new Estado_producto;
             $est->nombre = $request->nombre;
             $est->save();
+            return back();
+        }
+    }
+    public function guardarColorProducto(Request $request){
+        if(Auth::user()->es_admin) {
+            $col = new Colores;
+            $col->nombre = $request->nombre;
+            $col->color = $request->color;
+            $col->save();
             return back();
         }
     }

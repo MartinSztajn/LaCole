@@ -22,431 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevos">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VendedoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VendedoresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fotos_Categoria.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fotos_Categoria.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Productos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Productos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_11_214631_create_producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_11_214631_create_producto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/acorn.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/detective" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/detective.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/detective.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/nanoid" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/nanoid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/nanoid.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/nanoid.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/nanoid.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/nanoid.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/resolve" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/resolve" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/resolve.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/resolve.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/resolve.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/resolve.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwind" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwind.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwind.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwind.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwind.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwindcss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwindcss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.cmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/bigint/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/class-fields/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/dynamic-import/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/export-ns-from/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/import-meta/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/numeric-separator/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/private-class-elements/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/lib/static-class-features/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/test/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-node/walk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/dist/walk.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/dist/walk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/dist/walk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/dist/walk.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/dist/walk.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn-walk/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/bin/acorn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.mjs.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/acorn.mjs.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/dist/bin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/acorn/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/color-name/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/color-name/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/color-name/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/color-name/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/.github/FUNDING.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/example/defined.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/test/def.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/defined/test/falsy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/bench/detect.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/bench/esprima_v_acorn.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/bin/detective.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/example/strings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/example/strings_src.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/readme.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/both.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/chained.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/complicated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/es2019.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/es6-module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/both.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/chained.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/es6-module.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/for-await.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/generators.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/isrequire.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/nested.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/optional-catch.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/rest-spread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/set-in-object-pattern.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/shebang.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/sparse-array.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/strings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/word.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/files/yield.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/generators.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/isrequire.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/nested.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/noargs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/parseopts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/rest-spread.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/return.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/set-in-object-pattern.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/shebang.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/sparse-array.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/strings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/word.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/detective/test/yield.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lilconfig/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lilconfig/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lilconfig/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lilconfig/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/lilconfig/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/lilconfig/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/.eslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/.github/FUNDING.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/.nycrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/example/parse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/all_bool.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/bool.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/dash.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/default_bool.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/dotted.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/kv_short.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/long.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/num.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/parse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/parse_modified.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/proto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/short.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/stop_early.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/unknown.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/whitespace.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/nanoid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/nanoid/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/lib/join-media.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/lib/join-media.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/lib/load-content.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/lib/load-content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/lib/process-content.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/lib/process-content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-import/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-import/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-js/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-js/objectifier.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-js/objectifier.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-js/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-load-config/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-load-config/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-load-config/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-load-config/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-load-config/src/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-load-config/src/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-load-config/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-load-config/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-load-config/src/req.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-load-config/src/req.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-nested/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-nested/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-nested/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-nested/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss-nested/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss-nested/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/at-rule.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/at-rule.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/comment.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/comment.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/container.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/container.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/css-syntax-error.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/css-syntax-error.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/declaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/declaration.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/document.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/document.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/fromJSON.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/fromJSON.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/input.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/input.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/lazy-result.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/lazy-result.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/list.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/list.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/no-work-result.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/no-work-result.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/node.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/node.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/parse.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/parse.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/postcss.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/postcss.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/previous-map.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/previous-map.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/processor.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/processor.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/processor.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/processor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/result.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/result.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/root.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/root.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/rule.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/rule.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/stringifier.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/stringifier.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/stringify.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/stringify.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/lib/warning.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/lib/warning.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/postcss/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/postcss/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/quick-lru/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/quick-lru/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/quick-lru/license" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/quick-lru/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/quick-lru/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/resolve/lib/core.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/resolve/lib/core.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/resolve/lib/core.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/resolve/lib/core.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/resolve/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/resolve/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli-peer-dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli-peer-dependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/deps.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/deps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/watching.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/build/watching.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/help/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/help/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/init/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/init/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/cli/shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/corePluginList.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/corePluginList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/corePlugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/corePlugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/css/preflight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/css/preflight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/featureFlags.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/featureFlags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/cacheInvalidation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/cacheInvalidation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/collapseAdjacentRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/collapseAdjacentRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/collapseDuplicateDeclarations.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/collapseDuplicateDeclarations.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/defaultExtractor.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/defaultExtractor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/detectNesting.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/detectNesting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/evaluateTailwindFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/evaluateTailwindFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/expandApplyAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/expandApplyAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/expandTailwindAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/expandTailwindAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/findAtConfigPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/findAtConfigPath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/generateRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/generateRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/getModuleDependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/getModuleDependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/normalizeTailwindDirectives.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/normalizeTailwindDirectives.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/offsets.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/offsets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/partitionApplyAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/partitionApplyAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/resolveDefaultsAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/resolveDefaultsAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/setupContextUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/setupContextUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/setupTrackingContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/setupTrackingContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/sharedState.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/sharedState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/substituteScreenAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/lib/substituteScreenAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/postcss-plugins/nesting/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/postcss-plugins/nesting/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/postcss-plugins/nesting/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/postcss-plugins/nesting/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/processTailwindFeatures.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/processTailwindFeatures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/colors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/create-plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/create-plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/default-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/default-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/default-theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/default-theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/resolve-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/public/resolve-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/bigSign.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/bigSign.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/buildMediaQuery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/buildMediaQuery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/cloneDeep.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/cloneDeep.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/cloneNodes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/cloneNodes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/configurePlugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/configurePlugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/createPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/createPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/createUtilityPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/createUtilityPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/dataTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/dataTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/defaults.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/defaults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/escapeClassName.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/escapeClassName.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/escapeCommas.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/escapeCommas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/flattenColorPalette.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/flattenColorPalette.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/formatVariantSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/formatVariantSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/getAllConfigs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/getAllConfigs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/hashConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/hashConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/isKeyframeRule.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/isKeyframeRule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/isPlainObject.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/isPlainObject.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/isValidArbitraryValue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/log.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/nameClass.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/nameClass.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/negateValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/negateValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/normalizeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/normalizeConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/normalizeScreens.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/normalizeScreens.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseAnimationValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseAnimationValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseBoxShadowValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseBoxShadowValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseDependency.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseDependency.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseGlob.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseGlob.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseObjectStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/parseObjectStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/pluginUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/pluginUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/prefixSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/prefixSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/removeAlphaVariables.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/removeAlphaVariables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/resolveConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/resolveConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/resolveConfigPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/resolveConfigPath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/responsive.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/responsive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/splitAtTopLevelOnly.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/splitAtTopLevelOnly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/tap.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/tap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/toColorValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/toColorValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/toPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/toPath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/transformThemeValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/transformThemeValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/validateConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/validateConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/validateFormalSyntax.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/validateFormalSyntax.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/withAlphaVariable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/lib/util/withAlphaVariable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/peers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/peers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/resolveConfig.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/resolveConfig.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/scripts/install-integrations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/scripts/rebuildFixtures.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/watching.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/build/watching.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/init/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/init/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/cli/shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/corePluginList.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/corePluginList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/corePlugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/corePlugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/css/preflight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/css/preflight.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/featureFlags.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/featureFlags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/content.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/defaultExtractor.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/defaultExtractor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/detectNesting.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/detectNesting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/expandApplyAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/expandApplyAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/expandTailwindAtRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/expandTailwindAtRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/generateRules.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/generateRules.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/getModuleDependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/getModuleDependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/offsets.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/offsets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/setupContextUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/setupContextUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/setupTrackingContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/setupTrackingContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/sharedState.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/lib/sharedState.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/colors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/default-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/default-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/default-theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/public/default-theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/dataTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/dataTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/formatVariantSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/formatVariantSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/getAllConfigs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/getAllConfigs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/isValidArbitraryValue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/negateValue.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/negateValue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/normalizeConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/normalizeConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/pluginUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/pluginUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/prefixSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/prefixSelector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/resolveConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/resolveConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/resolveConfigPath.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/resolveConfigPath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/splitAtTopLevelOnly.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/splitAtTopLevelOnly.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/validateConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/src/util/validateConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/stubs/defaultConfig.stub.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/stubs/defaultPostCssConfig.stub.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/stubs/simpleConfig.stub.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/types/config.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/types/config.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/colors.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/colors.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/corePluginList.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/corePluginList.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/default-theme.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/tailwindcss/types/generated/default-theme.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/immutable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/mutable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/xtend/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/PlainValue-b8036b75.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/Schema-e94716c8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/browser/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/legacy-exports.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/parse-cst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/resolveSeq-492ab440.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/browser/dist/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/dist/warnings-df54cb69.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/browser/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/pair.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/parse-cst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/scalar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/schema.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/seq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types/binary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types/omap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types/pairs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types/set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/types/timestamp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/browser/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/Document-9b4560a1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/PlainValue-ec8e588e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/Schema-88e323a7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/legacy-exports.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/parse-cst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/resolveSeq-d03cb037.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/test-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/dist/test-events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/dist/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/dist/warnings-1000a372.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/pair.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/parse-cst.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/parse-cst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/scalar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/schema.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/seq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types/binary.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types/omap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types/pairs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types/set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/types/timestamp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/util.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/util.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/yaml/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/yaml/util.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Fotos/banner.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Fotos/banner.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/verNegocio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocio.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/verNegocioDueno.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocioDueno.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/verOfertas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertas.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/verOfertasDueno.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Negocio/verProductosNegocio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/consultas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/productosCategoria.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocio.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verNegocio.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -468,6 +60,11 @@
     <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -601,24 +198,25 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/fotos" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
+      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\ColeMarket\public\fotos" />
       <recent name="C:\xampp\htdocs\WopNuevo\vendor" />
       <recent name="C:\xampp1\htdocs\WopNuevo\public" />
       <recent name="C:\xampp1\htdocs\WopNuevo\vendor" />
       <recent name="C:\xampp1\htdocs\WopNuevo" />
-      <recent name="C:\xampp1\htdocs\WopNuevo\database\migrations" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
-      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.IndexController.php">
@@ -707,7 +305,13 @@
       <workItem from="1684116962674" duration="6151000" />
       <workItem from="1684162355130" duration="94000" />
       <workItem from="1684274640225" duration="1499000" />
-      <workItem from="1684297512411" duration="10359000" />
+      <workItem from="1684297512411" duration="10591000" />
+      <workItem from="1684335015156" duration="343000" />
+      <workItem from="1684364097065" duration="9416000" />
+      <workItem from="1684378706375" duration="5853000" />
+      <workItem from="1684415743728" duration="8397000" />
+      <workItem from="1684446217644" duration="2943000" />
+      <workItem from="1684502491549" duration="8085000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios Nuevos">
       <created>1673307646623</created>
@@ -891,7 +495,35 @@
       <option name="project" value="LOCAL" />
       <updated>1682436583010</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Cambios Nuevos">
+      <created>1684308507411</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684308507411</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Cambios Nuevo">
+      <created>1684373022575</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684373022575</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Cambios Nuevo">
+      <created>1684384419270</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684384419270</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Cambios Nuevo">
+      <created>1684449172843</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684449172843</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -911,9 +543,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cambios Nuevos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios Nuevos" />
+    <MESSAGE value="Cambios Nuevo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios Nuevo" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1684446726235">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1684446726235" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1683843700996">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -941,22 +578,27 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1682436732549">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1684449177942">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1678823958738" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1682084109348" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1682436732549" />
-    <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1684304263388">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684384427916" />
+    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684308579488" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1684449177942" />
+    <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1684308517297">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684304263388" />
+    <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684308517297" />
+    <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1684507691536">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684382406216" />
+    <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684507691536" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1684303621326">
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1684510516183">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="430" y="45" width="672" height="160" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684122891640" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684303621326" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843520382" />
+    <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684383972974" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1684510516183" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1684448713715" />
   </component>
 </project>

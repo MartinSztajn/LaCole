@@ -1,29 +1,6 @@
 <template>
     <cliente-layout>
-        <div class="filtros" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-            <div class="compu">
-                <div v-for="cat in categorias">
-                    <a v-if="cat.hijos == null"
-                        :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                        {{cat.nombre}}
-                    </a>
-                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #17428A;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{cat.nombre}}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li v-for="hijo in cat.hijos">
-                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
-                        </li>
-                    </ul>
-                </div>
-                <svg v-if="admin == 1"
-                    onclick="window.location.href='/login'"
-                    style="float: right; margin-top: 3px"
-                    xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
-                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-                </svg>
-            </div>
-        </div>
+        <div class="altura" style="background-color: #121212;"></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div v-if="fotosBanner && fotosBanner[num] " class="carousel-item active">
@@ -43,7 +20,98 @@
                 </svg>
             </a>
         </div>
-        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 5%; padding: 20px" >
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 0%;">
+            <div style="width: 96%; margin-left: 2%; margin-right: 2%">
+                <div>
+                    <h1 class="titulo"><b>Bienvenido a La Cole Market</b></h1>
+                    <p class="textito">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comundidad</p>
+                </div>
+                <div style="display: flex; justify-content: space-evenly;">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                        </svg>
+                        <p class="itemsTexto">+500 Usuarios</p>
+                    </div>
+                    <div class="">
+                        <svg  xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-bag-plus-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+                        </svg>
+                        <p class="itemsTexto">+1500 Productos</p>
+                    </div>
+                    <div class="">
+                        <svg  xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-ui-radios-grid" viewBox="0 0 16 16">
+                            <path d="M3.5 15a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm9-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 9a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm-9 9a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm5.5 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-9-11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 2a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                        <p class="itemsTexto">+30 Categorias</p>
+                    </div>
+                </div>
+                <div class="celular" style="justify-content: space-evenly; padding: 10px; margin-top: 35px; background-color: black; border-radius: 15px;">
+                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Publica Productos</p>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
+                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#ebebeb" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Unite a la comunidad <br> Crea tu cuenta</p>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
+                        <svg  style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="#ebebeb" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Contamos con productos <br> de calidad</p>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
+                        <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#ebebeb" class="bi bi-stars" viewBox="0 0 16 16">
+                            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+                        </svg>
+                        <p style="text-align: center; color: #ebebeb">Publicita tu marca, servicio <br>
+                            o emprendimiento</p>
+                    </button>
+                </div>
+                <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: black; border-radius: 15px;">
+                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
+                        <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Publica Productos</p>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
+                        <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"   fill="#ebebeb" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Unite a la comunidad</p>
+                    </button>
+                </div>
+                <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: black; border-radius: 15px;">
+                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
+                        <svg  style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"    fill="#ebebeb" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        <p  style="text-align: center; color: #ebebeb">Mejores prodcutos</p>
+                    </button>
+                    <p style="font-size: 60px">|</p>
+                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
+                        <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"   fill="#ebebeb" class="bi bi-stars" viewBox="0 0 16 16">
+                            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
+                        </svg>
+                        <p style="text-align: center; color: #ebebeb">Publicita tu marca</p>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
             <h1 style="font-size: 30px; text-align: left; color: #17428A;">
                 Los más solicitados
             </h1>
@@ -80,8 +148,6 @@
             </div>
         </div>
 
-
-
         <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
             <div class="card-deck cate" v-for="(cat, index) in cateTotales" style="text-align: center">
                 <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"
@@ -91,69 +157,22 @@
                 </button>
             </div>
         </div>
-        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
-            <div class="container2" style="margin-bottom: 10px; width: 96%; margin-left: 2%; margin-right: 2%">
-                <div>
-                    <h1 style="text-align: center; font-size: 60px; padding: 20px"><b>Bienvenido a La Cole Market</b></h1>
-                    <p style="text-align: center; font-size: 20px; padding: 10px">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comundidad</p>
-                </div>
-                <hr style="width: 90%; margin-left: 5%; margin-right: 5%; border: 2px solid #EF7728; margin-bottom: 10px; margin-top: 10px">
+        <div class="container p-3">
+            <!-- Section: Links -->
+            <section class="">
+                <div class="row" style="">
+                    <div class="col-lg-6 col-md-6 mb-6 mb-md-0" >
+                        <a href="/enviarConsulta">
+                            <img src="fotos/Contactanos.png">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
+                        <img src="fotos/publicita.png">
 
-                <div style="display: flex; justify-content: space-evenly; padding: 20px">
-                    <div class="item">
-                        <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
-                        </svg>
-                        <span  style="text-align: center; font-size: 30px">+500 Usuarios</span>
-                    </div>
-                    <div class="item">
-                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                        </svg>
-                        <span  style="text-align: center; font-size: 30px">+1500 Productos</span>
-                    </div>
-                    <div class="item">
-                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-ui-radios-grid" viewBox="0 0 16 16">
-                            <path d="M3.5 15a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm9-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 9a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm-9 9a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm5.5 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-9-11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 2a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                        </svg>
-                        <span  style="text-align: center; font-size: 30px">+30 Categorias</span>
                     </div>
                 </div>
-                <div style="display: flex; justify-content: space-evenly; padding: 20px">
-                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
-                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
-                        </svg>
-                        <span  style="text-align: center">Publica Productos</span>
-                    </button>
-                    <p style="font-size: 60px">|</p>
-                    <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
-                        <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
-                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
-                        </svg>
-                        <span  style="text-align: center">Unite a la comunidad <br> Crea tu cuenta</span>
-                    </button>
-                    <p style="font-size: 60px">|</p>
-                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
-                        <svg  style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
-                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-                        </svg>
-                        <span  style="text-align: center">Contamos con productos <br> de calidad</span>
-                    </button>
-                    <p style="font-size: 60px">|</p>
-                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
-                        <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
-                            <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
-                        </svg>
-                        <span style="text-align: center">Publicita tu marca, servicio <br>
-                            o emprendimiento</span>
-                    </button>
-                </div>
-
-            </div>
-
+            </section>
         </div>
-
         <!-- Tabs navs -->
         <div  v-if="novedades.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
             <h1 style="font-size: 30px; text-align: left; color: #17428A;">
@@ -192,93 +211,7 @@
             </div>
         </div>
         <!-- Footer -->
-        <footer style="background-color: #EF7728; margin-top: 4%;" class="text-center text-white">
-            <!-- Grid container -->
-            <div class="container p-3">
-                <!-- Section: Links -->
-                <section class="">
-                    <!--Grid row-->
-                    <div class="row" style="margin-bottom: 1%">
-                        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
-                            <h1 style="font-size: 20px; color: black"><b>Metodos de Pago</b></h1>
-                            <br>
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <p class="text-white">Transferencia Bancaria</p>
-                                </li>
-                                <li>
-                                    <p class="text-white">Mercado Pago</p>
-                                </li>
-                                <li>
-                                    <p class="text-white">Efectivo</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2 col-md-6 mb-3 mb-md-0">
-                            <h1 style="font-size: 20px; color: black"><b>Medios de envio</b></h1>
-                            <br>
-                            <ul class="list-unstyled mb-0">
-                                <li>
-                                    <p class="text-white">Correo Argentino</p>
-                                </li>
-                                <li>
-                                    <p class="text-white">Andreani</p>
-                                </li>
-                                <li>
-                                    <p class="text-white">Expresos</p>
-                                </li>
-                                <li>
-                                    <p class="text-white">A Convenir</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-3 mb-md-0">
-                            <h1 style="font-size: 20px; color: black"><b>Contacto</b></h1>
-                            <br>
-                            <ul class="list-unstyled mb-0">
-                                <li style="margin-top: 5%;display: flex;justify-content: space-evenly;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                                    </svg>
-                                    <a href="https://www.instaram.com/wop.ok/">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                                        </svg>
-                                    </a>
-                                    <a href="https://wa.me/5491128495155?text=Buenos%20dias!%20Me%20gustaria%20tener%20más%20informacion" target="_blank">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
-                                        </svg>
-                                    </a>
-                                    <a href="mailto:admin@wop.com.ar">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mb-3 mb-md-0">
-                            <a href="/enviarConsulta">
-                                <div style="background-color: #17428A; color: white; padding: 15px 30px 15px 30px; border-radius: 15px; width: 80%; margin-left: 5%; margin-top: 20px">
-                                    <h1 style="font-size: 20px;">Recibí atención personalizada ¡Dejanos tu mensaje!</h1>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div style="padding: 8px; background-color: black">
-                © Copyright 2023 W.O.P - 1128495155
-            </div>
-            <!-- Grid container -->
-            <!-- Copyright
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2020 Copyright:
-                <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-            </div>
-           Copyright -->
-        </footer>
+        <Footer></Footer>
         <!-- Footer -->
     </cliente-layout>
 </template>
@@ -286,6 +219,8 @@
 
 <script>
 import ClienteLayout from '@/Layouts/ClienteLayout.vue'
+import Footer from '@/Layouts/Footer.vue'
+
 import { Carousel, Slide } from 'vue-carousel';
 
 export default {
@@ -294,7 +229,8 @@ export default {
   components:{
       ClienteLayout,
       Carousel,
-      Slide
+      Slide,
+      Footer
   },
   data()
   {
@@ -452,9 +388,24 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
-    #carouselExampleControls{
-        margin-top: 134px;
+    .altura{
+        height: 63px;
     }
+    .svgItem{
+        width: 50px;
+        height: 50px;
+        margin-left: 30%
+    }
+    .titulo{
+        text-align: center; font-size: 40px; padding: 20px
+    }
+    .textito{
+        text-align: center; font-size: 15px; padding-top: 0px; margin-bottom: 15px
+    }
+    .itemsTexto{
+        text-align: center; font-size: 20px;
+    }
+
     p.card-text{
         font-size: 15px;
         text-align: left;
@@ -506,7 +457,7 @@ export default {
       margin-bottom: 5%;
   }
   .filtros{
-      background-color: #17428A;
+      background-color: white;
       margin-top: -1px;
       padding-left: 12%;
       padding-top: 2%;
@@ -546,11 +497,38 @@ export default {
         border-radius: 3px;
         margin: 0 auto;
     }
+    .celular{
+        display: none;
+    }
+    .computadora{
+        display: flex;
+    }
 }
 
 @media (min-width: 501px) {
-    #carouselExampleControls{
-        margin-top: 118px;
+    .computadora{
+        display: none;
+    }
+    .celular{
+        display: flex;
+    }
+    .svgItem{
+        width: 60px;
+        height: 60px;
+        margin-left: 40%
+
+    }
+    .titulo{
+        text-align: center; font-size: 60px; padding: 20px
+    }
+    .textito{
+        text-align: center; font-size: 20px; padding-top: 0px; margin-bottom: 35px
+    }
+    .itemsTexto{
+        text-align: center; font-size: 30px;
+    }
+    .altura{
+        height: 118px;
     }
     p.card-text{
         font-size: 20px;
@@ -638,7 +616,7 @@ export default {
            margin-bottom: 2%;
        }
       .filtros{
-          background-color: #17428A;
+          background-color: whitesmoke;
           margin-top: -1px;
           padding-bottom: 1%;
           height: 40px;
@@ -885,7 +863,8 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
     display: block;
 }
 .item{
-    display: flex;    align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 

@@ -12,12 +12,13 @@
                             <tr>
                                 <th scope="col"></th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Negocio</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Estado</th>
-                                <th scope="col">Precio Max.</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Fecha Fin</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Minimo</th>
+                                <th scope="col">Color</th>
+
                                 <th scope="col">Descripcion</th>
                                 <th scope="col">Habilato</th>
                             </tr>
@@ -31,12 +32,12 @@
                                     </button>
                                 </td>
                                 <td>{{pro.nombre}}</td>
-                                <td>{{pro.nomNeg}}</td>
                                 <td>{{pro.nomCat}}</td>
                                 <td>{{pro.nomEstado}}</td>
-                                <td>{{pro.precio_max}}</td>
-                                <td>{{pro.cantidad}}</td>
-                                <td>{{pro.fecha_fin}}</td>
+                                <td>{{pro.precio}}</td>
+                                <td>{{pro.stock}}</td>
+                                <td>{{pro.cant_minimo}}</td>
+                                <td>{{pro.color_id}}</td>
                                 <td>{{pro.descripcion}}</td>
                                 <td v-if="pro.estado == 0"><button @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: red">No Aceptado</button></td>
                                 <td v-if="pro.estado == 1"><button @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: green">Aceptado</button></td>
@@ -50,11 +51,6 @@
                     <h2 style="margin: 20px">Nombre Producto:</h2>
                     <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
                     <br>
-                    <h2 style="margin: 20px">Negocio:</h2>
-                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.negocio_id">
-                        <option v-for="neg in negocios" :value="neg.id">{{neg.nombre}}</option>
-                    </select>
-                    <br>
                     <h2 style="margin: 20px">Categoria:</h2>
                     <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.categoria_id">
                         <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
@@ -66,17 +62,22 @@
                     </select>
                     <br>
                     <h2 style="margin: 20px">Precio:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.precio_max" >
+                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.precio" >
                     <br>
-                    <h2 style="margin: 20px">Cantidad:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.cantidad" >
+                    <h2 style="margin: 20px">Stock:</h2>
+                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.stock" >
                     <br>
                     <h2 style="margin: 20px">Cantidad Oferta Minima:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.cant_min" >
+                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.cant_minimo" >
                     <br>
-                    <h2 style="margin: 20px">Fecha Finalizacion:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="date"   class="form-control" v-model="form.fecha_fin" >
-                    <br>
+                    <h2 style="margin: 20px">Color:</h2>
+                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.color">
+                        <option v-for="col in colores" :value="col.id">
+                            <div class="rounded-circle" :style="'width: 50px; height: 50px; background-color:' + col.color">
+                                {{col.nombre}}
+                            </div>
+                        </option>
+                    </select>
                     <h2 style="margin: 20px">Descripcion:</h2>
                     <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.descripcion" >
                     <br>
@@ -107,7 +108,7 @@ import AppLayout from '@/Layouts/AppLayout.vue'
 
 export default {
     name: "index",
-    props: ['productos','negocios','categorias','estados'],
+    props: ['productos','negocios','categorias','estados','colores'],
     components: {
         AppLayout,
     },
@@ -118,14 +119,13 @@ export default {
             listo: 0,
             form:{
                 nombre:'',
-                negocio_id:'',
                 categoria_id:'',
                 estado_id: '',
-                precio_max:'',
-                fecha_fin:'',
+                precio:'',
                 descripcion:'',
-                cantidad:'',
-                cant_min:'',
+                color:'',
+                stock:'',
+                cant_minimo:'',
                 path:[]
             }
         }
@@ -137,10 +137,9 @@ export default {
             },
             guardarProducto()
             {
-                if(this.listo == 0 && this.form.nombre  != '' && this.form.categoria_id  != ''  && this.form.estado_id != '' && this.form.precio_max  != '' && this.form.fecha_fin  != '' && this.form.descripcion  != '' && this.form.cantidad  != '' && this.form.cant_min  != '' && this.form.path  != '')
+                if(this.form.nombre  != '' && this.form.categoria_id  != ''  && this.form.estado_id != '' && this.form.precio  != '' && this.form.descripcion  != '' && this.form.stock  != '' && this.form.cant_minimo  != '' && this.form.color  != '' && this.form.path  != '')
                 {
-                    if(this.form.cantidad > this.form.cant_min) {
-                        this.listo = 1;
+                    if(this.form.stock > this.form.cant_minimo) {
                         this.$inertia.post('/guardarProducto', this.form);
                     }
                 }
