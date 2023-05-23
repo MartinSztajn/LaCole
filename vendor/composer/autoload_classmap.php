@@ -35,7 +35,6 @@ return array(
     'App\\Mail\\Consulta' => $baseDir . '/app/Mail/Consulta.php',
     'App\\Models\\Categorias' => $baseDir . '/app/Models/Categorias.php',
     'App\\Models\\Clientes' => $baseDir . '/app/Models/Clientes.php',
-    'App\\Models\\Colores' => $baseDir . '/app/Models/Colores.php',
     'App\\Models\\Estado_Producto' => $baseDir . '/app/Models/Estado_Producto.php',
     'App\\Models\\Fotos_Banner' => $baseDir . '/app/Models/Fotos_Banner.php',
     'App\\Models\\Fotos_Categoria' => $baseDir . '/app/Models/Fotos_Categoria.php',

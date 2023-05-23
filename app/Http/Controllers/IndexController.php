@@ -88,7 +88,6 @@ class IndexController extends Controller
         return response()->json($categorias);
 
     }
-
     public function buscarTexto(Request $request){
         $buscador = $request['text'];
         $color = $request['color'];
@@ -155,15 +154,6 @@ class IndexController extends Controller
             }
             $productos = Productos::select('productos.*')->where('user_id', Auth::user()->id)->where('estado', 1)->get();
             foreach ($productos as $pro) {
-                $fechaDeLanzamiento = new Carbon($pro->fecha_fin);
-                $now = Carbon::now();
-
-                $difference = ($fechaDeLanzamiento->diff($now)->days < 1)
-                    ? 1
-                    : $fechaDeLanzamiento->diffInDays($now);
-
-                $pro->fechaLanzamiento = $difference;
-
                 $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
                 if ($nomCat != []) {
                     $pro->nomCat = $nomCat[0]['nombre'];
@@ -182,8 +172,26 @@ class IndexController extends Controller
         $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
 
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(4)->pluck('producto_id');
-        $ofertados = Productos::whereIn('id', $topProductIds)->get();
+        $ofertados = Productos::whereIn('id', $topProductIds)->where('estado', 1)->get();
+        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(16)->get();
+        foreach ($produCateEspecial as $pro) {
+            $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
+            $pro->cantOfertas = (count($ofertas));
 
+            $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+            if ($nomCat != []) {
+                $pro->nomCat = $nomCat[0]['nombre'];
+            }
+            $fotos = Fotos_Producto::where('producto_id', $pro->id)->get()->toArray();
+            $pro->path = '';
+            if ($fotos != []) {
+                $pro->path = $fotos[0]['path'];
+            }
+            $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
+            if ($nomEstado != []) {
+                $pro->nomEstado = $nomEstado[0]['nombre'];
+            }
+        }
         foreach ($novedades as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -246,17 +254,36 @@ class IndexController extends Controller
 
 
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $colores = Colores::all();
 
         $this->actualizarPrecios();
 
-        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales]);
+        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
     public function verPagina(){
         $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
 
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(4)->pluck('producto_id');
         $ofertados = Productos::whereIn('id', $topProductIds)->get();
+        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(16)->get();
+        foreach ($produCateEspecial as $pro) {
+            $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
+            $pro->cantOfertas = (count($ofertas));
 
+            $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+            if ($nomCat != []) {
+                $pro->nomCat = $nomCat[0]['nombre'];
+            }
+            $fotos = Fotos_Producto::where('producto_id', $pro->id)->get()->toArray();
+            $pro->path = '';
+            if ($fotos != []) {
+                $pro->path = $fotos[0]['path'];
+            }
+            $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
+            if ($nomEstado != []) {
+                $pro->nomEstado = $nomEstado[0]['nombre'];
+            }
+        }
         foreach ($novedades as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -319,10 +346,10 @@ class IndexController extends Controller
 
 
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
-
+        $colores = Colores::all();
         $this->actualizarPrecios();
 
-        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales]);
+        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
 
 

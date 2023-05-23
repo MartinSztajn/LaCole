@@ -22,7 +22,7 @@
                                 <div class="col-6">
                                     <div class="search-box buttons" style="margin-left: 60px; margin-top: 25px; margin-right: 60px; width: 600px;">
                                     <div class='search-form' method='get' target='_top'>
-                                        <input class='search-text' placeholder='    Buscar productos...'  v-model="form.buscador" @input="buscarParcial"/>
+                                        <input class='search-text' placeholder='Buscar productos...' style="padding-left: 10px" v-model="form.buscador" @input="buscarParcial"/>
                                         <button @click="buscar" class='search-button' type='submit'>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5C5C5" class="bi bi-search" viewBox="0 0 16 16">
                                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -74,7 +74,7 @@
                                                 <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
                                                     <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
                                                     <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: black">
-                                                        <p><b>{{cate.nombre}}</b></p>
+                                                        <p>{{cate.nombre}}</p>
                                                     </button>
                                                 </li>
                                             </ul>
@@ -84,32 +84,13 @@
                                                 <li v-for="col in colores"  style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
                                                     <button @click="verProductosColores(col.id)" href="" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
                                                         <div class="rounded-circle" :style="'width: 60px; height: 60px; border: 4px solid black; background-color:' + col.color"></div>
+                                                        <p>{{col.nombre}}</p>
                                                     </button>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                <!--
-                                <div v-for="cat in categoriasHijos">
-                                    <a v-if="cat.hijos == null"
-                                       :href="'/verProductosCategoria/' + cat.nombre" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                                        {{cat.nombre}}
-                                    </a>
-                                    <a v-if="cat.hijos != null" style="display: block;color: white;text-align: center;float: left;font-size: 20px;margin-right: 20px;margin-top: 4px;padding: 0px;background-color: #121212;border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        {{cat.nombre}}
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li v-for="hijo in cat.hijos">
-                                            <a class="dropdown-item" :href="'/verProductosCategoria/' + hijo.nombre">{{hijo.nombre}}</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div v-for="col in colores">
-                                    <a href="" style="display: block; color: white; text-align: center; position: center; float: left; font-size: 20px; margin-right: 20px; margin-top: 4px">
-                                        <div class="rounded-circle" :style="'width: 50px; height: 50px; background-color:' + col.color"></div>
-                                    </a>
-                                </div>
--->                            </div>
+                            </div>
                         </div>
 
                     </div>
@@ -157,7 +138,7 @@
                         <br>
                     </div>
                     <div class='search-form' method='get' target='_top'>
-                        <input class='search-text' placeholder='    Buscar productos...'  v-model="form.buscador"/>
+                        <input class='search-text' placeholder='Buscar productos...' style="padding-left: 10px"  v-model="form.buscador"/>
                         <button @click="buscar" class='search-button' type='submit'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#C5C5C5" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>

@@ -9,12 +9,12 @@
                     </a>
                 </div>
             </div>
-            <a class="carousel-control-prev" @click="moverIzq()" role="button" data-slide="prev">
+            <a class="carousel-control-prev compu" @click="moverIzq()" role="button" data-slide="prev">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                 </svg>
             </a>
-            <a class="carousel-control-next" @click="moverDer()" role="button" data-slide="next">
+            <a class="carousel-control-next compu" @click="moverDer()" role="button" data-slide="next">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                 </svg>
@@ -116,31 +116,26 @@
                 Los más solicitados
             </h1>
             <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
-            <div :style="ofertados.length >= 4  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+            <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
                 <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
                     <hr>
                     <div class="colum2">
-                        <h1 class="card-text" >$ {{pro.precio}}</h1>
-                        <h2 class="card-text" ><b> {{pro.nombre}}</b> </h2>
-                        <p class="card-text"><b>Unidades: {{pro.cantidad}} </b> </p>
-                        <p class="card-text">Precio por unidad: ${{(pro.precio / pro.cantidad).toFixed(0)}}</p>
-                        <p class="card-text" style="max-width: 175px">Estado: {{pro.nomEstado}}</p>
+                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text">{{pro.nomEstado}}</h2>
                         <br>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas > 1"><b>YA HAY {{pro.cantOfertas}} OFERTAS</b></p>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas == 1"><b>YA HAY {{pro.cantOfertas}} OFERTA</b></p>
-                        <p class="card-text" v-if="pro.cantOfertas == 0"><b>NO HAY OFERTAS</b></p>
+                        <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
 
                 </div>
-                <a v-if="ofertados.length >= 4" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 220px; margin-left: 15px">
+                <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                     </svg>
                 </a>
-                <a v-if="ofertados.length >= 4" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 220px; margin-right: 15px">
+                <a v-if="ofertados.length > 5" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                     </svg>
@@ -148,12 +143,53 @@
             </div>
         </div>
 
-        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
-            <div class="card-deck cate" v-for="(cat, index) in cateTotales" style="text-align: center">
+        <div style="display: flex; margin: 3%; overflow: auto">
+            <div v-for="(cat, index) in cateTotales" style="text-align: center; margin-right: 30px">
                 <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"
-                    @click="verProductosCategoria(cat.nombre, cat.hijos)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
-                <button  @click="verProductosCategoria(cat.nombre, cat.hijos)" class="btn" style="text-align: left; padding-left: 0px">
+                    @click="verProductosCategoria(cat.nombre)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
+                <button  @click="verProductosCategoria(cat.nombre)" class="btn" style="text-align: left; padding-left: 0px">
                     <p><b>{{cat.nombre}}</b></p>
+                </button>
+            </div>
+        </div>
+        <div  v-if="produCateEspecial.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+            <h1 style="font-size: 30px; text-align: left; color: #17428A;">
+                Los más recientes
+            </h1>
+            <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
+            <div class="celuCarrusel" :style="produCateEspecial.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div v-for="(pro, index) in primerosCateEspecial" @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverProduCateEspecial(index)" @mouseleave="handleMouseLeaveProduCateEspecial(index)"  :style="primerosCateEspecial[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+                    <div class="image2">
+                        <img :src="'/fotos/' + pro.path">
+                    </div>
+                    <hr>
+                    <div class="colum2">
+                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text">{{pro.nomEstado}}</h2>
+                        <br>
+                        <h1 class="card-text" >${{pro.precio}}</h1>
+                    </div>
+
+                </div>
+                <a v-if="produCateEspecial.length > 5" @click="moverIzqProduCateEspecial()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    </svg>
+                </a>
+                <a v-if="produCateEspecial.length > 5" @click="moverDerProduCateEspecial()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+
+        <div style="display: flex; margin: 3%; overflow: auto ">
+            <div  v-for="(col, index) in colores" style="text-align: center; margin-right: 20px">
+                <button @click="verProductosColores(col.id)" style="margin-bottom: 5px; margin-right: 10px; text-align: center">
+                    <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
+                    <p>{{col.nombre}}</p>
                 </button>
             </div>
         </div>
@@ -179,31 +215,26 @@
                 Los más recientes
             </h1>
             <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
-            <div :style="novedades.length >= 4  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+            <div class="celuCarrusel" :style="novedades.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
                 <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverNovedades(index)" @mouseleave="handleMouseLeaveNovedades(index)" v-for="(pro, index) in primerosNovedades" :style="primerosNovedades[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
                     <hr>
                     <div class="colum2">
-                        <h1 class="card-text" >$ {{pro.precio}}</h1>
-                        <h2 class="card-text" ><b> {{pro.nombre}}</b> </h2>
-                        <p class="card-text"><b>Unidades: {{pro.cantidad}} </b> </p>
-                        <p class="card-text">Precio por unidad: ${{(pro.precio / pro.cantidad).toFixed(0)}}</p>
-                        <p class="card-text">Estado: {{pro.nomEstado}}</p>
+                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text">{{pro.nomEstado}}</h2>
                         <br>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas > 1"><b>YA HAY {{pro.cantOfertas}} OFERTAS</b></p>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas == 1"><b>YA HAY {{pro.cantOfertas}} OFERTA</b></p>
-                        <p class="card-text" v-if="pro.cantOfertas == 0"><b>NO HAY OFERTAS</b></p>
+                        <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
 
                 </div>
-                <a v-if="novedades.length >= 4" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 220px; margin-left: 15px">
+                <a v-if="novedades.length > 5" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                     </svg>
                 </a>
-                <a v-if="novedades.length >= 4" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 220px; margin-right: 15px">
+                <a v-if="novedades.length > 5" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                         <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                     </svg>
@@ -225,7 +256,7 @@ import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: "Index",
-  props: ['novedades', 'categorias', 'ofertados', 'fotosBanner','cateTotales'],
+  props: ['novedades', 'categorias', 'ofertados', 'fotosBanner','cateTotales', 'colores','produCateEspecial'],
   components:{
       ClienteLayout,
       Carousel,
@@ -239,6 +270,7 @@ export default {
           num: 0,
           minNove: 0,
           minOfe: 0,
+          minCateEsp: 0,
           primerosNovedades: [],
           primerosOfertas: [],
           cuatroCampos: [
@@ -256,7 +288,8 @@ export default {
               {
                   zoomed: 0,
               }
-              ]
+          ],
+          primerosCateEspecial: []
       }
   },
     computed: {
@@ -265,10 +298,16 @@ export default {
   methods:
       {
           handleMouseOverCuatroCampos($i){
-              this.cuatroCampos[$i].zoomed = 1;
+              this.cuatroCampos[$i].zoomed = true;
           },
           handleMouseLeaveCuatroCampos($i) {
-              this.cuatroCampos[$i].zoomed = 0;
+              this.cuatroCampos[$i].zoomed = false;
+          },
+          handleMouseOverProduCateEspecial($i){
+              this.primerosCateEspecial[$i].zoomed = true;
+          },
+          handleMouseLeaveProduCateEspecial($i) {
+              this.primerosCateEspecial[$i].zoomed = false;
           },
           handleMouseOverOfertados($i) {
               this.primerosOfertas[$i].zoomed = true;
@@ -316,7 +355,7 @@ export default {
               else{return $uno;}
           },
           filterNovedades($num) {
-              for (let i = 0; i < this.minimo(this.novedades.length, 4); i++) {
+              for (let i = 0; i < this.minimo(this.novedades.length, 5); i++) {
                   let param = (i + $num);
                   if (param >= this.novedades.length){
                       param = param - this.novedades.length;
@@ -325,7 +364,7 @@ export default {
               }
           },
           filterOfertas($num) {
-              for (let i = 0; i < this.minimo(this.ofertados.length, 4); i++) {
+              for (let i = 0; i < this.minimo(this.ofertados.length, 5); i++) {
                   let param = (i + $num);
                   if (param >= this.ofertados.length){
                       param = param - this.ofertados.length;
@@ -333,6 +372,17 @@ export default {
                   this.primerosOfertas[i] = this.ofertados[param];
 
               }
+          },
+          filterCateEspecial($num) {
+
+              for (let i = 0; i < this.minimo(this.produCateEspecial.length, 5); i++) {
+                  let param = (i + $num);
+                  if (param >= this.produCateEspecial.length){
+                      param = param - this.produCateEspecial.length;
+                  }
+                  this.primerosCateEspecial[i] = this.produCateEspecial[param];
+              }
+
           },
           moverIzqNovedades(){
               if (this.minNove == 0){
@@ -352,6 +402,23 @@ export default {
               this.filterNovedades(this.minNove);
           },
 
+          moverIzqProduCateEspecial(){
+              if (this.minCateEsp == 0){
+                  this.minCateEsp = this.produCateEspecial.length - 1;
+              }
+              else{
+                  this.minCateEsp = this.minCateEsp - 1;
+              }
+
+              this.filterCateEspecial(this.minNove);
+          },
+          moverDerProduCateEspecial(){
+              this.minCateEsp = this.minCateEsp + 1;
+              if (this.minCateEsp >= this.produCateEspecial.length){
+                  this.minCateEsp = 0;
+              }
+              this.filterCateEspecial(this.minCateEsp);
+          },
           moverIzqOfertados(){
               if (this.minOfe == 0){
                   this.minOfe = this.ofertados.length - 1;
@@ -380,6 +447,7 @@ export default {
         // Llamamos al método que filtra los productos al crear el componente
         this.filterNovedades(0);
         this.filterOfertas(0);
+        this.filterCateEspecial(0);
 
     },
 }
@@ -388,6 +456,9 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .celuCarrusel{
+        overflow: auto;
+    }
     .altura{
         height: 63px;
     }
@@ -408,15 +479,15 @@ export default {
 
     p.card-text{
         font-size: 15px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
         padding: 5px;
@@ -431,7 +502,6 @@ export default {
         margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 190px;
         padding: 10px;
     }
     .card-deck{
@@ -532,19 +602,19 @@ export default {
     }
     p.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 30px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
         background-color: white;
-        width: 300px;
+        width: 250px;
         margin: 1%;
         float: left;
         border-radius: 5px;
@@ -562,7 +632,7 @@ export default {
         margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 300px;
+        width: 250px;
     }
 
     .colum2 div {
