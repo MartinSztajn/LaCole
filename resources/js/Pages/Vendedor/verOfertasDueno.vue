@@ -23,10 +23,7 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
                 <h1 style="text-align: center; position: center; font-size: 45px">{{producto.nombre}}</h1>
-                <h1 style="text-align: center; position: center; font-size: 25px">Precio: {{producto.precio_max}}</h1>
-                <h1 style="text-align: center; position: center; font-size: 25px">Cantidad: {{producto.cantidad}}</h1>
-
-                <h1 style="text-align: center; position: center; font-size: 25px">Fecha: {{producto.fecha_fin}}</h1>
+                <h1 style="text-align: center; position: center; font-size: 25px">Precio: {{producto.precio}}</h1>
 
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-bottom: 5%; margin-top: 5%">
                     <div>
@@ -35,31 +32,32 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col">Precio</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col" v-if="admin">Cliente</th>
-                                <th scope="col" v-if="admin">Mail</th>
-                                <th scope="col">Aceptar</th>
-                                <th scope="col">Rechazar</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Celular</th>
+                                <th scope="col">Mail</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Whatsapp</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(ofe, key) in ofertas"  :style="ofe.es_aceptado == 2  ? 'background-color: red' : ''">
+                            <tr v-for="(ofe, key) in ofertas" >
                                 <td>{{key + 1}}</td>
-                                <td>{{ofe.precio}}</td>
-                                <td>{{ofe.cantidad}}</td>
-                                <td v-if="admin">{{ofe.nomCli}}</td>
-                                <td v-if="admin">{{ofe.mailCli}}</td>
+                                <td>{{ofe.nombre}} {{ofe.apellido}}</td>
+                                <td>{{ofe.numero}}</td>
+                                <td>{{ofe.email}}</td>
                                 <td>
-                                    <button v-if="ofe.es_aceptado == 0" @click="aceptarOferta(ofe.id)" class="btn btn-primary" style="background-color: red">No Aceptada</button>
-                                    <button  v-if="ofe.es_aceptado == 1" class="btn btn-primary"  style="background-color: green">Aceptada</button>
+                                    <button v-if="ofe.estado == 0" @click="aceptarOferta(ofe.id)" class="btn btn-primary" style="background-color: green; margin-right: 10px">Aceptar</button>
+                                    <button v-if="ofe.estado == 0" @click="rechazarOferta(ofe.id)" class="btn" style="background-color: red" > Rechazar</button>
+                                    <p  v-if="ofe.estado == 1" style="color: green">Aceptada</p>
+                                    <p  v-if="ofe.estado == 2" style="color: red">Rechazada</p>
+
                                 </td>
                                 <td>
-                                    <button v-if="ofe.es_aceptado == 0" @click="rechazarOferta(ofe.id)" class="btn"  >
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="red" class="bi bi-x-square-fill" viewBox="0 0 16 16">
-                                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                                    <a :href="'https://api.whatsapp.com/send?phone=54' + ofe.numero + '&text=%F0%9F%98%80%20Hola%20' + ofe.nombre + '%20' + ofe.apellido + '!%20Como%20estas%3F%0AMe%20comunico%20con%20vos%20porque%20vi%20que%20estas%20interesado%20en%20mi%20publicaci%C3%B3n%20' + producto.nombre + '%20de%20La%20Cole%20Market!'"  target="_blank">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                                         </svg>
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>

@@ -4,8 +4,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Mail\Consulta;
 use App\Models\Categorias;
+use App\Models\Clientes;
 use App\Models\Colores;
+use App\Models\Consultas;
 use App\Models\Estado_producto;
 use App\Models\Fotos_Producto;
 use App\Models\Fotos_banner;
@@ -22,7 +25,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 Use Auth;
-
+use function Ramsey\Collection\add;
 
 
 class IndexController extends Controller
@@ -88,11 +91,57 @@ class IndexController extends Controller
         return response()->json($categorias);
 
     }
+    public function filtrar(Request $request){
+        $productos = Productos::where('estado', 1);
+
+        if($request['categorias'] != null)
+        {
+            $categorias = str_replace('-',' ',$request['categorias']);
+            $categorias = explode(',',$categorias);
+            $filtrosCate = [];
+            foreach ($categorias as $cate){
+                $id =  Categorias::select('id')->where('nombre', $cate)->get()->toArray()[0]['id'];
+                array_push($filtrosCate, $id);
+            }
+            $productos = $productos->whereIn('categoria_id', $filtrosCate);
+        }
+
+        if($request['colores'] != null)
+        {
+            $colores = str_replace('-',' ',$request['colores']);
+            $colores = explode(',',$colores);
+            $filtrosCol = [];
+            foreach ($colores as $col){
+                $id =  Colores::select('id')->where('nombre', $col)->get()->toArray()[0]['id'];
+                array_push($filtrosCol, $id);
+            }
+            $productos = $productos->whereIn('color_id', $filtrosCol);
+        }
+        $productos = $productos->get();
+        foreach ($productos as $pro) {
+            $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
+            $pro->cantOfertas = (count($ofertas));
+            $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+            $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
+            if ($nomEstado != []) {
+                $pro->nomEstado = $nomEstado[0]['nombre'];
+            }
+            if ($nomCat != []) {
+                $pro->nomCat = $nomCat[0]['nombre'];
+            }
+            $fotos = Fotos_Producto::where('producto_id', $pro->id)->get()->toArray();
+            $pro->path = '';
+            if ($fotos != []) {
+                $pro->path = $fotos[0]['path'];
+            }
+        }
+
+        return $productos;
+    }
     public function buscarTexto(Request $request){
+        $productos = Productos::where('estado', 1)->get();
         $buscador = $request['text'];
         $color = $request['color'];
-
-        $productos = Productos::where('estado', 1)->get();
         if ($buscador != '') {
             $productos = Productos::where('nombre', 'like', '%' . $buscador . '%')->get();
         }
@@ -129,7 +178,8 @@ class IndexController extends Controller
             }
         }
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
-        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+        $colores = Colores::all();
+        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores]);
     }
     public function inicio(){
         if (Auth::user() != null && Auth::user()->es_admin){
@@ -165,8 +215,9 @@ class IndexController extends Controller
                 }
             }
             $categorias = Categorias::all();
-
-            return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+            $estados = Estado_producto::all();
+            $colores = Colores::all();
+            return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores]);
         }
 
         $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
@@ -372,13 +423,24 @@ class IndexController extends Controller
     }
 
     public function enviarMensajeConsulta(Request $request){
-        $destinatario = "lacolemarket@gmail.com";
-        $nombre = $request->nombre;
-        $apellido = $request->apellido;
-        $mensaje = $request->mensaje;
-        $enviado = $request->mail;
+        $cliente = Clientes::select('clientes.*')->where('email', $request->mail)->get()->toArray();
+        if ($cliente == []){
+            $cli = new Clientes;
+            $cli->nombre = $request->nombre;
+            $cli->apellido = $request->apellido;
+            $cli->email = $request->mail;
+            $cli->numero = $request->numero;
+            $cli->save();
+            $cliId = $cli->id;
+        }
+        else{
+            $cliId = $cliente[0]['id'];
+        }
 
-        Mail::to($destinatario)->send(new \App\Mail\Consulta($nombre, $apellido, $mensaje, $enviado));
+        $consultas = new Consultas;
+        $consultas->cliente_id = $cliId;
+        $consultas->mensaje = $request->mensaje;
+        $consultas->save();
 
         return back();
     }

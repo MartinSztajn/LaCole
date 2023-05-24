@@ -1,3 +1,8 @@
+<script setup>
+    const logout = () => {
+        Inertia.post(route('logout'));
+    };
+</script>
 <template>
     <div class="tipografia">
         <Head :title="title" />
@@ -46,17 +51,27 @@
                                 </div>
                                 </div>
                                 <div class="col-3">
-                                    <div class="flex" style="margin-top: 25px;display: flex;justify-content: center;">
-                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px; color: white">
-                                        <a :href="route('register')">Crea tu cuenta</a>
+                                    <div class="flex" style="margin-top: 25px;display: flex;justify-content: center;" v-if="!this.$page.props.user">
+                                        <div class="flex-shrink-0 flex items-center" style="margin-right: 20px; color: white">
+                                            <a :href="route('register')">Registrate</a>
+                                        </div>
+                                        <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
+                                            <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
+                                        </div>
+                                        <div class="flex-shrink-0 flex items-center"  style="color: white">
+                                            <a :href="route('login')">Ingresá</a>
+                                        </div>
                                     </div>
-                                    <div class="flex-shrink-0 flex items-center" style="margin-right: 20px">
-                                        <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
+                                    <div style="margin-top: 25px;" v-if="this.$page.props.user">
+                                        <div style="margin-right: 20px; color: white">
+                                            <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
+                                            <form @submit.prevent="logout" style="width: 150px">
+                                                <DropdownLink as="button">
+                                                    Log Out
+                                                </DropdownLink>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="flex-shrink-0 flex items-center"  style="color: white">
-                                        <a :href="route('login')">Ingresá</a>
-                                    </div>
-                                </div>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +113,7 @@
                         <button
                             @click="toggleMenu"
                             class="flex items-center px-3 py-2 rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-gray-900 focus:outline-none"
-                            style="float: left; margin-right: 20%"
+                            style="float: left; margin-right: 6%"
                         >
                             <svg
                                 class="h-4 w-4"
@@ -115,10 +130,35 @@
                                 ></path>
                             </svg>
                         </button>
-                        <div>
+                        <div style="display: flex">
                             <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
-                                <img src="/fotos/COLEMARKET.jpg" style="width: 100px">
+                                <img src="/fotos/COLEMARKET.jpg" style="width: 100px; margin-right: 20px;">
                             </button>
+                            <div class="flex" v-if="!this.$page.props.user">
+                                <div class="flex-shrink-0 flex items-center" style="margin-right: 10px; color: white">
+                                    <a :href="route('register')">Registrate</a>
+                                </div>
+                                <div class="flex-shrink-0 flex items-center" style="margin-right: 10px">
+                                    <hr style="border:none; border-left: 3px solid white; height: 30px; width: 1px;">
+                                </div>
+                                <div class="flex-shrink-0 flex items-center"  style="color: white">
+                                    <a :href="route('login')">Ingresá</a>
+                                </div>
+                            </div>
+                            <div v-if="this.$page.props.user">
+                                <div style="margin-right: 20px; color: white">
+                                    <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
+                                    <form @submit.prevent="logout" style="width: 150px">
+                                        <DropdownLink as="button">
+                                            Log Out
+                                        </DropdownLink>
+                                    </form>
+                                </div>
+                            </div>
+                        <div>
+
+                         </div>
+
                         </div>
 
                     </div>
@@ -171,6 +211,7 @@
                     <!-- Responsive Settings Options -->
                 </div>
             </nav>
+
             <main>
                 <slot />
             </main>

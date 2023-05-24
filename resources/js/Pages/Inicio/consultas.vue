@@ -27,13 +27,12 @@
             <h2 style="margin: 10px; text-align: center; font-size: 25px">Dejanos tu mensaje</h2>
             <div style="margin: 3%; padding: 20px">
                 <input style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
+                <input style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular"  data-rules="required|number" class="form-control" v-model="form.numero" >
                 <input style="width: 44%; margin-right: 2%; margin-left: 2%; float: left; border: 2px solid #C0C0C0;"    placeholder="Nombre" class="form-control" v-model="form.nombre" >
                 <input style="width: 44%; margin-right: 2%; margin-left: 0%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
                 <textarea style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;" id="ContactForm-body" class="text-area field__input" placeholder="Comentario"  v-model="form.mensaje"></textarea>
-                <button class="btn" style="width: 50%; margin-left: 25%; background-color: #C0C0C0; color: white" @click="enviarMensaje()">Enviar Mensaje!</button>
-
+                <button class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white" @click="enviarMensaje()">Enviar Mensaje!</button>
             </div>
-
         </div>
 
         <!-- Footer -->

@@ -23,26 +23,76 @@
 
         <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
             <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>¡Encontramos estos productos!</b></h1>
-            <div style="">
-                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productos" style="margin-bottom: 10px">
+            <div class="row">
+                <div class="col-2" style="background-color: black; border-radius: 10px; padding: 20px">
+                    <ul>
+                        <h1 style="color: white; font-size: 20px"><b>Filtro</b></h1>
+                        <li v-for="fil in filtrosCategorias" style="">
+                            <button  @click="quitarCategoria(fil)" class="btn" style="display: flex; color: lightgrey">
+                                <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                                <p>{{fil}}</p>
+                            </button>
+                        </li>
+                        <li v-for="fil in filtrosColores" style="">
+                            <button  @click="quitarColor(fil)" class="btn" style="display: flex; color: lightgrey">
+                                <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                                <p>{{fil}}</p>
+                            </button>
+                        </li>
+                    </ul>
+                    <hr style="width: 90%; margin: 5%; border: 2px solid white;">
+                    <ul>
+                        <h1 style="color: white; font-size: 20px"><b>Categorias</b></h1>
+                        <li v-for="cate in categorias" style="">
+                            <button  @click="agregarCategoria(cate.nombre)" class="btn" style="color: lightgrey">
+                                <p>{{cate.nombre}}</p>
+                            </button>
+                        </li>
+                    </ul>
+                    <ul style="margin-top: 20px">
+                        <h1 style="color: white; font-size: 20px"><b>Colores</b></h1>
+                        <li v-for="col in colores" style="">
+                            <button  @click="agregarColor(col.nombre)" class="btn" style="color: lightgrey; display: flex">
+                                <div class="rounded-circle" :style="'width: 25px; height: 25px; border: 4px solid black; background-color:' + col.color"></div>
+                                <p>{{col.nombre}}</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-4">
+                            <h1>dsa</h1>
+                        </div>
+                        <div class="col-4">
+                            <h1>dsa</h1>
+
+                        </div>
+                        <div class="col-4">
+                            <h1>dsa</h1>
+
+                        </div>
+                    </div>
+                    <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin-bottom: 10px">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
                     <hr>
                     <div class="colum2">
-                        <h1 class="card-text" >$ {{pro.precio_max}}</h1>
-                        <h2 class="card-text" ><b> {{pro.nombre}}</b> </h2>
-                        <p class="card-text"><b>Unidades: {{pro.cantidad}} </b> </p>
-                        <p class="card-text">Precio por unidad: ${{(pro.precio_max / pro.cantidad).toFixed(0)}}</p>
-                        <p class="card-text">Faltan {{pro.fechaLanzamiento}}</p>
-                        <p class="card-text">Estado: {{pro.nomEstado}}</p>
+                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text">{{pro.nomEstado}}</h2>
                         <br>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas > 1"><b>YA HAY {{pro.cantOfertas}} OFERTAS</b></p>
-                        <p class="card-text" style="color: red;" v-if="pro.cantOfertas == 1"><b>YA HAY {{pro.cantOfertas}} OFERTA</b></p>
-                        <p class="card-text" v-if="pro.cantOfertas == 0"><b>NO HAY OFERTAS</b></p>
+                        <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
-
                 </div>
+            </div>
             </div>
         </div>
 
@@ -57,7 +107,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 export default {
     name: "verProductosBuscar",
-    props: ['productos','negocios','categorias','fotosBanner'],
+    props: ['productos','negocios','categorias','fotosBanner','colores'],
     components:{
         ClienteLayout,
         Footer
@@ -65,12 +115,58 @@ export default {
     data()
     {
         return{
+            filtrosCategorias: [],
+            filtrosColores: [],
+            productosFiltrados: [],
+            mensajeCate: '',
+            mensajeColor: '',
             hola:'',
             num: 0,
         }
     },
     methods:
         {
+            quitarCategoria($nombre){
+                this.filtrosCategorias = this.filtrosCategorias.filter(item => item !== $nombre);
+                this.buscarFiltrado();
+
+            },
+            quitarColor($nombre){
+                this.filtrosColores = this.filtrosColores.filter(item => item !== $nombre);
+                this.buscarFiltrado();
+
+
+            },
+            buscarFiltrado(){
+                this.mensajeColor = ''; this.mensajeCate = '';
+
+                for (var i = 0; i < this.filtrosColores.length; i++){
+                    this.mensajeColor = this.mensajeColor + ',' + this.filtrosColores[i];
+                }
+                for (var i = 0; i < this.filtrosCategorias.length; i++){
+                    this.mensajeCate = this.mensajeCate + ',' + this.filtrosCategorias[i];
+                }
+                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1), {
+                })
+                    .then(response => {
+                        this.productosFiltrados = response.data;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+            agregarCategoria($nombre){
+                if (!this.filtrosCategorias.includes($nombre)) {
+                    this.filtrosCategorias.push($nombre);
+                    this.buscarFiltrado();
+                }
+            },
+            agregarColor($nombre){
+                if (!this.filtrosColores.includes($nombre)) {
+                    this.filtrosColores.push($nombre);
+                    this.buscarFiltrado();
+                }
+            },
             moverIzq(){
                 if (this.num == 0){
                     this.num = this.fotosBanner.length - 1;
@@ -114,7 +210,7 @@ export default {
         padding: 5px;
         background-color: white;
         margin: 1%;
-        width: 95%;
+        width: 250px;
         float: left;
         border-radius: 5px;
     }
@@ -188,7 +284,7 @@ export default {
     }
     .container2 {
         background-color: white;
-        width: 300px;
+        width: 250px;
         margin: 1%;
         float: left;
         border-radius: 5px;

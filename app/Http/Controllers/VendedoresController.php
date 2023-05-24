@@ -62,42 +62,36 @@ class VendedoresController extends Controller
     }
 
     public function verOfertas($id){
+        if (Auth::user() != null) {
+            $admin = Auth::user()->es_admin;
+            $producto = Productos::find($id);
+            if ($producto->user_id == Auth::user()->id || Auth::user()->es_admin) {
+                $ofertas = Ofertas::select('ofertas.*', 'clientes.nombre', 'clientes.apellido', 'clientes.email','clientes.numero')
+                    ->leftJoin('clientes', 'clientes.id', 'ofertas.cliente_id')
+                    ->where('producto_id', $id)->get();
 
-        $admin = Auth::user()->es_admin;
-        $producto = Productos::select('productos.*')->where('id', $id)->get()->toArray();
-        $ofertas = Ofertas::select('ofertas.*')->where('producto_id', $id)->get();
-        foreach ($ofertas as $ofe){
-            $cli = Clientes::where('id', $ofe->cliente_id)->get()->toArray();
-            $ofe->nomCli = $cli[0]['nombre'] . ' ' . $cli[0]['apellido'];
-            $ofe->mailCli = $cli[0]['email'];
-        }
-
-        if (Auth::user() != null && $admin){
-            return Inertia::render('Vendedor/verOfertas', ['producto' => $producto[0], 'ofertas' => $ofertas, 'admin' => $admin]);
-        }
-        if (Auth::user() != null && !$admin){
-            $categorias = Categorias::all()->where('padre_id', null);
-            foreach ($categorias as $cate) {
-                $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
-                if ($cateHijo != []) {
-                    $cate->hijos = $cateHijo;
+                if (Auth::user() != null && $admin) {
+                    return Inertia::render('Vendedor/verOfertas', ['producto' => $producto, 'ofertas' => $ofertas, 'admin' => $admin]);
                 }
-                $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
-                $cate->path = '';
-                if ($fotos != []) {
-                    $cate->path = $fotos[0]['path'];
+                $categorias = Categorias::all()->where('padre_id', null);
+                foreach ($categorias as $cate) {
+                    $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
+                    if ($cateHijo != []) {
+                        $cate->hijos = $cateHijo;
+                    }
+                    $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
+                    $cate->path = '';
+                    if ($fotos != []) {
+                        $cate->path = $fotos[0]['path'];
+                    }
                 }
+                $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+                return Inertia::render('Vendedor/verOfertasDueno', ['producto' => $producto, 'ofertas' => $ofertas, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
             }
-
-            $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
-
-            return Inertia::render('Vendedor/verOfertasDueno', ['producto' => $producto[0], 'ofertas' => $ofertas, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
-
         }
-
     }
     public function guardarOferta(Request $request){
-        $cliente = Clientes::select('clientes.*')->where('email', $request->celular)->get()->toArray();
+        $cliente = Clientes::select('clientes.*')->where('email', $request->mail)->get()->toArray();
         if ($cliente == []){
             $cli = new Clientes;
             $cli->nombre = $request->nombre;
@@ -143,16 +137,16 @@ class VendedoresController extends Controller
     }
     public function aceptarOferta($id){
         $ofe = Ofertas::find($id);
-        if ($ofe->es_aceptado == 0) {
-            $ofe->es_aceptado = 1;
+        if ($ofe->estado == 0) {
+            $ofe->estado = 1;
             $ofe->save();
         }
         return back();
     }
     public function rechazarOferta($id){
         $ofe = Ofertas::find($id);
-        if ($ofe->es_aceptado == 0) {
-            $ofe->es_aceptado = 2;
+        if ($ofe->estado == 0) {
+            $ofe->estado = 2;
             $ofe->save();
         }
         return back();
@@ -177,7 +171,7 @@ class VendedoresController extends Controller
         }
     }
     public function comprarProducto(Request $request){
-        $cliente = Clientes::select('clientes.*')->where('numero', $request->celular)->get()->toArray();
+        $cliente = Clientes::select('clientes.*')->where('email', $request->mail)->get()->toArray();
         if ($cliente == []){
             $cli = new Clientes;
             $cli->nombre = $request->nombre;

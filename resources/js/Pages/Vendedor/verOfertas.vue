@@ -19,8 +19,8 @@
                                 <th scope="col"></th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Cantidad</th>
-                                <th scope="col" v-if="admin">Cliente</th>
-                                <th scope="col" v-if="admin">Mail</th>
+                                <th scope="col" >Cliente</th>
+                                <th scope="col">Mail</th>
                                 <th scope="col">Aceptar</th>
                                 <th scope="col">Rechazar</th>
                             </tr>

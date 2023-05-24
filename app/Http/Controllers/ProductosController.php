@@ -417,7 +417,7 @@ class ProductosController extends Controller
         $producto->precio = $request->precio;
         $producto->stock = $request->stock;
         $producto->cant_minimo = $request->cant_minimo;
-        $producto->color_id = $request->color;
+        $producto->color_id = $request->color_id;
         $producto->estado = 0;
         $producto->descripcion = $request->descripcion;
         $producto->save();

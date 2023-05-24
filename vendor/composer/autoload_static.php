@@ -599,6 +599,7 @@ class ComposerStaticInita966d9f8acd80df2105643e89d1acc73
         'App\\Mail\\Consulta' => __DIR__ . '/../..' . '/app/Mail/Consulta.php',
         'App\\Models\\Categorias' => __DIR__ . '/../..' . '/app/Models/Categorias.php',
         'App\\Models\\Clientes' => __DIR__ . '/../..' . '/app/Models/Clientes.php',
+        'App\\Models\\Colores' => __DIR__ . '/../..' . '/app/Models/Colores.php',
         'App\\Models\\Estado_Producto' => __DIR__ . '/../..' . '/app/Models/Estado_Producto.php',
         'App\\Models\\Fotos_Banner' => __DIR__ . '/../..' . '/app/Models/Fotos_Banner.php',
         'App\\Models\\Fotos_Categoria' => __DIR__ . '/../..' . '/app/Models/Fotos_Categoria.php',

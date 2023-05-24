@@ -119,31 +119,6 @@
                     </tbody>
                 </table>
             </div>
-            <!--
-            <div v-if="btnDuenos == 1" class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-top: 5%; padding: 2%; width: 70%; margin-left: 15%;">
-                <table class="table table-hover" style="margin-bottom: 5%">
-                    <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Duenos</th>
-                        <th scope="col">Email</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="(due, key) in duenos">
-                        <td>{{key + 1}}</td>
-                        <td>{{due.name}}</td>
-                        <td>{{due.email}}</td>
-                        <td>
-                            <button v-if="idUser != due.id" @click="deseaEliminarDueno(due.id)" class="btn btn-primary" style="width: 40%; float: left; margin-right: 10%; margin-left: 5%;  background-color: #FF9292">Eliminar</button>
-                            <button v-if="idUser == due.id" @click="borrarDueno(due.id)" class="btn btn-primary" style="width: 40%; float: left; margin-right: 10%; margin-left: 5%;  background-color: red">Confirmar</button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            -->
         </div>
         <Footer></Footer>
     </cliente-layout>
