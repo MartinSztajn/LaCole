@@ -50,7 +50,6 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/guardarNegocio', [\App\H
 Route::middleware(['auth:sanctum', 'verified'])->post('/borrarNegocio/{id}', [\App\Http\Controllers\VendedoresController::class,'borrarNegocio']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verNegocioDetalle/{id}', [\App\Http\Controllers\VendedoresController::class,'verNegocioDetalle']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verOfertas/{id}', [\App\Http\Controllers\VendedoresController::class,'verOfertas']);
-Route::post('/guardarOferta', [\App\Http\Controllers\VendedoresController::class,'guardarOferta']);
 Route::post('/comprarProducto', [\App\Http\Controllers\VendedoresController::class,'comprarProducto']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/aceptarOferta/{id}', [\App\Http\Controllers\VendedoresController::class,'aceptarOferta']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/rechazarOferta/{id}', [\App\Http\Controllers\VendedoresController::class,'rechazarOferta']);

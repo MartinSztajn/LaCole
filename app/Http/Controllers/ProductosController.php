@@ -306,6 +306,7 @@ class ProductosController extends Controller
                 $nomCat = Categorias::select('nombre')->where('id', $produ->categoria_id)->get()->toArray();
                 if ($nomCat != []) {
                     $produ->nomCat = $nomCat[0]['nombre'];
+                    $produ->fotoCat = Fotos_categoria::where('categoria_id', $produ->categoria_id)->get()->toArray()[0]['path'];
                 }
 
                 $fotos = Fotos_Producto::where('producto_id', $id)->take(5)->get()->toArray();
@@ -314,7 +315,7 @@ class ProductosController extends Controller
                     $produ->path = $fotos;
                 }
 
-                 $categorias = Categorias::all()->where('padre_id', null);
+                $categorias = Categorias::all()->where('padre_id', null);
                 foreach ($categorias as $cate) {
                     $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
                     if ($cateHijo != []) {
@@ -327,8 +328,10 @@ class ProductosController extends Controller
                     }
                 }
 
-                $otros = Productos::where('categoria_id', $produ->categoria_id)->where('estado', 1)->get();
-                foreach ($otros as $pro) {
+                $otrosCategoria = Productos::where('categoria_id', $produ->categoria_id)->where('estado', 1)->get();
+                $otrosVendedor = Productos::where('user_id', $produ->user_id)->where('estado', 1)->get();
+
+                foreach ($otrosCategoria as $pro) {
                     $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
                     $pro->cantOfertas = (count($ofertas));
                     $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
@@ -345,7 +348,24 @@ class ProductosController extends Controller
                         $pro->path = $fotos[0]['path'];
                     }
                 }
-                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otros' => $otros, 'fotosBanner' => $fotosBanner]);
+                foreach ($otrosVendedor as $pro) {
+                    $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
+                    $pro->cantOfertas = (count($ofertas));
+                    $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
+                    $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
+                    if ($nomEstado != []) {
+                        $pro->nomEstado = $nomEstado[0]['nombre'];
+                    }
+                    if ($nomCat != []) {
+                        $pro->nomCat = $nomCat[0]['nombre'];
+                    }
+                    $fotos = Fotos_Producto::where('producto_id', $pro['id'])->get()->toArray();
+                    $pro->path = '';
+                    if ($fotos != []) {
+                        $pro->path = $fotos[0]['path'];
+                    }
+                }
+                return Inertia::render('Productos/verProducto', ['producto' => $produ, 'categorias' => $categorias, 'otrosCategoria' => $otrosCategoria, 'otrosVendedor' => $otrosVendedor, 'fotosBanner' => $fotosBanner]);
                 } else {
                     $this->otroController->inicio();
                 }

@@ -128,7 +128,6 @@
                         <br>
                         <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
-
                 </div>
                 <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">

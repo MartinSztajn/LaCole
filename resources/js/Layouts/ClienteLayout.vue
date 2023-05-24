@@ -14,8 +14,8 @@
                             <div class="row">
                                 <div class="col-3">
                                     <div class="flex-shrink-0 flex items-center">
-                                        <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
-                                            <img src="/logoWop2.png" class="logo">
+                                        <button style="margin-top: 10px" onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
+                                            <img src="/fotos/COLEMARKET.jpg" class="logo">
                                         </button>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                     <div class="md:hidden">
                         <button
                             @click="toggleMenu"
-                            class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-gray-900 focus:outline-none"
+                            class="flex items-center px-3 py-2 rounded text-gray-500 border-gray-500 hover:text-gray-900 hover:border-gray-900 focus:outline-none"
                             style="float: left; margin-right: 20%"
                         >
                             <svg
@@ -117,7 +117,7 @@
                         </button>
                         <div>
                             <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
-                                <img src="/logoWop2.png" style="width: 100px">
+                                <img src="/fotos/COLEMARKET.jpg" style="width: 100px">
                             </button>
                         </div>
 

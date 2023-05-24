@@ -176,4 +176,27 @@ class VendedoresController extends Controller
             return redirect()->back()->with('success', 'Saved!');
         }
     }
+    public function comprarProducto(Request $request){
+        $cliente = Clientes::select('clientes.*')->where('numero', $request->celular)->get()->toArray();
+        if ($cliente == []){
+            $cli = new Clientes;
+            $cli->nombre = $request->nombre;
+            $cli->apellido = $request->apellido;
+            $cli->email = $request->mail;
+            $cli->numero = $request->celular;
+            $cli->save();
+            $cliId = $cli->id;
+        }
+        else{
+            $cliId = $cliente[0]['id'];
+        }
+
+        $oferta = new Ofertas;
+        $oferta->cliente_id = $cliId;
+        $oferta->producto_id = $request->producto_id;
+        $oferta->estado = 0;
+        $oferta->save();
+
+        return back();
+    }
 }
