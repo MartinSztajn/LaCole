@@ -113,6 +113,9 @@ class ProductosController extends Controller
         else if($request->tipo == 'Categoria'){
             $producto->categoria_id = $request->valor;
         }
+        else if($request->tipo == 'Color'){
+            $producto->color_id = $request->valor;
+        }
         else if($request->tipo == 'Foto'){
                 foreach ($request->valor as $key => $foto)
                 {
@@ -120,8 +123,8 @@ class ProductosController extends Controller
                     $nombre = $this->generateRandomString(10);
                     $myFileName = $nombre . '.' . $extension;
                     Image::make($foto)->save(public_path('/fotos/' . $myFileName));
-                    $imagen = Fotos_Producto::where('producto_id', $request->id)->get();
-                    $ima = Fotos_Producto::find($imagen[0]->id);
+
+                    $ima = Fotos_Producto::find($request->imagen);
                     $ima->path = $myFileName;
                     $ima->save();
                 }
@@ -218,15 +221,24 @@ class ProductosController extends Controller
         {
             $producto = Productos::find($id);
             $nomCat = Categorias::select('nombre')->where('id', $producto->categoria_id)->get()->toArray();
-
             if ($nomCat != []) {
                 $producto->nomCat = $nomCat[0]['nombre'];
+            }
+
+            $nomEstado = Estado_producto::select('nombre')->where('id', $producto->estado_id)->get()->toArray();
+            if ($nomEstado != []) {
+                $producto->nomEstado = $nomCat[0]['nombre'];
+            }
+
+            $nomColor = Colores::select('nombre')->where('id', $producto->color_id)->get()->toArray();
+            if ($nomColor != []) {
+                $producto->nomColor = $nomColor[0]['nombre'];
             }
 
             $fotos = Fotos_Producto::where('producto_id', $id)->get()->toArray();
             $producto->path = '';
             if ($fotos != []) {
-                $producto->path = $fotos[0]['path'];
+                $producto->path = $fotos;
             }
 
             $categorias = Categorias::all()->where('padre_id', null);
@@ -241,7 +253,10 @@ class ProductosController extends Controller
                     $cate->path = $fotos[0]['path'];
                 }
             }
-            return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias]);
+            $colores = Colores::all();
+            $estados = Estado_producto::all();
+
+            return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias, 'colores' => $colores, 'estados' => $estados]);
 
     }
     public function verProductos()
@@ -306,7 +321,6 @@ class ProductosController extends Controller
                 $nomCat = Categorias::select('nombre')->where('id', $produ->categoria_id)->get()->toArray();
                 if ($nomCat != []) {
                     $produ->nomCat = $nomCat[0]['nombre'];
-                    $produ->fotoCat = Fotos_categoria::where('categoria_id', $produ->categoria_id)->get()->toArray()[0]['path'];
                 }
 
                 $fotos = Fotos_Producto::where('producto_id', $id)->take(5)->get()->toArray();
@@ -512,5 +526,10 @@ class ProductosController extends Controller
             $est->delete();
             return redirect()->back()->with('success', 'Saved!');
         }
+    }
+    public function eliminarFotoProducto($id){
+        $foto_producto = Fotos_Producto::find($id);
+        $foto_producto->delete();
+        return back();
     }
 }

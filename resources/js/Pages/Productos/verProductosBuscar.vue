@@ -69,15 +69,15 @@
                 <div class="col-10">
                     <div class="row">
                         <div class="col-4">
+                            <select style="width: 60%; margin-right: 2%; margin-left: 2%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
+                                <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
                             <h1>dsa</h1>
                         </div>
                         <div class="col-4">
                             <h1>dsa</h1>
-
-                        </div>
-                        <div class="col-4">
-                            <h1>dsa</h1>
-
                         </div>
                     </div>
                     <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin-bottom: 10px">
@@ -107,7 +107,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 export default {
     name: "verProductosBuscar",
-    props: ['productos','negocios','categorias','fotosBanner','colores'],
+    props: ['productos','categorias','fotosBanner','colores','estados'],
     components:{
         ClienteLayout,
         Footer
@@ -120,12 +120,17 @@ export default {
             productosFiltrados: [],
             mensajeCate: '',
             mensajeColor: '',
+            estado_id: '',
             hola:'',
             num: 0,
         }
     },
     methods:
         {
+            filtrarEstado($nombre){
+                this.estado_id = $nombre;
+                this.buscarFiltrado();
+            },
             quitarCategoria($nombre){
                 this.filtrosCategorias = this.filtrosCategorias.filter(item => item !== $nombre);
                 this.buscarFiltrado();
@@ -134,8 +139,6 @@ export default {
             quitarColor($nombre){
                 this.filtrosColores = this.filtrosColores.filter(item => item !== $nombre);
                 this.buscarFiltrado();
-
-
             },
             buscarFiltrado(){
                 this.mensajeColor = ''; this.mensajeCate = '';
@@ -146,7 +149,7 @@ export default {
                 for (var i = 0; i < this.filtrosCategorias.length; i++){
                     this.mensajeCate = this.mensajeCate + ',' + this.filtrosCategorias[i];
                 }
-                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1), {
+                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1) + '&estado=' + this.estado_id, {
                 })
                     .then(response => {
                         this.productosFiltrados = response.data;

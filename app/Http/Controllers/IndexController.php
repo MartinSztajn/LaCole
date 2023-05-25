@@ -117,6 +117,10 @@ class IndexController extends Controller
             }
             $productos = $productos->whereIn('color_id', $filtrosCol);
         }
+        if($request['estado'] != null)
+        {
+            $productos = $productos->where('estado_id', $request['estado']);
+        }
         $productos = $productos->get();
         foreach ($productos as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
@@ -179,7 +183,8 @@ class IndexController extends Controller
         }
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
-        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores]);
+        $estados = Estado_producto::all();
+        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados]);
     }
     public function inicio(){
         if (Auth::user() != null && Auth::user()->es_admin){

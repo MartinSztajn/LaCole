@@ -25,7 +25,7 @@
 
         <div class="py-12">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
-                <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>Negocio: {{nombre}}</b></h1>
+                <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>Tus Productos</b></h1>
                 <div style="">
                     <div class="container2" v-for="pro in productos" style="margin-bottom: 10px">
                         <div  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="image2">

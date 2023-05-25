@@ -84,6 +84,7 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/editarProvincia', [\App\
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarEstado', [\App\Http\Controllers\ProductosController::class , 'editarEstado']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarPrecio', [\App\Http\Controllers\ProductosController::class , 'editarPrecio']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/editarColor', [\App\Http\Controllers\ProductosController::class , 'editarColor']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/eliminarFotoProducto/{id}', [\App\Http\Controllers\ProductosController::class , 'eliminarFotoProducto']);
 
 /*
 CATEGORIA CONTROLLER
