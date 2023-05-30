@@ -66,7 +66,7 @@
                                         <div style="margin-right: 20px; color: white">
                                             <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
                                             <form @submit.prevent="logout" style="width: 150px">
-                                                <DropdownLink as="button">
+                                                <DropdownLink as="button" style="text-align: center">
                                                     Log Out
                                                 </DropdownLink>
                                             </form>
@@ -149,7 +149,7 @@
                                 <div style="margin-right: 20px; color: white">
                                     <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
                                     <form @submit.prevent="logout" style="width: 150px">
-                                        <DropdownLink as="button">
+                                        <DropdownLink as="button" style="text-align: center">
                                             Log Out
                                         </DropdownLink>
                                     </form>
@@ -280,13 +280,13 @@ export default {
             this.showHelp = 0;
         },
         verProductosColores($id){
-            this.$inertia.post('/buscarTexto?color=' + $id);
+            this.$inertia.get('/buscarTexto?color=' + $id);
         },
         verProductosCategoria($nombre){
-            this.$inertia.get('/verProductosCategoria/' + $nombre);
+            this.$inertia.get('/buscarTexto?categoria=' + $nombre);
         },
         buscar(){
-            this.$inertia.post('/buscarTexto?text=' + this.form.buscador);
+            this.$inertia.get('/buscarTexto?text=' + this.form.buscador);
         },
         verProductoDetalle($nomCat, $nombre){
             this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
@@ -357,8 +357,7 @@ export default {
     position: relative;
 }
 .tipografia{
-    font-family: 'Lato', sans-serif;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .container-3 input#search::-webkit-input-placeholder {

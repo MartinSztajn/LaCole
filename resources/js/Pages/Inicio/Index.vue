@@ -47,12 +47,12 @@
                     </div>
                 </div>
                 <div class="celular" style="justify-content: space-evenly; padding: 10px; margin-top: 35px; background-color: black; border-radius: 15px;">
-                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
+                    <a href="/login"  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
                         <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
                         </svg>
                         <p  style="text-align: center; color: #ebebeb">Publica Productos</p>
-                    </button>
+                    </a>
                     <p style="font-size: 60px">|</p>
                     <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
                         <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#ebebeb" class="bi bi-shop" viewBox="0 0 16 16">
@@ -61,12 +61,12 @@
                         <p  style="text-align: center; color: #ebebeb">Unite a la comunidad <br> Crea tu cuenta</p>
                     </button>
                     <p style="font-size: 60px">|</p>
-                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
+                    <a @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  href='/buscarTexto?text='>
                         <svg  style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="#ebebeb" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg>
                         <p  style="text-align: center; color: #ebebeb">Contamos con productos <br> de calidad</p>
-                    </button>
+                    </a>
                     <p style="font-size: 60px">|</p>
                     <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
                         <svg style="float: left; margin-right: 20px" xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#ebebeb" class="bi bi-stars" viewBox="0 0 16 16">
@@ -112,10 +112,9 @@
         </div>
 
         <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
-            <h1 style="font-size: 30px; text-align: left; color: #17428A;">
+            <h1 style="font-size: 30px; text-align: left; color: black;">
                 Los más solicitados
             </h1>
-            <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
             <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
                 <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
@@ -152,10 +151,9 @@
             </div>
         </div>
         <div  v-if="produCateEspecial.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
-            <h1 style="font-size: 30px; text-align: left; color: #17428A;">
-                Los más recientes
+            <h1 style="font-size: 30px; text-align: left; color: black;">
+                Te pueden interesar
             </h1>
-            <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
             <div class="celuCarrusel" :style="produCateEspecial.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
                 <div v-for="(pro, index) in primerosCateEspecial" @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverProduCateEspecial(index)" @mouseleave="handleMouseLeaveProduCateEspecial(index)"  :style="primerosCateEspecial[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
@@ -184,14 +182,7 @@
         </div>
 
 
-        <div style="display: flex; margin: 3%; overflow: auto ">
-            <div  v-for="(col, index) in colores" style="text-align: center; margin-right: 20px">
-                <button @click="verProductosColores(col.id)" style="margin-bottom: 5px; margin-right: 10px; text-align: center">
-                    <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
-                    <p>{{col.nombre}}</p>
-                </button>
-            </div>
-        </div>
+
         <div class="container p-3">
             <!-- Section: Links -->
             <section class="">
@@ -206,14 +197,35 @@
 
                     </div>
                 </div>
+                <div style="display: flex; margin: 3%; overflow: auto ">
+                    <div  v-for="(col, index) in colores" style="text-align: center; margin-right: 20px">
+                        <button @click="verProductosColores(col.id)" style="margin-bottom: 5px; margin-right: 10px; text-align: center">
+                            <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
+                            <p>{{col.nombre}}</p>
+                        </button>
+                    </div>
+                </div>
+                <div class="row" style="">
+                    <div class="col-4">
+                        <a href="/">
+                            <img src="fotos/bannerCate11.png">
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <img src="fotos/bannerCate22.png">
+                    </div>
+                    <div class="col-4">
+                        <img src="fotos/bannerCate33.png">
+                    </div>
+                </div>
             </section>
         </div>
+
         <!-- Tabs navs -->
         <div  v-if="novedades.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
-            <h1 style="font-size: 30px; text-align: left; color: #17428A;">
+            <h1 style="font-size: 30px; text-align: left; color: black;">
                 Los más recientes
             </h1>
-            <hr style="width: 95%; border: 2px solid #EF7728; margin-bottom: 20px">
             <div class="celuCarrusel" :style="novedades.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
                 <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverNovedades(index)" @mouseleave="handleMouseLeaveNovedades(index)" v-for="(pro, index) in primerosNovedades" :style="primerosNovedades[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
@@ -343,8 +355,11 @@ export default {
           verProductosNegocio($id){
               this.$inertia.get('/verProductosNegocio/' + $id);
           },
+          verProductosColores($id){
+              this.$inertia.get('/buscarTexto?color=' + $id);
+          },
           verProductosCategoria($nombre, $hijo){
-              this.$inertia.get('/verProductosCategoria/' + $nombre);
+              this.$inertia.get('/buscarTexto?categoria='  + $nombre);
           },
           enviarMail(){
               this.$inertia.post('/enviar-correo');

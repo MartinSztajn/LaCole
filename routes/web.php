@@ -25,7 +25,7 @@ Route::get('/buscarCategorias', [\App\Http\Controllers\IndexController::class,'b
 Route::get('/buscarColores', [\App\Http\Controllers\IndexController::class,'buscarColores']);
 Route::get('/buscarCategoriasHijos', [\App\Http\Controllers\IndexController::class,'buscarCategoriasHijos']);
 Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
-Route::post('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
+Route::get('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
 Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'buscarBanner']);
 Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar']);
 

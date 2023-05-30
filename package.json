@@ -27,6 +27,7 @@
         "swiper": "^9.2.3",
         "vue-axios": "^3.5.2",
         "vue-carousel": "^0.18.0",
+        "vue-slider-component": "^3.2.24",
         "vuex": "^4.1.0"
     }
 }

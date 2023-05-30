@@ -9,12 +9,12 @@
                     </a>
                 </div>
             </div>
-            <a class="carousel-control-prev" @click="moverIzq()" role="button" data-slide="prev">
+            <a class="carousel-control-prev celular" @click="moverIzq()" role="button" data-slide="prev">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
                 </svg>
             </a>
-            <a class="carousel-control-next" @click="moverDer()" role="button" data-slide="next">
+            <a class="carousel-control-next celular" @click="moverDer()" role="button" data-slide="next">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
                 </svg>
@@ -22,12 +22,12 @@
         </div>
 
         <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
-            <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>¡Encontramos estos productos!</b></h1>
-            <div class="row">
-                <div class="col-2" style="background-color: black; border-radius: 10px; padding: 20px">
+            <h1 style="font-size: 30px; text-align: center; position: center; margin-bottom: 3%;"><b>¡Encontramos estos productos!</b></h1>
+            <div class="row celular">
+                <div class="col-2" style="background-color: black; height: 100%; border-radius: 10px; padding: 20px">
                     <ul>
-                        <h1 style="color: white; font-size: 20px"><b>Filtro</b></h1>
-                        <li v-for="fil in filtrosCategorias" style="">
+                        <h1 v-if="filtrosCategorias.length > 0 || filtrosColores.length > 0" style="color: white; font-size: 20px"><b>Filtro</b></h1>
+                        <li v-if="filtrosCategorias.length > 0" v-for="fil in filtrosCategorias" style="">
                             <button  @click="quitarCategoria(fil)" class="btn" style="display: flex; color: lightgrey">
                                 <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
@@ -36,7 +36,7 @@
                                 <p>{{fil}}</p>
                             </button>
                         </li>
-                        <li v-for="fil in filtrosColores" style="">
+                        <li v-if="filtrosColores.length > 0" v-for="fil in filtrosColores" style="">
                             <button  @click="quitarColor(fil)" class="btn" style="display: flex; color: lightgrey">
                                 <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
@@ -46,7 +46,7 @@
                             </button>
                         </li>
                     </ul>
-                    <hr style="width: 90%; margin: 5%; border: 2px solid white;">
+                    <hr  v-if="filtrosCategorias.length > 0 || filtrosColores.length > 0" style="width: 90%; margin: 5%; border: 2px solid white;">
                     <ul>
                         <h1 style="color: white; font-size: 20px"><b>Categorias</b></h1>
                         <li v-for="cate in categorias" style="">
@@ -65,19 +65,17 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="col-10">
-                    <div class="row">
-                        <div class="col-4">
-                            <select style="width: 60%; margin-right: 2%; margin-left: 2%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
+                    <div class="row" style="margin-bottom: 2%">
+                        <div class="col-5">
+                            <select style="width: 60%; margin-right: 20%; margin-left: 20%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
+                                <option value="0" selected>Ambos</option>
                                 <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
                             </select>
                         </div>
-                        <div class="col-4">
-                            <h1>dsa</h1>
-                        </div>
-                        <div class="col-4">
-                            <h1>dsa</h1>
+                        <div class="col-5" style="display: flex;">
+                            <input style="width: 33%; margin-left: 15%; margin-right: 2%;" type="number"  v-model="minValue" placeholder="Min" @change="buscarFiltrado">
+                            <input style="width: 33%; margin-right: 15%; margin-left: 2%;" type="number" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
                         </div>
                     </div>
                     <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin-bottom: 10px">
@@ -93,6 +91,86 @@
                     </div>
                 </div>
             </div>
+                <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
+                    <div v-for="n in cantPaginate" style="margin-right: 5px">
+                        <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row computadora">
+                <div>
+                    <div class="row" style="margin-bottom: 5%; margin-top: 5%">
+                        <div class="col-6">
+                            <select style="width: 80%; margin-right: 10%; margin-left: 10%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
+                                <option value="0" selected>Ambos</option>
+                                <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="col-6" style="display: flex;">
+                            <input style="width: 40%; margin-left: 8%; margin-right: 2%;" type="number" id="min" v-model="minValue" placeholder="Min" @change="buscarFiltrado">
+                            <input style="width: 40%; margin-right: 8%; margin-left: 2%;" type="number" id="max" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
+                        </div>
+                    </div>
+
+                    <ul >
+                        <h1 v-if="filtrosCategorias.length > 0 || filtrosColores.length > 0" style="color: black; font-size: 20px"><b>Filtro</b></h1>
+                        <div v-if="filtrosCategorias.length > 0"  style="display: flex; overflow: auto;">
+                            <button v-for="fil in filtrosCategorias" @click="quitarCategoria(fil)" class="btn">
+                                <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                                <p>{{fil}}</p>
+                            </button>
+                        </div>
+                        <div v-if="filtrosColores.length > 0" style="display: flex; overflow: auto;">
+                            <button v-for="fil in filtrosColores" @click="quitarColor(fil)" class="btn">
+                                <svg style="margin-right: 10px; margin-top: 3px" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                </svg>
+                                <p>{{fil}}</p>
+                            </button>
+                        </div>
+                    </ul>
+                    <hr v-if="filtrosCategorias.length > 0 || filtrosColores.length > 0" style="width: 90%; margin: 5%; border: 2px solid white;">
+                    <ul>
+                        <h1 style="color: black; font-size: 20px"><b>Categorias</b></h1>
+                        <div style="display: flex; overflow: auto;">
+                            <button v-for="cate in categorias" @click="agregarCategoria(cate.nombre)" class="btn" >
+                                <p>{{cate.nombre}}</p>
+                            </button>
+                        </div>
+                    </ul>
+                    <ul style="margin-top: 20px">
+                        <h1 style="color: black; font-size: 20px"><b>Colores</b></h1>
+                        <div style="display: flex; overflow: auto;" >
+                            <button v-for="col in colores"  @click="agregarColor(col.nombre)" class="btn">
+                                <div class="rounded-circle" :style="'width: 25px; height: 25px; border: 4px solid black; background-color:' + col.color"></div>
+                                <p>{{col.nombre}}</p>
+                            </button>
+                        </div>
+                    </ul>
+                </div>
+                <div style="margin-bottom: 1%; margin-top: 10%">
+                    <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin-bottom: 10px">
+                    <div class="image2">
+                        <img :src="'/fotos/' + pro.path">
+                    </div>
+                    <hr>
+                    <div class="colum2">
+                        <h2 class="card-text" style="font-size: 15px"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text" style="font-size: 12px">{{pro.nomEstado}}</h2>
+                        <br>
+                        <h1 class="card-text" style="font-size: 15px">${{pro.precio}}</h1>
+                    </div>
+                </div>
+            </div>
+                <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
+                    <div v-for="n in cantPaginate" style="margin-right: 5px">
+                        <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -107,7 +185,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 export default {
     name: "verProductosBuscar",
-    props: ['productos','categorias','fotosBanner','colores','estados'],
+    props: ['productos','categorias','fotosBanner','colores','estados','cantPaginate'],
     components:{
         ClienteLayout,
         Footer
@@ -117,12 +195,15 @@ export default {
         return{
             filtrosCategorias: [],
             filtrosColores: [],
-            productosFiltrados: [],
+            productosFiltrados: this.productos,
             mensajeCate: '',
             mensajeColor: '',
-            estado_id: '',
+            estado_id: 0,
             hola:'',
+            pagina: 0,
             num: 0,
+            minValue: '',
+            maxValue: ''
         }
     },
     methods:
@@ -140,6 +221,10 @@ export default {
                 this.filtrosColores = this.filtrosColores.filter(item => item !== $nombre);
                 this.buscarFiltrado();
             },
+            pasarPagina(n){
+                this.pagina = n - 1;
+                this.buscarFiltrado();
+            },
             buscarFiltrado(){
                 this.mensajeColor = ''; this.mensajeCate = '';
 
@@ -149,10 +234,11 @@ export default {
                 for (var i = 0; i < this.filtrosCategorias.length; i++){
                     this.mensajeCate = this.mensajeCate + ',' + this.filtrosCategorias[i];
                 }
-                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1) + '&estado=' + this.estado_id, {
+                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1) + '&estado=' + this.estado_id + '&pagina=' + this.pagina + '&min=' + this.minValue + '&max=' + this.maxValue , {
                 })
                     .then(response => {
-                        this.productosFiltrados = response.data;
+                        this.productosFiltrados = response.data.productos;
+                        this.cantPaginate = response.data.cant;
                     })
                     .catch(error => {
                         console.error(error);
@@ -184,7 +270,24 @@ export default {
             verProductoDetalle($nomCat, $nombre){
                 this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
             },
-        }
+            fetchProducts(url) {
+                axios.get(url)
+                    .then(response => {
+                        this.products = response.data.data;
+                        this.prevPageUrl = response.data.prev_page_url;
+                        this.nextPageUrl = response.data.next_page_url;
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            },
+        },
+        mounted() {
+
+            this.timer = setInterval(() => {
+                this.moverDer();
+            }, 5000);
+        },
 }
 </script>
 
@@ -213,7 +316,7 @@ export default {
         padding: 5px;
         background-color: white;
         margin: 1%;
-        width: 250px;
+        width: 150px;
         float: left;
         border-radius: 5px;
     }
@@ -238,8 +341,8 @@ export default {
     }
     .image2 img {
         max-width: none;
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         display: block;
     }
     .botones{
@@ -270,6 +373,9 @@ export default {
 }
 
 @media (min-width: 501px) {
+    .computadora{
+        display: none;
+    }
     .altura{
         height: 118px;
     }

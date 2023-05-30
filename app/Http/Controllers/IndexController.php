@@ -105,7 +105,6 @@ class IndexController extends Controller
             }
             $productos = $productos->whereIn('categoria_id', $filtrosCate);
         }
-
         if($request['colores'] != null)
         {
             $colores = str_replace('-',' ',$request['colores']);
@@ -117,10 +116,32 @@ class IndexController extends Controller
             }
             $productos = $productos->whereIn('color_id', $filtrosCol);
         }
-        if($request['estado'] != null)
+        if($request['min'] != null)
+        {
+            $productos = $productos->where('precio', '>=' , $request['min']);
+        }
+        if($request['max'] != null)
+        {
+            $productos = $productos->where('precio', '<=' , $request['max']);
+        }
+        if($request['estado'] != null && $request['estado'] != 0)
         {
             $productos = $productos->where('estado_id', $request['estado']);
         }
+
+        $cant = intval(sizeof($productos->get()) / 20);
+        if(fmod($cant, 1) !== 0){
+            $cant = $cant + 1;
+        }
+
+        if($request['pagina'] != null)
+        {
+            $productos =  $productos->skip($request['pagina'] * 20)->take(20);
+        }
+        else {
+            $productos =  $productos->skip(0)->take(20);
+        }
+
         $productos = $productos->get();
         foreach ($productos as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
@@ -140,21 +161,42 @@ class IndexController extends Controller
             }
         }
 
-        return $productos;
+        return [
+            'productos' => $productos,
+             'cant' => $cant];
     }
     public function buscarTexto(Request $request){
-        $productos = Productos::where('estado', 1)->get();
+        $productos = Productos::where('estado', 1);
         $buscador = $request['text'];
+        $nombreCategoria = $request['categoria'];
+
         $color = $request['color'];
         if ($buscador != '') {
-            $productos = Productos::where('nombre', 'like', '%' . $buscador . '%')->get();
+            $productos = $productos->where('nombre', 'like', '%' . $buscador . '%');
+        }
+        if ($buscador != '') {
+            $productos = $productos->where('nombre', 'like', '%' . $buscador . '%');
+        }
+        if ($nombreCategoria != '') {
+            $id = Categorias::select('categorias.*')->where('nombre', $nombreCategoria)->get()->toArray();
+            if ($id != []) {
+                $id = $id[0]['id'];
+                $productos = $productos->where('categoria_id', $id);
+
+            }
         }
         if ($color != '') {
-            $productos = Productos::where('color_id', $color)->get();
+            $productos = $productos->where('color_id', $color);
         }
+        $cant = intval(sizeof($productos->get()) / 20);
+        if(fmod($cant, 1) !== 0){
+            $cant = $cant + 1;
+        }
+        $productos->skip(0)->take(20);
+        $productos = $productos->get();
+
+
         foreach ($productos as $pro) {
-            $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
-            $pro->cantOfertas = (count($ofertas));
             $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
             $nomEstado = Estado_producto::select('nombre')->where('id', $pro['estado_id'])->get()->toArray();
             if ($nomEstado != []) {
@@ -184,7 +226,7 @@ class IndexController extends Controller
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
         $estados = Estado_producto::all();
-        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados]);
+        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant]);
     }
     public function inicio(){
         if (Auth::user() != null && Auth::user()->es_admin){
