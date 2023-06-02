@@ -22,6 +22,9 @@
                             <td>{{us.name}}</td>
                             <td>{{us.email}}</td>
                             <td>{{(us.created_at).substr(0, 10)}}</td>
+                            <td><button v-if="us.aceptado == 0" @click="habilitarUsuario(us.id)" class="btn btn-primary" style="background-color: red">No Aceptado</button>
+                                <button v-if="us.aceptado == 1" @click="habilitarUsuario(us.id)" class="btn btn-primary" style="background-color: green">Aceptado</button>
+                            </td>
                             <td>
                                 <button type="submit" v-if="id != us.id"  class="btn" @click="deseaEliminar(us.id)"  style="width: 100%; background-color: #FF9292">Eliminar</button>
                                 <button type="submit" v-if="id == us.id" class="btn" @click="eliminarUsuario(us.id)"  style="width: 100%; background-color: red">Confirmar</button>
@@ -66,6 +69,9 @@ export default {
             eliminarUsuario($id){
                 this.$inertia.post('/eliminarUsuario/' + $id);
                 this.editrEliminar = false;
+            },
+            habilitarUsuario($id){
+                this.$inertia.post('/habilitarUsuario/' + $id);
             },
         }
 

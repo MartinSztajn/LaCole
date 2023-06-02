@@ -70,9 +70,6 @@ const logout = () => {
                                 <button onclick="window.location.href='/verColoresProducto'" :active="route().current('/verColoresProducto')">
                                     <p>  Colores </p>
                                 </button>
-                                <button onclick="window.location.href='/verPrecios'" :active="route().current('/verPrecios')">
-                                    <p>  Precios </p>
-                                </button>
                                 <button onclick="window.location.href='/verConsultas'" :active="route().current('/verConsultas')">
                                     <p>  Consultas </p>
                                 </button>

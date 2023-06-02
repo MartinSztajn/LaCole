@@ -10,14 +10,14 @@
                     </a>
                 </div>
             </div>
-            <a class="carousel-control-prev" @click="moverIzq()" role="button" data-slide="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+            <a class="carousel-control-prev compu" @click="moverIzq()" role="button" data-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                 </svg>
             </a>
-            <a class="carousel-control-next" @click="moverDer()" role="button" data-slide="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+            <a class="carousel-control-next compu" @click="moverDer()" role="button" data-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                 </svg>
             </a>
         </div>
@@ -27,11 +27,18 @@
             <h2 style="margin: 10px; text-align: center; font-size: 25px">Dejanos tu mensaje</h2>
             <div style="margin: 3%; padding: 20px">
                 <input style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
-                <input style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular"  data-rules="required|number" class="form-control" v-model="form.numero" >
+                <input style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular"  data-rules="required|number" class="form-control" v-model="form.celular" >
                 <input style="width: 44%; margin-right: 2%; margin-left: 2%; float: left; border: 2px solid #C0C0C0;"    placeholder="Nombre" class="form-control" v-model="form.nombre" >
                 <input style="width: 44%; margin-right: 2%; margin-left: 0%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
                 <textarea style="width: 90%; margin-right: 2%; margin-left: 2%; margin-bottom: 2%; border: 2px solid #C0C0C0;" id="ContactForm-body" class="text-area field__input" placeholder="Comentario"  v-model="form.mensaje"></textarea>
-                <button class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white" @click="enviarMensaje()">Enviar Mensaje!</button>
+                <button v-if="envioMensaje != 1"  class="btn" style="width: 50%; margin-left: 25%; background-color: black; color: white" @click="enviarMensaje()">Enviar Mensaje!</button>
+
+                <p v-if="envioMensaje != 0" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
+                    <svg v-if="envioMensaje == 2" style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                        <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                    </svg>
+                    {{mensajeEnviar}}
+                </p>
             </div>
         </div>
 
@@ -58,9 +65,12 @@ export default {
         return{
             hola:'',
             num: 0,
+            mensajeEnviar: '',
+            envioMensaje: 0,
             form:{
                 mail: '',
                 nombre: '',
+                celular: '',
                 apellido: '',
                 mensaje: ''
             }
@@ -80,7 +90,22 @@ export default {
                 this.num =  (this.num+1) % this.fotosBanner.length;
             },
             enviarMensaje(){
-                this.$inertia.post('/enviarMensajeConsulta', this.form);
+                if( this.form.celular != '' && this.form.mail != '' && this.form.apellido != '' && this.form.nombre != ''  && this.form.mensaje != ''){
+                    this.envioMensaje = 1;
+                    this.mensajeEnviar = 'Mensaje enviado con éxito';
+                    this.$inertia.post('/enviarMensajeConsulta', this.form);
+                }
+                else {
+                    this.envioMensaje = 2;
+                    this.mensajeEnviar = 'Debe ingresar:';
+                    if(this.form.celular == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' celular,';}
+                    if(this.form.mail == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' mail,';}
+                    if(this.form.nombre == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' nombre,';}
+                    if(this.form.apellido == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' apellido,';}
+                    if(this.form.mensaje == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' comentario,';}
+
+                    this.mensajeEnviar = this.mensajeEnviar.slice(0, -1);
+                }
             }
         },
     mounted() {

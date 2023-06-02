@@ -10,13 +10,13 @@
                 </div>
             </div>
             <a class="carousel-control-prev compu" @click="moverIzq()" role="button" data-slide="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                 </svg>
             </a>
             <a class="carousel-control-next compu" @click="moverDer()" role="button" data-slide="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                    <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                 </svg>
             </a>
         </div>
@@ -26,26 +26,41 @@
                     <h1 class="titulo"><b>Bienvenido a La Cole Market</b></h1>
                     <p class="textito">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comundidad</p>
                 </div>
-                <div style="display: flex; justify-content: space-evenly;">
-                    <div class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-people-fill" viewBox="0 0 16 16">
-                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
-                        </svg>
-                        <p class="itemsTexto">+500 Usuarios</p>
+            </div>
+
+        </div>
+
+        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
+            <h1 style="font-size: 30px; text-align: left; color: black;">
+                Los más solicitados
+            </h1>
+            <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+                    <div class="image2">
+                        <img :src="'/fotos/' + pro.path">
                     </div>
-                    <div class="">
-                        <svg  xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-bag-plus-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
-                        </svg>
-                        <p class="itemsTexto">+1500 Productos</p>
-                    </div>
-                    <div class="">
-                        <svg  xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="svgItem bi bi-ui-radios-grid" viewBox="0 0 16 16">
-                            <path d="M3.5 15a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm9-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm0 9a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM16 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm-9 9a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zm5.5 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm-9-11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm0 2a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                        </svg>
-                        <p class="itemsTexto">+30 Categorias</p>
+                    <hr>
+                    <div class="colum2">
+                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                        <h2 class="card-text">{{pro.nomEstado}}</h2>
+                        <br>
+                        <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
                 </div>
+                <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                </a>
+                <a v-if="ofertados.length > 5" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 0%;">
+            <div style="width: 96%; margin-left: 2%; margin-right: 2%">
                 <div class="celular" style="justify-content: space-evenly; padding: 10px; margin-top: 35px; background-color: black; border-radius: 15px;">
                     <a href="/login"  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
                         <svg style="float: left; margin-right: 20px"  xmlns="http://www.w3.org/2000/svg" width="60" height="60"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
@@ -76,7 +91,7 @@
                             o emprendimiento</p>
                     </button>
                 </div>
-                <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: black; border-radius: 15px;">
+                <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: #000000; border-radius: 15px;">
                     <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
                         <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
@@ -106,42 +121,10 @@
                         <p style="text-align: center; color: #ebebeb">Publicita tu marca</p>
                     </button>
                 </div>
-
             </div>
 
         </div>
-
-        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
-            <h1 style="font-size: 30px; text-align: left; color: black;">
-                Los más solicitados
-            </h1>
-            <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
-                <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
-                    <div class="image2">
-                        <img :src="'/fotos/' + pro.path">
-                    </div>
-                    <hr>
-                    <div class="colum2">
-                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
-                        <h2 class="card-text">{{pro.nomEstado}}</h2>
-                        <br>
-                        <h1 class="card-text" >${{pro.precio}}</h1>
-                    </div>
-                </div>
-                <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-                    </svg>
-                </a>
-                <a v-if="ofertados.length > 5" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <div style="display: flex; margin: 3%; overflow: auto">
+        <div style="display: flex; margin: 3%; overflow: auto; padding: 2%">
             <div v-for="(cat, index) in cateTotales" style="text-align: center; margin-right: 30px">
                 <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"
                     @click="verProductosCategoria(cat.nombre)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
@@ -169,13 +152,13 @@
 
                 </div>
                 <a v-if="produCateEspecial.length > 5" @click="moverIzqProduCateEspecial()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
                 <a v-if="produCateEspecial.length > 5" @click="moverDerProduCateEspecial()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
             </div>
@@ -241,13 +224,13 @@
 
                 </div>
                 <a v-if="novedades.length > 5" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
                 <a v-if="novedades.length > 5" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                        <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
             </div>

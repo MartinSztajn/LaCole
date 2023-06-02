@@ -30,7 +30,21 @@ class UsersController extends Controller
         $consultas = Consultas::select('consultas.*','clientes.nombre','clientes.apellido','clientes.email','clientes.numero')
             ->leftJoin('clientes','clientes.id','consultas.cliente_id')->get();
         return Inertia::render('Consultas/Index', ['consultas' => $consultas]);
+    }
+    public function habilitarUsuario($id)
+    {
+        if(Auth::user()->es_admin) {
 
+            $usuario = User::find($id);
+            if ($usuario->aceptado == 0) {
+                $usuario->aceptado = 1;
+            } else {
+                $usuario->aceptado = 0;
+            }
+
+            $usuario->save();
+            return back();
+        }
     }
     public function eliminarUsuario($id)
     {

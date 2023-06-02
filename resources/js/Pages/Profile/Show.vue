@@ -1,5 +1,5 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
+import ClienteLayout from '@/Layouts/ClienteLayout.vue';
 import DeleteUserForm from '@/Pages/Profile/Partials/DeleteUserForm.vue';
 import JetSectionBorder from '@/Jetstream/SectionBorder.vue';
 import LogoutOtherBrowserSessionsForm from '@/Pages/Profile/Partials/LogoutOtherBrowserSessionsForm.vue';
@@ -12,12 +12,27 @@ defineProps({
     sessions: Array,
 });
 </script>
+<style scoped>
 
+@media (max-width: 500px) {
+    .altura{
+        height: 63px;
+    }
+}
+
+@media (min-width: 501px) {
+    .altura{
+        height: 118px;
+    }
+}
+
+</style>
 <template>
-    <AppLayout title="Profile">
+    <ClienteLayout title="Profile">
+        <div class="altura" style="background-color: #121212;"></div>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profile
+                Perfil
             </h2>
         </template>
 
@@ -53,5 +68,5 @@ defineProps({
                 </template>
             </div>
         </div>
-    </AppLayout>
+    </ClienteLayout>
 </template>

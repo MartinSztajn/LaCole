@@ -264,7 +264,8 @@ class IndexController extends Controller
             $categorias = Categorias::all();
             $estados = Estado_producto::all();
             $colores = Colores::all();
-            return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores]);
+            $user = User::find(Auth::user()->id);
+            return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores, 'user' => $user]);
         }
 
         $novedades = Productos::where('estado', 1)->latest()->take(8)->get();

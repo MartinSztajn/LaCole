@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->integer('es_admin')->default(0);
+            $table->integer('aceptado')->default(0);
             $table->timestamps();
         });
     }

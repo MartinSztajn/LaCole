@@ -9,7 +9,7 @@
 
         <Banner />
 
-        <div class="min-h-screen bg-white-100" style="background-color: #ebebeb">
+        <div class="min-h-screen bg-white-100" style="background-color: #F5F1F1">
 
             <nav style="background-color: #121212; width: 100%; position: fixed; z-index: 101; top: 0" >
                 <!-- Primary Navigation Menu -->
@@ -51,7 +51,7 @@
                                 </div>
                                 </div>
                                 <div class="col-3">
-                                    <div class="flex" style="margin-top: 25px;display: flex;justify-content: center;" v-if="!this.$page.props.user">
+                                    <div class="flex" style="float: right; margin: 25px;display: flex;justify-content: center;" v-if="!this.$page.props.user">
                                         <div class="flex-shrink-0 flex items-center" style="margin-right: 20px; color: white">
                                             <a :href="route('register')">Registrate</a>
                                         </div>
@@ -62,14 +62,40 @@
                                             <a :href="route('login')">Ingresá</a>
                                         </div>
                                     </div>
-                                    <div style="margin-top: 25px;" v-if="this.$page.props.user">
+                                    <div style="float: right; margin: 25px;" v-if="this.$page.props.user">
                                         <div style="margin-right: 20px; color: white">
-                                            <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
-                                            <form @submit.prevent="logout" style="width: 150px">
-                                                <DropdownLink as="button" style="text-align: center">
-                                                    Log Out
-                                                </DropdownLink>
-                                            </form>
+                                            <div>
+                                                <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                                    </svg>
+                                                    <p>{{$page.props.user.name}}</p>
+                                                </a>
+                                                <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                                                    <li>
+                                                        <a href="/dashboard" style="width: 150px">
+                                                            <DropdownLink as="button" style="text-align: center">
+                                                                Productos
+                                                            </DropdownLink>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/user/profile" style="width: 150px">
+                                                            <DropdownLink as="button" style="text-align: center">
+                                                                Cuenta
+                                                            </DropdownLink>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <form @submit.prevent="logout" style="width: 150px">
+                                                            <DropdownLink as="button" style="text-align: center">
+                                                                Log Out
+                                                            </DropdownLink>
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -146,14 +172,41 @@
                                 </div>
                             </div>
                             <div v-if="this.$page.props.user">
-                                <div style="margin-right: 20px; color: white">
-                                    <a :href="route('register')">¡Hola {{$page.props.user.name}}!</a>
-                                    <form @submit.prevent="logout" style="width: 150px">
-                                        <DropdownLink as="button" style="text-align: center">
-                                            Log Out
-                                        </DropdownLink>
-                                    </form>
+                                <div style="margin-right: 20px; margin-top: 10px; color: white">
+                                    <div>
+                                        <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                            </svg>
+                                            <p>{{$page.props.user.name}}</p>
+                                        </a>
+                                        <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                                            <li>
+                                                <a href="/dashboard" style="width: 150px">
+                                                    <DropdownLink as="button" style="text-align: center">
+                                                        Productos
+                                                    </DropdownLink>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/user/profile" style="width: 150px">
+                                                    <DropdownLink as="button" style="text-align: center">
+                                                        Cuenta
+                                                    </DropdownLink>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form @submit.prevent="logout" style="width: 150px">
+                                                    <DropdownLink as="button" style="text-align: center">
+                                                        Log Out
+                                                    </DropdownLink>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+
                             </div>
                         <div>
 
@@ -174,7 +227,7 @@
                         </svg>
                     </div>
                     <div style="margin-top: 80px">
-                        <a :href="route('register')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
+                        <a :href="route('login')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
                         <br>
                     </div>
                     <div class='search-form' method='get' target='_top'>
@@ -188,7 +241,7 @@
                     <div style="height: 365px; overflow: auto;">
                         <ul style="margin-left: 25px">
                             <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
-                                <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
+                                <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 45px;height: 45px;" class="rounded-circle">
                                 <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: white">
                                     <p><b>{{cate.nombre}}</b></p>
                                 </button>
@@ -662,7 +715,9 @@ body {
 .whatsapp-icon {
     margin-top:13px;
 }
-
+.dropdown-toggle::after{
+    margin-top: 10px;
+}
 
 
 

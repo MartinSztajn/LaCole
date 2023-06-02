@@ -34,6 +34,8 @@ Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar'])
 USUARIOS CONTROLLER
 */
 Route::middleware(['auth:sanctum', 'verified'])->get('/verUsuarios', [\App\Http\Controllers\UsersController::class,'verUsuarios']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/habilitarUsuario/{id}', [\App\Http\Controllers\UsersController::class,'habilitarUsuario']);
+
 Route::middleware(['auth:sanctum', 'verified'])->post('/eliminarUsuario/{id}', [\App\Http\Controllers\UsersController::class,'eliminarUsuario']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/eliminarConsulta/{id}', [\App\Http\Controllers\UsersController::class,'eliminarConsulta']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verVentas', [\App\Http\Controllers\UsersController::class,'verVentas']);
