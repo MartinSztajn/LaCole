@@ -27,9 +27,11 @@ class UsersController extends Controller
         }
     }
     public function verConsultas(){
-        $consultas = Consultas::select('consultas.*','clientes.nombre','clientes.apellido','clientes.email','clientes.numero')
-            ->leftJoin('clientes','clientes.id','consultas.cliente_id')->get();
-        return Inertia::render('Consultas/Index', ['consultas' => $consultas]);
+        if(Auth::user()->es_admin) {
+            $consultas = Consultas::select('consultas.*', 'clientes.nombre', 'clientes.apellido', 'clientes.email', 'clientes.numero')
+                ->leftJoin('clientes', 'clientes.id', 'consultas.cliente_id')->get();
+            return Inertia::render('Consultas/Index', ['consultas' => $consultas]);
+        }
     }
     public function habilitarUsuario($id)
     {

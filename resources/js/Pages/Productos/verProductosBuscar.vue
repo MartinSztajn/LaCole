@@ -65,20 +65,20 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-10">
-                    <div class="row" style="margin-bottom: 2%">
+                <div class="col-10" style="display: flex; flex-wrap: wrap;">
+                    <div class="row" style="margin-bottom: 2%; width: 100%;">
                         <div class="col-5">
                             <select style="width: 60%; margin-right: 20%; margin-left: 20%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
                                 <option value="0" selected>Ambos</option>
                                 <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
                             </select>
                         </div>
-                        <div class="col-5" style="display: flex;">
+                        <div class="col-5">
                             <input style="width: 33%; margin-left: 15%; margin-right: 2%;" type="number"  v-model="minValue" placeholder="Min" @change="buscarFiltrado">
                             <input style="width: 33%; margin-right: 15%; margin-left: 2%;" type="number" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
                         </div>
                     </div>
-                    <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin-bottom: 10px">
+                    <div v-for="(pro, index) in productosFiltrados"  @click="verProductoDetalle(pro.nomCat, pro.nombre)"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)"  class="container2" :style="productosFiltrados[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
@@ -152,7 +152,7 @@
                         </div>
                     </ul>
                 </div>
-                <div style="margin-bottom: 1%; margin-top: 10%">
+                <div style=" display: flex; margin-bottom: 1%; margin-top: 10%;flex-wrap: wrap;">
                     <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in productosFiltrados" style="margin: 10px">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
@@ -281,6 +281,12 @@ export default {
                         console.error(error);
                     });
             },
+            handleMouseOverOfertados($i) {
+                this.productosFiltrados[$i].zoomed = true;
+            },
+            handleMouseLeaveOfertados($i) {
+                this.productosFiltrados[$i].zoomed = false;
+            },
         },
         mounted() {
 
@@ -325,7 +331,7 @@ export default {
         margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 190px;
+        width: 150px;
         padding: 10px;
     }
 
@@ -406,7 +412,6 @@ export default {
         margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 190px;
     }
 
 

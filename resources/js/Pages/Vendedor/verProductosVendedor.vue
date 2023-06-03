@@ -27,7 +27,7 @@
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
                 <h1 v-if="productos.length > 0" style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>Tus productos</b></h1>
                 <h1 v-if="productos.length == 0" style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>No hay productos publicados</b></h1>
-                <div style="">
+                <div style="display: flex;  flex-wrap: wrap;">
                     <div class="container2" v-for="pro in productos" style="margin-bottom: 10px">
                         <div  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="image2">
                             <img :src="'/fotos/' + pro.path">
@@ -39,9 +39,7 @@
                             <br>
                             <h1 class="card-text" >${{pro.precio}}</h1>
                             <br>
-                            <button v-if="id != pro.id" @click="deseaEliminar(pro.id)" class="btn btn-primary" style="background-color: #FF9292; margin-bottom: 10px">Eliminar</button>
-                            <button v-if="id == pro.id" @click="borrarProducto(pro.id)" class="btn btn-primary" style="background-color: red; margin-bottom: 10px">Confirmar</button>
-                            <button @click="verOfertas(pro.id)" class="btn" style="background-color: green; color: white; margin-bottom: 10px">Ofertas</button>
+                             <button @click="verOfertas(pro.id)" class="btn" style="background-color: green; color: white; margin-bottom: 10px">Ofertas</button>
                             <button @click="verPerfilProducto(pro.id)" class="btn btn-primary" style="margin-bottom: 10px">Editar</button>
                         </div>
                     </div>
@@ -274,10 +272,9 @@ export default {
         text-align: center;
     }
     .container2 {
-        padding: 5px;
         background-color: white;
         margin: 1%;
-        width: 450px;
+        width: 150px;
         float: left;
         border-radius: 5px;
     }
@@ -339,8 +336,8 @@ export default {
 
     .image2 img {
         max-width: none;
-        height: 200px;
-        width: 200px;
+        height: 150px;
+        width: 150px;
         display: block;
     }
     .info{

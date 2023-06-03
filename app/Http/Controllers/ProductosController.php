@@ -255,8 +255,9 @@ class ProductosController extends Controller
             }
             $colores = Colores::all();
             $estados = Estado_producto::all();
+            $fotosBanner = Fotos_banner::all();
 
-            return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias, 'colores' => $colores, 'estados' => $estados]);
+            return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias, 'colores' => $colores, 'estados' => $estados, 'fotosBanner' => $fotosBanner]);
 
     }
     public function verProductos()
@@ -492,12 +493,16 @@ class ProductosController extends Controller
     }
 
     public function verEstadoProducto(){
-        $estados = Estado_producto::all();
-        return Inertia::render('Productos/estadoProducto', ['estados' => $estados]);
+        if(Auth::user()->es_admin) {
+            $estados = Estado_producto::all();
+            return Inertia::render('Productos/estadoProducto', ['estados' => $estados]);
+        }
     }
     public function verColoresProducto(){
-        $colores = Colores::all();
-        return Inertia::render('Productos/coloresProducto', ['colores' => $colores]);
+        if(Auth::user()->es_admin) {
+            $colores = Colores::all();
+            return Inertia::render('Productos/coloresProducto', ['colores' => $colores]);
+        }
     }
 
     public function guardarEstadoProducto(Request $request)
