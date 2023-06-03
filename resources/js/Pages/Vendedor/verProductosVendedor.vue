@@ -29,6 +29,7 @@
                 <h1 v-if="productos.length == 0" style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>No hay productos publicados</b></h1>
                 <div style="display: flex;  flex-wrap: wrap;">
                     <div class="container2" v-for="pro in productos" style="margin-bottom: 10px">
+                        <div v-if="pro.cantOfertas > 0" class="ofertas">{{pro.cantOfertas}}</div>
                         <div  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="image2">
                             <img :src="'/fotos/' + pro.path">
                         </div>
@@ -39,14 +40,15 @@
                             <br>
                             <h1 class="card-text" >${{pro.precio}}</h1>
                             <br>
-                             <button @click="verOfertas(pro.id)" class="btn" style="background-color: green; color: white; margin-bottom: 10px">Ofertas</button>
+                             <button v-if="pro.cantOfertas > 0" @click="verOfertas(pro.id)" class="btn" style="background-color: green; color: white; margin-bottom: 10px">Ver ofertas</button>
+                             <button v-if="pro.cantOfertas == 0" class="btn" style="background-color: black; color: white; margin-bottom: 10px">Sin ofertas</button>
                             <button @click="verPerfilProducto(pro.id)" class="btn btn-primary" style="margin-bottom: 10px">Editar</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button @click="activarCrear()" class="btn btn-primary" style="width: 90%;  margin-left: 5%; margin-right: 5%; position: center; text-align: center; margin-top: 1%;">Agregar Producto</button>
+            <button @click="activarCrear()" class="btn btn-primary" style="width: 90%; background-color: black; color: white; margin-left: 5%; margin-right: 5%; position: center; text-align: center; margin-top: 1%;">Agregar Producto</button>
             <div v-if="btnActivado" class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-top: 5%; padding: 2%; width: 70%; margin-left: 15%;">
                 <h2 style="margin: 20px">Nombre Producto:</h2>
                 <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
@@ -716,6 +718,14 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
 .item{
     display: flex;
     align-items: center;
+}
+.ofertas{
+    position: absolute;
+    background-color: red;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 10px;
 }
 
 

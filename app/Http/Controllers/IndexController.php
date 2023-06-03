@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 Use Auth;
 use function Ramsey\Collection\add;
+use function Termwind\ValueObjects\getLength;
 
 
 class IndexController extends Controller
@@ -73,6 +74,14 @@ class IndexController extends Controller
     public function buscarColores(){
         $colores = Colores::all();
         return $colores;
+    }
+    public function buscarCantOfetasTotal(){
+        $cant = 0;
+        $productos = Productos::where('user_id', Auth::user()->id)->get();
+        foreach ($productos as $pro) {
+            $cant = $cant + sizeof(Ofertas::where('producto_id', $pro->id)->where('estado',0)->get());
+        }
+        return $cant;
     }
     public function buscarCategoriasHijos(){
         $categorias = Categorias::all()->where('padre_id',null);
@@ -260,6 +269,7 @@ class IndexController extends Controller
                 if($fotos != []) {
                     $pro->path = $fotos[0]['path'];
                 }
+                $pro->cantOfertas = sizeof(Ofertas::where('producto_id', $pro->id)->where('estado',0)->get());
             }
             $categorias = Categorias::all();
             $estados = Estado_producto::all();
@@ -468,6 +478,10 @@ class IndexController extends Controller
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
         return Inertia::render('Inicio/consultas', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+    }
+    public function verPolitica(){
+        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        return Inertia::render('Inicio/politica', ['fotosBanner' => $fotosBanner]);
     }
 
     public function enviarMensajeConsulta(Request $request){

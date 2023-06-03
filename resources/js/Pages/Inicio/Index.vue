@@ -30,12 +30,12 @@
 
         </div>
 
-        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
+        <div  v-if="novedades.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
             <h1 style="font-size: 30px; text-align: left; color: black;">
-                Los más solicitados
+                Los más recientes
             </h1>
-            <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
-                <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+            <div class="celuCarrusel" :style="novedades.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverNovedades(index)" @mouseleave="handleMouseLeaveNovedades(index)" v-for="(pro, index) in primerosNovedades" :style="primerosNovedades[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
@@ -46,19 +46,21 @@
                         <br>
                         <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
+
                 </div>
-                <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                <a v-if="novedades.length > 5" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
-                <a v-if="ofertados.length > 5" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                <a v-if="novedades.length > 5" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
             </div>
         </div>
+
         <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 0%;">
             <div style="width: 96%; margin-left: 2%; margin-right: 2%">
                 <div class="celular" style="justify-content: space-evenly; padding: 10px; margin-top: 35px; background-color: black; border-radius: 15px;">
@@ -163,9 +165,6 @@
                 </a>
             </div>
         </div>
-
-
-
         <div class="container p-3">
             <!-- Section: Links -->
             <section class="">
@@ -188,29 +187,47 @@
                         </button>
                     </div>
                 </div>
-                <div class="row" style="">
-                    <div class="col-4">
+                <div class="row celular">
+                    <div class="col-3">
                         <a href="/">
                             <img src="fotos/bannerCate11.png">
                         </a>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <img src="fotos/bannerCate22.png">
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <img src="fotos/bannerCate33.png">
+                    </div>
+                    <div class="col-3">
+                        <img src="fotos/bannerCate44.png">
+                    </div>
+                </div>
+                <div class="row computadora" style="margin-top: 10%">
+                    <div class="col-6" style="margin-bottom: 5%">
+                        <a href="/">
+                            <img src="fotos/bannerCate11.png">
+                        </a>
+                    </div>
+                    <div class="col-6" style="margin-bottom: 5%">
+                        <img src="fotos/bannerCate22.png">
+                    </div>
+                     <div class="col-6">
+                        <img src="fotos/bannerCate33.png">
+                    </div>
+                    <div class="col-6">
+                        <img src="fotos/bannerCate44.png">
                     </div>
                 </div>
             </section>
         </div>
-
         <!-- Tabs navs -->
-        <div  v-if="novedades.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+        <div  v-if="ofertados.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px" >
             <h1 style="font-size: 30px; text-align: left; color: black;">
-                Los más recientes
+                Los más solicitados
             </h1>
-            <div class="celuCarrusel" :style="novedades.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
-                <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleMouseOverNovedades(index)" @mouseleave="handleMouseLeaveNovedades(index)" v-for="(pro, index) in primerosNovedades" :style="primerosNovedades[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+            <div class="celuCarrusel" :style="ofertados.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                <div v-for="(pro, index) in primerosOfertas"  @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)" :style="primerosOfertas[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
@@ -221,14 +238,13 @@
                         <br>
                         <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
-
                 </div>
-                <a v-if="novedades.length > 5" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                <a v-if="ofertados.length > 5" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
-                <a v-if="novedades.length > 5" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                <a v-if="ofertados.length > 5" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>

@@ -66,13 +66,16 @@
                                         <div style="margin-right: 20px; color: white">
                                             <div>
                                                 <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                    <svg v-if="cantOfertasTotal == 0" style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                                     </svg>
+                                                    <div v-if="cantOfertasTotal > 0" style="margin-right: 10px;" class="ofertas">{{cantOfertasTotal}}</div>
+
                                                     <p>{{$page.props.user.name}}</p>
                                                 </a>
                                                 <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+
                                                     <li>
                                                         <a href="/dashboard" style="width: 150px">
                                                             <DropdownLink as="button" style="text-align: center">
@@ -175,10 +178,12 @@
                                 <div style="margin-right: 20px; margin-top: 10px; color: white">
                                     <div>
                                         <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <svg style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                            <svg v-if="cantOfertasTotal == 0" style="margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                             </svg>
+                                            <div v-if="cantOfertasTotal > 0" style="margin-right: 10px;" class="ofertas">{{cantOfertasTotal}}</div>
+
                                             <p>{{$page.props.user.name}}</p>
                                         </a>
                                         <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
@@ -304,6 +309,7 @@ export default {
             categorias: [],
             categoriasHijos: [],
             colores: [],
+            cantOfertasTotal: 0,
             habilitarModalBuscar: false,
         }
     },
@@ -390,11 +396,22 @@ export default {
                     console.error(error);
                 });
         },
+        buscarCantOfetasTotal(){
+            axios.get('/buscarCantOfetasTotal', {
+            })
+                .then(response => {
+                    this.cantOfertasTotal = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
 
     },
     created() {
         // Llamamos al método que filtra los productos al crear el componente
         this.buscarCategorias();
+        this.buscarCantOfetasTotal();
         this.buscarColores();
         this.buscarCategoriasHijos();
 
@@ -969,5 +986,13 @@ body {
         width: 200px;
         font-size: 20px;
     }
+}
+.ofertas{
+    background-color: red;
+    display: inline-table;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 10px;
 }
 </style>
