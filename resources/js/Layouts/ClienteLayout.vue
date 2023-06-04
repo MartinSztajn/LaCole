@@ -427,7 +427,7 @@ export default {
     position: relative;
 }
 .tipografia{
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Open Sans';
 }
 
 .container-3 input#search::-webkit-input-placeholder {
