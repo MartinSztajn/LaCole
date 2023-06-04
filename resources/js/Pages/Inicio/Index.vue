@@ -128,8 +128,7 @@
         </div>
         <div style="display: flex; margin: 3%; overflow: auto; padding: 2%">
             <div v-for="(cat, index) in cateTotales" style="text-align: center; margin-right: 30px">
-                <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"
-                    @click="verProductosCategoria(cat.nombre)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
+                <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"  @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)" @click="verProductosCategoria(cat.nombre)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle">
                 <button  @click="verProductosCategoria(cat.nombre)" class="btn" style="text-align: left; padding-left: 0px">
                     <p><b>{{cat.nombre}}</b></p>
                 </button>
@@ -175,13 +174,14 @@
                         </a>
                     </div>
                     <div class="col-lg-6 col-md-6 mb-6 mb-md-0">
-                        <img src="fotos/publicita.png">
-
+                        <a href="/enviarPublicidad">
+                            <img src="fotos/publicita.png">
+                        </a>
                     </div>
                 </div>
-                <div style="display: flex; margin: 3%; overflow: auto ">
+                <div style="display: flex;  margin-top: 4%;  margin-bottom: 4%; overflow: auto ">
                     <div  v-for="(col, index) in colores" style="text-align: center; margin-right: 20px">
-                        <button @click="verProductosColores(col.id)" style="margin-bottom: 5px; margin-right: 10px; text-align: center">
+                        <button @click="verProductosColores(col.id)" :style="colores[index].zoomed  ? 'transform: scale(1.2); margin: 10px; text-align: center;' : 'margin: 10px; text-align: center;'"  @mouseover="handleColorMouseOver(index)" @mouseleave="handleColorMouseLeave(index)">
                             <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
                             <p>{{col.nombre}}</p>
                         </button>
@@ -336,6 +336,12 @@ export default {
           },
           handleMouseLeave($i) {
               this.cateTotales[$i].zoomed = false;
+          },
+          handleColorMouseOver($i) {
+              this.colores[$i].zoomed = true;
+          },
+          handleColorMouseLeave($i) {
+              this.colores[$i].zoomed = false;
           },
           moverIzq(){
                 if (this.num == 0){

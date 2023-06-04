@@ -479,6 +479,22 @@ class IndexController extends Controller
 
         return Inertia::render('Inicio/consultas', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
     }
+    public function enviarPublicidad(){
+        $categorias = Categorias::all()->where('padre_id',null);
+        foreach ($categorias as $cate) {
+            $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
+            if ($cateHijo != []) {
+                $cate->hijos = $cateHijo;
+            }
+            $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
+            $cate->path = '';
+            if ($fotos != []) {
+                $cate->path = $fotos[0]['path'];
+            }
+        }
+        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        return Inertia::render('Inicio/hola', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
+    }
     public function verPolitica(){
         $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
         return Inertia::render('Inicio/politica', ['fotosBanner' => $fotosBanner]);
@@ -491,7 +507,7 @@ class IndexController extends Controller
             $cli->nombre = $request->nombre;
             $cli->apellido = $request->apellido;
             $cli->email = $request->mail;
-            $cli->numero = $request->numero;
+            $cli->numero = $request->celular;
             $cli->save();
             $cliId = $cli->id;
         }

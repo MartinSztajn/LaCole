@@ -20,6 +20,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 Use Auth;
+use Monolog\Handler\IFTTTHandler;
 use function Ramsey\Collection\add;
 
 
@@ -461,19 +462,22 @@ class ProductosController extends Controller
 
     public function borrarProducto($id)
     {
+
         $producto = Productos::find($id);
-        $ofertas = Ofertas::where('producto_id', $id)->get();
-        foreach ($ofertas as $ofe){
-            $ofe->delete();
-        }
+        if (Auth::user()->es_admin || $producto->user_id == Auth::user()->id) {
+            $ofertas = Ofertas::where('producto_id', $id)->get();
+            foreach ($ofertas as $ofe) {
+                $ofe->delete();
+            }
 
 
-        $fotos = Fotos_Producto::where('producto_id', $id)->get();
-        foreach ($fotos as $fot){
-            $fot->delete();
+            $fotos = Fotos_Producto::where('producto_id', $id)->get();
+            foreach ($fotos as $fot) {
+                $fot->delete();
+            }
+            $producto->delete();
+            return back();
         }
-        $producto->delete();
-        return back();
     }
 
     public function habilitarProducto($id)

@@ -68,8 +68,8 @@
                     <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
                             Otros productos del vendedor
                         </h1>
-                    <div :style="otrosVendedor.length > 5  ? 'display: flex;overflow: auto;justify-content: space-evenly;' : 'display: flex;overflow: auto;'">
-                            <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in primerosVendedor" style="margin-bottom: 10px">
+                    <div class="celuCarrusel" :style="otrosVendedor.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                            <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="(pro, index) in primerosVendedor" :style="primerosVendedor[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'"  @mouseover="handleprimerosVendedorMouseOver(index)" @mouseleave="handleprimerosVendedorMouseLeave(index)">
                                 <div class="image2">
                                     <img :src="'/fotos/' + pro.path">
                                 </div>
@@ -80,7 +80,6 @@
                                     <br>
                                     <h1 class="card-text" >${{pro.precio}}</h1>
                                 </div>
-
                             </div>
                             <a v-if="otrosVendedor.length > 5" @click="moverIzqVendedor()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
                                 <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
@@ -118,8 +117,8 @@
                         Otros productos de la categoria
 
                     </h1>
-                    <div :style="otrosCategoria.length > 5  ? 'display: flex;overflow: auto;justify-content: space-evenly;' : 'display: flex;overflow: auto;'">
-                        <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="pro in primerosOtros" style="margin-bottom: 10px">
+                    <div class="celuCarrusel" :style="otrosCategoria.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                        <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="(pro, index) in primerosOtros"  :style="primerosOtros[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'"  @mouseover="handleprimerosOtrosMouseOver(index)" @mouseleave="handleprimerosOtrosMouseLeave(index)">
                             <div class="image2">
                                 <img :src="'/fotos/' + pro.path">
                             </div>
@@ -197,6 +196,18 @@ export default {
     },
     methods:
         {
+            handleprimerosVendedorMouseOver($i) {
+                this.primerosVendedor[$i].zoomed = true;
+            },
+            handleprimerosVendedorMouseLeave($i) {
+                this.primerosVendedor[$i].zoomed = false;
+            },
+            handleprimerosOtrosMouseOver($i) {
+                this.primerosOtros[$i].zoomed = true;
+            },
+            handleprimerosOtrosMouseLeave($i) {
+                this.primerosOtros[$i].zoomed = false;
+            },
             moverIzq(){
                 if (this.num == 0){
                     this.num = this.fotosBanner.length - 1;
@@ -315,7 +326,6 @@ export default {
     created() {
         this.filterOtros(0);
         this.filterOtrosVendedor(0);
-
     },
 }
 </script>
@@ -323,6 +333,9 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .celuCarrusel{
+        overflow: auto;
+    }
     .celular{
         display: none;
     }

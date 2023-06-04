@@ -20,6 +20,7 @@ Route::get('/dashboard', [\App\Http\Controllers\IndexController::class,'inicio']
 Route::get('/getAllProductos/{nombre}', [\App\Http\Controllers\IndexController::class,'getAllProductos']);
 Route::get('/inicio', [\App\Http\Controllers\IndexController::class,'verPagina']);
 Route::get('/enviarConsulta', [\App\Http\Controllers\IndexController::class,'enviarConsulta']);
+Route::get('/enviarPublicidad', [\App\Http\Controllers\IndexController::class,'enviarPublicidad']);
 Route::get('/verPolitica', [\App\Http\Controllers\IndexController::class,'verPolitica']);
 
 Route::post('/enviarMensajeConsulta', [\App\Http\Controllers\IndexController::class,'enviarMensajeConsulta']);

@@ -23,8 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/hola.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_05_24_022936_create_consultas.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_05_24_022936_create_consultas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoriasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Footer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,16 +201,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
+      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp2\htdocs\LaCole\public\fotos" />
       <recent name="C:\xampp2\htdocs\LaCole\database\migrations" />
       <recent name="C:\xampp2\htdocs\LaCole\app\Models" />
       <recent name="C:\xampp\htdocs\ColeMarket\public\fotos" />
       <recent name="C:\xampp\htdocs\WopNuevo\vendor" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\WopNuevo\resources\js\Pages" />
-      <recent name="C:\xampp\htdocs\WopNuevo\app\Mail" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.IndexController.php">
@@ -313,7 +321,8 @@
       <workItem from="1685686355889" duration="1206000" />
       <workItem from="1685760319610" duration="9401000" />
       <workItem from="1685854424042" duration="5302000" />
-      <workItem from="1685866081776" duration="345000" />
+      <workItem from="1685866081776" duration="695000" />
+      <workItem from="1685906351249" duration="4193000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios Nuevos">
       <created>1673307646623</created>
@@ -588,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685859751045</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="commit">
+      <created>1685866642387</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1685866642387</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -608,9 +624,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cambios Nuevos" />
-    <MESSAGE value="commit" />
     <MESSAGE value="Cambios Nuevo" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2371" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1685857398761">
@@ -645,16 +661,17 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1685859755526">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1685866658967">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685687653166" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685866658967" />
     <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685859755526" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1684888952240" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
-    <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1685773616971">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1685866561477">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685866561477" />
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685773616971" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1685770563878">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -662,11 +679,11 @@
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684382406216" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685770563878" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1685857781115">
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1685908721674">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685684624036" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685857781115" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685908721674" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1684901730801" />
   </component>
 </project>

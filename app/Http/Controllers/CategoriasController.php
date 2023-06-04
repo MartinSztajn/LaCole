@@ -102,18 +102,22 @@ class CategoriasController extends Controller
         }
     }
     public function activarBanner($id){
-        $fotoBanner = Fotos_banner::find($id);
-        $fotoBanner->activo = 1;
-        $fotoBanner->save();
+        if(Auth::user()->es_admin) {
 
-        return back();
+            $fotoBanner = Fotos_banner::find($id);
+            $fotoBanner->activo = 1;
+            $fotoBanner->save();
+            return back();
+        }
     }
     public function desactivarBanner($id){
-        $fotoBanner = Fotos_banner::find($id);
-        $fotoBanner->activo = 0;
-        $fotoBanner->save();
+        if(Auth::user()->es_admin) {
 
-        return back();
+            $fotoBanner = Fotos_banner::find($id);
+            $fotoBanner->activo = 0;
+            $fotoBanner->save();
+            return back();
+        }
     }
 
     public function borrarCategoria($id){
