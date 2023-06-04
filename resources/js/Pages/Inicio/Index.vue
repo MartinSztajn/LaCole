@@ -165,7 +165,7 @@
                 </a>
             </div>
         </div>
-        <div class="container p-3">
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 0%;">
             <!-- Section: Links -->
             <section class="">
                 <div class="row" style="">

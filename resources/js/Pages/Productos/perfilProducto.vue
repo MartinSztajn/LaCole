@@ -25,7 +25,7 @@
                 <h1 v-if="editrnombre == false " @dblclick="editarNombre()" style="text-align: center; position: center; font-size: 50px;">{{producto.nombre}}</h1>
                 <input ref="cellinput" type="text" v-show="editrnombre == true" v-model="producto.nombre" style="text-align: center; width: 96%; position: center; font-size: 50px; margin: 3%;" @keyup.enter="guardarNombre">
 
-                <div style="width: 100%; display: flex">
+                <div style="width: 100%; display: flex; overflow: auto">
                     <div v-for="(imagen, index) in producto.path" style="margin-right: 5%; margin-bottom: 5%; ">
                         <img v-if="editrfoto[index] == false && imagen.path != ''" @dblclick="editarFoto(index)" :src="'/fotos/' + imagen.path" style="min-height:200px; max-width: 250px; border-radius: 30px;">
                         <div  v-show="editrfoto[index] == true" style="margin-bottom: 5%">
@@ -37,12 +37,21 @@
                         </div>
                     </div>
                 </div>
+                <div style="margin-bottom: 4%">
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Agregar Imagenes:</h2>
+                    <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
+                    <div class="row">
+                        <img v-for="imagen in form2.pathNuevas" style="width: 250px" :src="imagen" class="img-thumbnail">
+                    </div>
+                    <input type="file" @change="establecerFoto2"/>
+                    <button v-if="form2.pathNuevas.length > 0" @click="agregarFotos" class="btn btn-primary" style="background-color: black; margin-bottom: 10px">Agregar Fotos</button>
+                </div>
 
                 <h1 v-if="editrprecio == false " @dblclick="editarPrecio()"  style="font-size: 30px;"><b><b>Precio:</b> ${{producto.precio}}</b></h1>
-                <input ref="cellinput" type="text" v-show="editrprecio == true" v-model="producto.precio" style="width: 100%font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarPrecio">
+                <input ref="cellinput" type="text" v-show="editrprecio == true" v-model="producto.precio" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarPrecio">
                 <br>
                 <h1 v-if="editrcant_min == false " @dblclick="editarCantidadMinima()"  style="font-size: 20px;"><b>Cantidad Minimo: {{producto.cant_minimo}}</b></h1>
-                <input ref="cellinput" type="number" v-show="editrcant_min == true" v-model="producto.cant_minimo" style="width: 100%font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarCantidadMinima">
+                <input ref="cellinput" type="number" v-show="editrcant_min == true" v-model="producto.cant_minimo" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarCantidadMinima">
                 <br>
                 <h1 v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; "><b>Descripcion:</b> {{producto.descripcion}}</h1>
                 <input ref="cellinput" type="text" v-show="editrdesc == true" v-model="producto.descripcion" style="font-size: 20px; width: 100%" @keyup.enter="guardarDesc">
@@ -89,7 +98,10 @@ export default {
             rango: 0,
             num: 0,
             eliminar: 0,
-
+            form2: {
+                pathNuevas: [],
+                producto_id: this.producto.id,
+            },
             path:[],
             form:{
                 provincia_id:'',
@@ -219,7 +231,11 @@ export default {
                     id: this.producto.id}).then();
             },
             eliminarFoto($i){
-                axios.post('/eliminarFotoProducto/' + $i);
+                this.$inertia.post('/eliminarFotoProducto/' + $i);
+            },
+            agregarFotos(){
+                this.$inertia.post('/agregarFotos', this.form2);
+                this.form2.pathNuevas = [];
             },
             establecerFoto1(e) {
                 this.path = [];
@@ -232,6 +248,17 @@ export default {
                 }
                 reader.readAsDataURL(file);
             },
+            establecerFoto2(e) {
+                let file = e.target.files[0];
+                let reader = new FileReader();
+
+                reader.onloadend = (file) => {
+                    //console.log('RESULT', reader.result)
+                    this.form2.pathNuevas.push(reader.result);
+                }
+                reader.readAsDataURL(file);
+            },
+
             borrarProducto($id)
             {
                 this.$inertia.post('/borrarProducto/' + $id);

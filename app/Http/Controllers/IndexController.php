@@ -278,11 +278,11 @@ class IndexController extends Controller
             return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores, 'user' => $user]);
         }
 
-        $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
+        $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
 
-        $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(4)->pluck('producto_id');
+        $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
         $ofertados = Productos::whereIn('id', $topProductIds)->where('estado', 1)->get();
-        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(16)->get();
+        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -370,11 +370,11 @@ class IndexController extends Controller
         return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
     public function verPagina(){
-        $novedades = Productos::where('estado', 1)->latest()->take(8)->get();
+        $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
+        $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
 
-        $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(4)->pluck('producto_id');
         $ofertados = Productos::whereIn('id', $topProductIds)->get();
-        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(16)->get();
+        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));

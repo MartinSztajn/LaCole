@@ -23,20 +23,20 @@
         </div>
         <!-- Tabs navs --><!-- Tabs content -->
         <div style="margin: 4%" >
-            <h1 style="margin: 25px; text-align: center; font-size: 40px;"><b>Politica de la pagina</b></h1>
-            <h2 style="margin: 20px; text-align: left; font-size: 25px">
+            <h1 style="margin: 25px; text-align: center; font-size: 40px;"><b>Política de la pagina</b></h1>
+            <h2 style="margin: 20px; text-align: left; font-size: 20px">
                 En La Cole Market, nuestra misión es conectar a personas de la comunidad en la compra y venta de productos. Nuestra plataforma está diseñada para facilitar la interacción entre compradores y vendedores, creando un espacio en el que todos puedan beneficiarse.
             </h2>
-            <h2 style="margin: 20px; text-align: left; font-size: 25px">
+            <h2 style="margin: 20px; text-align: left; font-size: 20px">
                 La idea detrás de La Cole Market es simple: ofrecemos un lugar donde los usuarios pueden publicar los productos que desean vender y, a su vez, explorar los productos que otros usuarios están ofreciendo para comprar.
             </h2>
-            <h2 style="margin: 20px; text-align: left; font-size: 25px">
+            <h2 style="margin: 20px; text-align: left; font-size: 20px">
                <b> Es importante tener en cuenta que La Cole Market no se hace responsable de ningún inconveniente que pueda surgir entre los usuarios durante la compra o venta de productos. </b> Nos esforzamos por proporcionar un entorno seguro y confiable, pero no podemos garantizar la veracidad de la información proporcionada por los usuarios ni controlar las acciones de cada individuo. Por lo tanto, recomendamos encarecidamente a nuestros usuarios que tomen las precauciones necesarias al realizar transacciones y se comuniquen de manera efectiva para resolver cualquier problema que pueda surgir.
             </h2>
-            <h2 style="margin: 20px; text-align: left; font-size: 25px">
+            <h2 style="margin: 20px; text-align: left; font-size: 20px">
                 En La Cole Market, creemos en la transparencia y la comunicación abierta. Por lo tanto, al realizar una publicación, asegúrese de proporcionar una descripción precisa del producto, incluyendo detalles relevantes como su estado, tamaño, color, entre otros. De esta manera, los compradores potenciales podrán tomar decisiones informadas y tener una experiencia satisfactoria.
             </h2>
-            <h2 style="margin: 20px; text-align: left; font-size: 25px">
+            <h2 style="margin: 20px; text-align: left; font-size: 20px">
                 Agradecemos tu participación en La Cole Market y te deseamos una experiencia emocionante y gratificante. <br>
               <b>  ¡Únete a La Cole Market hoy mismo y descubre un mundo de posibilidades!</b>
             </h2>

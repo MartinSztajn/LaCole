@@ -65,7 +65,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-10" style="display: flex; flex-wrap: wrap;">
+                <div class="col-10">
                     <div class="row" style="margin-bottom: 2%; width: 100%;">
                         <div class="col-5">
                             <select style="width: 60%; margin-right: 20%; margin-left: 20%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
@@ -78,7 +78,8 @@
                             <input style="width: 33%; margin-right: 15%; margin-left: 2%;" type="number" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
                         </div>
                     </div>
-                    <div v-for="(pro, index) in productosFiltrados"  @click="verProductoDetalle(pro.nomCat, pro.nombre)"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)"  class="container2" :style="productosFiltrados[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <div v-for="(pro, index) in productosFiltrados"  @click="verProductoDetalle(pro.nomCat, pro.nombre)"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)"  class="container2" :style="productosFiltrados[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                     <div class="image2">
                         <img :src="'/fotos/' + pro.path">
                     </div>
@@ -90,7 +91,8 @@
                         <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
                 </div>
-            </div>
+                    </div>
+                </div>
                 <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
                     <div v-for="n in cantPaginate" style="margin-right: 5px">
                         <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>

@@ -324,7 +324,7 @@ class ProductosController extends Controller
                     $produ->nomCat = $nomCat[0]['nombre'];
                 }
 
-                $fotos = Fotos_Producto::where('producto_id', $id)->take(5)->get()->toArray();
+                $fotos = Fotos_Producto::where('producto_id', $id)->get()->toArray();
                 $produ->path = [];
                 if ($fotos != []) {
                     $produ->path = $fotos;
@@ -536,5 +536,19 @@ class ProductosController extends Controller
         $foto_producto = Fotos_Producto::find($id);
         $foto_producto->delete();
         return back();
+    }
+    public function agregarFotos(Request $request){
+        foreach ($request->pathNuevas as $key => $foto)
+        {
+            $extension = 'jpg';
+            $nombre = $this->generateRandomString(10);
+            $myFileName = $nombre . '.' . $extension;
+            Image::make($foto)->save(public_path('/fotos/' . $myFileName));
+
+            $ima = new Fotos_Producto;
+            $ima->path = $myFileName;
+            $ima->producto_id = $request->producto_id;
+            $ima->save();
+        }
     }
 }

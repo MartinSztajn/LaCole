@@ -36,7 +36,7 @@
                         <img :src="'/fotos/' + fotoPrincipal" style="width: 100%; max-height: 700px">
                     </div>
                     <div class="col-3" style= "height: 700px; overflow: auto; padding-left: 5%">
-                        <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @mouseover="cambiarFoto(key)" style="height:100px; width: 100px; margin-bottom: 5%; border-radius: 10px; border: 2px solid black;">
+                        <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @mouseover="cambiarFoto(key)" style="height:100px; width: 100px; margin: 5%; border-radius: 10px; border: 2px solid black; float: left">
                     </div>
                 </div>
                 <div class="row celu" style="width: 90%; margin: 5%; padding: 1%; padding-top: 3%; padding-bottom: 3%;">
@@ -101,10 +101,12 @@
                         <input style="width: 44%; margin-right: 1%; margin-left: 5%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Nombre" class="form-control" v-model="form.nombre" >
                         <input style="width: 44%; margin-right: 5%; margin-left: 1%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
                         <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular" class="form-control" v-model="form.celular" >
-                        <button v-if="realizoCompra != 1 && realizoCompra != 3" class="btn" style="width: 90%; margin-left: 5%; background-color: black; color: white" @click="confirmarCompra">Enviar!</button>
-                        <button v-if="realizoCompra == 1 && realizoCompra != 3" class="btn" style="width: 90%; margin-left: 5%; background-color: black; color: white" @click="aceptarCondiciones">Confirmar!</button>
-
-                        <p v-if="realizoCompra != 0" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
+                        <div style="text-align: center; margin: 1%">
+                            <input type="checkbox" v-model="aceptoCondiciones">
+                            Acepto los <a style="text-decoration: underline;" href="/verPolitica">términos y condiciones </a>
+                        </div>
+                        <button v-if="realizoCompra != 3" class="btn" style="width: 90%; margin-left: 5%; background-color: black; color: white" @click="aceptarCondiciones">Confirmar!</button>
+                        <p  style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
                             <svg v-if="realizoCompra == 2" style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
                                 <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
                             </svg>
@@ -176,6 +178,7 @@ export default {
         return{
             acivado: 0,
             realizoCompra: 0,
+            aceptoCondiciones: 0,
             fotoPrincipal: this.producto.path[0].path,
             min: 0,
             minVen: 0,
@@ -206,24 +209,37 @@ export default {
                 this.num =  (this.num+1) % this.fotosBanner.length;
             },
             aceptarCondiciones(){
-                this.mensajeEnviar = '¡Se enviaron los datos con exito!';
-                this.realizoCompra = 3;
-                this.$inertia.post('/comprarProducto', this.form);
-            },
-            confirmarCompra(){
-                if( this.form.celular != '' && this.form.mail != '' && this.form.apellido != '' && this.form.nombre != ''){
-                    this.realizoCompra = 1;
-                    this.mensajeEnviar = '“La Cole Market” no se hace responsable de cualquier inconveniente o problema que pueda surgir al contactarse con el vendedor y/o comprar el producto.';
+                if (this.aceptoCondiciones == 1) {
+                    if (this.form.celular != '' && this.form.mail != '' && this.form.apellido != '' && this.form.nombre != '') {
+                        this.mensajeEnviar = '¡Se enviaron los datos con exito!';
+                        this.realizoCompra = 3;
+                        this.$inertia.post('/comprarProducto', this.form);
+                    } else {
+                        this.realizoCompra = 2;
+                        this.mensajeEnviar = 'Debe ingresar:';
+                        if (this.form.celular == '') {
+                            this.mensajeEnviar = this.mensajeEnviar + ' celular,';
+                        }
+                        if (this.form.mail == '') {
+                            this.mensajeEnviar = this.mensajeEnviar + ' mail,';
+                        }
+                        if (this.form.nombre == '') {
+                            this.mensajeEnviar = this.mensajeEnviar + ' nombre,';
+                        }
+                        if (this.form.apellido == '') {
+                            this.mensajeEnviar = this.mensajeEnviar + ' apellido,';
+                        }
+                        this.mensajeEnviar = this.mensajeEnviar.slice(0, -1);
+                    }
                 }
                 else {
                     this.realizoCompra = 2;
-                    this.mensajeEnviar = 'Debe ingresar:';
-                    if(this.form.celular == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' celular,';}
-                    if(this.form.mail == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' mail,';}
-                    if(this.form.nombre == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' nombre,';}
-                    if(this.form.apellido == '' ){this.mensajeEnviar = this.mensajeEnviar  + ' apellido,';}
-                    this.mensajeEnviar = this.mensajeEnviar.slice(0, -1);
+                    this.mensajeEnviar = 'Debes aceptar las condiciones';
                 }
+
+            },
+            confirmarCompra(){
+
             },
             verProductoDetalle($nomCat, $nombre){
                 this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
