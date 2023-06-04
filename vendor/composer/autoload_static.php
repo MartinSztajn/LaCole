@@ -45,6 +45,7 @@ class ComposerStaticInita966d9f8acd80df2105643e89d1acc73
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
             'Tightenco\\Ziggy\\' => 16,
+            'Tests\\' => 6,
             'Termwind\\' => 9,
         ),
         'S' => 
@@ -181,6 +182,10 @@ class ComposerStaticInita966d9f8acd80df2105643e89d1acc73
         'Tightenco\\Ziggy\\' => 
         array (
             0 => __DIR__ . '/..' . '/tightenco/ziggy/src',
+        ),
+        'Tests\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
         ),
         'Termwind\\' => 
         array (
@@ -4611,6 +4616,23 @@ class ComposerStaticInita966d9f8acd80df2105643e89d1acc73
         'Termwind\\ValueObjects\\Node' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Node.php',
         'Termwind\\ValueObjects\\Style' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Style.php',
         'Termwind\\ValueObjects\\Styles' => __DIR__ . '/..' . '/nunomaduro/termwind/src/ValueObjects/Styles.php',
+        'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
+        'Tests\\Feature\\ApiTokenPermissionsTest' => __DIR__ . '/../..' . '/tests/Feature/ApiTokenPermissionsTest.php',
+        'Tests\\Feature\\AuthenticationTest' => __DIR__ . '/../..' . '/tests/Feature/AuthenticationTest.php',
+        'Tests\\Feature\\BrowserSessionsTest' => __DIR__ . '/../..' . '/tests/Feature/BrowserSessionsTest.php',
+        'Tests\\Feature\\CreateApiTokenTest' => __DIR__ . '/../..' . '/tests/Feature/CreateApiTokenTest.php',
+        'Tests\\Feature\\DeleteAccountTest' => __DIR__ . '/../..' . '/tests/Feature/DeleteAccountTest.php',
+        'Tests\\Feature\\DeleteApiTokenTest' => __DIR__ . '/../..' . '/tests/Feature/DeleteApiTokenTest.php',
+        'Tests\\Feature\\EmailVerificationTest' => __DIR__ . '/../..' . '/tests/Feature/EmailVerificationTest.php',
+        'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
+        'Tests\\Feature\\PasswordConfirmationTest' => __DIR__ . '/../..' . '/tests/Feature/PasswordConfirmationTest.php',
+        'Tests\\Feature\\PasswordResetTest' => __DIR__ . '/../..' . '/tests/Feature/PasswordResetTest.php',
+        'Tests\\Feature\\ProfileInformationTest' => __DIR__ . '/../..' . '/tests/Feature/ProfileInformationTest.php',
+        'Tests\\Feature\\RegistrationTest' => __DIR__ . '/../..' . '/tests/Feature/RegistrationTest.php',
+        'Tests\\Feature\\TwoFactorAuthenticationSettingsTest' => __DIR__ . '/../..' . '/tests/Feature/TwoFactorAuthenticationSettingsTest.php',
+        'Tests\\Feature\\UpdatePasswordTest' => __DIR__ . '/../..' . '/tests/Feature/UpdatePasswordTest.php',
+        'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
+        'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',
         'Tightenco\\Ziggy\\BladeRouteGenerator' => __DIR__ . '/..' . '/tightenco/ziggy/src/BladeRouteGenerator.php',
         'Tightenco\\Ziggy\\CommandRouteGenerator' => __DIR__ . '/..' . '/tightenco/ziggy/src/CommandRouteGenerator.php',
         'Tightenco\\Ziggy\\Output\\File' => __DIR__ . '/..' . '/tightenco/ziggy/src/Output/File.php',
