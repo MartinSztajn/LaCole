@@ -126,12 +126,14 @@
             </div>
 
         </div>
-        <div style="display: flex; margin: 3%; overflow: auto; padding: 2%">
-            <div v-for="(cat, index) in cateTotales" style="text-align: center; margin-right: 30px">
-                <img :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 3px solid white;' : ''"  @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)" @click="verProductosCategoria(cat.nombre)" :src="'/fotos/' + cat.path" class="fotoCategoria rounded-circle">
-                <button  @click="verProductosCategoria(cat.nombre)" class="btn" style="text-align: left; padding-left: 0px">
-                    <p><b>{{cat.nombre}}</b></p>
-                </button>
+        <div class="overflow-hidden sm:rounded-lg" style="margin: 3%; margin-top: 0%;">
+            <div style="display: flex;  margin-top: 4%;  margin-bottom: 4%; overflow: auto ">
+                <div  v-for="(cat, index) in cateTotales" style="text-align: center; margin-right: 20px; height: 180px">
+                    <button @click="verProductosColores(cat.id)" style="margin: 10px; text-align: center;  width: 100px; height: 100px; display: flex; align-items: center; flex-direction: column;"  >
+                        <img  :src="'/fotos/' + cat.path" class="rounded-circle" :style="cateTotales[index].zoomed  ? 'transform: scale(1.2); border: 4px solid black;' : 'border: 4px solid black;'" @mouseover="handleMouseOver(index)" @mouseleave="handleMouseLeave(index)">
+                        <p style="margin-top: 10px">{{cat.nombre}}</p>
+                    </button>
+                </div>
             </div>
         </div>
         <div  v-if="produCateEspecial.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
@@ -595,6 +597,9 @@ export default {
 }
 
 @media (min-width: 501px) {
+    .cateCircular{
+        width: 200px;
+    }
     .computadora{
         display: none;
     }

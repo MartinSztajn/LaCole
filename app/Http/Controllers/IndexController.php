@@ -220,7 +220,7 @@ class IndexController extends Controller
                 $pro->path = $fotos[0]['path'];
             }
         }
-        $categorias = Categorias::all()->where('padre_id',null);
+        $categorias = Categorias::all();
         foreach ($categorias as $cate){
             $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
             if ($cateHijo != []) {

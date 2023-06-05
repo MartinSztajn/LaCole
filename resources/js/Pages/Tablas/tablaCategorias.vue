@@ -33,7 +33,7 @@ export default {
     name: "tablaCategorias",
     props: ['cat','categorias', 'key'],
     data()
-    {
+    c
         return{
             editrNombre: false,
             editrcat: false,
@@ -89,7 +89,6 @@ export default {
                     id: this.cat.id}).then();
                 alert('Has modificado '+ this.cat.nombre);
                 this.path = [];
-
             },
             establecerFoto1(e) {
                 let file = e.target.files[0];

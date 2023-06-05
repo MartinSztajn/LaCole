@@ -104,11 +104,11 @@ class ProductosController extends Controller
                     $ima = new Fotos_categoria;
                     $ima->categoria_id = $request->id;
                     $ima->nombre = 'nombre';
-
                     $ima->path = $myFileName;
                     $ima->save();
                 }
                 else{
+                    $ima = Fotos_categoria::find($ima[0]->id);
                     $ima->path = $myFileName;
                     $ima->save();
                 }

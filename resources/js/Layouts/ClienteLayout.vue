@@ -111,23 +111,20 @@
                                         <div style="margin-right: 20%;" @mouseover="handleMouseOverCuatroCampos(1)">Categorias</div>
                                         <div @mouseover="handleMouseOverCuatroCampos(2)">Colores</div>
                                     </div>
-
-                                    <div v-if="showCategories || showColors || showHelp" style="margin-top: 30px;  position: absolute; background-color: white; max-width: 60%; border-radius: 10px; padding: 20px;">
-                                        <div  v-if="showCategories">
-                                            <ul>
-                                                <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
-                                                    <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 80px;height: 80px;" class="rounded-circle">
-                                                    <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: black">
-                                                        <p>{{cate.nombre}}</p>
-                                                    </button>
-                                                </li>
+                                    <div v-if="showCategories || showColors" style="margin-top: 30px;  position: absolute; background-color: white; max-width: 60%; border-radius: 10px; padding: 20px;">
+                                        <div v-if="showCategories">
+                                            <ul style="display: flex; flex-wrap: wrap;">
+                                                <button v-for="cate in categorias" @click="verProductosCategoria(cate.nombre)"  style="margin: 10px; width: 120px; display: flex; align-items: center; flex-direction: column;">
+                                                    <img :src="'/fotos/' + cate.path" style="width: 80px;height: 80px; border: 2px solid black;" class="rounded-circle">
+                                                    <p>{{cate.nombre}}</p>
+                                                </button>
                                             </ul>
                                         </div>
                                         <div  v-if="showColors">
                                             <ul>
                                                 <li v-for="col in colores"  style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
                                                     <button @click="verProductosColores(col.id)" href="" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
-                                                        <div class="rounded-circle" :style="'width: 60px; height: 60px; border: 4px solid black; background-color:' + col.color"></div>
+                                                        <div class="rounded-circle" :style="'width: 60px; height: 60px; border: 2px solid black; background-color:' + col.color"></div>
                                                         <p>{{col.nombre}}</p>
                                                     </button>
                                                 </li>
@@ -244,13 +241,19 @@
                         </button>
                     </div>
                     <div style="height: 365px; overflow: auto;">
-                        <ul style="margin-left: 25px">
-                            <li v-for="cate in categorias" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
-                                <img @click="verProductosCategoria(cate.nombre)" :src="'/fotos/' + cate.path" style="width: 45px;height: 45px;" class="rounded-circle">
-                                <button  @click="verProductosCategoria(cate.nombre)" class="btn" style="text-align: left; padding-left: 0px; color: white">
-                                    <p><b>{{cate.nombre}}</b></p>
-                                </button>
-                            </li>
+                        <ul style="display: flex; flex-wrap: wrap;">
+                            <button v-for="cate in categorias" @click="verProductosCategoria(cate.nombre)" style="width: 120px; display: flex; align-items: center; flex-direction: column; margin: 5px;">
+                                <img  :src="'/fotos/' + cate.path" style="width: 45px;height: 45px;" class="rounded-circle">
+                                <p style="color: white; font-size: 15px">{{cate.nombre}}</p>
+                            </button>
+                        </ul>
+                    </div>
+                    <div style="height: 300px; margin-top:40px; margin-left: 20px; overflow: auto;">
+                        <ul style="display: flex; flex-wrap: wrap;">
+                                <button v-for="col in colores"   @click="verProductosColores(col.id)" href="" style="float:left; margin-bottom: 5px; margin-left: 10px; margin-right: 10px; text-align: center">
+                                    <div class="rounded-circle" :style="'width: 50px; height: 50px; border: 2px solid black; background-color:' + col.color"></div>
+                                    <p>{{col.nombre}}</p>
+                             </button>
                         </ul>
                     </div>
                 </div>
