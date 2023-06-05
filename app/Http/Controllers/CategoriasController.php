@@ -34,6 +34,11 @@ class CategoriasController extends Controller
             $categorias = Categorias::all();
 
             foreach ($categorias as $cate){
+                $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
+                $cate->path = '';
+                if ($fotos != []) {
+                    $cate->path = $fotos[0]['path'];
+                }
                 if ($cate->padre_id != null){
                     $nomPadre = Categorias::select('nombre')->where('id', $cate->padre_id)->get()->toArray();
                     $cate->nomPadre = $nomPadre[0]['nombre'];

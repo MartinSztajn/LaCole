@@ -24,7 +24,7 @@
             <div style="width: 96%; margin-left: 2%; margin-right: 2%">
                 <div>
                     <h1 class="titulo"><b>Bienvenido a La Cole Market</b></h1>
-                    <p class="textito">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comundidad</p>
+                    <p class="textito">El shuk virtual de la comunidad donde vas a poder comprar, vender o alquilar productos y servicios a toda la comunidad</p>
                 </div>
             </div>
 

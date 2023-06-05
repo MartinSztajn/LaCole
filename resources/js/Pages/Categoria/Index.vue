@@ -11,12 +11,13 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
+                                <th scope="col">Foto</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Padre</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tabla-categorias v-for="(cat, key) in categorias"  v-bind:cat="cat"  v-bind:categorias="categorias"  v-bind:key="key">
+                                <tabla-categorias v-for="(cat, index) in categorias"  v-bind:cat="cat"  v-bind:categorias="categorias"  v-bind:key="index">
                                 </tabla-categorias>
                             </tbody>
                         </table>

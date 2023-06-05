@@ -22,6 +22,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 Use Auth;
 use Monolog\Handler\IFTTTHandler;
 use function Ramsey\Collection\add;
+use function Termwind\ValueObjects\getLength;
 
 
 class ProductosController extends Controller
@@ -88,6 +89,30 @@ class ProductosController extends Controller
         elseif ($request->tipo == 'Padre')
         {
             $categoria->padre_id = $request->valor;
+        }
+        elseif ($request->tipo == 'Foto')
+        {
+            foreach ($request->valor as $key => $foto)
+            {
+                $extension = 'jpg';
+                $nombre = $this->generateRandomString(10);
+                $myFileName = $nombre . '.' . $extension;
+                Image::make($foto)->save(public_path('/fotos/' . $myFileName));
+
+                $ima = Fotos_categoria::where('categoria_id', $request->id)->get();
+                if (sizeof($ima) == 0) {
+                    $ima = new Fotos_categoria;
+                    $ima->categoria_id = $request->id;
+                    $ima->nombre = 'nombre';
+
+                    $ima->path = $myFileName;
+                    $ima->save();
+                }
+                else{
+                    $ima->path = $myFileName;
+                    $ima->save();
+                }
+            }
         }
         $categoria->save();
 
