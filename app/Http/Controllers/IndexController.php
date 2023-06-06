@@ -11,8 +11,8 @@ use App\Models\Colores;
 use App\Models\Consultas;
 use App\Models\Estado_producto;
 use App\Models\Fotos_Producto;
-use App\Models\Fotos_banner;
-use App\Models\Fotos_categoria;
+use App\Models\Fotos_Banner;
+use App\Models\Fotos_Categoria;
 use Illuminate\Support\Facades\App;
 use App\Models\Ofertas;
 use App\Models\Precios;
@@ -68,7 +68,7 @@ class IndexController extends Controller
 
     }
     public function buscarBanner(){
-        $banner = Fotos_banner::all();
+        $banner = Fotos_Banner::all();
         return response()->json($banner);
     }
     public function buscarColores(){
@@ -232,7 +232,7 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
         }
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
         $estados = Estado_producto::all();
         return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant]);
@@ -244,7 +244,7 @@ class IndexController extends Controller
             return Inertia::render('Usuarios/Index', ['Usuarios' => $usuarios, 'cant' => $cantidad]);
         }
         if (Auth::user() != null && !Auth::user()->es_admin){
-            $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+            $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
 
             $categorias = Categorias::all()->where('padre_id',null);
             foreach ($categorias as $cate) {
@@ -362,7 +362,7 @@ class IndexController extends Controller
         }
 
 
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
 
         $this->actualizarPrecios();
@@ -454,7 +454,7 @@ class IndexController extends Controller
         }
 
 
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
         $this->actualizarPrecios();
 
@@ -475,7 +475,7 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
         }
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
 
         return Inertia::render('Inicio/consultas', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
     }
@@ -492,11 +492,11 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
         }
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         return Inertia::render('Inicio/hola', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner]);
     }
     public function verPolitica(){
-        $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         return Inertia::render('Inicio/politica', ['fotosBanner' => $fotosBanner]);
     }
 

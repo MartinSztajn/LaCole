@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Productos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Productos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +319,7 @@
       <workItem from="1685966209675" duration="176000" />
       <workItem from="1685989068287" duration="1155000" />
       <workItem from="1686057498502" duration="383000" />
-      <workItem from="1686079686442" duration="535000" />
+      <workItem from="1686079686442" duration="927000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios Nuevos">
       <created>1673307646623</created>
@@ -631,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685938528588</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Cambios Nuevo">
+      <created>1686080251932</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1686080251932</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,12 +693,12 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1685938538362">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1686080255122">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685866658967" />
     <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685913429215" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1685938538362" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1686080255122" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
     <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1685866561477">
       <screen x="0" y="0" width="1536" height="824" />
@@ -706,11 +711,11 @@
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1684382406216" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685770563878" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1686079754407">
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1686080467173">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685684624036" />
     <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685923171461" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1686079754407" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1686080467173" />
   </component>
 </project>
