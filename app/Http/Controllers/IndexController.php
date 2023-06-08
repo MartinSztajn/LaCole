@@ -9,7 +9,7 @@ use App\Models\Categorias;
 use App\Models\Clientes;
 use App\Models\Colores;
 use App\Models\Consultas;
-use App\Models\Estado_producto;
+use App\Models\Estado_Producto;
 use App\Models\Fotos_Categorias_Banner;
 use App\Models\Fotos_Producto;
 use App\Models\Fotos_Banner;
