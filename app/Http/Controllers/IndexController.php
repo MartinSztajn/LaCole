@@ -77,11 +77,20 @@ class IndexController extends Controller
     }
     public function buscarCantOfetasTotal(){
         $cant = 0;
-        $productos = Productos::where('user_id', Auth::user()->id)->get();
-        foreach ($productos as $pro) {
-            $cant = $cant + sizeof(Ofertas::where('producto_id', $pro->id)->where('estado',0)->get());
+        if (Auth::user()) {
+            $productos = Productos::where('user_id', Auth::user()->id)->get();
+            foreach ($productos as $pro) {
+                $cant = $cant + sizeof(Ofertas::where('producto_id', $pro->id)->where('estado', 0)->get());
+            }
         }
         return $cant;
+    }
+    public function buscarUsuario(){
+        $usuario = Auth::user();
+        if ($usuario == null){
+            $usuario = 0;
+        }
+        return $usuario;
     }
     public function buscarCategoriasHijos(){
         $categorias = Categorias::all()->where('padre_id',null);
@@ -258,7 +267,7 @@ class IndexController extends Controller
                     $cate->path = $fotos[0]['path'];
                 }
             }
-            $productos = Productos::select('productos.*')->where('user_id', Auth::user()->id)->where('estado', 1)->get();
+            $productos = Productos::select('producto.*')->where('user_id', Auth::user()->id)->where('estado', 1)->get();
             foreach ($productos as $pro) {
                 $nomCat = Categorias::select('nombre')->where('id', $pro['categoria_id'])->get()->toArray();
                 if ($nomCat != []) {

@@ -1,8 +1,3 @@
-<script setup>
-    const logout = () => {
-        Inertia.post(route('logout'));
-    };
-</script>
 <template>
     <div class="tipografia">
         <Head :title="title" />
@@ -51,7 +46,7 @@
                                 </div>
                                 </div>
                                 <div class="col-3">
-                                    <div class="flex" style="float: right; margin: 25px;display: flex;justify-content: center;" v-if="!this.$page.props.user">
+                                    <div class="flex" style="float: right; margin: 25px;display: flex;justify-content: center;" v-if="usuario == 0">
                                         <div class="flex-shrink-0 flex items-center" style="margin-right: 20px; color: white">
                                             <a :href="route('register')">Registrate</a>
                                         </div>
@@ -62,7 +57,7 @@
                                             <a :href="route('login')">Ingresá</a>
                                         </div>
                                     </div>
-                                    <div style="float: right; margin: 25px;" v-if="this.$page.props.user">
+                                    <div style="float: right; margin: 25px;" v-if="usuario != 0">
                                         <div style="margin-right: 20px; color: white">
                                             <div>
                                                 <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,7 +67,7 @@
                                                     </svg>
                                                     <div v-if="cantOfertasTotal > 0" style="margin-right: 10px;" class="ofertas">{{cantOfertasTotal}}</div>
 
-                                                    <p>{{$page.props.user.name}}</p>
+                                                    <p>{{usuario.name}}</p>
                                                 </a>
                                                 <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
 
@@ -84,19 +79,20 @@
                                                         </a>
                                                     </li>
                                                     <li>
+                                                        <button @click="logout" style="width: 150px">
+                                                            <DropdownLink as="button" style="text-align: center">
+                                                                Log Out
+                                                            </DropdownLink>
+                                                        </button>
+                                                    </li>
+                                                    <li>
                                                         <a href="/user/profile" style="width: 150px">
                                                             <DropdownLink as="button" style="text-align: center">
                                                                 Cuenta
                                                             </DropdownLink>
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <form @submit.prevent="logout" style="width: 150px">
-                                                            <DropdownLink as="button" style="text-align: center">
-                                                                Log Out
-                                                            </DropdownLink>
-                                                        </form>
-                                                    </li>
+
                                                 </ul>
                                             </div>
                                         </div>
@@ -160,7 +156,7 @@
                             <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
                                 <img src="/fotos/COLEMARKET.jpg" style="width: 100px; margin-right: 20px;">
                             </button>
-                            <div class="flex" v-if="!this.$page.props.user">
+                            <div class="flex" v-if="usuario == 0">
                                 <div class="flex-shrink-0 flex items-center" style="margin-right: 10px; color: white">
                                     <a :href="route('register')">Registrate</a>
                                 </div>
@@ -171,7 +167,7 @@
                                     <a :href="route('login')">Ingresá</a>
                                 </div>
                             </div>
-                            <div v-if="this.$page.props.user">
+                            <div v-if="usuario != 0">
                                 <div style="margin-right: 20px; margin-top: 10px; color: white">
                                     <div>
                                         <a style="display: flex; color: white; text-align: center; font-size: 20px; background-color: #121212; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -181,7 +177,7 @@
                                             </svg>
                                             <div v-if="cantOfertasTotal > 0" style="margin-right: 10px;" class="ofertas">{{cantOfertasTotal}}</div>
 
-                                            <p>{{$page.props.user.name}}</p>
+                                            <p>{{usuario.name}}</p>
                                         </a>
                                         <ul style="border: none;"  class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
                                             <li>
@@ -199,11 +195,11 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <form @submit.prevent="logout" style="width: 150px">
+                                                <button @click="logout" style="width: 150px">
                                                     <DropdownLink as="button" style="text-align: center">
                                                         Log Out
                                                     </DropdownLink>
-                                                </form>
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -262,7 +258,6 @@
                         <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                     </svg>
                 </a>
-                 Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}">
                     <div class="pt-2 pb-3 space-y-1" style="text-align: center; position: center">
 
@@ -281,15 +276,6 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { Head, Link } from '@inertiajs/inertia-vue3';
-import ApplicationMark from '@/Components/ApplicationMark.vue';
-import Banner from '@/Components/Banner.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 export default {
     name: "ClienteLayout",
@@ -312,6 +298,7 @@ export default {
             categorias: [],
             categoriasHijos: [],
             colores: [],
+            usuario: '',
             cantOfertasTotal: 0,
             habilitarModalBuscar: false,
         }
@@ -409,11 +396,25 @@ export default {
                     console.error(error);
                 });
         },
+        buscarUsuario(){
+            axios.get('/buscarUsuario', {
+            })
+                .then(response => {
+                    this.usuario = response.data;
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        logout(){
+            this.$inertia.post(route('logout'));
+        },
 
     },
     created() {
         // Llamamos al método que filtra los productos al crear el componente
         this.buscarCategorias();
+        this.buscarUsuario();
         this.buscarCantOfetasTotal();
         this.buscarColores();
         this.buscarCategoriasHijos();

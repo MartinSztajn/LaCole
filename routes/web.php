@@ -29,6 +29,7 @@ Route::get('/buscarColores', [\App\Http\Controllers\IndexController::class,'busc
 Route::get('/buscarCategoriasHijos', [\App\Http\Controllers\IndexController::class,'buscarCategoriasHijos']);
 Route::get('/buscarCantOfetasTotal', [\App\Http\Controllers\IndexController::class,'buscarCantOfetasTotal']);
 Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
+Route::get('/buscarUsuario', [\App\Http\Controllers\IndexController::class,'buscarUsuario']);
 Route::get('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
 Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'buscarBanner']);
 Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar']);
