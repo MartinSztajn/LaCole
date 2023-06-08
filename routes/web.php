@@ -32,6 +32,7 @@ Route::get('/buscar', [\App\Http\Controllers\IndexController::class,'buscar']);
 Route::get('/buscarUsuario', [\App\Http\Controllers\IndexController::class,'buscarUsuario']);
 Route::get('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscarTexto']);
 Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'buscarBanner']);
+Route::get('/buscarCateBanner', [\App\Http\Controllers\IndexController::class,'buscarCateBanner']);
 Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar']);
 
 
@@ -104,7 +105,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/verProvincias', [\App\Htt
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarProvincia', [\App\Http\Controllers\CategoriasController::class,'guardarProvincia']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/borrarProvincia/{id}', [\App\Http\Controllers\CategoriasController::class,'borrarProvincia']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verBanner', [\App\Http\Controllers\CategoriasController::class,'verBanner']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/verBannerCategorias', [\App\Http\Controllers\CategoriasController::class,'verBannerCategorias']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarBanner', [\App\Http\Controllers\CategoriasController::class,'guardarBanner']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/activarBanner/{id}', [\App\Http\Controllers\CategoriasController::class,'activarBanner']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/desactivarBanner/{id}', [\App\Http\Controllers\CategoriasController::class,'desactivarBanner']);
 Route::middleware(['auth:sanctum', 'verified'])->post('/borrarBanner/{id}', [\App\Http\Controllers\ProductosController::class,'borrarBanner']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/guardarBannerCategoria', [\App\Http\Controllers\CategoriasController::class,'guardarBannerCategoria']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/activarBannerCategoria/{id}', [\App\Http\Controllers\CategoriasController::class,'activarBannerCategoria']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/desactivarBannerCategoria/{id}', [\App\Http\Controllers\CategoriasController::class,'desactivarBannerCategoria']);
+Route::middleware(['auth:sanctum', 'verified'])->post('/borrarBannerCategoria/{id}', [\App\Http\Controllers\ProductosController::class,'borrarBannerCategoria']);

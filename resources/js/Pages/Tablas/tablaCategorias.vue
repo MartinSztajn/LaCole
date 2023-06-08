@@ -33,7 +33,7 @@ export default {
     name: "tablaCategorias",
     props: ['cat','categorias', 'key'],
     data()
-    c
+    {
         return{
             editrNombre: false,
             editrcat: false,

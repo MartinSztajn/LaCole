@@ -94,12 +94,12 @@
                     </button>
                 </div>
                 <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: #000000; border-radius: 15px;">
-                    <button  @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
+                    <a href="/login"   @mouseover="handleMouseOverCuatroCampos(0)" @mouseleave="handleMouseLeaveCuatroCampos(0)" :style="cuatroCampos[0].zoomed   ? 'transform: scale(1.2);' : ''" class="item">
                         <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"  fill="#ebebeb" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
                             <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
                         </svg>
                         <p  style="text-align: center; color: #ebebeb">Publica Productos</p>
-                    </button>
+                    </a>
                     <p style="font-size: 60px">|</p>
                     <button @mouseover="handleMouseOverCuatroCampos(1)" @mouseleave="handleMouseLeaveCuatroCampos(1)" :style="cuatroCampos[1].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/register'">
                         <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"   fill="#ebebeb" class="bi bi-shop" viewBox="0 0 16 16">
@@ -109,14 +109,14 @@
                     </button>
                 </div>
                 <div class="computadora" style="justify-content: space-evenly; margin-top: 25px; background-color: black; border-radius: 15px;">
-                    <button @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  onclick="window.location.href='/buscar?text='">
+                    <a @mouseover="handleMouseOverCuatroCampos(2)" @mouseleave="handleMouseLeaveCuatroCampos(2)" :style="cuatroCampos[2].zoomed  ? 'transform: scale(1.2);' : ''" class="item"  href='/buscarTexto?text='>
                         <svg  style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"    fill="#ebebeb" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
                             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
                         </svg>
                         <p  style="text-align: center; color: #ebebeb">Mejores prodcutos</p>
-                    </button>
+                    </a>
                     <p style="font-size: 60px">|</p>
-                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarConsulta'">
+                    <button @mouseover="handleMouseOverCuatroCampos(3)" @mouseleave="handleMouseLeaveCuatroCampos(3)" :style="cuatroCampos[3].zoomed   ? 'transform: scale(1.2);' : ''" class="item" onclick="window.location.href='/enviarPublicidad'">
                         <svg style="float: left; margin-left: 10px; margin-right: 10px"  xmlns="http://www.w3.org/2000/svg" width="50" height="50"   fill="#ebebeb" class="bi bi-stars" viewBox="0 0 16 16">
                             <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"/>
                         </svg>
@@ -190,35 +190,18 @@
                     </div>
                 </div>
                 <div class="row celular">
-                    <div class="col-3">
-                        <a href="/">
-                            <img src="fotos/bannerCate11.png">
-                        </a>
-                    </div>
-                    <div class="col-3">
-                        <img src="fotos/bannerCate22.png">
-                    </div>
-                    <div class="col-3">
-                        <img src="fotos/bannerCate33.png">
-                    </div>
-                    <div class="col-3">
-                        <img src="fotos/bannerCate44.png">
+
+                    <div v-for="ban in cateBanner" class="col-3">
+                        <button @click="verProductosCategoria(ban.id)">
+                            <img :src="'fotos/' + ban.path">
+                        </button>
                     </div>
                 </div>
                 <div class="row computadora" style="margin-top: 10%">
-                    <div class="col-6" style="margin-bottom: 5%">
-                        <a href="/">
-                            <img src="fotos/bannerCate11.png">
-                        </a>
-                    </div>
-                    <div class="col-6" style="margin-bottom: 5%">
-                        <img src="fotos/bannerCate22.png">
-                    </div>
-                     <div class="col-6">
-                        <img src="fotos/bannerCate33.png">
-                    </div>
-                    <div class="col-6">
-                        <img src="fotos/bannerCate44.png">
+                    <div v-for="ban in cateBanner" class="col-6" style="margin-top: 2%; margin-bottom: 2%">
+                        <button @click="verProductosCategoria(ban.id)">
+                            <img :src="'fotos/' + ban.path">
+                        </button>
                     </div>
                 </div>
             </section>
@@ -285,6 +268,7 @@ export default {
           minCateEsp: 0,
           primerosNovedades: [],
           primerosOfertas: [],
+          cateBanner: [],
           cuatroCampos: [
               {
                   zoomed: 0,
@@ -309,6 +293,16 @@ export default {
     },
   methods:
       {
+          buscarCateBanner(){
+              axios.get('/buscarCateBanner', {
+              })
+                  .then(response => {
+                      this.cateBanner = response.data;
+                  })
+                  .catch(error => {
+                      console.error(error);
+                  });
+          },
           handleMouseOverCuatroCampos($i){
               this.cuatroCampos[$i].zoomed = true;
           },
@@ -376,7 +370,7 @@ export default {
               else{return $uno;}
           },
           filterNovedades($num) {
-              for (let i = 0; i < this.minimo(this.novedades.length, 3); i++) {
+              for (let i = 0; i < this.minimo(this.novedades.length, this.novedades.length); i++) {
                   let param = (i + $num);
                   if (param >= this.novedades.length){
                       param = param - this.novedades.length;
@@ -385,7 +379,7 @@ export default {
               }
           },
           filterOfertas($num) {
-              for (let i = 0; i < this.minimo(this.ofertados.length, 3); i++) {
+              for (let i = 0; i < this.minimo(this.ofertados.length, this.ofertados.length); i++) {
                   let param = (i + $num);
                   if (param >= this.ofertados.length){
                       param = param - this.ofertados.length;
@@ -396,7 +390,7 @@ export default {
           },
           filterCateEspecial($num) {
 
-              for (let i = 0; i < this.minimo(this.produCateEspecial.length, 3); i++) {
+              for (let i = 0; i < this.minimo(this.produCateEspecial.length, this.produCateEspecial.length); i++) {
                   let param = (i + $num);
                   if (param >= this.produCateEspecial.length){
                       param = param - this.produCateEspecial.length;
@@ -469,6 +463,7 @@ export default {
         this.filterNovedades(0);
         this.filterOfertas(0);
         this.filterCateEspecial(0);
+        this.buscarCateBanner();
 
     },
 }

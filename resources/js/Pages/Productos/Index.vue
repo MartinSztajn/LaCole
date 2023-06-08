@@ -18,9 +18,9 @@
                                 <th scope="col">Stock</th>
                                 <th scope="col">Minimo</th>
                                 <th scope="col">Color</th>
-
-                                <th scope="col">Descripcion</th>
                                 <th scope="col">Habilato</th>
+                                <th scope="col">Eliminar</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -38,9 +38,14 @@
                                 <td>{{pro.stock}}</td>
                                 <td>{{pro.cant_minimo}}</td>
                                 <td>{{pro.color_id}}</td>
-                                <td>{{pro.descripcion}}</td>
-                                <td v-if="pro.estado == 0"><button @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: red">No Aceptado</button></td>
-                                <td v-if="pro.estado == 1"><button @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: green">Aceptado</button></td>
+                                <td>
+                                    <button  v-if="pro.estado == 0" @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: red">No Aceptado</button>
+                                    <button v-if="pro.estado == 1" @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: green">Aceptado</button>
+                                </td>
+                                <td>
+                                   <button type="submit" v-if="idProdu != pro.id"  class="btn" @click="deseaEliminarProdu(pro.id)"  style="width: 100%; background-color: #FF9292">Eliminar</button>
+                                   <button type="submit" v-if="idProdu == pro.id" class="btn" @click="eliminarProducto(pro.id)"  style="width: 100%; background-color: red">Confirmar</button>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -116,6 +121,7 @@ export default {
     {
         return{
             id:'',
+            idProdu: '',
             listo: 0,
             form:{
                 nombre:'',
@@ -143,6 +149,12 @@ export default {
                         this.$inertia.post('/guardarProducto', this.form);
                     }
                 }
+            },
+            deseaEliminarProdu($id){
+                this.idProdu = $id;
+            },
+            eliminarProducto($id){
+                this.$inertia.post('/borrarProducto/' + $id);
             },
             habilitarProducto($id){
                 this.$inertia.post('/habilitarProducto/' + $id);

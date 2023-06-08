@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Categorias;
+use App\Models\Fotos_Categorias_Banner;
 use App\Models\Fotos_Producto;
 use App\Models\Fotos_Banner;
 use App\Models\Fotos_Categoria;
@@ -57,6 +58,14 @@ class CategoriasController extends Controller
             return Inertia::render('Fotos/banner', ['fotosBanner' => $fotosBanner]);
         }
     }
+    public function verBannerCategorias(){
+        if(Auth::user()->es_admin) {
+            $fotosBannerCategoria = Fotos_Categorias_Banner::all();
+            $categorias = Categorias::all();
+            return Inertia::render('Fotos/bannerCategoria', ['fotosBannerCategoria' => $fotosBannerCategoria, 'categorias' => $categorias]);
+        }
+    }
+
 
     public function guardarCategoria(Request $request)
     {
@@ -106,6 +115,25 @@ class CategoriasController extends Controller
             return back();
         }
     }
+    public function guardarBannerCategoria(Request $request){
+        if(Auth::user()->es_admin) {
+            if ($request->path) {
+                foreach ($request->path as $key => $foto) {
+                    $extension = 'jpg';
+                    $nombre = $this->generateRandomString(10);
+                    $myFileName = $nombre . '.' . $extension;
+
+                    Image::make($foto)->save(public_path('/fotos/' . $myFileName));
+
+                    $fotoBanner = new Fotos_Categorias_Banner();
+                    $fotoBanner->path = $myFileName;
+                    $fotoBanner->categoria_id = $request->categoria_id;
+                    $fotoBanner->save();
+                }
+            }
+            return back();
+        }
+    }
     public function activarBanner($id){
         if(Auth::user()->es_admin) {
 
@@ -124,7 +152,24 @@ class CategoriasController extends Controller
             return back();
         }
     }
+    public function activarBannerCategoria($id){
+        if(Auth::user()->es_admin) {
 
+            $fotoBanner = Fotos_Categorias_Banner::find($id);
+            $fotoBanner->activo = 1;
+            $fotoBanner->save();
+            return back();
+        }
+    }
+    public function desactivarBannerCategoria($id){
+        if(Auth::user()->es_admin) {
+
+            $fotoBanner = Fotos_Categorias_Banner::find($id);
+            $fotoBanner->activo = 0;
+            $fotoBanner->save();
+            return back();
+        }
+    }
     public function borrarCategoria($id){
         if(Auth::user()->es_admin) {
             $cate = Categorias::find($id);

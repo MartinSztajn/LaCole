@@ -263,7 +263,7 @@ export default {
                 else{return $uno;}
             },
             filterOtros($num) {
-                for (let i = 0; i < this.minimo(this.otrosCategoria.length, 5); i++) {
+                for (let i = 0; i < this.minimo(this.otrosCategoria.length, this.otrosCategoria.length); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosCategoria.length){
                         param = param - this.otrosCategoria.length;
@@ -272,7 +272,7 @@ export default {
                 }
             },
             filterOtrosVendedor($num) {
-                for (let i = 0; i < this.minimo(this.otrosVendedor.length, 5); i++) {
+                for (let i = 0; i < this.minimo(this.otrosVendedor.length, this.otrosVendedor.length); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosVendedor.length){
                         param = param - this.otrosVendedor.length;

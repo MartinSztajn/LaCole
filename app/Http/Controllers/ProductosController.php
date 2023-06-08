@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\IndexController;
 use App\Models\Categorias;
-use App\Models\Estado_producto;
+use App\Models\Estado_Producto;
+use App\Models\Fotos_Categorias_Banner;
 use App\Models\Fotos_Producto;
-use App\Models\Fotos_banner;
-use App\Models\Fotos_categoria;
+use App\Models\Fotos_Banner;
+use App\Models\Fotos_Categoria;
 use App\Models\Ofertas;
 use App\Models\Precios;
 use App\Models\Productos;
@@ -190,7 +191,7 @@ class ProductosController extends Controller
                             $cate->path = $fotos[0]['path'];
                         }
 
-                        $produc = Productos::select('productos.*')->where('categoria_id',  $cate->id)->where('estado', 1)->get();
+                        $produc = Productos::select('producto.*')->where('categoria_id',  $cate->id)->where('estado', 1)->get();
                         foreach ($produc as $pro) {
                             $pro->nomCate = $cate->nombre;
                             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
@@ -213,7 +214,7 @@ class ProductosController extends Controller
 
                 } else {
 
-                    $productos = Productos::select('productos.*')->where('categoria_id', $id)->where('estado', 1)->get();
+                    $productos = Productos::select('producto.*')->where('categoria_id', $id)->where('estado', 1)->get();
                     foreach ($productos as $pro) {
                         $pro->nomCate = $nombre;
 
@@ -326,8 +327,8 @@ class ProductosController extends Controller
     public function verProductoDetalle($nomCat, $producto)
     {
         if ($nomCat != '' && $producto != '') {
-            $produ = Productos::select('productos.*')->leftJoin('categorias', 'categorias.id', 'productos.categoria_id')
-                ->where('productos.nombre', $producto)
+            $produ = Productos::select('producto.*')->leftJoin('categorias', 'categorias.id', 'producto.categoria_id')
+                ->where('producto.nombre', $producto)
                 ->where('categorias.nombre', $nomCat)
                 ->firstOrFail();
 
@@ -419,8 +420,8 @@ class ProductosController extends Controller
     public function verPrecios(){
 
         $productos = Productos::all();
-        $precios = Precios::select('precios.*', 'productos.nombre', 'productos.precio')
-        ->leftJoin('producto','productos.id','precios.producto_id')
+        $precios = Precios::select('precios.*', 'producto.nombre', 'producto.precio')
+        ->leftJoin('producto','producto.id','precios.producto_id')
         ->get();
 
 
@@ -481,6 +482,11 @@ class ProductosController extends Controller
     }
     public function borrarBanner($id){
         $fotoBanner = Fotos_banner::find($id);
+        $fotoBanner->delete();
+        return back();
+    }
+    public function borrarBannerCategoria($id){
+        $fotoBanner = Fotos_Categorias_Banner::find($id);
         $fotoBanner->delete();
         return back();
     }

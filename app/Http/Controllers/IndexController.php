@@ -10,6 +10,7 @@ use App\Models\Clientes;
 use App\Models\Colores;
 use App\Models\Consultas;
 use App\Models\Estado_producto;
+use App\Models\Fotos_Categorias_Banner;
 use App\Models\Fotos_Producto;
 use App\Models\Fotos_Banner;
 use App\Models\Fotos_Categoria;
@@ -71,6 +72,11 @@ class IndexController extends Controller
         $banner = Fotos_Banner::all();
         return response()->json($banner);
     }
+    public function buscarCateBanner(){
+        $banner = Fotos_Categorias_Banner::where('activo', 1)->get();
+        return $banner;
+    }
+
     public function buscarColores(){
         $colores = Colores::all();
         return $colores;
@@ -288,9 +294,8 @@ class IndexController extends Controller
         }
 
         $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
-
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
-        $ofertados = Productos::whereIn('id', $topProductIds)->where('estado', 1)->get();
+        $ofertados = Productos::where('estado', 1)->whereIn('id', $topProductIds)->get();
         $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
@@ -374,15 +379,13 @@ class IndexController extends Controller
         $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         $colores = Colores::all();
 
-        $this->actualizarPrecios();
-
         return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
     public function verPagina(){
         $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
 
-        $ofertados = Productos::whereIn('id', $topProductIds)->get();
+        $ofertados = Productos::where('estado', 1)->whereIn('id', $topProductIds)->get();
         $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
