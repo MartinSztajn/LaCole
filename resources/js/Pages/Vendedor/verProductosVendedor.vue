@@ -40,9 +40,10 @@
                             <br>
                             <h1 class="card-text" >${{pro.precio}}</h1>
                             <br>
-                             <button v-if="pro.cantOfertas > 0" @click="verOfertas(pro.id)" class="btn" style="background-color: green; color: white; margin-bottom: 10px">Ver ofertas</button>
+                             <button v-if="pro.cantOfertas > 0" @click="verOfertas(pro.id)" class="btn" style="background-color: orange; color: white; margin-bottom: 10px">Ver ofertas</button>
                              <button v-if="pro.cantOfertas == 0" class="btn" style="background-color: black; color: white; margin-bottom: 10px">Sin ofertas</button>
                             <button @click="verPerfilProducto(pro.id)" class="btn btn-primary" style="margin-bottom: 10px">Editar</button>
+                            <button @click="compartirEnWhatsApp(pro)"  class="btn btn-primary" style="margin-bottom: 10px; background-color: green">Compartir en WhatsApp</button>
                         </div>
                     </div>
                 </div>
@@ -242,6 +243,17 @@ export default {
                 }
                 reader.readAsDataURL(file);
             },
+            compartirEnWhatsApp(producto) {
+                const nombreProducto = producto.nombre.replace(/ /g, '%20');
+                const cateProducto = producto.nomCat.replace(/ /g, '%20');
+
+                const mensaje = `¡Mira mi producto de la Cole Market!\n\nNombre: ${producto.nombre}\nPrecio: $${producto.precio}\nCategoría: ${producto.nomCat}\n${producto.descripcion}\n\n[Mira el producto en la Cole Market](https://phplaravel-1014987-3587857.cloudwaysapps.com/verProductoDetalle/${cateProducto}/${nombreProducto})`;
+
+               const enlaceWhatsApp = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+
+                // Abrir enlace en una nueva ventana o redireccionar a la URL
+                window.open(enlaceWhatsApp, '_blank');
+            }
         },
     mounted() {
 

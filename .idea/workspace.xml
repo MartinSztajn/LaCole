@@ -24,13 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VendedoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VendedoresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -334,14 +327,7 @@
       <workItem from="1686191974580" duration="9037000" />
       <workItem from="1686323623207" duration="917000" />
       <workItem from="1686330475979" duration="599000" />
-      <workItem from="1686363092730" duration="9315000" />
-    </task>
-    <task id="LOCAL-00002" summary="Cambios Nuevos">
-      <created>1673307672020</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1673307672020</updated>
+      <workItem from="1686363092730" duration="11554000" />
     </task>
     <task id="LOCAL-00003" summary="Cambios Nuevos">
       <created>1673330774998</created>
@@ -679,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686201648499</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Cambios Nuevo">
+      <created>1686372713561</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1686372713576</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -736,11 +729,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1686201651883">
+    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1686372781616">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686200926875" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686201651883" />
+    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686372781616" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1686080965558" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
     <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1685866561477">
@@ -754,11 +747,11 @@
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686199940083" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686364096106" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1686371346984">
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1686373864072">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686200811799" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686371346984" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686373864072" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1686080467173" />
   </component>
 </project>
