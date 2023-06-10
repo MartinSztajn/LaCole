@@ -71,12 +71,6 @@
                 <h2 style="margin: 20px">Precio:</h2>
                 <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.precio" >
                 <br>
-                <h2 style="margin: 20px">Stock:</h2>
-                <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.stock" >
-                <br>
-                <h2 style="margin: 20px">Cantidad Oferta Minima:</h2>
-                <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.cant_minimo" >
-                <br>
                 <h2 style="margin: 20px">Descripcion:</h2>
                 <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.descripcion" >
                 <br>
@@ -89,7 +83,13 @@
 
 
                 <button class="btn btn-success" @click="guardarProducto" style="width: 70%; margin-left: 15%; background-color: black; margin-top: 2%">Guardar Producto</button>
-                <h2 v-if="this.listo == 1" style="text-align: center; color: darkgreen"> Se Creo exitosamente el Producto </h2>
+                <p v-if="listo == 1" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
+                    <svg style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                        <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                    </svg>
+                    {{mensajeFalta}}
+                </p>
+                <h2 v-if="this.listo == 3" style="text-align: center; color: darkgreen"> {{mensajeFalta}}</h2>
             </div >
         </div>
         <div class="py-12" v-if="user.aceptado == 0">
@@ -133,6 +133,7 @@ export default {
             num: 0,
             id:'',
             idUser:'',
+            mensajeFalta: '',
             form:{
                 nombre:'',
                 categoria_id:'',
@@ -140,8 +141,6 @@ export default {
                 color_id: '',
                 precio:'',
                 descripcion:'',
-                    stock:'',
-                cant_minimo:'',
                 path:[]
             }
 
@@ -169,18 +168,6 @@ export default {
                     this.btnDuenos = 0;
                 }
             },
-            borrarNegocio($id)
-            {
-                this.$inertia.post('/borrarNegocio/' + $id);
-            },
-            guardarNegocio()
-            {
-                if(this.listo == 0)
-                {
-                    this.listo = 1;
-                    this.$inertia.post('/guardarNegocio', this.form);
-                }
-            },
             verOfertas($id){
                 this.$inertia.get('/verOfertas/' + $id);
             },
@@ -197,10 +184,38 @@ export default {
             },
             guardarProducto()
             {
-                if(this.form.nombre  != '' && this.form.categoria_id  != '' && this.form.estado_id  != ''  && this.form.precio  != '' && this.form.descripcion  != '' && this.form.stock  != '' && this.form.cant_minimo  != '' && this.form.color_id  != '' && this.form.path  != '')
+                if(this.form.nombre  != '' && this.form.categoria_id  != '' && this.form.estado_id  != ''  && this.form.precio  != '' && this.form.descripcion  != '' && this.form.color_id  != '' && this.form.path  != '')
                 {
-                    this.listo = 1;
                     this.$inertia.post('/guardarProducto', this.form);
+                    this.listo = 3;
+                    this.mensajeFalta = 'Se creo exitosamente el producto';
+                    this.form.nombre  = ''; this.form.categoria_id  = ''; this.form.estado_id  = ''; this.form.precio  = ''; this.form.descripcion  = ''; this.form.color_id = ''; this.form.path  = [];
+                }
+                else {
+                    this.listo = 1;
+                    this.mensajeFalta = "Falta ingresar:";
+                    if (this.form.nombre == '') {
+                        this.mensajeFalta = this.mensajeFalta + " nombre,";
+                    }
+                    if (this.form.categoria_id == '') {
+                        this.mensajeFalta = this.mensajeFalta + " categoria,";
+                    }
+                    if (this.form.estado_id == '') {
+                        this.mensajeFalta = this.mensajeFalta + " estado,";
+                    }
+                    if (this.form.precio == '') {
+                        this.mensajeFalta = this.mensajeFalta + " precio,";
+                    }
+                    if (this.form.descripcion == '') {
+                        this.mensajeFalta = this.mensajeFalta + " descripcion,";
+                    }
+                    if (this.form.color_id == '') {
+                        this.mensajeFalta = this.mensajeFalta + " color,";
+                    }
+                    if (this.form.path == '') {
+                        this.mensajeFalta = this.mensajeFalta + " fotos,";
+                    }
+                    this.mensajeFalta = this.mensajeFalta.slice(0, -1);
                 }
             },
             actualizarDueno(){

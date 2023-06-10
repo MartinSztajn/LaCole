@@ -268,18 +268,7 @@ class ProductosController extends Controller
                 $producto->path = $fotos;
             }
 
-            $categorias = Categorias::all()->where('padre_id', null);
-            foreach ($categorias as $cate) {
-                $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
-                if ($cateHijo != []) {
-                    $cate->hijos = $cateHijo;
-                }
-                $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
-                $cate->path = '';
-                if ($fotos != []) {
-                    $cate->path = $fotos[0]['path'];
-                }
-            }
+            $categorias = Categorias::all();
             $colores = Colores::all();
             $estados = Estado_producto::all();
             $fotosBanner = Fotos_banner::all();
@@ -457,10 +446,10 @@ class ProductosController extends Controller
         $producto->categoria_id = $request->categoria_id;
         $producto->estado_id = $request->estado_id;
         $producto->precio = $request->precio;
-        $producto->stock = $request->stock;
-        $producto->cant_minimo = $request->cant_minimo;
+        $producto->stock = 2;
+        $producto->cant_minimo = 1;
         $producto->color_id = $request->color_id;
-        $producto->estado = 0;
+        $producto->estado = 1;
         $producto->descripcion = $request->descripcion;
         $producto->save();
 
@@ -478,7 +467,7 @@ class ProductosController extends Controller
                 $imagen->save();
             }
         }
-        return redirect()->back()->with('success', 'Saved!');
+        return back();
     }
     public function borrarBanner($id){
         $fotoBanner = Fotos_banner::find($id);

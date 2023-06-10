@@ -64,6 +64,25 @@
                     </button>
                     -->
                 </div>
+                <div id="interesa" style="width: 90%; margin-left: 5%; margin-top: 7%; margin-bottom: 7%; ">
+                    <h1 style="margin-bottom: 2%;font-size: 25px;  text-align: center;">Ingresa tus datos para que el vendedor se pueda contactar con vos</h1>
+                    <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;" v-validate="email" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
+                    <input style="width: 44%; margin-right: 1%; margin-left: 5%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Nombre" class="form-control" v-model="form.nombre" >
+                    <input style="width: 44%; margin-right: 5%; margin-left: 1%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
+                    <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular" class="form-control" v-model="form.celular" >
+                    <div style="text-align: center; margin: 1%">
+                        <input type="checkbox" v-model="aceptoCondiciones">
+                        Acepto los <a style="text-decoration: underline;" href="/verPolitica">términos y condiciones </a>
+                    </div>
+                    <button v-if="realizoCompra != 3" class="btn" style="width: 90%; margin-left: 5%; background-color: black; color: white" @click="aceptarCondiciones">Confirmar!</button>
+                    <p  style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
+                        <svg v-if="realizoCompra == 2" style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                        </svg>
+                        {{mensajeEnviar}}
+                    </p>
+                </div>
+
                 <div class="row" style="margin-left: 5%;  margin-right: 5%; margin-top:50px" v-if="otrosVendedor.length > 0">
                     <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
                             Otros productos del vendedor
@@ -82,35 +101,17 @@
                                 </div>
                             </div>
                             <a v-if="otrosVendedor.length > 5" @click="moverIzqVendedor()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                                <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                                     <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                                 </svg>
                             </a>
                             <a v-if="otrosVendedor.length > 5"  @click="moverDerVendedor()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                                     <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                                 </svg>
                             </a>
 
                         </div>
-                </div>
-                <div id="interesa" style="width: 90%; margin-left: 5%; margin-top: 7%; margin-bottom: 7%; ">
-                        <h1 style="margin-bottom: 2%;font-size: 25px;  text-align: center;">Ingresa tus datos para que el vendedor se pueda contactar con vos</h1>
-                        <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;" v-validate="email" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
-                        <input style="width: 44%; margin-right: 1%; margin-left: 5%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Nombre" class="form-control" v-model="form.nombre" >
-                        <input style="width: 44%; margin-right: 5%; margin-left: 1%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
-                        <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular" class="form-control" v-model="form.celular" >
-                        <div style="text-align: center; margin: 1%">
-                            <input type="checkbox" v-model="aceptoCondiciones">
-                            Acepto los <a style="text-decoration: underline;" href="/verPolitica">términos y condiciones </a>
-                        </div>
-                        <button v-if="realizoCompra != 3" class="btn" style="width: 90%; margin-left: 5%; background-color: black; color: white" @click="aceptarCondiciones">Confirmar!</button>
-                        <p  style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
-                            <svg v-if="realizoCompra == 2" style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                                <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
-                            </svg>
-                            {{mensajeEnviar}}
-                        </p>
                 </div>
                 <div class="row" style="margin: 5%; margin-top: 50px" v-if="otrosCategoria.length > 0">
                     <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
@@ -131,13 +132,13 @@
                             </div>
 
                         </div>
-                        <a v-if="otrosCategoria.length > 5" @click="moverIzqOtros()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                            <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <a  v-if="otrosCategoria.length > 5" @click="moverIzqOtros()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                                 <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                             </svg>
                         </a>
                         <a v-if="otrosCategoria.length > 5"  @click="moverDerOtros()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                             </svg>
                         </a>
@@ -263,7 +264,7 @@ export default {
                 else{return $uno;}
             },
             filterOtros($num) {
-                for (let i = 0; i < this.minimo(this.otrosCategoria.length, this.otrosCategoria.length); i++) {
+                for (let i = 0; i < this.minimo(this.otrosCategoria.length,5); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosCategoria.length){
                         param = param - this.otrosCategoria.length;
@@ -272,7 +273,7 @@ export default {
                 }
             },
             filterOtrosVendedor($num) {
-                for (let i = 0; i < this.minimo(this.otrosVendedor.length, this.otrosVendedor.length); i++) {
+                for (let i = 0; i < this.minimo(this.otrosVendedor.length, 5); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosVendedor.length){
                         param = param - this.otrosVendedor.length;
@@ -333,6 +334,10 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .flechita{
+        width: 30px;
+        height: 30px;
+    }
     .celuCarrusel{
         overflow: auto;
     }
@@ -347,27 +352,25 @@ export default {
     }
     p.card-text{
         font-size: 15px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
-        padding: 5px;
         background-color: white;
         margin: 1%;
-        width: 250px;
+        width: 200px;
         float: left;
         border-radius: 5px;
     }
     .colum2 {
         flex-direction: column;
-        margin-right: 10px;
         flex: 1;
         text-align: center;
         min-width: 190px;
@@ -414,6 +417,10 @@ export default {
 }
 
 @media (min-width: 501px) {
+    .flechita{
+        width: 50px;
+        height: 50px;
+    }
     .altura{
         height: 118px;
     }
@@ -422,15 +429,15 @@ export default {
     }
     p.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 30px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
         background-color: white;
@@ -445,7 +452,6 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        margin-right: 10px;
         flex: 1;
         text-align: center;
         min-width: 190px;

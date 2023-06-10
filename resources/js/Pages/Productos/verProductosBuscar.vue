@@ -67,35 +67,38 @@
                 </div>
                 <div class="col-10">
                     <div class="row" style="margin-bottom: 2%; width: 100%;">
-                        <div class="col-5">
+                        <div class="col-4">
                             <select style="width: 60%; margin-right: 20%; margin-left: 20%;" class="form-control" v-model="estado_id" @change="filtrarEstado(estado_id)">
                                 <option value="0" selected>Ambos</option>
                                 <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
                             </select>
                         </div>
-                        <div class="col-5">
-                            <input style="width: 33%; margin-left: 15%; margin-right: 2%;" type="number"  v-model="minValue" placeholder="Min" @change="buscarFiltrado">
-                            <input style="width: 33%; margin-right: 15%; margin-left: 2%;" type="number" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
+                        <div class="col-4" style="margin-right: 5%">
+                            <input class='search-text' placeholder='Filtrar nombre...' style="padding-left: 10px"  v-model="buscador" @input="buscarFiltrado"/>
+                        </div>
+                        <div class="col-2">
+                            <input style="width: 40%; margin-left: 5%; margin-right:5%; height: 35px; border: none" type="number"  v-model="minValue" placeholder="Min" @change="buscarFiltrado">
+                            <input style="width: 40%; margin-left: 5%; margin-right:5%; height: 35px; border: none" type="number" v-model="maxValue" placeholder="Max"  @change="buscarFiltrado">
                         </div>
                     </div>
                     <div style="display: flex; flex-wrap: wrap;">
                         <div v-for="(pro, index) in productosFiltrados"  @click="verProductoDetalle(pro.nomCat, pro.nombre)"  @mouseover="handleMouseOverOfertados(index)" @mouseleave="handleMouseLeaveOfertados(index)"  class="container2" :style="productosFiltrados[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
-                    <div class="image2">
-                        <img :src="'/fotos/' + pro.path">
+                            <div class="image2">
+                                <img :src="'/fotos/' + pro.path">
+                            </div>
+                            <hr>
+                            <div class="colum2">
+                                <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                                <h2 class="card-text">{{pro.nomEstado}}</h2>
+                                <br>
+                                <h1 class="card-text" >${{pro.precio}}</h1>
+                            </div>
+                        </div>
                     </div>
-                    <hr>
-                    <div class="colum2">
-                        <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
-                        <h2 class="card-text">{{pro.nomEstado}}</h2>
-                        <br>
-                        <h1 class="card-text" >${{pro.precio}}</h1>
-                    </div>
-                </div>
-                    </div>
-                </div>
-                <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
-                    <div v-for="n in cantPaginate" style="margin-right: 5px">
-                        <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
+                    <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
+                        <div v-for="n in cantPaginate" style="margin-right: 5px">
+                            <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -205,7 +208,8 @@ export default {
             pagina: 0,
             num: 0,
             minValue: '',
-            maxValue: ''
+            maxValue: '',
+            buscador: '',
         }
     },
     methods:
@@ -236,7 +240,7 @@ export default {
                 for (var i = 0; i < this.filtrosCategorias.length; i++){
                     this.mensajeCate = this.mensajeCate + ',' + this.filtrosCategorias[i];
                 }
-                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1) + '&estado=' + this.estado_id + '&pagina=' + this.pagina + '&min=' + this.minValue + '&max=' + this.maxValue , {
+                axios.get('/filtrar?colores=' +this.mensajeColor.substr(1) + '&categorias=' +  this.mensajeCate.substr(1) + '&estado=' + this.estado_id  + '&buscador=' + this.buscador  + '&min=' + this.minValue + '&max=' + this.maxValue + '&pagina=' + this.pagina , {
                 })
                     .then(response => {
                         this.productosFiltrados = response.data.productos;
@@ -310,18 +314,17 @@ export default {
     }
     p.card-text{
         font-size: 15px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
-        padding: 5px;
         background-color: white;
         margin: 1%;
         width: 150px;
@@ -389,19 +392,19 @@ export default {
     }
     p.card-text{
         font-size: 20px;
-        text-align: left;
+        text-align: center;
     }
     h2.card-text{
         font-size: 25px;
-        text-align: left;
+        text-align: center;
     }
     h1.card-text{
         font-size: 30px;
-        text-align: left;
+        text-align: center;
     }
     .container2 {
         background-color: white;
-        width: 250px;
+        width: 200px;
         margin: 1%;
         float: left;
         border-radius: 5px;
@@ -601,5 +604,10 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
 
 .toggler:checked ~ .menu > div > ul > li > a:hover{
     color: orange;
+}
+.search-text {
+    font-size: 14px;
+    width: 100%;
+    height: 35px;
 }
 </style>

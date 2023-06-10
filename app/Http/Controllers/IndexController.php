@@ -56,7 +56,7 @@ class IndexController extends Controller
         return response()->json($productos);
     }
     public function buscarCategorias(){
-        $categorias = Categorias::all();
+        $categorias = Categorias::orderBy('nombre','ASC')->get();
         foreach ($categorias as $cate){
             $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
             $cate->path = '';
@@ -74,11 +74,14 @@ class IndexController extends Controller
     }
     public function buscarCateBanner(){
         $banner = Fotos_Categorias_Banner::where('activo', 1)->get();
+        foreach ($banner as $ban){
+            $ban->nombreBanner = Categorias::select('nombre')->where('id', $ban->categoria_id)->get()->toArray()[0]['nombre'];
+        }
         return $banner;
     }
 
     public function buscarColores(){
-        $colores = Colores::all();
+        $colores = Colores::orderBy('nombre','ASC')->get();
         return $colores;
     }
     public function buscarCantOfetasTotal(){
@@ -152,6 +155,10 @@ class IndexController extends Controller
         {
             $productos = $productos->where('estado_id', $request['estado']);
         }
+        if($request['buscador'] != null)
+        {
+            $productos = $productos->where('nombre', 'like', '%' . $request['buscador']  . '%');
+        }
 
         $cant = intval(sizeof($productos->get()) / 20);
         if(fmod($cant, 1) !== 0){
@@ -166,7 +173,8 @@ class IndexController extends Controller
             $productos =  $productos->skip(0)->take(20);
         }
 
-        $productos = $productos->get();
+        $productos = $productos->orderBy('nombre','ASC')->get();
+
         foreach ($productos as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -205,15 +213,22 @@ class IndexController extends Controller
             $id = Categorias::select('categorias.*')->where('nombre', $nombreCategoria)->get()->toArray();
             if ($id != []) {
                 $id = $id[0]['id'];
-                $productos = $productos->where('categoria_id', $id);
+                $cateHijo = Categorias::select('id')->where('padre_id', $id)->get()->pluck('id')->toArray();
 
+                if ($cateHijo != []){
+                    array_push($cateHijo, $id);
+                    $productos = Productos::where('estado', 1)->whereIn('categoria_id', $cateHijo);
+                }
+                else{
+                    $productos = Productos::where('estado', 1)->where('categoria_id', $id);
+                }
             }
         }
         if ($color != '') {
             $productos = $productos->where('color_id', $color);
         }
         $cant = intval(sizeof($productos->get()) / 20);
-        if(fmod($cant, 1) !== 0){
+        if((sizeof($productos->get())  % 20) != 0){
             $cant = $cant + 1;
         }
         $productos->skip(0)->take(20);
@@ -235,7 +250,7 @@ class IndexController extends Controller
                 $pro->path = $fotos[0]['path'];
             }
         }
-        $categorias = Categorias::all();
+        $categorias = Categorias::orderBy('nombre','ASC')->get();
         foreach ($categorias as $cate){
             $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
             if ($cateHijo != []) {
@@ -248,7 +263,7 @@ class IndexController extends Controller
             }
         }
         $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
-        $colores = Colores::all();
+        $colores = Colores::orderBy('nombre','ASC')->get();
         $estados = Estado_producto::all();
         return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant]);
     }
@@ -286,9 +301,9 @@ class IndexController extends Controller
                 }
                 $pro->cantOfertas = sizeof(Ofertas::where('producto_id', $pro->id)->where('estado',0)->get());
             }
-            $categorias = Categorias::all();
+            $categorias = Categorias::orderBy('nombre','ASC')->get();
             $estados = Estado_producto::all();
-            $colores = Colores::all();
+            $colores = Colores::orderBy('nombre','ASC')->get();
             $user = User::find(Auth::user()->id);
             return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores, 'user' => $user]);
         }

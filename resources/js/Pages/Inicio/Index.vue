@@ -49,12 +49,12 @@
 
                 </div>
                 <a v-if="novedades.length > 3" @click="moverIzqNovedades()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
-                <a v-if="novedades.length > 3" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                <a  v-if="novedades.length > 3" @click="moverDerNovedades()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
@@ -155,12 +155,12 @@
 
                 </div>
                 <a v-if="produCateEspecial.length > 3" @click="moverIzqProduCateEspecial()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
                 <a v-if="produCateEspecial.length > 3" @click="moverDerProduCateEspecial()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
@@ -192,14 +192,14 @@
                 <div class="row celular">
 
                     <div v-for="ban in cateBanner" class="col-3">
-                        <button @click="verProductosCategoria(ban.id)">
+                        <button @click="verProductosCategoria(ban.nombreBanner)">
                             <img :src="'fotos/' + ban.path">
                         </button>
                     </div>
                 </div>
                 <div class="row computadora" style="margin-top: 10%">
                     <div v-for="ban in cateBanner" class="col-6" style="margin-top: 2%; margin-bottom: 2%">
-                        <button @click="verProductosCategoria(ban.id)">
+                        <button @click="verProductosCategoria(ban.nombreBanner)">
                             <img :src="'fotos/' + ban.path">
                         </button>
                     </div>
@@ -224,13 +224,13 @@
                         <h1 class="card-text" >${{pro.precio}}</h1>
                     </div>
                 </div>
-                <a v-if="ofertados.length > 3" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="black" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                <a  v-if="ofertados.length > 3" @click="moverIzqOfertados()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg"  fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                     </svg>
                 </a>
-                <a v-if="ofertados.length > 3" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
+                <a  v-if="ofertados.length > 3" @click="moverDerOfertados()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                         <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                     </svg>
                 </a>
@@ -472,6 +472,10 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .flechita{
+        width: 30px;
+        height: 30px;
+    }
     .celuCarrusel{
         overflow: auto;
     }
@@ -506,10 +510,9 @@ export default {
         text-align: center;
     }
     .container2 {
-        padding: 5px;
         background-color: white;
         margin: 1%;
-        width: 450px;
+        width: 200px;
         float: left;
         border-radius: 5px;
     }
@@ -592,6 +595,10 @@ export default {
 }
 
 @media (min-width: 501px) {
+    .flechita{
+        width: 50px;
+        height: 50px;
+    }
     .cateCircular{
         width: 200px;
     }

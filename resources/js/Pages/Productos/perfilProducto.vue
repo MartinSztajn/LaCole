@@ -50,9 +50,6 @@
                 <h1 v-if="editrprecio == false " @dblclick="editarPrecio()"  style="font-size: 30px;"><b><b>Precio:</b> ${{producto.precio}}</b></h1>
                 <input ref="cellinput" type="text" v-show="editrprecio == true" v-model="producto.precio" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarPrecio">
                 <br>
-                <h1 v-if="editrcant_min == false " @dblclick="editarCantidadMinima()"  style="font-size: 20px;"><b>Cantidad Minimo: {{producto.cant_minimo}}</b></h1>
-                <input ref="cellinput" type="number" v-show="editrcant_min == true" v-model="producto.cant_minimo" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarCantidadMinima">
-                <br>
                 <h1 v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; "><b>Descripcion:</b> {{producto.descripcion}}</h1>
                 <input ref="cellinput" type="text" v-show="editrdesc == true" v-model="producto.descripcion" style="font-size: 20px; width: 100%" @keyup.enter="guardarDesc">
                 <br>
@@ -181,53 +178,53 @@ export default {
             guardarNombre()
             {
                 this.editrnombre = false;
-                axios.post('/editarProducto', {tipo: 'Nombre', valor: this.producto.nombre,
+                this.$inertia.post('/editarProducto', {tipo: 'Nombre', valor: this.producto.nombre,
                     id: this.producto.id}).then();
             },
             guardarPrecio()
             {
                 this.editrprecio = false;
-                axios.post('/editarProducto', {tipo: 'Precio', valor: this.producto.precio,
+                this.$inertia.post('/editarProducto', {tipo: 'Precio', valor: this.producto.precio,
                     id: this.producto.id}).then();
             },
             guardarCantidad()
             {
                 this.editrcantidad = false;
-                axios.post('/editarProducto', {tipo: 'Stock', valor: this.producto.stock,
+                this.$inertia.post('/editarProducto', {tipo: 'Stock', valor: this.producto.stock,
                     id: this.producto.id}).then();
             },
             guardarDesc()
             {
                 this.editarDesc = false;
-                axios.post('/editarProducto', {tipo: 'Descripcion', valor: this.producto.descripcion,
+                this.$inertia.post('/editarProducto', {tipo: 'Descripcion', valor: this.producto.descripcion,
                     id: this.producto.id}).then();
             },
             guardarCategoria()
             {
                 this.editrcategoria = false;
-                axios.post('/editarProducto', {tipo: 'Categoria', valor: this.producto.categoria_id,
+                this.$inertia.post('/editarProducto', {tipo: 'Categoria', valor: this.producto.categoria_id,
                     id: this.producto.id}).then();
             },
             guardarFoto($i, $imagen)
             {
                 this.editrfoto[$i] = false;
-                axios.post('/editarProducto', {tipo: 'Foto', valor: this.path, imagen: $imagen,
+                this.$inertia.post('/editarProducto', {tipo: 'Foto', valor: this.path, imagen: $imagen,
                     id: this.producto.id}).then();
             },
             guardarCantidadMinima(){
                 this.editrcant_min = false;
-                axios.post('/editarProducto', {tipo: 'cant_minimo', valor: this.producto.cant_minimo,
+                this.$inertia.post('/editarProducto', {tipo: 'cant_minimo', valor: this.producto.cant_minimo,
                     id: this.producto.id}).then();
             },
             guardarEstado()
             {
                 this.editrestado = false;
-                axios.post('/editarProducto', {tipo: 'Estado', valor: this.producto.estado_id,
+                this.$inertia.post('/editarProducto', {tipo: 'Estado', valor: this.producto.estado_id,
                     id: this.producto.id}).then();
             },
             guardarColor(){
                 this.editrcolor = false;
-                axios.post('/editarProducto', {tipo: 'Color', valor: this.producto.color_id,
+                this.$inertia.post('/editarProducto', {tipo: 'Color', valor: this.producto.color_id,
                     id: this.producto.id}).then();
             },
             eliminarFoto($i){
