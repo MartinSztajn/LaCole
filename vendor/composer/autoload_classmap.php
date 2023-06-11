@@ -40,6 +40,7 @@ return array(
     'App\\Models\\Estado_Producto' => $baseDir . '/app/Models/Estado_Producto.php',
     'App\\Models\\Fotos_Banner' => $baseDir . '/app/Models/Fotos_Banner.php',
     'App\\Models\\Fotos_Categoria' => $baseDir . '/app/Models/Fotos_Categoria.php',
+    'App\\Models\\Fotos_Categorias_Banner' => $baseDir . '/app/Models/Fotos_Categorias_Banner.php',
     'App\\Models\\Fotos_Producto' => $baseDir . '/app/Models/Fotos_Producto.php',
     'App\\Models\\Ofertas' => $baseDir . '/app/Models/Ofertas.php',
     'App\\Models\\Precios' => $baseDir . '/app/Models/Precios.php',

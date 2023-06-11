@@ -537,6 +537,7 @@ class ComposerStaticInita966d9f8acd80df2105643e89d1acc73
         'App\\Models\\Estado_Producto' => __DIR__ . '/../..' . '/app/Models/Estado_Producto.php',
         'App\\Models\\Fotos_Banner' => __DIR__ . '/../..' . '/app/Models/Fotos_Banner.php',
         'App\\Models\\Fotos_Categoria' => __DIR__ . '/../..' . '/app/Models/Fotos_Categoria.php',
+        'App\\Models\\Fotos_Categorias_Banner' => __DIR__ . '/../..' . '/app/Models/Fotos_Categorias_Banner.php',
         'App\\Models\\Fotos_Producto' => __DIR__ . '/../..' . '/app/Models/Fotos_Producto.php',
         'App\\Models\\Ofertas' => __DIR__ . '/../..' . '/app/Models/Ofertas.php',
         'App\\Models\\Precios' => __DIR__ . '/../..' . '/app/Models/Precios.php',
