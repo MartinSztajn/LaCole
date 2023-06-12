@@ -251,7 +251,7 @@ import { Carousel, Slide } from 'vue-carousel';
 
 export default {
   name: "Index",
-  props: ['novedades', 'categorias', 'ofertados', 'fotosBanner','cateTotales', 'colores','produCateEspecial'],
+  props: ['novedades', 'ofertados', 'fotosBanner','cateTotales', 'colores','produCateEspecial'],
   components:{
       ClienteLayout,
       Carousel,
@@ -572,11 +572,16 @@ export default {
         border-bottom: 1px solid white;
     }
 
-    .image2 img {
-        max-width: none;
+    .image2 {
         height: 200px;
         width: 200px;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image2 img {
+        max-width: 100%;
+        max-height: 100%;
     }
     .info{
         padding: 10px;

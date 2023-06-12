@@ -276,7 +276,7 @@ class IndexController extends Controller
         if (Auth::user() != null && !Auth::user()->es_admin){
             $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
 
-            $categorias = Categorias::all()->where('padre_id',null);
+            $categorias = Categorias::orderBy('nombre','ASC')->where('padre_id',null);
             foreach ($categorias as $cate) {
                 $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
                 if ($cateHijo != []) {
@@ -368,7 +368,7 @@ class IndexController extends Controller
         }
 
 
-        $cateTotales = Categorias::select('categorias.*')->get();
+        $cateTotales = Categorias::orderBy('nombre','ASC')->get();
         foreach ($cateTotales as $cate) {
             $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
             $cate->path = '';
@@ -376,25 +376,11 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
         }
-        $categorias = Categorias::all()->where('padre_id',null);
-        foreach ($categorias as $cate) {
-            $cate->zoomed = false;
-            $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
-            if ($cateHijo != []) {
-                $cate->hijos = $cateHijo;
-            }
-            $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
-            $cate->path = '';
-            if ($fotos != []) {
-                $cate->path = $fotos[0]['path'];
-            }
-        }
-
 
         $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
-        $colores = Colores::all();
+        $colores = Colores::orderBy('nombre','ASC')->get();
 
-        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
+        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
     public function verPagina(){
         $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
@@ -458,7 +444,7 @@ class IndexController extends Controller
         }
 
 
-        $cateTotales = Categorias::select('categorias.*')->get();
+        $cateTotales = Categorias::orderBy('nombre','ASC')->get();
         foreach ($cateTotales as $cate) {
             $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
             $cate->path = '';
@@ -466,26 +452,11 @@ class IndexController extends Controller
                 $cate->path = $fotos[0]['path'];
             }
           }
-        $categorias = Categorias::all()->where('padre_id',null);
-        foreach ($categorias as $cate) {
-            $cate->zoomed = false;
-            $cateHijo = Categorias::where('padre_id', $cate->id)->get()->toArray();
-            if ($cateHijo != []) {
-                $cate->hijos = $cateHijo;
-            }
-            $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
-            $cate->path = '';
-            if ($fotos != []) {
-                $cate->path = $fotos[0]['path'];
-            }
-        }
-
 
         $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
-        $colores = Colores::all();
-        $this->actualizarPrecios();
+        $colores = Colores::orderBy('nombre','ASC')->get();
 
-        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'categorias' => $categorias, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
+        return Inertia::render('Inicio/Index', ['novedades' => $novedades, 'ofertados' => $ofertados, 'fotosBanner' => $fotosBanner,'cateTotales' => $cateTotales, 'colores' => $colores, 'produCateEspecial' => $produCateEspecial]);
     }
 
 
