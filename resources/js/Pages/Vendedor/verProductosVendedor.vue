@@ -50,48 +50,6 @@
             </div>
 
             <button @click="activarCrear()" class="btn btn-primary" style="width: 90%; background-color: black; color: white; margin-left: 5%; margin-right: 5%; position: center; text-align: center; margin-top: 1%;">Agregar Producto</button>
-            <div v-if="btnActivado" class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-top: 5%; padding: 2%; width: 70%; margin-left: 15%;">
-                <h2 style="margin: 20px">Nombre Producto:</h2>
-                <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
-                <br>
-                <h2 style="margin: 20px">Categoria:</h2>
-                <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.categoria_id">
-                    <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
-                </select>
-                <br>
-                <h2 style="margin: 20px">Estado:</h2>
-                <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.estado_id">
-                    <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
-                </select>
-                <br>
-                <h2 style="margin: 20px">Color:</h2>
-                <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.color_id">
-                    <option v-for="col in colores" :value="col.id">{{col.nombre}}</option>
-                </select>
-                <br>
-                <h2 style="margin: 20px">Precio:</h2>
-                <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.precio" >
-                <br>
-                <h2 style="margin: 20px">Descripcion:</h2>
-                <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.descripcion" >
-                <br>
-                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
-                <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
-                <div class="row">
-                    <img v-for="imagen in form.path" style="width: 250px" :src="imagen" class="img-thumbnail">
-                </div>
-                <input type="file" @change="establecerFoto1"/>
-
-
-                <button class="btn btn-success" @click="guardarProducto" style="width: 70%; margin-left: 15%; background-color: black; margin-top: 2%">Guardar Producto</button>
-                <p v-if="listo == 1" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
-                    <svg style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                        <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
-                    </svg>
-                    {{mensajeFalta}}
-                </p>
-                <h2 v-if="this.listo == 3" style="text-align: center; color: darkgreen"> {{mensajeFalta}}</h2>
-            </div >
         </div>
         <div class="py-12" v-if="user.aceptado == 0">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
@@ -118,7 +76,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 
 export default {
-    name: "verProductosNegocio",
+    name: "verProductosVendedor",
     props: ['productos','categorias','fotosBanner','estados','colores','user'],
     components:{
         Footer,
@@ -154,7 +112,7 @@ export default {
             },
             activarCrear()
             {
-                this.btnActivado = !this.btnActivado;
+                this.$inertia.get('/verCrearProducto');
             },
             verProductoDetalle($nomCat, $nombre){
                 this.$inertia.get('/verProductoDetalle/' + $nomCat + '/' + $nombre);
@@ -174,53 +132,6 @@ export default {
             },
             verPerfilProducto($id){
                 this.$inertia.get('/verPerfilProducto/' + $id);
-
-            },
-            borrarProducto($id)
-            {
-                this.$inertia.post('/borrarProducto/' + $id);
-            },
-            borrarDueno($id){
-                this.$inertia.post('/borrarDueno/' + $id);
-            },
-            guardarProducto()
-            {
-                if(this.form.nombre  != '' && this.form.categoria_id  != '' && this.form.estado_id  != ''  && this.form.precio  != '' && this.form.descripcion  != '' && this.form.color_id  != '' && this.form.path  != '')
-                {
-                    this.$inertia.post('/guardarProducto', this.form);
-                    this.listo = 3;
-                    this.mensajeFalta = 'Se creo exitosamente el producto';
-                    this.form.nombre  = ''; this.form.categoria_id  = ''; this.form.estado_id  = ''; this.form.precio  = ''; this.form.descripcion  = ''; this.form.color_id = ''; this.form.path  = [];
-                }
-                else {
-                    this.listo = 1;
-                    this.mensajeFalta = "Falta ingresar:";
-                    if (this.form.nombre == '') {
-                        this.mensajeFalta = this.mensajeFalta + " nombre,";
-                    }
-                    if (this.form.categoria_id == '') {
-                        this.mensajeFalta = this.mensajeFalta + " categoria,";
-                    }
-                    if (this.form.estado_id == '') {
-                        this.mensajeFalta = this.mensajeFalta + " estado,";
-                    }
-                    if (this.form.precio == '') {
-                        this.mensajeFalta = this.mensajeFalta + " precio,";
-                    }
-                    if (this.form.descripcion == '') {
-                        this.mensajeFalta = this.mensajeFalta + " descripcion,";
-                    }
-                    if (this.form.color_id == '') {
-                        this.mensajeFalta = this.mensajeFalta + " color,";
-                    }
-                    if (this.form.path == '') {
-                        this.mensajeFalta = this.mensajeFalta + " fotos,";
-                    }
-                    this.mensajeFalta = this.mensajeFalta.slice(0, -1);
-                }
-            },
-            actualizarDueno(){
-                this.$inertia.post('/actualizarDueno', this.form2);
             },
             moverIzq(){
                 if (this.num == 0){
@@ -232,16 +143,6 @@ export default {
             },
             moverDer(){
                 this.num =  (this.num+1) % this.fotosBanner.length;
-            },
-            establecerFoto1(e) {
-                let file = e.target.files[0];
-                let reader = new FileReader();
-
-                reader.onloadend = (file) => {
-                    //console.log('RESULT', reader.result)
-                    this.form.path.push(reader.result);
-                }
-                reader.readAsDataURL(file);
             },
             compartirEnWhatsApp(producto) {
                 const nombreProducto = producto.nombre.replace(/ /g, '%20');

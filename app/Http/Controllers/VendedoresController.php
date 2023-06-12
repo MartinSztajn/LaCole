@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\IndexController;
 use App\Models\Categorias;
 use App\Models\Clientes;
+use App\Models\Colores;
 use App\Models\Estado_Producto;
 use App\Models\Fotos;
 use App\Models\Fotos_Banner;
@@ -60,6 +61,14 @@ class VendedoresController extends Controller
         return Inertia::render('Vendedor/verProductosVendedor', ['productos' => $productos, 'categorias' => $categorias]);
 
     }
+    public function verCrearProducto(){
+            $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
+            $categorias = Categorias::orderBy('nombre','ASC')->get();
+            $estados = Estado_producto::all();
+            $colores = Colores::orderBy('nombre','ASC')->get();
+            return Inertia::render('Vendedor/crearProducto', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores]);
+    }
+
 
     public function verOfertas($id){
         if (Auth::user() != null) {

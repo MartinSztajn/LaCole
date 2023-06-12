@@ -35,7 +35,6 @@ Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'busca
 Route::get('/buscarCateBanner', [\App\Http\Controllers\IndexController::class,'buscarCateBanner']);
 Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar']);
 
-
 /*
 USUARIOS CONTROLLER
 */
@@ -54,7 +53,8 @@ NEGOCIOS CONTROLLER
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/verNegocios', [\App\Http\Controllers\VendedoresController::class,'verNegocios']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/verNegocioDueno', [\App\Http\Controllers\VendedoresController::class,'verNegocioDueno']);
-Route::get('/verProductosVendedor', [\App\Http\Controllers\VendedoresController::class,'verProductosVendedor']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/verProductosVendedor', [\App\Http\Controllers\VendedoresController::class,'verProductosVendedor']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/verCrearProducto', [\App\Http\Controllers\VendedoresController::class,'verCrearProducto']);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/guardarNegocio', [\App\Http\Controllers\VendedoresController::class,'guardarNegocio']);

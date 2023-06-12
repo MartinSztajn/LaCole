@@ -35,8 +35,8 @@
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Celular</th>
                                 <th scope="col">Mail</th>
-                                <th scope="col">Estado</th>
-                                <th scope="col">Whatsapp</th>
+                                <th scope="col">Eliminar</th>
+                                <th scope="col">Contactar</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -46,9 +46,7 @@
                                 <td>{{ofe.numero}}</td>
                                 <td>{{ofe.email}}</td>
                                 <td>
-                                    <button v-if="ofe.estado == 0" @click="aceptarOferta(ofe.id)" class="btn btn-primary" style="background-color: green; margin-right: 10px">Aceptar</button>
                                     <button v-if="ofe.estado == 0" @click="rechazarOferta(ofe.id)" class="btn" style="background-color: red" > Rechazar</button>
-                                    <p  v-if="ofe.estado == 1" style="color: green">Aceptada</p>
                                     <p  v-if="ofe.estado == 2" style="color: red">Rechazada</p>
 
                                 </td>

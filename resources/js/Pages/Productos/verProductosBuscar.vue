@@ -347,14 +347,14 @@ export default {
         border-bottom: 1px solid white;
     }
     .image2{
+        height: 200px;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
-    .image2 img {
-        max-width: none;
-        height: 150px;
-        width: 150px;
-        display: block;
+    .image2 img{
+        max-width: 100%;
+        max-height: 100%;
     }
     .botones{
         float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
@@ -429,11 +429,16 @@ export default {
 
 
     .image2{
-        max-width: none;
         height: 250px;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
+    .image2 img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
     .compu{
         display: flex;
         flex-wrap: nowrap;

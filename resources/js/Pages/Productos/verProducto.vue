@@ -48,7 +48,7 @@
                     </div>
 
                     <div style="margin-top: 5%; display: flex; overflow: auto">
-                        <img @click="cambiarFoto(key)" v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" style="height:90px; width: 90px; margin-right: 5%; margin-bottom: 5%; border-radius: 10px; border: 2px solid #17428A; float: left">
+                        <img @click="cambiarFoto(key)" v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" style="height:75px; min-width: 75px; margin-right: 5%; margin-bottom: 5%; border-radius: 10px; border: 2px solid #17428A;">
                     </div>
                     <div style="width: 100%; margin: 3% 0%;">
                         <img :src="'/fotos/' + fotoPrincipal" style="width: 90%; margin: 5%; ">
@@ -384,11 +384,15 @@ export default {
         border-bottom: 1px solid white;
     }
 
-    .image2 img {
-        max-width: none;
+    .image2{
         height: 200px;
-        width: 200px;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image2 img{
+        max-width: 100%;
+        max-height: 100%;
     }
     .botones{
         float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
@@ -465,11 +469,14 @@ export default {
     }
 
     .image2{
-        max-width: none;
         height: 250px;
         display: flex;
         justify-content: center;
-
+        align-items: center;
+    }
+    .image2 img{
+        max-width: 100%;
+        max-height: 100%;
     }
     .compu{
         display: flex;
