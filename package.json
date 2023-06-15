@@ -28,6 +28,7 @@
         "vue-axios": "^3.5.2",
         "vue-carousel": "^0.18.0",
         "vue-slider-component": "^3.2.24",
+        "vue2-editor": "^2.10.3",
         "vuex": "^4.1.0"
     }
 }

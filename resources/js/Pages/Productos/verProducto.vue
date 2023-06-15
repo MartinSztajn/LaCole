@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="row" style="margin-left: 5%;  margin-right: 5%">
-                    <p style="font-size: 20px;">{{producto.descripcion}}</p>
+                    <div v-html="producto.descripcion"></div>
                  <!--
                     <button @click="verProductosCategoria(producto.nomCat)" style="margin-top: 4%">
                         <p style="font-size: 30px">Categoria {{producto.nomCat}}</p>
@@ -83,7 +83,7 @@
                     </p>
                 </div>
 
-                <div class="row" style="margin-left: 5%;  margin-right: 5%; margin-top:50px" v-if="otrosVendedor.length > 0">
+                <div class="row" style="margin: 5%; margin-top: 50px" v-if="otrosVendedor.length > 0">
                     <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
                             Otros productos del vendedor
                         </h1>

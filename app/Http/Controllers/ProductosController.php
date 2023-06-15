@@ -359,8 +359,8 @@ class ProductosController extends Controller
                     }
                 }
 
-                $otrosCategoria = Productos::where('categoria_id', $produ->categoria_id)->where('estado', 1)->get();
-                $otrosVendedor = Productos::where('user_id', $produ->user_id)->where('estado', 1)->get();
+                $otrosCategoria = Productos::where('categoria_id', $produ->categoria_id)->where('id', '!=', $id)->where('estado', 1)->get();
+                $otrosVendedor = Productos::where('user_id', $produ->user_id)->where('id', '!=', $id)->where('estado', 1)->get();
 
                 foreach ($otrosCategoria as $pro) {
                     $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();

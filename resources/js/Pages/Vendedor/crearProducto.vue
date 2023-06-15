@@ -44,7 +44,7 @@
                     <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number"   class="form-control" v-model="form.precio" >
                     <br>
                     <h2 style="margin: 20px">Descripcion:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.descripcion" >
+                    <textarea style="width: 95%; margin-right: 2%; margin-left: 2%; height: 200px" class="form-control" v-model="form.descripcion"></textarea>
                     <br>
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
                     <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
@@ -92,6 +92,7 @@ export default {
     data()
     {
         return{
+            notaTexto: '',
             mensajeFalta: '',
             listo: 0,
             num: 0,
@@ -144,6 +145,7 @@ export default {
             {
                 if(this.form.nombre  != '' && this.form.categoria_id  != '' && this.form.estado_id  != ''  && this.form.precio  != '' && this.form.descripcion  != '' && this.form.color_id  != '' && this.form.path  != '')
                 {
+                    this.form.descripcion = this.form.descripcion.replace(/\n/g, '<br>');
                     this.$inertia.post('/guardarProducto', this.form);
                     this.listo = 3;
                     this.mensajeFalta = 'Se creo exitosamente el producto';
@@ -186,6 +188,14 @@ export default {
             },
             moverDer(){
                 this.num =  (this.num+1) % this.fotosBanner.length;
+            },
+            onTextChange()
+            {
+                const quill = this.$refs.editor.quill
+                const len = quill.getLength()
+                if (len > this.limit) {
+                    quill.deleteText(this.limit, len);
+                }
             },
 
         },
