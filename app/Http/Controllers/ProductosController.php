@@ -293,6 +293,8 @@ class ProductosController extends Controller
                 if ($nomEstado != []) {
                     $pro->nomEstado = $nomEstado[0]['nombre'];
                 }
+                $user = User::find($pro->user_id);
+                $pro->usuario = $user;
             }
 
             $categoriasTodas = Categorias::all();

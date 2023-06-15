@@ -11,13 +11,12 @@
                             <thead>
                             <tr>
                                 <th scope="col"></th>
-                                <th scope="col">Nombre</th>
+                                <th scope="col">Usuario</th>
+                                <th scope="col">Celular</th>
+
+                                <th scope="col">Producto</th>
                                 <th scope="col">Categoria</th>
-                                <th scope="col">Estado</th>
                                 <th scope="col">Precio</th>
-                                <th scope="col">Stock</th>
-                                <th scope="col">Minimo</th>
-                                <th scope="col">Color</th>
                                 <th scope="col">Habilato</th>
                                 <th scope="col">Eliminar</th>
 
@@ -31,13 +30,12 @@
                                         </svg>
                                     </button>
                                 </td>
+                                <td>{{pro.usuario.name}}</td>
+                                <td>{{pro.usuario.numero}}</td>
+
                                 <td>{{pro.nombre}}</td>
                                 <td>{{pro.nomCat}}</td>
-                                <td>{{pro.nomEstado}}</td>
-                                <td>{{pro.precio}}</td>
-                                <td>{{pro.stock}}</td>
-                                <td>{{pro.cant_minimo}}</td>
-                                <td>{{pro.color_id}}</td>
+                                <td>${{pro.precio}}</td>
                                 <td>
                                     <button  v-if="pro.estado == 0" @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: red">No Aceptado</button>
                                     <button v-if="pro.estado == 1" @click="habilitarProducto(pro.id)" class="btn btn-primary" style="background-color: green">Aceptado</button>

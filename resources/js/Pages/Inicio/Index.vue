@@ -183,7 +183,7 @@
                 </div>
                 <div style="display: flex;  margin-top: 4%;  margin-bottom: 4%; overflow: auto ">
                     <div  v-for="(col, index) in colores" style="text-align: center; margin-right: 20px">
-                        <button @click="verProductosColores(col.id)" :style="colores[index].zoomed  ? 'transform: scale(1.2); margin: 10px; text-align: center;' : 'margin: 10px; text-align: center;'"  @mouseover="handleColorMouseOver(index)" @mouseleave="handleColorMouseLeave(index)">
+                        <button @click="verProductosColores(col.nombre)" :style="colores[index].zoomed  ? 'transform: scale(1.2); margin: 10px; text-align: center;' : 'margin: 10px; text-align: center;'"  @mouseover="handleColorMouseOver(index)" @mouseleave="handleColorMouseLeave(index)">
                             <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
                             <p>{{col.nombre}}</p>
                         </button>
@@ -356,8 +356,8 @@ export default {
           verProductosNegocio($id){
               this.$inertia.get('/verProductosNegocio/' + $id);
           },
-          verProductosColores($id){
-              this.$inertia.get('/buscarTexto?color=' + $id);
+          verProductosColores($nombre){
+              this.$inertia.get('/buscarTexto?color=' + $nombre);
           },
           verProductosCategoria($nombre){
               this.$inertia.get('/buscarTexto?categoria='  + $nombre);

@@ -201,16 +201,15 @@ class IndexController extends Controller
         $productos = Productos::where('estado', 1);
         $buscador = $request['text'];
         $nombreCategoria = $request['categoria'];
-
+        $selecCate = '';
+        $selecColor = '';
         $color = $request['color'];
-        if ($buscador != '') {
-            $productos = $productos->where('nombre', 'like', '%' . $buscador . '%');
-        }
         if ($buscador != '') {
             $productos = $productos->where('nombre', 'like', '%' . $buscador . '%');
         }
         if ($nombreCategoria != '') {
             $id = Categorias::select('categorias.*')->where('nombre', $nombreCategoria)->get()->toArray();
+            $selecCate = $nombreCategoria;
             if ($id != []) {
                 $id = $id[0]['id'];
                 $cateHijo = Categorias::select('id')->where('padre_id', $id)->get()->pluck('id')->toArray();
@@ -225,7 +224,10 @@ class IndexController extends Controller
             }
         }
         if ($color != '') {
-            $productos = $productos->where('color_id', $color);
+            $selecColor = $color;
+            $id = Colores::select('colores.*')->where('nombre', $color)->get()->toArray();
+            $id = $id[0]['id'];
+            $productos = $productos->where('color_id', $id);
         }
         $cant = intval(sizeof($productos->get()) / 20);
         if((sizeof($productos->get())  % 20) != 0){
@@ -265,7 +267,7 @@ class IndexController extends Controller
         $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
         $colores = Colores::orderBy('nombre','ASC')->get();
         $estados = Estado_producto::all();
-        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant]);
+        return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant, 'selecCate' => $selecCate, 'selecColor' => $selecColor]);
     }
     public function inicio(){
         if (Auth::user() != null && Auth::user()->es_admin){

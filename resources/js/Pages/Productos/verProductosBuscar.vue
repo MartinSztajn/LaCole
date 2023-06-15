@@ -190,7 +190,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 export default {
     name: "verProductosBuscar",
-    props: ['productos','categorias','fotosBanner','colores','estados','cantPaginate'],
+    props: ['productos','categorias','fotosBanner','colores','estados','cantPaginate','selecCate','selecColor'],
     components:{
         ClienteLayout,
         Footer
@@ -295,11 +295,13 @@ export default {
             },
         },
         mounted() {
-
-            this.timer = setInterval(() => {
-                this.moverDer();
-            }, 5000);
+            this.timer = setInterval(() => {this.moverDer();}, 5000);
         },
+        created() {
+            if (this.selecCate != ''){this.agregarCategoria(this.selecCate);}
+            if (this.selecColor != ''){this.agregarColor(this.selecColor);}
+        }
+
 }
 </script>
 
