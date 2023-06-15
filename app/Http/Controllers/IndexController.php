@@ -313,7 +313,7 @@ class IndexController extends Controller
         $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
         $ofertados = Productos::where('estado', 1)->whereIn('id', $topProductIds)->get();
-        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
+        $produCateEspecial = Productos::where('estado', 1)->latest()->skip(20)->take(20)->get();
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));

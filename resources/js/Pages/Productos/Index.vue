@@ -6,7 +6,7 @@
 
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-bottom: 5%">
                     <div>
-                        <h1 style="margin: 20px; text-align: center; font-size: 20px">Productos Existentes</h1>
+                        <h1 style="margin: 20px; text-align: center; font-size: 20px">Productos Existentes: {{productos.length}}</h1>
                         <table class="table table-hover">
                             <thead>
                             <tr>
