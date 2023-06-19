@@ -8,6 +8,7 @@ use App\Mail\Consulta;
 use App\Models\Categorias;
 use App\Models\Clientes;
 use App\Models\Colores;
+use App\Models\Colores_Producto;
 use App\Models\Consultas;
 use App\Models\Estado_Producto;
 use App\Models\Fotos_Categorias_Banner;
@@ -129,6 +130,12 @@ class IndexController extends Controller
             foreach ($categorias as $cate){
                 $id =  Categorias::select('id')->where('nombre', $cate)->get()->toArray()[0]['id'];
                 array_push($filtrosCate, $id);
+                $catesHijo = Categorias::where('padre_id', $id)->get()->pluck('id')->toArray();
+                if(sizeof($catesHijo) > 0) {
+                    foreach ($catesHijo as $cat) {
+                        array_push($filtrosCate, $cat);
+                    }
+                }
             }
             $productos = $productos->whereIn('categoria_id', $filtrosCate);
         }
@@ -139,9 +146,13 @@ class IndexController extends Controller
             $filtrosCol = [];
             foreach ($colores as $col){
                 $id =  Colores::select('id')->where('nombre', $col)->get()->toArray()[0]['id'];
-                array_push($filtrosCol, $id);
+                $coloresProducto = Colores_Producto::where('color_id', $id)->get()->pluck('producto_id')->toArray();
+                foreach ($coloresProducto as $colProdu) {
+                    array_push($filtrosCol, $colProdu);
+                }
             }
-            $productos = $productos->whereIn('color_id', $filtrosCol);
+
+            $productos = $productos->whereIn('id', $filtrosCol);
         }
         if($request['min'] != null)
         {
@@ -167,14 +178,18 @@ class IndexController extends Controller
 
         if($request['pagina'] != null)
         {
-            $productos =  $productos->skip($request['pagina'] * 20)->take(20);
+            if (sizeof($productos->get()) > 20) {
+                $productos = $productos->skip($request['pagina'] * 20)->take(20);
+            }
+            else{
+                $productos =  $productos->skip(0)->take(20);
+            }
         }
         else {
             $productos =  $productos->skip(0)->take(20);
         }
 
         $productos = $productos->orderBy('nombre','ASC')->get();
-
         foreach ($productos as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -212,22 +227,23 @@ class IndexController extends Controller
             $selecCate = $nombreCategoria;
             if ($id != []) {
                 $id = $id[0]['id'];
-                $cateHijo = Categorias::select('id')->where('padre_id', $id)->get()->pluck('id')->toArray();
-
-                if ($cateHijo != []){
-                    array_push($cateHijo, $id);
-                    $productos = Productos::where('estado', 1)->whereIn('categoria_id', $cateHijo);
+                $filtrosCate = [];
+                array_push($filtrosCate, $id);
+                $catesHijo = Categorias::where('padre_id', $id)->get()->pluck('id')->toArray();
+                if(sizeof($catesHijo) > 0) {
+                    foreach ($catesHijo as $cat) {
+                        array_push($filtrosCate, $cat);
+                    }
                 }
-                else{
-                    $productos = Productos::where('estado', 1)->where('categoria_id', $id);
-                }
+                $productos = Productos::where('estado', 1)->whereIn('categoria_id', $filtrosCate);
             }
         }
         if ($color != '') {
             $selecColor = $color;
             $id = Colores::select('colores.*')->where('nombre', $color)->get()->toArray();
             $id = $id[0]['id'];
-            $productos = $productos->where('color_id', $id);
+            $coloresProducto = Colores_Producto::where('color_id', $id)->get()->pluck('producto_id')->toArray();
+            $productos = $productos->whereIn('id', $coloresProducto);
         }
         $cant = intval(sizeof($productos->get()) / 20);
         if((sizeof($productos->get())  % 20) != 0){
@@ -268,6 +284,20 @@ class IndexController extends Controller
         $colores = Colores::orderBy('nombre','ASC')->get();
         $estados = Estado_producto::all();
         return Inertia::render('Productos/verProductosBuscar', ['productos' => $productos,'categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'colores' => $colores, 'estados' => $estados, 'cantPaginate' => $cant, 'selecCate' => $selecCate, 'selecColor' => $selecColor]);
+    }
+    public function crearColoresNuevos(){
+        $productos = Productos::get()->toArray();
+        foreach ($productos as $produ){
+            $ver = Colores_Producto::where('producto_id', $produ['id'])->where('color_id', $produ['color_id'])->get()->toArray();
+            if(sizeof($ver) == 0) {
+                $colorNuevo = new Colores_Producto;
+                $colorNuevo->producto_id = $produ['id'];
+                $colorNuevo->color_id = $produ['color_id'];
+                $colorNuevo->save();
+            }
+        }
+        dd('listo');
+        return back();
     }
     public function inicio(){
         if (Auth::user() != null && Auth::user()->es_admin){
@@ -314,6 +344,7 @@ class IndexController extends Controller
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
         $ofertados = Productos::where('estado', 1)->whereIn('id', $topProductIds)->get();
         $produCateEspecial = Productos::where('estado', 1)->latest()->skip(20)->take(20)->get();
+
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));
@@ -368,8 +399,6 @@ class IndexController extends Controller
                 $pro->nomEstado = $nomEstado[0]['nombre'];
             }
         }
-
-
         $cateTotales = Categorias::orderBy('nombre','ASC')->get();
         foreach ($cateTotales as $cate) {
             $fotos = Fotos_categoria::where('categoria_id', $cate->id)->get()->toArray();
@@ -387,9 +416,9 @@ class IndexController extends Controller
     public function verPagina(){
         $novedades = Productos::where('estado', 1)->latest()->take(20)->get();
         $topProductIds = Ofertas::selectRaw('producto_id, COUNT(*) as count') ->groupBy('producto_id')->orderBy('count', 'desc')->take(20)->pluck('producto_id');
-
         $ofertados = Productos::where('estado', 1)->whereIn('id', $topProductIds)->get();
-        $produCateEspecial = Productos::where('estado', 1)->where('categoria_id', 2)->latest()->take(20)->get();
+        $produCateEspecial = Productos::where('estado', 1)->latest()->skip(20)->take(20)->get();
+
         foreach ($produCateEspecial as $pro) {
             $ofertas = Ofertas::where('producto_id', $pro->id)->get()->toArray();
             $pro->cantOfertas = (count($ofertas));

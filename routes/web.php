@@ -22,7 +22,6 @@ Route::get('/inicio', [\App\Http\Controllers\IndexController::class,'verPagina']
 Route::get('/enviarConsulta', [\App\Http\Controllers\IndexController::class,'enviarConsulta']);
 Route::get('/enviarPublicidad', [\App\Http\Controllers\IndexController::class,'enviarPublicidad']);
 Route::get('/verPolitica', [\App\Http\Controllers\IndexController::class,'verPolitica']);
-
 Route::post('/enviarMensajeConsulta', [\App\Http\Controllers\IndexController::class,'enviarMensajeConsulta']);
 Route::get('/buscarCategorias', [\App\Http\Controllers\IndexController::class,'buscarCategorias']);
 Route::get('/buscarColores', [\App\Http\Controllers\IndexController::class,'buscarColores']);
@@ -34,6 +33,7 @@ Route::get('/buscarTexto', [\App\Http\Controllers\IndexController::class,'buscar
 Route::get('/buscarBanner', [\App\Http\Controllers\IndexController::class,'buscarBanner']);
 Route::get('/buscarCateBanner', [\App\Http\Controllers\IndexController::class,'buscarCateBanner']);
 Route::get('/filtrar', [\App\Http\Controllers\IndexController::class,'filtrar']);
+Route::get('/crearColoresNuevos', [\App\Http\Controllers\IndexController::class,'crearColoresNuevos']);
 
 /*
 USUARIOS CONTROLLER

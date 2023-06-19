@@ -25,6 +25,14 @@
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -333,14 +341,9 @@
       <workItem from="1686591422347" duration="2608000" />
       <workItem from="1686665509419" duration="35000" />
       <workItem from="1686789297526" duration="2617000" />
-      <workItem from="1686796745573" duration="2915000" />
-    </task>
-    <task id="LOCAL-00010" summary="Cambios Nuevos">
-      <created>1678911077411</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1678911077411</updated>
+      <workItem from="1686796745573" duration="3904000" />
+      <workItem from="1686832160270" duration="177000" />
+      <workItem from="1687139044024" duration="12626000" />
     </task>
     <task id="LOCAL-00011" summary="Cambios Nuevos">
       <created>1678921136272</created>
@@ -678,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686798931310</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Cambios Nuevo">
+      <created>1686800421925</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1686800421925</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -718,6 +728,10 @@
     <state x="115" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686537187026" />
     <state x="2064" y="215" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681926801980" />
     <state x="115" y="170" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1684895548022" />
+    <state x="2157" y="103" key="DiffContextDialog" timestamp="1686800429409">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2157" y="103" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800429409" />
     <state x="2606" y="211" key="FileChooserDialogImpl" timestamp="1685966385895">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -735,11 +749,11 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1686798994770">
+    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1686800430660">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686540289634" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686798994770" />
+    <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800430660" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1686080965558" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1686463212120">
@@ -753,11 +767,11 @@
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686538533331" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686591424612" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1686800126843">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1687151551587">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686540224469" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800126843" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1686080467173" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800241815" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1687151551587" />
   </component>
 </project>

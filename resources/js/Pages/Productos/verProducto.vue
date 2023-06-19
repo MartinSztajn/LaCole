@@ -55,14 +55,19 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-left: 5%;  margin-right: 5%">
+                <div class="row" style="margin-left: 5%;  margin-right: 5%;">
+                    <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">Colores disponibles:</h1>
+                    <div style="display: flex;  margin-bottom: 4%; overflow: auto ">
+                        <div  v-for="(col, index) in producto.coloresProducto" style="text-align: center; margin-right: 20px">
+                            <div style="margin: 10px; text-align: center;">
+                                <div class="rounded-circle" :style="'width: 75px; height: 75px; border: 4px solid black; background-color:' + col.color"></div>
+                                <p>{{col.nombre}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-left: 5%;  margin-right: 5%;">
                     <div v-html="producto.descripcion"></div>
-                 <!--
-                    <button @click="verProductosCategoria(producto.nomCat)" style="margin-top: 4%">
-                        <p style="font-size: 30px">Categoria {{producto.nomCat}}</p>
-                        <img :src="'/fotos/' + producto.fotoCat" style="width: 120px;height: 120px; display: initial" class="rounded-circle">
-                    </button>
-                    -->
                 </div>
                 <div id="interesa" style="width: 90%; margin-left: 5%; margin-top: 7%; margin-bottom: 7%; ">
                     <h1 style="margin-bottom: 2%;font-size: 25px;  text-align: center;">Ingresa tus datos para que el vendedor se pueda contactar con vos</h1>

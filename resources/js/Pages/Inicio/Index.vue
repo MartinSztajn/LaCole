@@ -456,7 +456,10 @@ export default {
 
         this.timer = setInterval(() => {
             this.moverDer();
-        }, 5000);
+            this.moverDerOfertados();
+            this.moverDerNovedades();
+            this.moverDerProduCateEspecial();
+        }, 3000);
     },
     created() {
         // Llamamos al método que filtra los productos al crear el componente

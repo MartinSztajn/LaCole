@@ -95,8 +95,8 @@
                             </div>
                         </div>
                     </div>
-                    <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
-                        <div v-for="n in cantPaginate" style="margin-right: 5px">
+                    <div v-if="cantPaginas > 1" style="display: flex; margin: 15px" >
+                        <div v-for="n in cantPaginas" style="margin-right: 5px">
                             <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
                         </div>
                     </div>
@@ -171,8 +171,8 @@
                     </div>
                 </div>
             </div>
-                <div v-if="cantPaginate > 1" style="display: flex; margin: 15px" >
-                    <div v-for="n in cantPaginate" style="margin-right: 5px">
+                <div v-if="cantPaginas > 1" style="display: flex; margin: 15px" >
+                    <div v-for="n in cantPaginas" style="margin-right: 5px">
                         <button class="btn" style="background-color: #C5C5C5" @click="pasarPagina(n)">{{n}}</button>
                     </div>
                 </div>
@@ -210,6 +210,7 @@ export default {
             minValue: '',
             maxValue: '',
             buscador: '',
+            cantPaginas: this.cantPaginate
         }
     },
     methods:
@@ -244,7 +245,7 @@ export default {
                 })
                     .then(response => {
                         this.productosFiltrados = response.data.productos;
-                        this.cantPaginate = response.data.cant;
+                        this.cantPaginas = response.data.cant;
                     })
                     .catch(error => {
                         console.error(error);

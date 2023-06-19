@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\IndexController;
 use App\Models\Categorias;
+use App\Models\Colores_Producto;
 use App\Models\Estado_Producto;
 use App\Models\Fotos_Categorias_Banner;
 use App\Models\Fotos_Producto;
@@ -141,7 +142,16 @@ class ProductosController extends Controller
             $producto->categoria_id = $request->valor;
         }
         else if($request->tipo == 'Color'){
-            $producto->color_id = $request->valor;
+            $coloresProducto = Colores_Producto::where('producto_id', $request->id)->get();
+            foreach ($coloresProducto as $item) {
+                $item->delete();
+            }
+            foreach ($request->valor as $item){
+                $colorNuevo = new Colores_Producto;
+                $colorNuevo->producto_id = $request->id;
+                $colorNuevo->color_id = $item['id'];
+                $colorNuevo->save();
+            }
         }
         else if($request->tipo == 'Foto'){
                 foreach ($request->valor as $key => $foto)
@@ -254,7 +264,7 @@ class ProductosController extends Controller
 
             $nomEstado = Estado_producto::select('nombre')->where('id', $producto->estado_id)->get()->toArray();
             if ($nomEstado != []) {
-                $producto->nomEstado = $nomCat[0]['nombre'];
+                $producto->nomEstado = $nomEstado[0]['nombre'];
             }
 
             $nomColor = Colores::select('nombre')->where('id', $producto->color_id)->get()->toArray();
@@ -267,6 +277,11 @@ class ProductosController extends Controller
             if ($fotos != []) {
                 $producto->path = $fotos;
             }
+
+            $coloresProducto = Colores_Producto::select('colores.*')->where('colores_producto.producto_id', $id)
+                ->leftJoin('colores','colores.id','colores_producto.color_id')
+                ->get()->toArray();
+            $producto->coloresProducto = $coloresProducto;
 
             $categorias = Categorias::all();
             $colores = Colores::all();
@@ -324,7 +339,6 @@ class ProductosController extends Controller
                 ->firstOrFail();
 
             if ($produ->estado == 1) {
-
                 $fotosBanner = Fotos_banner::where('activo', 1)->get()->toArray();
 
                 $id = $produ->id;
@@ -347,6 +361,11 @@ class ProductosController extends Controller
                 if ($fotos != []) {
                     $produ->path = $fotos;
                 }
+
+                $coloresProducto = Colores_Producto::select('colores.*')->where('colores_producto.producto_id', $id)
+                    ->leftJoin('colores','colores.id','colores_producto.color_id')
+                    ->get()->toArray();
+                $produ->coloresProducto = $coloresProducto;
 
                 $categorias = Categorias::all()->where('padre_id', null);
                 foreach ($categorias as $cate) {
@@ -450,10 +469,16 @@ class ProductosController extends Controller
         $producto->precio = $request->precio;
         $producto->stock = 2;
         $producto->cant_minimo = 1;
-        $producto->color_id = $request->color_id;
         $producto->estado = 1;
         $producto->descripcion = $request->descripcion;
         $producto->save();
+
+        foreach ($request->color_id as $color){
+            $colorProdu = new Colores_Producto();
+            $colorProdu->producto_id = $producto->id;
+            $colorProdu->color_id = $color['id'];
+            $colorProdu->save();
+        }
 
         if ($request->path) {
             foreach ($request->path as $key => $foto) {

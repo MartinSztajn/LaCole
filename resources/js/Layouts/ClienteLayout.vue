@@ -104,13 +104,14 @@
                             </div>
                         </div>
                         <div class="filtros celular" style="text-align: center; width: 100%; position: fixed; z-index: 100">
-                            <div class="compu" @mouseleave="handleMouseLeaveCuatroCampos">
-                                    <div   style="display: flex; color: white; text-align: center; font-size: 20px; position: absolute">
-                                        <div style="margin-right: 20%;"><a  href="/inicio">Inicio</a></div>
-                                        <div style="margin-right: 20%;" @mouseover="handleMouseOverCuatroCampos(1)">Categorias</div>
-                                        <div @mouseover="handleMouseOverCuatroCampos(2)">Colores</div>
-                                    </div>
-                                    <div v-if="showCategories || showColors" style="margin-top: 30px;  position: absolute; background-color: white; max-width: 60%; border-radius: 10px; padding: 20px;">
+                            <div @mouseleave="handleMouseLeaveCuatroCampos">
+                                <div   style="display: flex;   color: white;   text-align: center;   font-size: 20px;   position: absolute;    width: 70%;   margin-left: 15%;   justify-content: space-evenly;">
+                                            <div><a  href="/inicio">Inicio</a></div>
+                                            <div @mouseover="handleMouseOverCuatroCampos(1)">Categorias</div>
+                                            <div @mouseover="handleMouseOverCuatroCampos(2)">Colores</div>
+                                            <div><a  href="/verCrearProducto">Publicar</a></div>
+                                </div>
+                                <div  v-if="showCategories || showColors" style="max-height: 390px; overflow: auto; margin-top: 30px;  position: absolute; background-color: white; max-width: 60%;  margin-left: 20%;  border-radius: 10px; padding: 20px;">
                                         <div v-if="showCategories">
                                             <ul style="display: flex; flex-wrap: wrap;">
                                                 <button v-for="cate in categorias" @click="verProductosCategoria(cate.nombre)"  style="margin: 10px; width: 120px; display: flex; align-items: center; flex-direction: column;">
@@ -235,6 +236,8 @@
                     <div style="margin-top: 80px">
                         <a :href="route('login')"><p style="text-align: center; color: white; font-size: 25px">Ingresá</p></a>
                         <br>
+                        <a  href="/verCrearProducto"><p style="text-align: center; color: white; font-size: 25px">Publicar</p></a>
+
                     </div>
                     <div class='search-form' method='get' target='_top'>
                         <input class='search-text' placeholder='Buscar productos...' style="padding-left: 10px"  v-model="form.buscador"/>
@@ -843,15 +846,7 @@ body {
         margin-right: 2%;
         margin-bottom: 5%;
     }
-    .filtros{
-        background-color: #121212;
-        margin-top: -1px;
-        padding-left: 12%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        height: 55px;
-        top: 80px;
-    }
+
     .botonfiltros{
         width: 140px;
         font-size: 20px;

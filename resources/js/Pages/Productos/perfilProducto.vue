@@ -59,11 +59,24 @@
                 </select>
                 <button  v-show="editrestado == true" class="btn btn-success" style="background-color: black" @click="guardarEstado">Guardar Estado</button>
                 <br>
-                <p v-if="editrcolor == false " @dblclick="editarColor()" style="font-size: 20px"><b>Color:</b> {{producto.nomColor}}</p><br>
-                <select v-show="editrcolor == true" style="width: 60%; margin-right: 2%; margin-left: 2%; float: left" class="form-control" v-model="producto.color_id" >
-                    <option v-for="col in colores" :value="col.id">{{col.nombre}}</option>
+
+                <h1 style="font-size: 30px;"><b>Colores:</b></h1>
+                <div @dblclick="editarColor()"  style="display: flex; flex-wrap: wrap;">
+                    <div v-for="(color, index) in producto.coloresProducto" :key="index" style="margin: 2%; text-align: center;">
+                        <h1 :style="'width: 250px; background-color:' + color.color" class="img-thumbnail"> {{color.nombre}} </h1>
+                        <button v-if="editrcolor" class="btn" style="background-color: red;" @click="eliminarColor(index)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <select  v-if="editrcolor" class="form-control" v-model="color" @change="establecerColores" multiple>
+                    <option v-for="col in colores" :value="col">{{col.nombre}}</option>
                 </select>
-                <button  v-show="editrcolor == true" class="btn btn-success" style="background-color: black" @click="guardarColor">Guardar Estado</button>
+                <button v-if="editrcolor"  class="btn btn-success" style="background-color: black; margin: 10px" @click="guardarColor">Guardar Colores</button>
+                <button v-if="!editrcolor"  class="btn btn-success" style="background-color: black; margin: 10px" @click="editarColor">Editar Colores</button>
+
                 <br>
                 <p v-if="editrcat == false " @dblclick="editarCategoria()" style="font-size: 20px"><b>Categoria:</b> {{producto.nomCat}}</p><br>
                 <select v-show="editrcat == true" style="width: 60%; margin-right: 2%; margin-left: 2%; float: left" class="form-control" v-model="producto.categoria_id" @keyup.enter="guardarCategoria">
@@ -95,6 +108,7 @@ export default {
             rango: 0,
             num: 0,
             eliminar: 0,
+            color: '',
             form2: {
                 pathNuevas: [],
                 producto_id: this.producto.id,
@@ -183,9 +197,13 @@ export default {
             },
             guardarPrecio()
             {
-                this.editrprecio = false;
-                this.$inertia.post('/editarProducto', {tipo: 'Precio', valor: this.producto.precio,
-                    id: this.producto.id}).then();
+                if(this.producto.precio <= 2000000000 && this.producto.precio >= 1) {
+                    this.editrprecio = false;
+                    this.$inertia.post('/editarProducto', {
+                        tipo: 'Precio', valor: this.producto.precio,
+                        id: this.producto.id
+                    }).then();
+                }
             },
             guardarCantidad()
             {
@@ -224,7 +242,7 @@ export default {
             },
             guardarColor(){
                 this.editrcolor = false;
-                this.$inertia.post('/editarProducto', {tipo: 'Color', valor: this.producto.color_id,
+                this.$inertia.post('/editarProducto', {tipo: 'Color', valor: this.producto.coloresProducto,
                     id: this.producto.id}).then();
             },
             eliminarFoto($i){
@@ -259,6 +277,14 @@ export default {
             borrarProducto($id)
             {
                 this.$inertia.post('/borrarProducto/' + $id);
+            },
+            eliminarColor(index) {
+                this.producto.coloresProducto.splice(index, 1);
+            },
+            establecerColores() {
+                if (!this.producto.coloresProducto.includes(this.color[0])) {
+                    this.producto.coloresProducto.push(this.color[0]);
+                }
             },
         },
         mounted() {
