@@ -9,6 +9,7 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Telefono</th>
                             <th scope="col">Mail</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Whatsapp</th>
@@ -21,6 +22,8 @@
                         <tr v-for="(us, key) in Usuarios">
                             <td>{{key + 1}}</td>
                             <td>{{us.name}}</td>
+                            <td>{{us.numero}}</td>
+
                             <td>{{us.email}}</td>
                             <td>{{(us.created_at).substr(0, 10)}}</td>
                             <td>

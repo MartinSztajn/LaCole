@@ -50,8 +50,10 @@
                 <h1 v-if="editrprecio == false " @dblclick="editarPrecio()"  style="font-size: 30px;"><b><b>Precio:</b> ${{producto.precio}}</b></h1>
                 <input ref="cellinput" type="text" v-show="editrprecio == true" v-model="producto.precio" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarPrecio">
                 <br>
-                <h1 v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; "><b>Descripcion:</b> {{producto.descripcion}}</h1>
-                <input ref="cellinput" type="text" v-show="editrdesc == true" v-model="producto.descripcion" style="font-size: 20px; width: 100%" @keyup.enter="guardarDesc">
+                <h1 v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; "><b>Descripcion:</b></h1>
+                <div v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; " v-html="producto.descripcion"></div>
+                <textarea  type="text" v-show="editrdesc == true" v-model="producto.descripcion" style="font-size: 20px; width: 100%; height: 300px" @keyup.enter="guardarDesc"></textarea>
+
                 <br>
                 <p v-if="editrestado == false " @dblclick="editarEstado()" style="font-size: 20px"><b>Estado:</b> {{producto.nomEstado}}</p><br>
                 <select v-show="editrestado == true" style="width: 60%; margin-right: 2%; margin-left: 2%; float: left" class="form-control" v-model="producto.estado_id">
@@ -180,6 +182,7 @@ export default {
             },
             editarDesc()
             {
+                this.producto.descripcion =  this.producto.descripcion.replace(/<br\s*\/?>/gm, "\n");
                 this.editrdesc = true;
             },
             editarCategoria()
@@ -293,6 +296,9 @@ export default {
                 this.moverDer();
             }, 5000);
         },
+        created() {
+        }
+
 }
 </script>
 <style scoped>

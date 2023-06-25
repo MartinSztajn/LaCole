@@ -134,14 +134,18 @@ export default {
                         <InputError class="mt-2" :message="form.errors.email" />
                     </div>
                     <div class="mt-4">
-                        <InputLabel for="numero" value="Numero" />
-                        <TextInput
-                            id="numero"
-                            v-model="form.numero"
-                            type="number"
-                            class="mt-1 block w-full"
-                            required
-                        />
+                        <InputLabel for="numero" value="Celular" />
+                        <div class="input-container">
+                            <div class="prefix">+54</div>
+                            <TextInput
+                                style="margin-left: 10%; width: 90%"
+                                id="numero"
+                                v-model="form.numero"
+                                type="number"
+                                class="mt-1 block w-full"
+                                required
+                            />
+                        </div>
                         <InputError class="mt-2" :message="form.errors.numero" />
                     </div>
                     <div class="mt-4">
@@ -233,14 +237,18 @@ export default {
                         <InputError class="mt-2" :message="form.errors.email" />
                     </div>
                     <div class="mt-4">
-                        <InputLabel for="numero" value="Numero" />
-                        <TextInput
-                            id="numero"
-                            v-model="form.numero"
-                            type="number"
-                            class="mt-1 block w-full"
-                            required
-                        />
+                        <InputLabel for="numero" value="Celular" />
+                        <div class="input-container">
+                            <div class="prefix">+54</div>
+                            <TextInput
+                                style="margin-left: 15%; width: 85%"
+                                id="numero"
+                                v-model="form.numero"
+                                type="number"
+                                class="mt-1 block w-full"
+                                required
+                            />
+                        </div>
                         <InputError class="mt-2" :message="form.errors.numero" />
                     </div>
                     <div class="mt-4">
@@ -310,6 +318,21 @@ export default {
     .altura {
         height: 63px;
     }
+    .compu{
+        display: none;
+    }
+    .prefix {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 15%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
 }
 @media (min-width: 501px) {
     .computadora{
@@ -318,6 +341,21 @@ export default {
     .altura {
         height: 118px;
     }
+    .prefix {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 10%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+}
+.input-container {
+    position: relative;
 }
 
 </style>

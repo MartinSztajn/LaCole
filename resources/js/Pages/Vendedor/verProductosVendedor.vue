@@ -41,9 +41,9 @@
                             <h1 class="card-text" >${{pro.precio}}</h1>
                             <br>
                              <button v-if="pro.cantOfertas > 0" @click="verOfertas(pro.id)" class="btn" style="background-color: orange; color: white; margin-bottom: 10px">Ver ofertas</button>
-                             <button v-if="pro.cantOfertas == 0" class="btn" style="background-color: black; color: white; margin-bottom: 10px">Sin ofertas</button>
-                            <button @click="verPerfilProducto(pro.id)" class="btn btn-primary" style="margin-bottom: 10px">Editar</button>
-                            <button @click="compartirEnWhatsApp(pro)"  class="btn btn-primary" style="margin-bottom: 10px; background-color: green">Compartir en WhatsApp</button>
+                             <button v-if="pro.cantOfertas == 0" class="btn" style="width: 100%; background-color: black; color: white; margin-bottom: 10px">Sin ofertas</button>
+                            <button @click="verPerfilProducto(pro.id)" class="btn btn-primary" style="width: 100%; margin-bottom: 10px">Editar</button>
+                            <button @click="compartirEnWhatsApp(pro)"  class="btn btn-primary" style="width: 100%; margin-bottom: 10px; background-color: green">Compartir en WhatsApp</button>
                         </div>
                     </div>
                 </div>
@@ -53,14 +53,14 @@
         </div>
         <div class="py-12" v-if="user.aceptado == 0">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
-                <h1 style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>Tu usuario aun no ha sido aceptado</b></h1>
-                <h1 style="font-size: 25px; text-align: center; position: center; margin-bottom: 3%;">
+                <h1 class="texto" style="text-align: center; position: center; margin-bottom: 3%;"><b>Tu usuario aun no ha sido aceptado</b></h1>
+                <p class="texto" style=" text-align: center; position: center; margin-bottom: 3%;">
                     Como una medida de seguridad y para garantizar el buen uso de “La Cole Market” antes de que puedas publicar <br>
                     tus productos para vender vamos a chequear tu informacion asi de forma segura podes formar parte de nuestra comunidad.
                     <br>
                     <br>
                     <b>¡En esta comunidad, todos nos cuidamos entre todos!</b>
-                </h1>
+                </p>
 
             </div>
         </div>
@@ -168,6 +168,12 @@ export default {
 
 <style scoped>
 @media (max-width: 500px) {
+    .texto p{
+       font-size: 18px;
+    }
+    .texto h1{
+        font-size: 30px;
+    }
     .celuCarrusel{
         overflow: auto;
     }
@@ -263,12 +269,15 @@ export default {
         padding: 5px 0;
         border-bottom: 1px solid white;
     }
-
+    .image2 {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .image2 img {
-        max-width: none;
-        height: 150px;
-        width: 150px;
-        display: block;
+        max-width: 100%;
+        max-height: 100%;
     }
     .info{
         padding: 10px;
@@ -287,6 +296,22 @@ export default {
 }
 
 @media (min-width: 501px) {
+    .texto p{
+        font-size: 25px;
+    }
+    .texto h1{
+        font-size: 45px;
+    }
+    .image2 {
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image2 img {
+        max-width: 100%;
+        max-height: 100%;
+    }
     .computadora{
         display: none;
     }

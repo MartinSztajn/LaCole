@@ -217,6 +217,9 @@ export default {
     .altura {
         height: 63px;
     }
+    .compu{
+        display: none;
+    }
 }
 @media (min-width: 501px) {
     .computadora{

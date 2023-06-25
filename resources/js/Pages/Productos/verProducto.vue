@@ -71,10 +71,17 @@
                 </div>
                 <div id="interesa" style="width: 90%; margin-left: 5%; margin-top: 7%; margin-bottom: 7%; ">
                     <h1 style="margin-bottom: 2%;font-size: 25px;  text-align: center;">Ingresa tus datos para que el vendedor se pueda contactar con vos</h1>
-                    <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;" v-validate="email" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
                     <input style="width: 44%; margin-right: 1%; margin-left: 5%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Nombre" class="form-control" v-model="form.nombre" >
                     <input style="width: 44%; margin-right: 5%; margin-left: 1%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
-                    <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular" class="form-control" v-model="form.celular" >
+
+                    <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;" v-validate="email" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
+
+
+                    <div class="input-container">
+                        <div class="prefix">+54</div>
+                        <input style="width: 80%; margin-right: 5%; margin-left: 15%;  margin-bottom: 2%; border: 2px solid #C0C0C0;"  placeholder="Celular" class="form-control" v-model="form.celular" >
+                    </div>
+
                     <div style="text-align: center; margin: 1%">
                         <input type="checkbox" v-model="aceptoCondiciones">
                         Acepto los <a style="text-decoration: underline;" href="/verPolitica">términos y condiciones </a>
@@ -171,12 +178,13 @@
 import ClienteLayout from '@/Layouts/ClienteLayout.vue'
 import Footer from '@/Layouts/Footer.vue'
 
+
 export default {
     name: "verProducto",
     props: ['producto', 'categorias','otrosCategoria','otrosVendedor','fotosBanner'],
     components: {
         ClienteLayout,
-        Footer
+        Footer,
     },
     data()
     {
@@ -226,6 +234,7 @@ export default {
                 this.num =  (this.num+1) % this.fotosBanner.length;
             },
             aceptarCondiciones(){
+
                 if (this.aceptoCondiciones == 1) {
                     if (this.form.celular != '' && this.form.mail != '' && this.form.apellido != '' && this.form.nombre != '') {
                         this.mensajeEnviar = '¡Se enviaron los datos con exito!';
@@ -683,5 +692,22 @@ th, td {
 
 th:first-child, td:first-child {
     padding-left: 20px;
+}
+.prefix {
+    border: 2px solid #C0C0C0;
+    margin-left: 5%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 10%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.input-container {
+    position: relative;
 }
 </style>

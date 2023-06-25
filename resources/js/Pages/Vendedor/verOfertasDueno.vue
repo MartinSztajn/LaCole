@@ -28,7 +28,8 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-bottom: 5%; margin-top: 5%">
                     <div>
                         <h1 style="margin: 20px; text-align: center; font-size: 20px">Ofertas Existentes</h1>
-                        <table class="table table-hover">
+                        <div style="overflow: auto;">
+                            <table class="table table-hover" style="width: 100%">
                             <thead>
                             <tr>
                                 <th scope="col"></th>
@@ -60,6 +61,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>

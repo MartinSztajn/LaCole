@@ -24,15 +24,18 @@
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Inicio/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProductosBuscar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Usuarios/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Usuarios/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verOfertasDueno.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -343,21 +346,9 @@
       <workItem from="1686789297526" duration="2617000" />
       <workItem from="1686796745573" duration="3904000" />
       <workItem from="1686832160270" duration="177000" />
-      <workItem from="1687139044024" duration="12626000" />
-    </task>
-    <task id="LOCAL-00011" summary="Cambios Nuevos">
-      <created>1678921136272</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1678921136272</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Cambios Nuevos">
-      <created>1678972680152</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1678972680152</updated>
+      <workItem from="1687139044024" duration="14420000" />
+      <workItem from="1687348611797" duration="29000" />
+      <workItem from="1687665898548" duration="4949000" />
     </task>
     <task id="LOCAL-00013" summary="Cambios Nuevos">
       <created>1678972763521</created>
@@ -688,7 +679,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686800421925</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Cambios Nuevo">
+      <created>1687152582441</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1687152582441</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Cambios Nuevo">
+      <created>1687153199350</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1687153199350</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,41 +742,34 @@
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685686532622" />
     <state x="2606" y="211" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685966385895" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1678823996478">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1678823996478" />
-    <state x="407" y="173" key="MultipleFileMergeDialog" timestamp="1678823996525">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="407" y="173" key="MultipleFileMergeDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1678823996525" />
     <state x="2995" y="246" key="NewPhpClassDialog" timestamp="1681141542276">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="2371" y="183" key="Vcs.Push.Dialog.v2" timestamp="1686800430660">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1687153218211">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686540289634" />
     <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800430660" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1686080965558" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1687153218211" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
-    <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1686463212120">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1687153194320">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685866561477" />
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686463212120" />
+    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1687153194320" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup" timestamp="1686591424612">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="809" y="190" width="538" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686538533331" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686591424612" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1687151551587">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup" timestamp="1687669799579">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1686540224469" />
-    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800241815" />
+    <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1687669799579" />
     <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1687151551587" />
   </component>
 </project>

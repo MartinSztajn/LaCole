@@ -385,7 +385,6 @@ export default {
                       param = param - this.ofertados.length;
                   }
                   this.primerosOfertas[i] = this.ofertados[param];
-
               }
           },
           filterCateEspecial($num) {
