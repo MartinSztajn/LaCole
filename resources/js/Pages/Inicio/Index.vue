@@ -1,5 +1,5 @@
 <template>
-    <cliente-layout  style="font-family: 'circular'">
+    <cliente-layout>
         <div class="altura" style="background-color: #121212;"></div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">

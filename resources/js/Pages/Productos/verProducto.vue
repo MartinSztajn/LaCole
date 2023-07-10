@@ -18,7 +18,7 @@
                     </svg>
                 </a>
             </div>
-            <div  style="font-family: 'circular'">
+            <div>
                 <div class="row compu" style="width: 90%; margin-left: 5%; margin-top: 2%; padding: 1%; padding-top: 3%;">
                    <div class="col-4" style="padding-left: 4%; text-align: center">
                        <h1 style="font-size: 50px;"><b> {{producto.nombre}}</b> </h1>
@@ -91,44 +91,12 @@
                         {{mensajeEnviar}}
                     </p>
                 </div>
-
-                <div class="row" style="margin: 5%; margin-top: 50px" v-if="otrosVendedor.length > 0">
-                    <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
-                            Otros productos del vendedor
-                        </h1>
-                    <div class="celuCarrusel" :style="otrosVendedor.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
-                            <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="(pro, index) in primerosVendedor" :style="primerosVendedor[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'"  @mouseover="handleprimerosVendedorMouseOver(index)" @mouseleave="handleprimerosVendedorMouseLeave(index)">
-                                <div class="image2">
-                                    <img :src="'/fotos/' + pro.path">
-                                </div>
-                                <hr>
-                                <div class="colum2">
-                                    <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
-                                    <h2 class="card-text">{{pro.nomEstado}}</h2>
-                                    <br>
-                                    <h1 class="card-text" >${{pro.precio}}</h1>
-                                </div>
-                            </div>
-                            <a v-if="otrosVendedor.length > 5" @click="moverIzqVendedor()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
-                                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
-                                </svg>
-                            </a>
-                            <a v-if="otrosVendedor.length > 5"  @click="moverDerVendedor()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
-                                    <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-                                </svg>
-                            </a>
-
-                        </div>
-                </div>
-                <div class="row" style="margin: 5%; margin-top: 50px" v-if="otrosCategoria.length > 0">
-                    <h1 style="font-size: 30px; text-align: left; margin-bottom: 10px">
-                        Otros productos de la categoria
-
+                <div  v-if="otrosVendedor.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+                    <h1 style="font-size: 30px; text-align: left; color: black;">
+                        Otros productos del vendedor
                     </h1>
-                    <div class="celuCarrusel" :style="otrosCategoria.length > 5  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
-                        <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" v-for="(pro, index) in primerosOtros"  :style="primerosOtros[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'"  @mouseover="handleprimerosOtrosMouseOver(index)" @mouseleave="handleprimerosOtrosMouseLeave(index)">
+                    <div class="celuCarrusel" :style="otrosVendedor.length > 3  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                        <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleprimerosVendedorMouseOver(index)" @mouseleave="handleprimerosVendedorMouseLeave(index)" v-for="(pro, index) in primerosVendedor" :style="primerosVendedor[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
                             <div class="image2">
                                 <img :src="'/fotos/' + pro.path">
                             </div>
@@ -141,23 +109,51 @@
                             </div>
 
                         </div>
-                        <a  v-if="otrosCategoria.length > 5" @click="moverIzqOtros()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
-                            <svg xmlns="http://www.w3.org/2000/svg"  fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
+                        <a v-if="otrosVendedor.length > 3" @click="moverIzqVendedor()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
                                 <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
                             </svg>
                         </a>
-                        <a v-if="otrosCategoria.length > 5"  @click="moverDerOtros()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
-                            <svg xmlns="http://www.w3.org/2000/svg"  fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
+                        <a  v-if="otrosVendedor.length > 3" @click="moverDerVendedor()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
                                 <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
                             </svg>
                         </a>
-
                     </div>
+                </div>
+                <div  v-if="otrosCategoria.length > 0"  class="overflow-hidden sm:rounded-lg" style="margin: 3%; padding: 20px">
+                    <h1 style="font-size: 30px; text-align: left; color: black;">
+                        Otros productos de la categoria
+                    </h1>
+                    <div class="celuCarrusel" :style="otrosCategoria.length > 3  ? 'display: flex; justify-content: space-evenly;' : 'display: flex;'">
+                        <div @click="verProductoDetalle(pro.nomCat, pro.nombre)" class="container2" @mouseover="handleprimerosOtrosMouseOver(index)" @mouseleave="handleprimerosOtrosMouseLeave(index)" v-for="(pro, index) in primerosOtros" :style="primerosOtros[index].zoomed  ? 'transform: scale(1.1); margin-bottom: 10px' : 'margin-bottom: 10px'">
+                            <div class="image2">
+                                <img :src="'/fotos/' + pro.path">
+                            </div>
+                            <hr>
+                            <div class="colum2">
+                                <h2 class="card-text"><b> {{pro.nombre}}</b> </h2>
+                                <h2 class="card-text">{{pro.nomEstado}}</h2>
+                                <br>
+                                <h1 class="card-text" >${{pro.precio}}</h1>
+                            </div>
 
+                        </div>
+                        <a v-if="otrosCategoria.length > 3" @click="moverIzqOtros()" role="button" data-slide="prev" style="position:absolute; left: 0; margin-top: 150px; margin-left: 15px">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-left-square-fill flechita" viewBox="0 0 16 16">
+                                <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                            </svg>
+                        </a>
+                        <a  v-if="otrosCategoria.length > 3" @click="moverDerOtros()" role="button" data-slide="next" style="position:absolute; right: 0; margin-top: 150px; margin-right: 15px">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="black" class="bi bi-arrow-right-square-fill flechita" viewBox="0 0 16 16">
+                                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <Footer></Footer>
-            <div class="modal  fade"  id="modalImagenesEnPrenda" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
+            <div class="modal  fade" id="modalImagenesEnPrenda" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg "  style="height: 700px;">
                     <div class="modal-content Blanco">
                         <div class="modal-header">
@@ -352,15 +348,24 @@ export default {
     .celuCarrusel{
         overflow: auto;
     }
-    .celular{
-        display: none;
-    }
-   .altura{
+    .altura{
         height: 63px;
     }
-    #cambio{
-        margin-top: 134px;
+    .svgItem{
+        width: 50px;
+        height: 50px;
+        margin-left: 30%
     }
+    .titulo{
+        text-align: center; font-size: 40px; padding: 20px
+    }
+    .textito{
+        text-align: center; font-size: 15px; padding-top: 0px; margin-bottom: 15px
+    }
+    .itemsTexto{
+        text-align: center; font-size: 20px;
+    }
+
     p.card-text{
         font-size: 15px;
         text-align: center;
@@ -382,28 +387,21 @@ export default {
     }
     .colum2 {
         flex-direction: column;
+        margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 190px;
         padding: 10px;
     }
-
-    .colum2 div {
-        background-color: #28285b;
-        font-size: 1.4rem;
-        padding: 5px 0;
-        border-bottom: 1px solid white;
+    .card-deck{
+        float: left;
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-top: 10px;
+        text-align: center;
     }
-
-    .image2{
-        height: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .image2 img{
-        max-width: 100%;
-        max-height: 100%;
+    .fotoCategoria{
+        width: 75px;
+        height: 75px;
     }
     .botones{
         float: left; margin: 2%; width: 45%; background-color: grey; color: white; font-size: 15px;
@@ -417,7 +415,7 @@ export default {
         margin-bottom: 5%;
     }
     .filtros{
-        background-color: #17428A;
+        background-color: white;
         margin-top: -1px;
         padding-left: 12%;
         padding-top: 2%;
@@ -429,6 +427,45 @@ export default {
         width: 140px;
         font-size: 20px;
     }
+
+
+    .card-img-top{
+        height: 300px;
+    }
+
+
+    .colum2 div {
+        background-color: #28285b;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        border-bottom: 1px solid white;
+    }
+
+    .image2 {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .image2 img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .info{
+        padding: 10px;
+        background-color: #EF7728;
+        width: 90%;
+        box-shadow: 0px 1px 4px #444444;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+    .celular{
+        display: none;
+    }
+    .computadora{
+        display: flex;
+    }
 }
 
 @media (min-width: 501px) {
@@ -436,11 +473,32 @@ export default {
         width: 50px;
         height: 50px;
     }
+    .cateCircular{
+        width: 200px;
+    }
+    .computadora{
+        display: none;
+    }
+    .celular{
+        display: flex;
+    }
+    .svgItem{
+        width: 60px;
+        height: 60px;
+        margin-left: 40%
+
+    }
+    .titulo{
+        text-align: center; font-size: 60px; padding: 20px
+    }
+    .textito{
+        text-align: center; font-size: 20px; padding-top: 0px; margin-bottom: 35px
+    }
+    .itemsTexto{
+        text-align: center; font-size: 30px;
+    }
     .altura{
         height: 118px;
-    }
-    #cambio{
-        margin-top: 118px;
     }
     p.card-text{
         font-size: 20px;
@@ -456,20 +514,31 @@ export default {
     }
     .container2 {
         background-color: white;
-        width: 250px;
         margin: 1%;
         float: left;
+        display: flex;
         border-radius: 5px;
     }
-
+    .image2 img{
+        max-width: none;
+        width: 200px;
+        height: fit-content;
+        max-height: 250px;
+    }
+    .compu{
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
     .colum2 {
         padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        margin-right: 10px;
         flex: 1;
         text-align: center;
-        min-width: 190px;
+        width: 200px;
     }
 
     .colum2 div {
@@ -480,19 +549,35 @@ export default {
     }
 
     .image2{
+        max-width: none;
         height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .image2 img{
-        max-width: 100%;
-        max-height: 100%;
+    .card-img-top{
+        height: 250px;
+        width: 250px;
     }
-    .compu{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: center;
+    .info{
+        padding: 10px;
+        background-color: #EF7728;
+        width: 90%;
+        box-shadow: 0px 1px 4px #444444;
+        border-radius: 3px;
+        margin: 0 auto;
+    }
+    .infoli{
+        font-size: 23px; color: white;
+    }
+    .cate{
+        margin-top: 40px;
+        float: left;
+        margin-right: 50px;
+    }
+    .fotoCategoria{
+        width:120px;
+        height:120px;
     }
     .celu{
         display: none;
@@ -501,13 +586,13 @@ export default {
         float: left; margin-right: 3%; width: 20%; background-color: grey; color: white; font-size: 30px;
     }
     .card{
-        width: 23%;
+        width: 45%;
         margin-right: 2%;
         float: left;
         margin-bottom: 2%;
     }
     .filtros{
-        background-color: #17428A;
+        background-color: whitesmoke;
         margin-top: -1px;
         padding-bottom: 1%;
         height: 40px;

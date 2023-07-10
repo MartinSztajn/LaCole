@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        <div  style="font-family: 'circular'"  class="py-12" v-if="user.aceptado == 1">
+        <div class="py-12" v-if="user.aceptado == 1">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin: 5%; padding: 2%; width: 90%;">
                     <h2 style="margin: 20px">Nombre Producto:</h2>
                     <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
@@ -80,7 +80,7 @@
                     <h2 v-if="this.listo == 3" style="text-align: center; color: darkgreen"> {{mensajeFalta}}</h2>
                 </div >
         </div>
-        <div  style="font-family: 'circular'" class="py-12" v-if="user.aceptado == 0">
+        <div class="py-12" v-if="user.aceptado == 0">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
                 <h1 class="texto" style="text-align: center; position: center; margin-bottom: 3%;"><b>Tu usuario aun no ha sido aceptado</b></h1>
                 <p class="texto" style=" text-align: center; position: center; margin-bottom: 3%;">

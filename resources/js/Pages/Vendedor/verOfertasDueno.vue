@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        <div  style="font-family: 'circular'" class="py-12">
+        <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" >
                 <h1 style="text-align: center; position: center; font-size: 45px">{{producto.nombre}}</h1>
                 <h1 style="text-align: center; position: center; font-size: 25px">Precio: {{producto.precio}}</h1>

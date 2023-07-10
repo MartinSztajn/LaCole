@@ -23,7 +23,7 @@
 
 
 
-        <div  style="font-family: 'circular'" class="py-12" v-if="user.aceptado == 1">
+        <div class="py-12" v-if="user.aceptado == 1">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
                 <h1 v-if="productos.length > 0" style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>Tus productos</b></h1>
                 <h1 v-if="productos.length == 0" style="font-size: 45px; text-align: center; position: center; margin-bottom: 3%;"><b>No hay productos publicados</b></h1>
@@ -51,7 +51,7 @@
 
             <button @click="activarCrear()" class="btn btn-primary" style="width: 90%; background-color: black; color: white; margin-left: 5%; margin-right: 5%; position: center; text-align: center; margin-top: 1%;">Agregar Producto</button>
         </div>
-        <div  style="font-family: 'circular'" class="py-12" v-if="user.aceptado == 0">
+        <div class="py-12" v-if="user.aceptado == 0">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
                 <h1 class="texto" style="text-align: center; position: center; margin-bottom: 3%;"><b>Tu usuario aun no ha sido aceptado</b></h1>
                 <p class="texto" style=" text-align: center; position: center; margin-bottom: 3%;">
