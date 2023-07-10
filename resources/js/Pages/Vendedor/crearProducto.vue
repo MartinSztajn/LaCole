@@ -46,7 +46,7 @@
                             </button>
                         </div>
                     </div>
-                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="color" @change="establecerColores" multiple>
+                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="color" @change="establecerColores">
                         <option v-for="col in colores" :value="col">{{col.nombre}}</option>
                     </select>
                     <br>
@@ -90,7 +90,6 @@
                     <br>
                     <b>¡En esta comunidad, todos nos cuidamos entre todos!</b>
                 </p>
-
             </div>
         </div>
 
@@ -156,8 +155,8 @@ export default {
                     });
             },
             establecerColores() {
-                if (!this.form.color_id.includes(this.color[0])) {
-                    this.form.color_id.push(this.color[0]);
+                if (!this.form.color_id.includes(this.color)) {
+                    this.form.color_id.push(this.color);
                 }
             },
 
