@@ -1,5 +1,5 @@
 <template>
-    <div class="tipografia">
+    <div style="font-family: 'circular'">
         <Head :title="title" />
 
         <Banner />

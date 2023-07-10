@@ -20,7 +20,7 @@
                 </svg>
             </a>
         </div>
-        <div>
+        <div  style="font-family: 'circular'">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding: 50px; margin: 3%">
                 <h1 v-if="editrnombre == false " @dblclick="editarNombre()" style="text-align: center; position: center; font-size: 50px;">{{producto.nombre}}</h1>
                 <input ref="cellinput" type="text" v-show="editrnombre == true" v-model="producto.nombre" style="text-align: center; width: 96%; position: center; font-size: 50px; margin: 3%;" @keyup.enter="guardarNombre">

@@ -22,7 +22,7 @@
             </a>
         </div>
         <!-- Tabs navs --><!-- Tabs content -->
-        <div style="margin-top: 4%">
+        <div  style="font-family: 'circular'; margin-top: 4%">
             <h1 style="margin: 20px; text-align: center; font-size: 40px;"><b>Recibí atención personalizada</b></h1>
             <h2 style="margin: 10px; text-align: center; font-size: 25px">Dejanos tu mensaje</h2>
             <div style="margin: 3%; padding: 20px">

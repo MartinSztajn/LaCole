@@ -20,8 +20,8 @@
             </a>
         </div>
 
-        <div class="py-12">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin-top: 5%; padding: 2%; width: 70%; margin-left: 15%;">
+        <div  style="font-family: 'circular'"  class="py-12" v-if="user.aceptado == 1">
+                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin: 5%; padding: 2%; width: 90%;">
                     <h2 style="margin: 20px">Nombre Producto:</h2>
                     <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
                     <br>
@@ -57,7 +57,7 @@
                     <textarea style="width: 95%; margin-right: 2%; margin-left: 2%; height: 200px" class="form-control" v-model="form.descripcion"></textarea>
                     <br>
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
-                    <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
+                    <h3 style="margin-bottom: 20px">Se puedea seleccionar mas de una</h3>
                     <div style="display: flex; flex-wrap: wrap;">
                         <div v-for="(imagen, index) in form.path" :key="index" style="margin: 2%; text-align: center">
                             <img style="width: 250px;" :src="imagen" class="img-thumbnail">
@@ -80,6 +80,19 @@
                     <h2 v-if="this.listo == 3" style="text-align: center; color: darkgreen"> {{mensajeFalta}}</h2>
                 </div >
         </div>
+        <div  style="font-family: 'circular'" class="py-12" v-if="user.aceptado == 0">
+            <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
+                <h1 class="texto" style="text-align: center; position: center; margin-bottom: 3%;"><b>Tu usuario aun no ha sido aceptado</b></h1>
+                <p class="texto" style=" text-align: center; position: center; margin-bottom: 3%;">
+                    Como una medida de seguridad y para garantizar el buen uso de “La Cole Market” antes de que puedas publicar <br>
+                    tus productos para vender vamos a chequear tu informacion asi de forma segura podes formar parte de nuestra comunidad.
+                    <br>
+                    <br>
+                    <b>¡En esta comunidad, todos nos cuidamos entre todos!</b>
+                </p>
+
+            </div>
+        </div>
 
 
 
@@ -94,7 +107,7 @@ import Footer from '@/Layouts/Footer.vue'
 
 export default {
     name: "crearProducto",
-    props: ['categorias','fotosBanner','estados','colores'],
+    props: ['categorias','fotosBanner','estados','colores', 'user'],
     components: {
         ClienteLayout,
         Footer
@@ -229,6 +242,12 @@ export default {
 </script>
 <style>
 @media (max-width: 500px) {
+    p{
+        font-size: 18px;
+    }
+    h1{
+        font-size: 30px;
+    }
     .celular{
         display: none;
     }
@@ -249,6 +268,12 @@ export default {
     }
 }
 @media (min-width: 501px) {
+    p{
+        font-size: 25px;
+    }
+    h1{
+        font-size: 45px;
+    }
     .filtros{
         background-color: #17428A;
         margin-top: -1px;

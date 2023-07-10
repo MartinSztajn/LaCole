@@ -18,7 +18,7 @@
                     </svg>
                 </a>
             </div>
-            <div>
+            <div  style="font-family: 'circular'">
                 <div class="row compu" style="width: 90%; margin-left: 5%; margin-top: 2%; padding: 1%; padding-top: 3%;">
                    <div class="col-4" style="padding-left: 4%; text-align: center">
                        <h1 style="font-size: 50px;"><b> {{producto.nombre}}</b> </h1>
@@ -46,8 +46,7 @@
                             <br>
                             <h1 style="font-size: 40px; margin-bottom: 10%"><b>${{ producto.precio}}</b></h1>
                     </div>
-
-                    <div style="margin-top: 5%; display: flex; overflow: auto">
+                    <div v-if="producto.path > 1" style="margin-top: 5%; display: flex; overflow: auto">
                         <img @click="cambiarFoto(key)" v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" style="height:75px; min-width: 75px; margin-right: 5%; margin-bottom: 5%; border-radius: 10px; border: 2px solid #17428A;">
                     </div>
                     <div style="width: 100%; margin: 3% 0%;">
@@ -73,9 +72,7 @@
                     <h1 style="margin-bottom: 2%;font-size: 25px;  text-align: center;">Ingresa tus datos para que el vendedor se pueda contactar con vos</h1>
                     <input style="width: 44%; margin-right: 1%; margin-left: 5%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Nombre" class="form-control" v-model="form.nombre" >
                     <input style="width: 44%; margin-right: 5%; margin-left: 1%; margin-bottom: 2%; float: left; border: 2px solid #C0C0C0;"   placeholder="Apellido" class="form-control" v-model="form.apellido" >
-
                     <input style="width: 90%; margin-right: 5%; margin-left: 5%; margin-bottom: 2%; border: 2px solid #C0C0C0;" v-validate="email" data-rules="required|email"    placeholder="Email" class="form-control" v-model="form.mail" >
-
 
                     <div class="input-container">
                         <div class="prefix">+54</div>
@@ -278,7 +275,7 @@ export default {
                 else{return $uno;}
             },
             filterOtros($num) {
-                for (let i = 0; i < this.minimo(this.otrosCategoria.length,5); i++) {
+                for (let i = 0; i < this.minimo(this.otrosCategoria.length,this.otrosCategoria.length); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosCategoria.length){
                         param = param - this.otrosCategoria.length;
@@ -287,7 +284,7 @@ export default {
                 }
             },
             filterOtrosVendedor($num) {
-                for (let i = 0; i < this.minimo(this.otrosVendedor.length, 5); i++) {
+                for (let i = 0; i < this.minimo(this.otrosVendedor.length, this.otrosVendedor.length); i++) {
                     let param = (i + $num);
                     if (param >= this.otrosVendedor.length){
                         param = param - this.otrosVendedor.length;

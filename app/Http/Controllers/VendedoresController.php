@@ -62,11 +62,15 @@ class VendedoresController extends Controller
 
     }
     public function verCrearProducto(){
-            $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
-            $categorias = Categorias::orderBy('nombre','ASC')->get();
-            $estados = Estado_producto::all();
-            $colores = Colores::orderBy('nombre','ASC')->get();
-            return Inertia::render('Vendedor/crearProducto', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores]);
+
+        $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
+        $categorias = Categorias::orderBy('nombre','ASC')->get();
+        $estados = Estado_producto::all();
+        $colores = Colores::orderBy('nombre','ASC')->get();
+        $user = User::find(Auth::user()->id);
+
+        return Inertia::render('Vendedor/crearProducto', ['categorias' => $categorias, 'fotosBanner' => $fotosBanner, 'estados' => $estados, 'colores' => $colores, 'user' => $user]);
+
     }
 
 
