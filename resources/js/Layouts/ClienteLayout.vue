@@ -5,7 +5,6 @@
         <Banner />
 
         <div class="min-h-screen bg-white-100" style="background-color: #F5F1F1; font-family: system-ui;">
-
             <nav style="background-color: #121212; width: 100%; position: fixed; z-index: 101; top: 0" >
                 <!-- Primary Navigation Menu -->
                 <div style="background-color: #121212;">
@@ -156,7 +155,7 @@
                                 ></path>
                             </svg>
                         </button>
-                        <div style="display: flex">
+                        <div style="display: flex; justify-content: space-around;">
                             <button onclick="window.location.href='/inicio'" :active="route().current('/inicio')">
                                 <img src="/fotos/COLEMARKET.jpg" style="width: 100px; margin-right: 20px;">
                             </button>
