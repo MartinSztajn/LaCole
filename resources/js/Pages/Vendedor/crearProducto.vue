@@ -174,44 +174,56 @@ export default {
             },
             guardarProducto()
             {
-                if(this.form.precio <= 2000000000 && this.form.precio >= 1) {
-                    if (this.form.nombre != '' && this.form.categoria_id != '' && this.form.estado_id != '' && this.form.precio != '' && this.form.descripcion != '' && this.form.color_id != '' && this.form.path != '') {
-                        this.form.descripcion = this.form.descripcion.replace(/\n/g, '<br>');
-                        this.$inertia.post('/guardarProducto', this.form);
-                        this.listo = 3;
-                        this.mensajeFalta = 'Se creo exitosamente el producto';
-                        this.form.nombre = ''; this.form.categoria_id = ''; this.form.estado_id = '';this.form.precio = '';this.form.descripcion = '';this.form.color_id = '';this.form.path = [];
+                if (this.form.nombre.length <= 30) {
+                    if (this.form.precio <= 2000000000 && this.form.precio >= 1 && this.form.precio.length <= 11) {
+                        if (this.form.nombre != '' && this.form.categoria_id != '' && this.form.estado_id != '' && this.form.precio != '' && this.form.descripcion != '' && this.form.color_id != '' && this.form.path != '') {
+                            this.form.descripcion = this.form.descripcion.replace(/\n/g, '<br>');
+                            this.$inertia.post('/guardarProducto', this.form);
+                            this.listo = 3;
+                            this.mensajeFalta = 'Se creo exitosamente el producto';
+                            this.form.nombre = '';
+                            this.form.categoria_id = '';
+                            this.form.estado_id = '';
+                            this.form.precio = '';
+                            this.form.descripcion = '';
+                            this.form.color_id = '';
+                            this.form.path = [];
+                        } else {
+                            this.listo = 1;
+                            this.mensajeFalta = "Falta ingresar:";
+                            if (this.form.nombre == '') {
+                                this.mensajeFalta = this.mensajeFalta + " nombre,";
+                            }
+                            if (this.form.categoria_id == '') {
+                                this.mensajeFalta = this.mensajeFalta + " categoria,";
+                            }
+                            if (this.form.estado_id == '') {
+                                this.mensajeFalta = this.mensajeFalta + " estado,";
+                            }
+                            if (this.form.precio == '') {
+                                this.mensajeFalta = this.mensajeFalta + " precio,";
+                            }
+                            if (this.form.descripcion == '') {
+                                this.mensajeFalta = this.mensajeFalta + " descripcion,";
+                            }
+                            if (this.form.color_id == '') {
+                                this.mensajeFalta = this.mensajeFalta + " color,";
+                            }
+                            if (this.form.path == '') {
+                                this.mensajeFalta = this.mensajeFalta + " fotos,";
+                            }
+                            this.mensajeFalta = this.mensajeFalta.slice(0, -1);
+                        }
                     } else {
                         this.listo = 1;
-                        this.mensajeFalta = "Falta ingresar:";
-                        if (this.form.nombre == '') {
-                            this.mensajeFalta = this.mensajeFalta + " nombre,";
-                        }
-                        if (this.form.categoria_id == '') {
-                            this.mensajeFalta = this.mensajeFalta + " categoria,";
-                        }
-                        if (this.form.estado_id == '') {
-                            this.mensajeFalta = this.mensajeFalta + " estado,";
-                        }
-                        if (this.form.precio == '') {
-                            this.mensajeFalta = this.mensajeFalta + " precio,";
-                        }
-                        if (this.form.descripcion == '') {
-                            this.mensajeFalta = this.mensajeFalta + " descripcion,";
-                        }
-                        if (this.form.color_id == '') {
-                            this.mensajeFalta = this.mensajeFalta + " color,";
-                        }
-                        if (this.form.path == '') {
-                            this.mensajeFalta = this.mensajeFalta + " fotos,";
-                        }
-                        this.mensajeFalta = this.mensajeFalta.slice(0, -1);
+                        this.mensajeFalta = "El precio debe estar entre 1 y 2,000,000,000";
                     }
                 }
                 else{
                     this.listo = 1;
-                    this.mensajeFalta = "El precio debe estar entre 1 y 2,000,000,000";
+                    this.mensajeFalta = "El nombre debe ser mas corto";
                 }
+
             },
             moverIzq(){
                 if (this.num == 0){

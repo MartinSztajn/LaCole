@@ -24,11 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0f65d37d-f38c-4505-ac5a-53238ef5742f" name="Default Changelist" comment="Cambios Nuevo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Fotos_Producto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Fotos_Producto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/ClienteLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/perfilProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Productos/verProducto.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/crearProducto.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Vendedor/verProductosVendedor.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +190,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../quique" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fruits" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -357,14 +356,7 @@
       <workItem from="1689088667227" duration="80000" />
       <workItem from="1689092819199" duration="1235000" />
       <workItem from="1689118035122" duration="3250000" />
-      <workItem from="1689125281321" duration="3546000" />
-    </task>
-    <task id="LOCAL-00017" summary="Cambios Nuevos">
-      <created>1680199244678</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1680199244678</updated>
+      <workItem from="1689125281321" duration="6315000" />
     </task>
     <task id="LOCAL-00018" summary="Cambios Nuevos">
       <created>1680289201462</created>
@@ -702,7 +694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689002151733</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Cambios Nuevo">
+      <created>1689129127154</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1689129127154</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -746,40 +745,40 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2157" y="103" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686800429409" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1689088744420">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1689129502693">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1685686532622" />
     <state x="2606" y="211" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1685966385895" />
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1689088744420" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1689129502693" />
     <state x="2995" y="246" key="NewPhpClassDialog" timestamp="1681141542276">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2995" y="246" key="NewPhpClassDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1681141542276" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1689002276330">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1689129468903">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1689002276330" />
     <state x="2371" y="183" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1687670932161" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1687153218211" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1689129468903" />
     <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1685764495669" />
-    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1688962937628">
+    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1689129008804">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="613" y="200" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1688962937628" />
     <state x="2686" y="253" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1687670906276" />
-    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1687153194320" />
+    <state x="613" y="200" width="466" height="532" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1689129008804" />
     <state x="809" y="190" width="672" height="537" key="run.anything.popup" timestamp="1688960102762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="809" y="190" width="672" height="537" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1688960102762" />
     <state x="2931" y="240" width="672" height="677" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1686591424612" />
     <state x="809" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1683843515909" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1689128709858">
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1689131609297">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="430" y="45" width="672" height="606" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1688968462455" />
     <state x="2385" y="228" width="764" height="435" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1689001958054" />
-    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1689128709858" />
+    <state x="430" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1689131609297" />
   </component>
 </project>

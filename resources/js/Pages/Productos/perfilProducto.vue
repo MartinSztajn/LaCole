@@ -200,9 +200,13 @@ export default {
             },
             guardarNombre()
             {
-                this.editrnombre = false;
-                this.$inertia.post('/editarProducto', {tipo: 'Nombre', valor: this.producto.nombre,
-                    id: this.producto.id}).then();
+                if (this.form.nombre.length <= 30) {
+                    this.editrnombre = false;
+                    this.$inertia.post('/editarProducto', {
+                        tipo: 'Nombre', valor: this.producto.nombre,
+                        id: this.producto.id
+                    }).then();
+                }
             },
             guardarPrecio()
             {
