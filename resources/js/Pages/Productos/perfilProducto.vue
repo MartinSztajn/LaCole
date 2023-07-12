@@ -20,75 +20,80 @@
                 </svg>
             </a>
         </div>
-        <div  style="font-family: 'circular'">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding: 50px; margin: 3%">
-                <h1 v-if="editrnombre == false " @dblclick="editarNombre()" style="text-align: center; position: center; font-size: 50px;">{{producto.nombre}}</h1>
-                <input ref="cellinput" type="text" v-show="editrnombre == true" v-model="producto.nombre" style="text-align: center; width: 96%; position: center; font-size: 50px; margin: 3%;" @keyup.enter="guardarNombre">
-
-                <div style="width: 100%; display: flex; overflow: auto">
-                    <div v-for="(imagen, index) in producto.path" style="margin-right: 5%; margin-bottom: 5%; ">
-                        <img v-if="editrfoto[index] == false && imagen.path != ''" @dblclick="editarFoto(index)" :src="'/fotos/' + imagen.path" style="min-height:200px; max-width: 250px; border-radius: 30px;">
-                        <div  v-show="editrfoto[index] == true" style="margin-bottom: 5%">
-                            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Cambiar La imagen:</h2>
-                            <p style="margin-bottom: 20px">Se puede seleccionar mas de una</p>
-                            <input type="file" @change="establecerFoto1"/>
-                            <button class="btn" style="width: 100%; margin-top: 3%; background-color: red; color: white" @click="eliminarFoto(imagen.id)">Eliminar Esta Foto</button>
-                            <button class="btn" style="width: 100%; margin-top: 3%; background-color: black; color: white" @click="guardarFoto(index, imagen.id)">Modificar Foto</button>
+        <div>
+            <div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Fotos</b></h1>
+                    <div style="width: 90%; margin-left: 5%; display: flex; overflow: auto">
+                        <div v-for="(imagen, index) in producto.path" style="margin-right: 5%; margin-bottom: 5%; ">
+                            <img v-if="editrfoto[index] == false && imagen.path != ''" @dblclick="editarFoto(index)" :src="'/fotos/' + imagen.path" style="min-height:200px; max-width: 250px; border-radius: 30px;">
+                            <div  v-show="editrfoto[index] == true" style="margin-bottom: 5%">
+                                <h2 class="font-semibold text-xl text-gray-800 leading-tight">Cambiar La imagen:</h2>
+                                <p style="margin-bottom: 20px">Se puede seleccionar mas de una</p>
+                                <input type="file" @change="establecerFoto1"/>
+                                <button class="btn" style="width: 100%; margin-top: 3%; background-color: red; color: white" @click="eliminarFoto(imagen.id)">Eliminar Esta Foto</button>
+                                <button class="btn" style="width: 100%; margin-top: 3%; background-color: black; color: white" @click="guardarFoto(index, imagen.id)">Modificar Foto</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div style="margin-bottom: 4%">
-                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Agregar Imagenes:</h2>
-                    <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
-                    <div class="row">
-                        <img v-for="imagen in form2.pathNuevas" style="width: 250px" :src="imagen" class="img-thumbnail">
-                    </div>
-                    <input type="file" @change="establecerFoto2"/>
-                    <button v-if="form2.pathNuevas.length > 0" @click="agregarFotos" class="btn btn-primary" style="background-color: black; margin-bottom: 10px">Agregar Fotos</button>
-                </div>
-
-                <h1 v-if="editrprecio == false " @dblclick="editarPrecio()"  style="font-size: 30px;"><b><b>Precio:</b> ${{producto.precio}}</b></h1>
-                <input ref="cellinput" type="text" v-show="editrprecio == true" v-model="producto.precio" style="width: 100%; font-size: 40px; margin-bottom: 2%; text-align: center; position: center" @keyup.enter="guardarPrecio">
-                <br>
-                <h1 v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; "><b>Descripcion:</b></h1>
-                <div v-if="editrdesc == false " @dblclick="editarDesc()" style="font-size: 20px; " v-html="producto.descripcion"></div>
-                <textarea  type="text" v-show="editrdesc == true" v-model="producto.descripcion" style="font-size: 20px; width: 100%; height: 300px" @keyup.enter="guardarDesc"></textarea>
-
-                <br>
-                <p v-if="editrestado == false " @dblclick="editarEstado()" style="font-size: 20px"><b>Estado:</b> {{producto.nomEstado}}</p><br>
-                <select v-show="editrestado == true" style="width: 60%; margin-right: 2%; margin-left: 2%; float: left" class="form-control" v-model="producto.estado_id">
-                    <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
-                </select>
-                <button  v-show="editrestado == true" class="btn btn-success" style="background-color: black" @click="guardarEstado">Guardar Estado</button>
-                <br>
-
-                <h1 style="font-size: 30px;"><b>Colores:</b></h1>
-                <div @dblclick="editarColor()"  style="display: flex; flex-wrap: wrap;">
-                    <div v-for="(color, index) in producto.coloresProducto" :key="index" style="margin: 2%; text-align: center;">
-                        <h1 :style="'width: 250px; background-color:' + color.color" class="img-thumbnail"> {{color.nombre}} </h1>
-                        <button v-if="editrcolor" class="btn" style="background-color: red;" @click="eliminarColor(index)">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                                <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
-                            </svg>
-                        </button>
+                    <div style="width: 90%; margin: 5%">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Agregar Imagenes:</h2>
+                        <p style="margin-bottom: 20px">Se puedea seleccionar mas de una</p>
+                        <div class="row">
+                            <img v-for="imagen in form2.pathNuevas" style="width: 250px" :src="imagen" class="img-thumbnail">
+                        </div>
+                        <input type="file" @change="establecerFoto2"/>
+                        <button v-if="form2.pathNuevas.length > 0" @click="agregarFotos" class="btn btn-primary" style="background-color: black; margin-bottom: 10px">Agregar Fotos</button>
                     </div>
                 </div>
-                <select  v-if="editrcolor" class="form-control" v-model="color" @change="establecerColores" multiple>
-                    <option v-for="col in colores" :value="col">{{col.nombre}}</option>
-                </select>
-                <button v-if="editrcolor"  class="btn btn-success" style="background-color: black; margin: 10px" @click="guardarColor">Guardar Colores</button>
-                <button v-if="!editrcolor"  class="btn btn-success" style="background-color: black; margin: 10px" @click="editarColor">Editar Colores</button>
-
-                <br>
-                <p v-if="editrcat == false " @dblclick="editarCategoria()" style="font-size: 20px"><b>Categoria:</b> {{producto.nomCat}}</p><br>
-                <select v-show="editrcat == true" style="width: 60%; margin-right: 2%; margin-left: 2%; float: left" class="form-control" v-model="producto.categoria_id" @keyup.enter="guardarCategoria">
-                    <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
-                </select>
-                <button  v-show="editrcat == true" class="btn btn-success" style="background-color: black" @click="guardarCategoria">Guardar Categoria</button>
-                <button v-if="eliminar == 0" @click="deseaEliminar(producto.id)" class="btn btn-primary" style="background-color: #FF9292; margin-bottom: 10px">Eliminar Producto</button>
-                <button v-if="eliminar == 1" @click="borrarProducto(producto.id)" class="btn btn-primary" style="background-color: red; margin-bottom: 10px">Confirmar</button>
-
-
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Nombre</b></h1>
+                    <input type="text" v-model="producto.nombre" style="width: 48%; margin-right: 2%; float: left"   class="form-control">
+                    <button  class="btn btn-success"  style="width: 48%; margin-left: 2%; background-color: black" @click="guardarNombre">Guardar Nombre</button>
+                </div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Precio</b></h1>
+                    <input style="width: 48%; margin-right: 2%; float: left" type="text"   class="form-control"  v-model="producto.precio">
+                    <button  class="btn btn-success" style="background-color: black; width: 48%; margin-left: 2%;" @click="guardarPrecio">Guardar Precio</button>
+                </div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Descripcion</b></h1>
+                    <textarea style="width: 100%; margin-bottom: 2%;" type="text" placeholder="Ingresar nueva descripcion" v-model="producto.descripcion"  class="form-control"></textarea>
+                    <button  class="btn btn-success" style="background-color: black; width: 100%" @click="guardarDesc">Guardar Descripcion</button>
+                </div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Estado</b></h1>
+                    <select style="width: 48%; margin-right: 2%; float: left" class="form-control" v-model="producto.estado_id">
+                        <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
+                    </select>
+                    <button  class="btn btn-success"  style="width: 48%; margin-left: 2%; background-color: black" @click="guardarEstado">Guardar Estado</button>
+                </div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Categoria</b></h1>
+                    <select style="width: 48%; margin-right: 2%; float: left" class="form-control" v-model="producto.categoria_id">
+                        <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
+                    </select>
+                    <button  class="btn btn-success" style="width: 48%; margin-left: 2%; background-color: black" @click="guardarCategoria">Guardar Categoria</button>
+                </div>
+                <div class="vistaCompu bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <h1 style="font-size: 30px; margin-bottom: 2%; text-align: center"><b>Colores</b></h1>
+                    <div style="display: flex">
+                        <div v-for="(color, index) in producto.coloresProducto" :key="index" style="margin: 2%; text-align: center; width: 200px;">
+                            <h1 :style="'background-color:' + color.color" class="img-thumbnail"> {{color.nombre}} </h1>
+                            <button class="btn" style="background-color: red;" @click="eliminarColor(index)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                    <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <select class="form-control" v-model="color" @change="establecerColores">
+                        <option v-for="col in colores" :value="col">{{col.nombre}}</option>
+                    </select>
+                    <button class="btn btn-success" style="background-color: black; width: 100%; margin-top: 20px" @click="guardarColor">Guardar Colores</button>
+                </div>
+                <button v-if="eliminar == 0" @click="deseaEliminar(producto.id)" class="btn btn-primary" style="margin: 5%; width: 90%; background-color: #FF9292;">Eliminar Producto</button>
+                <button v-if="eliminar == 1" @click="borrarProducto(producto.id)" class="btn btn-primary" style="margin: 5%; width: 90%; background-color: red;">Confirmar</button>
             </div>
         </div>
     </cliente-layout>
@@ -110,6 +115,7 @@ export default {
             rango: 0,
             num: 0,
             eliminar: 0,
+            laDescripcion: '',
             color: '',
             form2: {
                 pathNuevas: [],
@@ -216,9 +222,12 @@ export default {
             },
             guardarDesc()
             {
+                this.textoProcesado = this.producto.descripcion.replace(/\n/g, '<br>');
                 this.editarDesc = false;
-                this.$inertia.post('/editarProducto', {tipo: 'Descripcion', valor: this.producto.descripcion,
+                this.$inertia.post('/editarProducto', {tipo: 'Descripcion', valor: this.textoProcesado,
                     id: this.producto.id}).then();
+                this.editarDesc();
+
             },
             guardarCategoria()
             {
@@ -285,18 +294,23 @@ export default {
                 this.producto.coloresProducto.splice(index, 1);
             },
             establecerColores() {
-                if (!this.producto.coloresProducto.includes(this.color[0])) {
-                    this.producto.coloresProducto.push(this.color[0]);
+                if (!this.producto.coloresProducto.includes(this.color)) {
+                    this.producto.coloresProducto.push(this.color);
                 }
             },
+            cambiarTexto(){
+
+            }
         },
         mounted() {
+            this.editarDesc();
 
             this.timer = setInterval(() => {
                 this.moverDer();
             }, 5000);
         },
         created() {
+            this.editarDesc();
         }
 
 }
@@ -420,9 +434,17 @@ export default {
     .computadora{
         display: flex;
     }
+    .vistaCompu{
+        margin: 3%;
+        padding: 10px;
+    }
+
 }
 
 @media (min-width: 501px) {
+    .vistaCompu{
+        padding: 50px; margin: 3%;
+    }
     .computadora{
         display: none;
     }

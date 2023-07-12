@@ -57,7 +57,7 @@
                     <textarea style="width: 95%; margin-right: 2%; margin-left: 2%; height: 200px" class="form-control" v-model="form.descripcion"></textarea>
                     <br>
                     <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
-                    <h3 style="margin-bottom: 20px">Se puedea seleccionar mas de una</h3>
+                    <h3 style="margin-bottom: 20px">Se puede seleccionar mas de una</h3>
                     <div style="display: flex; flex-wrap: wrap;">
                         <div v-for="(imagen, index) in form.path" :key="index" style="margin: 2%; text-align: center">
                             <img style="width: 250px;" :src="imagen" class="img-thumbnail">

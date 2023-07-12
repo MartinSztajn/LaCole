@@ -147,10 +147,10 @@ export default {
             compartirEnWhatsApp(producto) {
                 const nombreProducto = producto.nombre.replace(/ /g, '%20');
                 const cateProducto = producto.nomCat.replace(/ /g, '%20');
+                const fotoProducto = 'https://www.lacolemarket.com.ar/fotos/' + producto.path;
 
-                const mensaje = `¡Mira mi producto de la Cole Market!\n\nNombre: ${producto.nombre}\nPrecio: $${producto.precio}\nCategoría: ${producto.nomCat}\n${producto.descripcion}\n\n[Mira el producto en la Cole Market](https://phplaravel-1014987-3587857.cloudwaysapps.com/verProductoDetalle/${cateProducto}/${nombreProducto})`;
-
-               const enlaceWhatsApp = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+                const mensaje = `*_¡Mira mi producto de la Cole Market!_*\n\n*Nombre:* ${producto.nombre}\n*Precio:* $${producto.precio}\n*Categoría:* ${producto.nomCat}\n${producto.descripcion}\n\nwww.lacolemarket.com/verProductoDetalle/${cateProducto}/${nombreProducto}`;
+                const enlaceWhatsApp = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensaje)}`;
 
                 // Abrir enlace en una nueva ventana o redireccionar a la URL
                 window.open(enlaceWhatsApp, '_blank');
