@@ -296,7 +296,6 @@ class IndexController extends Controller
                 $colorNuevo->save();
             }
         }
-        dd('listo');
         return back();
     }
     public function inicio(){
@@ -306,6 +305,7 @@ class IndexController extends Controller
             return Inertia::render('Usuarios/Index', ['Usuarios' => $usuarios, 'cant' => $cantidad]);
         }
         if (Auth::user() != null && !Auth::user()->es_admin){
+
             $fotosBanner = Fotos_Banner::where('activo', 1)->get()->toArray();
 
             $categorias = Categorias::orderBy('nombre','ASC')->where('padre_id',null);

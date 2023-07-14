@@ -37,7 +37,7 @@
                         <img :src="'/fotos/' + fotoPrincipal" style="width: 100%; max-height: 700px">
                     </div>
                     <div class="col-3" style= "height: 700px; overflow: auto; padding-left: 5%">
-                        <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @mouseover="cambiarFoto(key)" style="height:100px; width: 100px; margin: 5%; border-radius: 10px; border: 2px solid black; float: left">
+                        <img v-for="(foto, key) in producto.path" :src="'/fotos/' + foto.path" @mouseover="cambiarFoto(key)" style="height: 80px; width: 80px; margin: 3%; border-radius: 10px; border: 2px solid black; float: left">
                     </div>
                 </div>
                 <div class="row celu" style="width: 90%; margin: 5%; padding: 1%; padding-top: 3%; padding-bottom: 3%;">

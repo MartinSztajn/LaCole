@@ -257,39 +257,40 @@ class ProductosController extends Controller
     public function verPerfilProducto($id)
         {
             $producto = Productos::find($id);
-            $nomCat = Categorias::select('nombre')->where('id', $producto->categoria_id)->get()->toArray();
-            if ($nomCat != []) {
-                $producto->nomCat = $nomCat[0]['nombre'];
+            if ($producto->user_id == Auth::user()->id || Auth::user()->es_admin) {
+                $nomCat = Categorias::select('nombre')->where('id', $producto->categoria_id)->get()->toArray();
+                if ($nomCat != []) {
+                    $producto->nomCat = $nomCat[0]['nombre'];
+                }
+
+                $nomEstado = Estado_producto::select('nombre')->where('id', $producto->estado_id)->get()->toArray();
+                if ($nomEstado != []) {
+                    $producto->nomEstado = $nomEstado[0]['nombre'];
+                }
+
+                $nomColor = Colores::select('nombre')->where('id', $producto->color_id)->get()->toArray();
+                if ($nomColor != []) {
+                    $producto->nomColor = $nomColor[0]['nombre'];
+                }
+
+                $fotos = Fotos_Producto::where('producto_id', $id)->get()->toArray();
+                $producto->path = '';
+                if ($fotos != []) {
+                    $producto->path = $fotos;
+                }
+
+                $coloresProducto = Colores_Producto::select('colores.*')->where('colores_producto.producto_id', $id)
+                    ->leftJoin('colores', 'colores.id', 'colores_producto.color_id')
+                    ->get()->toArray();
+                $producto->coloresProducto = $coloresProducto;
+
+                $categorias = Categorias::all();
+                $colores = Colores::all();
+                $estados = Estado_producto::all();
+                $fotosBanner = Fotos_banner::all();
+
+                return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias, 'colores' => $colores, 'estados' => $estados, 'fotosBanner' => $fotosBanner]);
             }
-
-            $nomEstado = Estado_producto::select('nombre')->where('id', $producto->estado_id)->get()->toArray();
-            if ($nomEstado != []) {
-                $producto->nomEstado = $nomEstado[0]['nombre'];
-            }
-
-            $nomColor = Colores::select('nombre')->where('id', $producto->color_id)->get()->toArray();
-            if ($nomColor != []) {
-                $producto->nomColor = $nomColor[0]['nombre'];
-            }
-
-            $fotos = Fotos_Producto::where('producto_id', $id)->get()->toArray();
-            $producto->path = '';
-            if ($fotos != []) {
-                $producto->path = $fotos;
-            }
-
-            $coloresProducto = Colores_Producto::select('colores.*')->where('colores_producto.producto_id', $id)
-                ->leftJoin('colores','colores.id','colores_producto.color_id')
-                ->get()->toArray();
-            $producto->coloresProducto = $coloresProducto;
-
-            $categorias = Categorias::all();
-            $colores = Colores::all();
-            $estados = Estado_producto::all();
-            $fotosBanner = Fotos_banner::all();
-
-            return Inertia::render('Productos/perfilProducto', ['producto' => $producto, 'categorias' => $categorias, 'colores' => $colores, 'estados' => $estados, 'fotosBanner' => $fotosBanner]);
-
     }
     public function verProductos()
     {
@@ -494,7 +495,9 @@ class ProductosController extends Controller
                 $imagen->save();
             }
         }
-        return back();
+
+        return 'OK';
+
     }
     public function borrarBanner($id){
         $fotoBanner = Fotos_banner::find($id);

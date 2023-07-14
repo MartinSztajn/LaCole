@@ -22,63 +22,72 @@
 
         <div class="py-12" v-if="user.aceptado == 1">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="margin: 5%; padding: 2%; width: 90%;">
-                    <h2 style="margin: 20px">Nombre Producto:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
-                    <br>
-                    <h2 style="margin: 20px">Categoria:</h2>
-                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.categoria_id">
-                        <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
-                    </select>
-                    <br>
-                    <h2 style="margin: 20px">Estado:</h2>
-                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.estado_id">
-                        <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
-                    </select>
-                    <br>
-                    <h2 style="margin: 20px">Color:</h2>
-                    <div style="display: flex; flex-wrap: wrap;">
-                        <div v-for="(color, index) in form.color_id" :key="index" style="margin: 2%; text-align: center;">
-                            <h1 :style="'width: 250px; background-color:' + color.color" class="img-thumbnail"> {{color.nombre}} </h1>
-                            <button class="btn" style="background-color: red;" @click="eliminarColor(index)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                                    <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="color" @change="establecerColores">
-                        <option v-for="col in colores" :value="col">{{col.nombre}}</option>
-                    </select>
-                    <br>
-                    <h2 style="margin: 20px">Precio:</h2>
-                    <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number" class="form-control" v-model="form.precio" >
-                    <br>
-                    <h2 style="margin: 20px">Descripcion:</h2>
-                    <textarea style="width: 95%; margin-right: 2%; margin-left: 2%; height: 200px" class="form-control" v-model="form.descripcion"></textarea>
-                    <br>
-                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
-                    <h3 style="margin-bottom: 20px">Se puede seleccionar mas de una</h3>
-                    <div style="display: flex; flex-wrap: wrap;">
-                        <div v-for="(imagen, index) in form.path" :key="index" style="margin: 2%; text-align: center">
-                            <img style="width: 250px;" :src="imagen" class="img-thumbnail">
-                            <button class="btn" style="background-color: red;" @click="eliminarFoto(index)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                                    <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <input type="file" accept="image/*"  @change="establecerFoto1" multiple/>
+                    <div>
+                        <h2 style="margin: 20px">Nombre Producto:</h2>
+                        <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="text"   class="form-control" v-model="form.nombre" >
+                        <br>
+                        <h2 style="margin: 20px">Categoria:</h2>
+                        <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.categoria_id">
+                            <option v-for="cat in categorias" :value="cat.id">{{cat.nombre}}</option>
+                        </select>
+                        <br>
+                        <h2 style="margin: 20px">Estado:</h2>
+                        <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="form.estado_id">
+                            <option v-for="est in estados" :value="est.id">{{est.nombre}}</option>
+                        </select>
+                        <br>
+                        <h2 style="margin: 20px">Color (Puede seleccionar más de uno):</h2>
+                        <div style="display: flex; flex-wrap: wrap;">
+                            <div v-for="(color, index) in form.color_id" :key="index" style="margin: 2%; text-align: center;">
+                                <div class="rounded-circle" :style="'width: 60px; height: 60px; margin-bottom: 5%; border: 2px solid black; background-color:' + color.color"></div>
+                                <h1 style="font-size: 15px; margin-bottom: 5%;">{{color.nombre}}</h1>
 
-                    <button class="btn btn-success" @click="guardarProducto" style="width: 70%; margin-left: 15%; background-color: black; margin-top: 2%">Guardar Producto</button>
-                    <p v-if="listo == 1" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
-                        <svg style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
-                            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                                <button class="btn" style="background-color: red;" @click="eliminarColor(index)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                        <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <select style="width: 95%; margin-right: 2%; margin-left: 2%" class="form-control" v-model="color" @change="establecerColores">
+                            <option v-for="col in colores" :value="col">{{col.nombre}}</option>
+                        </select>
+                        <br>
+                        <h2 style="margin: 20px">Precio:</h2>
+                        <input style="width: 95%; margin-right: 2%; margin-left: 2%" type="number" class="form-control" v-model="form.precio" >
+                        <br>
+                        <h2 style="margin: 20px">Descripcion:</h2>
+                        <textarea style="width: 95%; margin-right: 2%; margin-left: 2%; height: 200px" class="form-control" v-model="form.descripcion"></textarea>
+                        <br>
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">Imagenes:</h2>
+                        <h3 style="margin-bottom: 20px">Se puede seleccionar mas de una</h3>
+                        <div style="display: flex; flex-wrap: wrap;">
+                            <div v-for="(imagen, index) in form.path" :key="index" style="margin: 2%; text-align: center">
+                                <img style="width: 250px;" :src="imagen" class="img-thumbnail">
+                                <button class="btn" style="background-color: red;" @click="eliminarFoto(index)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                        <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <input type="file" accept="image/*"  @change="establecerFoto1" multiple/>
+
+                        <button class="btn btn-success" @click="guardarProducto" style="width: 70%; margin-left: 15%; background-color: black; margin-top: 2%">Guardar Producto</button>
+                        <p v-if="listo == 1" style="color: black;text-align: center;margin-top: 10px;display: flex;justify-content: center;">
+                            <svg style="float: left; margin-right: 10px; margin-top: 1px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-octagon-fill" viewBox="0 0 16 16">
+                                <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+                            </svg>
+                            {{mensajeFalta}}
+                        </p>
+                    </div>
+                    <div v-if="listo == 3" style="display: flex; flex-direction: column;  align-items: center;">
+                        <h1 style="font-size: 40px; text-align: center; color: darkgreen; margin-bottom: 20px"> {{mensajeFalta}}</h1>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="green" class="bi bi-bookmark-check-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm8.854-9.646a.5.5 0 0 0-.708-.708L7.5 7.793 6.354 6.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
                         </svg>
-                        {{mensajeFalta}}
-                    </p>
-                    <h2 v-if="this.listo == 3" style="text-align: center; color: darkgreen"> {{mensajeFalta}}</h2>
-                </div >
+                    </div>
+                </div>
         </div>
         <div class="py-12" v-if="user.aceptado == 0">
             <div class="overflow-hidden shadow-xl sm:rounded-lg" style="margin: 1%; padding: 15px;">
@@ -175,19 +184,26 @@ export default {
             guardarProducto()
             {
                 if (this.form.nombre.length <= 30) {
-                    if (this.form.precio <= 2000000000 && this.form.precio >= 1 && this.form.precio.length <= 11) {
+                    if (this.form.precio <= 2000000000 && this.form.precio >= 1) {
                         if (this.form.nombre != '' && this.form.categoria_id != '' && this.form.estado_id != '' && this.form.precio != '' && this.form.descripcion != '' && this.form.color_id != '' && this.form.path != '') {
                             this.form.descripcion = this.form.descripcion.replace(/\n/g, '<br>');
-                            this.$inertia.post('/guardarProducto', this.form);
-                            this.listo = 3;
-                            this.mensajeFalta = 'Se creo exitosamente el producto';
-                            this.form.nombre = '';
-                            this.form.categoria_id = '';
-                            this.form.estado_id = '';
-                            this.form.precio = '';
-                            this.form.descripcion = '';
-                            this.form.color_id = '';
-                            this.form.path = [];
+                            axios.post('/guardarProducto', this.form)
+                                .then(response => {
+                                    this.listo = 3;
+                                    this.mensajeFalta = 'Se creó exitosamente el producto';
+                                    this.form.nombre = '';
+                                    this.form.categoria_id = '';
+                                    this.form.estado_id = '';
+                                    this.form.precio = '';
+                                    this.form.descripcion = '';
+                                    this.form.color_id = [];
+                                    this.color = '';
+                                    this.form.path = [];
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                });
+
                         } else {
                             this.listo = 1;
                             this.mensajeFalta = "Falta ingresar:";
@@ -253,9 +269,6 @@ export default {
 </script>
 <style>
 @media (max-width: 500px) {
-    p{
-        font-size: 18px;
-    }
     h1{
         font-size: 30px;
     }
@@ -279,9 +292,7 @@ export default {
     }
 }
 @media (min-width: 501px) {
-    p{
-        font-size: 25px;
-    }
+
     h1{
         font-size: 45px;
     }
